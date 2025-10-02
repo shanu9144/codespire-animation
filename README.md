@@ -1,6 +1,6 @@
-# CodeSpire Solutions Website
+# CodeSpire Animation
 
-A modern, minimalist B2B website for CodeSpire Solutions built with Next.js, showcasing AI expertise and enterprise-grade solutions.
+A modern, minimalist B2B website for CodeSpire Solutions built with Next.js, showcasing AI expertise and enterprise-grade solutions with advanced animations.
 
 ## Tech Stack
 
