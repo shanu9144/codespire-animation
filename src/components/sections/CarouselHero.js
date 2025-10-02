@@ -275,14 +275,6 @@ const CarouselHero = () => {
                         <rect width="100%" height="100%" fill="url(#circuit)" />
                       </svg>
                     </div>
-
-                    {/* Content overlay */}
-                    <div className="relative z-10 text-center text-white p-8">
-                      <div className="text-6xl mb-4">🔋</div>
-                      <div className="text-lg font-semibold">
-                        Advanced Technology
-                      </div>
-                    </div>
                   </div>
                 </motion.div>
               </AnimatePresence>
