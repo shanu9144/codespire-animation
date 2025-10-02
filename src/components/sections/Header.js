@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import Button from '../ui/Button';
+import { useState } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import Button from "../ui/Button";
+import Image from "next/image";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,10 +15,10 @@ const Header = () => {
   };
 
   const menuItems = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Products', href: '/products' },
-    { label: 'Contact', href: '/contact' },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Products", href: "/products" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -29,12 +30,19 @@ const Header = () => {
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
-              className="text-2xl font-bold text-primary"
+              className="flex items-center"
               data-magnetic="true"
               data-magnetic-strength="0.3"
               data-magnetic-radius="80"
             >
-              CodeSpire
+              <Image
+                src="/assets/codespirelogo.png"
+                alt="CodeSpire Solutions"
+                width={140}
+                height={40}
+                className="h-8 w-auto"
+                priority
+              />
             </motion.div>
           </Link>
 
@@ -77,9 +85,9 @@ const Header = () => {
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
               className="md:hidden overflow-hidden"
             >
               <div className="py-4 space-y-4 border-t border-gray-100">
