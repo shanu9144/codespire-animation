@@ -6,12 +6,17 @@ import { Users, Building, Globe } from 'lucide-react';
 import { Heading, Text } from '../ui/Typography';
 import { useAnimationPerformance } from '../../lib/performance';
 
-// Counter animation hook
+// Counter animation hook with hydration fix
 const useCounter = (end, duration = 2000, shouldStart = false) => {
   const [count, setCount] = useState(0);
+  const [mounted, setMounted] = useState(false);
   
   useEffect(() => {
-    if (!shouldStart) return;
+    setMounted(true);
+  }, []);
+  
+  useEffect(() => {
+    if (!shouldStart || !mounted) return;
     
     let startTime;
     let animationFrame;
@@ -36,15 +41,21 @@ const useCounter = (end, duration = 2000, shouldStart = false) => {
         cancelAnimationFrame(animationFrame);
       }
     };
-  }, [end, duration, shouldStart]);
+  }, [end, duration, shouldStart, mounted]);
   
-  return count;
+  // Return the end value immediately on server, animated value on client
+  return mounted && shouldStart ? count : (shouldStart ? end : 0);
 };
 
 // Individual stat item component
 const StatItem = ({ icon: Icon, number, suffix, label, delay = 0, shouldAnimate }) => {
   const { config } = useAnimationPerformance();
+  const [mounted, setMounted] = useState(false);
   const animatedNumber = useCounter(number, 2000, shouldAnimate);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
   const itemVariants = {
     hidden: config.enableComplexAnimations ? { 
@@ -87,7 +98,7 @@ const StatItem = ({ icon: Icon, number, suffix, label, delay = 0, shouldAnimate 
       {/* Animated number */}
       <div className="mb-2">
         <Heading level={2} size="h1" className="text-primary">
-          {shouldAnimate ? animatedNumber : number}{suffix}
+          {mounted ? (shouldAnimate ? animatedNumber : number) : number}{suffix}
         </Heading>
       </div>
       
@@ -102,11 +113,16 @@ const StatItem = ({ icon: Icon, number, suffix, label, delay = 0, shouldAnimate 
 const StatsBanner = () => {
   const { config, shouldReduceAnimations } = useAnimationPerformance();
   const ref = useRef(null);
+  const [mounted, setMounted] = useState(false);
   const isInView = useInView(ref, { 
     once: true, 
     threshold: 0.3,
     margin: "-100px 0px"
   });
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
   // Stats data
   const stats = [
@@ -190,7 +206,7 @@ const StatsBanner = () => {
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={mounted && isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 * config.animationDuration }}
           className="text-center mb-12"
         >
@@ -206,7 +222,7 @@ const StatsBanner = () => {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={mounted && isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-4xl mx-auto"
         >
           {stats.map((stat, index) => (
@@ -217,13 +233,13 @@ const StatsBanner = () => {
               suffix={stat.suffix}
               label={stat.label}
               delay={stat.delay}
-              shouldAnimate={isInView && !shouldReduceAnimations}
+              shouldAnimate={mounted && isInView && !shouldReduceAnimations}
             />
           ))}
         </motion.div>
 
         {/* Bottom decorative element */}
-        {config.enableComplexAnimations && (
+        {mounted && config.enableComplexAnimations && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}

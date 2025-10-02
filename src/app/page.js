@@ -1,7 +1,7 @@
 import CarouselHero from '../components/sections/CarouselHero';
 import StatsBanner from '../components/sections/StatsBanner';
 import WhyCodeSpire from '../components/sections/WhyCodeSpire';
-import IndustriesGrid from '../components/sections/IndustriesGrid';
+import IndustriesWeServe from '../components/sections/IndustriesWeServe';
 import OptimizedLiquidBackground from '../components/backgrounds/OptimizedLiquidBackground';
 import EnhancedLiquidBackground from '../components/backgrounds/EnhancedLiquidBackground';
 
@@ -21,10 +21,8 @@ export default function Home() {
         <WhyCodeSpire />
       </EnhancedLiquidBackground>
       
-      {/* Industries with subtle animation */}
-      <OptimizedLiquidBackground variant="section" intensity="low">
-        <IndustriesGrid />
-      </OptimizedLiquidBackground>
+      {/* Industries with enhanced animations */}
+      <IndustriesWeServe />
     </div>
   );
 }
