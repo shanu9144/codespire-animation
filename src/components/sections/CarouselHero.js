@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Play, ChevronLeft, ChevronRight } from 'lucide-react';
-import Link from 'next/link';
-import Button from '../ui/Button';
-import { Heading, Text } from '../ui/Typography';
-import OptimizedLiquidBackground from '../backgrounds/OptimizedLiquidBackground';
-import PerformanceDebugger from '../debug/PerformanceDebugger';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Play, ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import Button from "../ui/Button";
+import { Heading, Text } from "../ui/Typography";
+import OptimizedLiquidBackground from "../backgrounds/OptimizedLiquidBackground";
+import PerformanceDebugger from "../debug/PerformanceDebugger";
 
 const CarouselHero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -19,46 +19,54 @@ const CarouselHero = () => {
       id: 1,
       title: "Revolutionize EV Batteries with",
       subtitle: "Next-gen Precision",
-      description: "Unlock speed, scale, and compliance with R Systems & SyncoraDMP",
-      image: "/api/placeholder/800/600",
+      description:
+        "Unlock speed, scale, and compliance with R Systems & SyncoraDMP",
+      image:
+        "https://images.unsplash.com/photo-1593941707882-a5bac6861d75?w=800&h=600&fit=crop&crop=center",
       cta: "Learn More",
       ctaLink: "/ev-batteries",
       accent: "Panasonic CONNECT",
-      accentPosition: "top-right"
+      accentPosition: "top-right",
     },
     {
       id: 2,
       title: "Transform Healthcare with",
       subtitle: "AI-Powered Diagnostics",
-      description: "Advanced machine learning for faster, more accurate medical insights",
-      image: "/api/placeholder/800/600",
+      description:
+        "Advanced machine learning for faster, more accurate medical insights",
+      image:
+        "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop&crop=center",
       cta: "Explore Solutions",
       ctaLink: "/healthcare",
       accent: "MedTech AI",
-      accentPosition: "bottom-left"
+      accentPosition: "bottom-left",
     },
     {
       id: 3,
       title: "Accelerate Manufacturing with",
       subtitle: "Smart Automation",
-      description: "Industry 4.0 solutions that optimize production and reduce costs",
-      image: "/api/placeholder/800/600",
+      description:
+        "Industry 4.0 solutions that optimize production and reduce costs",
+      image:
+        "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&h=600&fit=crop&crop=center",
       cta: "Get Started",
       ctaLink: "/manufacturing",
       accent: "SmartFactory Pro",
-      accentPosition: "top-left"
+      accentPosition: "top-left",
     },
     {
       id: 4,
       title: "Enhance Finance with",
       subtitle: "Intelligent Analytics",
-      description: "Real-time insights and predictive modeling for better decisions",
-      image: "/api/placeholder/800/600",
+      description:
+        "Real-time insights and predictive modeling for better decisions",
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center",
       cta: "Discover More",
       ctaLink: "/finance",
       accent: "FinanceAI Suite",
-      accentPosition: "bottom-right"
-    }
+      accentPosition: "bottom-right",
+    },
   ];
 
   // Auto-play functionality
@@ -95,13 +103,16 @@ const CarouselHero = () => {
   const currentSlideData = slides[currentSlide];
 
   return (
-    <OptimizedLiquidBackground variant="hero" intensity="medium" className="relative min-h-screen overflow-hidden">
+    <OptimizedLiquidBackground
+      variant="hero"
+      intensity="medium"
+      className="relative min-h-screen overflow-hidden"
+    >
       {/* Performance Monitor for Development */}
-      <PerformanceDebugger show={process.env.NODE_ENV === 'development'} />
-      
+      <PerformanceDebugger show={process.env.NODE_ENV === "development"} />
+
       <div className="container mx-auto px-4 h-screen flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-          
           {/* Left Content */}
           <div className="relative z-10">
             <AnimatePresence mode="wait">
@@ -141,9 +152,9 @@ const CarouselHero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, duration: 0.6 }}
                 >
-                  <Text 
-                    size="body-lg" 
-                    color="secondary" 
+                  <Text
+                    size="body-lg"
+                    color="secondary"
                     className="max-w-xl leading-relaxed"
                   >
                     {currentSlideData.description}
@@ -158,22 +169,20 @@ const CarouselHero = () => {
                   className="flex items-center space-x-4"
                 >
                   <Link href={currentSlideData.ctaLink}>
-                    <Button 
-                      variant="primary" 
+                    <Button
+                      variant="primary"
                       size="lg"
                       className="group relative overflow-hidden"
                     >
-                      <span className="relative z-10">{currentSlideData.cta}</span>
+                      <span className="relative z-10">
+                        {currentSlideData.cta}
+                      </span>
                       <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1 relative z-10" />
                     </Button>
                   </Link>
 
                   <Link href="/demo">
-                    <Button 
-                      variant="secondary" 
-                      size="lg"
-                      className="group"
-                    >
+                    <Button variant="secondary" size="lg" className="group">
                       <Play className="w-5 h-5 mr-2 transition-transform group-hover:scale-110" />
                       <span>Watch Demo</span>
                     </Button>
@@ -194,9 +203,9 @@ const CarouselHero = () => {
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`relative h-2 rounded-full transition-all duration-300 ${
-                    index === currentSlide 
-                      ? 'w-8 bg-primary' 
-                      : 'w-2 bg-gray-300 hover:bg-gray-400'
+                    index === currentSlide
+                      ? "w-8 bg-primary"
+                      : "w-2 bg-gray-300 hover:bg-gray-400"
                   }`}
                 >
                   {index === currentSlide && (
@@ -225,34 +234,54 @@ const CarouselHero = () => {
                   className="absolute inset-0"
                 >
                   {/* Placeholder for actual image */}
-                  <div 
+                  <div
                     className="w-full h-full bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 flex items-center justify-center relative"
                     style={{
                       backgroundImage: `url(${currentSlideData.image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
                     }}
                   >
                     {/* Tech-inspired overlay pattern */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10" />
-                    
+
                     {/* Circuit board pattern overlay */}
                     <div className="absolute inset-0 opacity-30">
                       <svg className="w-full h-full" viewBox="0 0 400 300">
                         <defs>
-                          <pattern id="circuit" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M0 20h40M20 0v40" stroke="#00ff88" strokeWidth="0.5" opacity="0.3"/>
-                            <circle cx="20" cy="20" r="2" fill="#00ff88" opacity="0.5"/>
+                          <pattern
+                            id="circuit"
+                            x="0"
+                            y="0"
+                            width="40"
+                            height="40"
+                            patternUnits="userSpaceOnUse"
+                          >
+                            <path
+                              d="M0 20h40M20 0v40"
+                              stroke="#00ff88"
+                              strokeWidth="0.5"
+                              opacity="0.3"
+                            />
+                            <circle
+                              cx="20"
+                              cy="20"
+                              r="2"
+                              fill="#00ff88"
+                              opacity="0.5"
+                            />
                           </pattern>
                         </defs>
-                        <rect width="100%" height="100%" fill="url(#circuit)"/>
+                        <rect width="100%" height="100%" fill="url(#circuit)" />
                       </svg>
                     </div>
 
                     {/* Content overlay */}
                     <div className="relative z-10 text-center text-white p-8">
                       <div className="text-6xl mb-4">🔋</div>
-                      <div className="text-lg font-semibold">Advanced Technology</div>
+                      <div className="text-lg font-semibold">
+                        Advanced Technology
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -265,10 +294,13 @@ const CarouselHero = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className={`absolute ${
-                  currentSlideData.accentPosition === 'top-right' ? 'top-4 right-4' :
-                  currentSlideData.accentPosition === 'top-left' ? 'top-4 left-4' :
-                  currentSlideData.accentPosition === 'bottom-left' ? 'bottom-4 left-4' :
-                  'bottom-4 right-4'
+                  currentSlideData.accentPosition === "top-right"
+                    ? "top-4 right-4"
+                    : currentSlideData.accentPosition === "top-left"
+                    ? "top-4 left-4"
+                    : currentSlideData.accentPosition === "bottom-left"
+                    ? "bottom-4 left-4"
+                    : "bottom-4 right-4"
                 } bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg`}
               >
                 <Text size="sm" className="font-semibold text-gray-800">
@@ -296,12 +328,12 @@ const CarouselHero = () => {
             <motion.div
               animate={{
                 y: [0, -10, 0],
-                rotate: [0, 5, 0]
+                rotate: [0, 5, 0],
               }}
               transition={{
                 duration: 4,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: "easeInOut",
               }}
               className="absolute -top-8 -left-8 w-16 h-16 bg-primary/20 rounded-full blur-xl"
             />
@@ -309,13 +341,13 @@ const CarouselHero = () => {
             <motion.div
               animate={{
                 y: [0, 15, 0],
-                rotate: [0, -5, 0]
+                rotate: [0, -5, 0],
               }}
               transition={{
                 duration: 5,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: 1
+                delay: 1,
               }}
               className="absolute -bottom-6 -right-6 w-12 h-12 bg-primary/30 rounded-full blur-lg"
             />
