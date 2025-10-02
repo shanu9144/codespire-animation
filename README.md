@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CodeSpire Solutions Website
+
+A modern, minimalist B2B website for CodeSpire Solutions built with Next.js, showcasing AI expertise and enterprise-grade solutions.
+
+## Tech Stack
+
+- **Framework**: Next.js 15.5.4 with App Router
+- **Styling**: Tailwind CSS v4 with custom design system
+- **Animations**: Framer Motion for smooth, performant animations
+- **Icons**: Lucide React for consistent iconography
+- **Font**: Inter for modern typography
+
+## Design System
+
+### Colors
+- **Primary**: #384bff (CodeSpire Blue)
+- **Primary Hover**: #2d3fd9
+- **Background**: White (#ffffff)
+- **Text**: #111827 (primary), #6b7280 (secondary)
+
+### Typography Scale
+- **Hero**: 4rem (64px) - Bold
+- **H1**: 3rem (48px) - Bold
+- **H2**: 2.25rem (36px) - Semibold
+- **H3**: 1.875rem (30px) - Semibold
+- **Body Large**: 1.125rem (18px)
+- **Body**: 1rem (16px)
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── page.js (Homepage)
+│   ├── about/
+│   ├── products/
+│   └── layout.js
+├── components/
+│   ├── ui/ (Reusable UI components)
+│   ├── sections/ (Page sections)
+│   └── animations/ (Animation wrappers)
+├── lib/
+│   └── utils.js (Utility functions)
+└── styles/
+    └── globals.css
+```
 
 ## Getting Started
 
-First, run the development server:
-
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- ✅ Modern Next.js 15+ with App Router
+- ✅ Tailwind CSS with custom CodeSpire theme
+- ✅ Framer Motion for smooth animations
+- ✅ Lucide React icons
+- ✅ Responsive design system
+- ✅ Accessibility-first approach
+- ✅ Performance optimized
 
-To learn more about Next.js, take a look at the following resources:
+## Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project follows a component-based architecture with:
+- Reusable UI components in `components/ui/`
+- Page sections in `components/sections/`
+- Animation utilities in `components/animations/`
+- Shared utilities in `lib/utils.js`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Performance
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Optimized for Core Web Vitals
+- 60fps animations with Framer Motion
+- Next.js Image optimization
+- Minimal bundle size with tree shaking
