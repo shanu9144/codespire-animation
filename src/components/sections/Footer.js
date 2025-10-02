@@ -1,33 +1,38 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     company: [
-      { label: 'About Us', href: '/about' },
-      { label: 'Products', href: '/products' },
-      { label: 'Contact', href: '/contact' },
+      { label: "About Us", href: "/about" },
+      { label: "Products", href: "/products" },
+      { label: "Contact", href: "/contact" },
     ],
     legal: [
-      { label: 'Privacy Policy', href: '/privacy' },
-      { label: 'Terms of Service', href: '/terms' },
-      { label: 'Cookie Policy', href: '/cookies' },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Cookie Policy", href: "/cookies" },
     ],
     social: [
-      { label: 'LinkedIn', href: '#', icon: Linkedin },
-      { label: 'Twitter', href: '#', icon: Twitter },
-    ]
+      { label: "LinkedIn", href: "#", icon: Linkedin },
+      { label: "Twitter", href: "#", icon: Twitter },
+    ],
   };
 
   const contactInfo = [
-    { icon: Mail, label: 'hello@codespire.com', href: 'mailto:hello@codespire.com' },
-    { icon: Phone, label: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-    { icon: MapPin, label: 'San Francisco, CA', href: '#' },
+    {
+      icon: Mail,
+      label: "hello@codespire.com",
+      href: "mailto:hello@codespire.com",
+    },
+    { icon: Phone, label: "+1 (555) 123-4567", href: "tel:+15551234567" },
+    { icon: MapPin, label: "San Francisco, CA", href: "#" },
   ];
 
   return (
@@ -40,15 +45,22 @@ const Footer = () => {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
-                className="text-2xl font-bold text-primary"
+                className="flex items-center"
               >
-                CodeSpire
+                <Image
+                  src="/assets/codespirelogo.png"
+                  alt="CodeSpire Logo"
+                  width={150}
+                  height={40}
+                  className="h-10 w-auto"
+                />
               </motion.div>
             </Link>
             <p className="text-gray-600 mb-6 max-w-md">
-              From Idea to Enterprise-Grade AI in a Blink. Transforming businesses with cutting-edge AI solutions and expert engineering.
+              From Idea to Enterprise-Grade AI in a Blink. Transforming
+              businesses with cutting-edge AI solutions and expert engineering.
             </p>
-            
+
             {/* Contact Info */}
             <div className="space-y-3">
               {contactInfo.map((item, index) => (
