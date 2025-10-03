@@ -169,7 +169,7 @@ class MorphingController {
    * Animate path morphing with custom timing
    */
   animatePathMorph(config) {
-    const { element, fromPath, toPath, duration, easing, onUpdate, onComplete } = config;
+    const { fromPath, toPath, duration, easing, onUpdate, onComplete } = config;
     
     let startTime = null;
     const animationId = `morph-${Date.now()}`;

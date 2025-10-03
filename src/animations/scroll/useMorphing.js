@@ -34,6 +34,7 @@ export function useMorphing(config = {}, deps = []) {
 
     morphIdRef.current = morphId;
     return morphId;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config, ...deps]);
 
   const removeMorph = useCallback(() => {

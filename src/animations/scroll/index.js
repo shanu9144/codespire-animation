@@ -149,8 +149,6 @@ export const ScrollUtils = {
   scrollToElement: (element, options = {}) => {
     const {
       behavior = 'smooth',
-      block = 'start',
-      inline = 'nearest',
       offset = 0
     } = options;
 
@@ -237,7 +235,7 @@ export const ScrollPresets = {
 };
 
 // Export everything as default object
-export default {
+const ScrollModule = {
   // Controllers
   scrollTrigger: scrollTriggerInstance,
   parallaxController: parallaxControllerInstance,
@@ -260,3 +258,5 @@ export default {
   IconMorphPresets,
   ParallaxEasing
 };
+
+export default ScrollModule;

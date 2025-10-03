@@ -346,7 +346,7 @@ export function cleanupTriggers(triggerIds) {
   });
 }
 
-export default {
+const ScrollAnimations = {
   createFadeInAnimation,
   createSlideInLeftAnimation,
   createSlideInRightAnimation,
@@ -358,3 +358,5 @@ export default {
   createCounterAnimation,
   cleanupTriggers
 };
+
+export default ScrollAnimations;

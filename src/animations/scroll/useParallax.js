@@ -34,6 +34,7 @@ export function useParallax(config = {}, deps = []) {
 
     layerIdRef.current = layerId;
     return layerId;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config, ...deps]);
 
   const removeLayer = useCallback(() => {

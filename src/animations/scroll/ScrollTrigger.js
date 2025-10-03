@@ -60,7 +60,7 @@ class ScrollTrigger {
    * Update scrub animations based on scroll position
    */
   updateScrubAnimations() {
-    this.triggers.forEach((config, id) => {
+    this.triggers.forEach((config) => {
       if (config.scrub && config.element) {
         const progress = this.calculateScrollProgress(config);
         if (config.onUpdate) {

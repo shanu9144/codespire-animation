@@ -250,7 +250,7 @@ const StatsBanner = () => {
                 From Idea to Enterprise-Grade AI in a Blink
               </h3>
               <p className="text-lg lg:text-xl text-gray-700 leading-relaxed font-medium">
-                We build AI-powered products and scalable platforms for businesses who want tomorrow's innovation today.
+                We build AI-powered products and scalable platforms for businesses who want tomorrow&apos;s innovation today.
               </p>
             </motion.div>
 

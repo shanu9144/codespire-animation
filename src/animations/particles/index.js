@@ -19,7 +19,7 @@ export {
   ConnectionLines
 };
 
-export default {
+const ParticlesModule = {
   ParticleSystem,
   ParticleField,
   ParticleFieldComponent,
@@ -27,3 +27,5 @@ export default {
   ScrollParallax,
   ConnectionLines
 };
+
+export default ParticlesModule;
