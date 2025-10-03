@@ -26,6 +26,11 @@ class AnimationEngine {
     
     // Cleanup tracking
     this.cleanupTasks = [];
+    
+    // Make AnimationEngine globally accessible for loading system integration
+    if (typeof window !== 'undefined') {
+      window.AnimationEngine = this;
+    }
   }
 
   /**
@@ -39,6 +44,9 @@ class AnimationEngine {
     }
 
     try {
+      // Notify loading system that AnimationEngine initialization started
+      this.notifyLoadingSystem('AnimationEngine', 'started');
+      
       // Initialize performance monitoring first
       PerformanceManager.initialize();
       
@@ -62,6 +70,9 @@ class AnimationEngine {
           console.warn('WebGL not supported - disabling 3D features');
           this.config.enable3D = false;
           this.config.enableShaders = false;
+        } else {
+          // Notify loading system about WebGL initialization
+          this.notifyLoadingSystem('WebGLContext', 'started');
         }
       }
       
@@ -71,11 +82,17 @@ class AnimationEngine {
       this.isInitialized = true;
       console.log('AnimationEngine initialized with config:', this.config);
       
+      // Notify loading system that AnimationEngine initialization completed
+      this.notifyLoadingSystem('AnimationEngine', 'completed');
+      
     } catch (error) {
       console.error('Failed to initialize AnimationEngine:', error);
       // Fallback to minimal config
       this.config = this.getFallbackConfig();
       this.isInitialized = true;
+      
+      // Still notify loading system to prevent hanging
+      this.notifyLoadingSystem('AnimationEngine', 'completed');
     }
   }
 
@@ -465,6 +482,46 @@ class AnimationEngine {
    */
   addCleanupTask(task) {
     this.cleanupTasks.push(task);
+  }
+
+  /**
+   * Notify loading system about animation system state changes
+   * @param {string} systemName - Name of the animation system
+   * @param {string} state - State change ('started', 'completed', 'failed')
+   */
+  notifyLoadingSystem(systemName, state) {
+    try {
+      // Check if LoadingManager is available
+      if (typeof window !== 'undefined' && window.LoadingManager) {
+        if (state === 'completed') {
+          window.LoadingManager.markAnimationSystemLoaded(systemName);
+        }
+      }
+      
+      // Also check for ProgressTracker directly
+      if (typeof window !== 'undefined' && window.progressTracker) {
+        if (state === 'completed') {
+          window.progressTracker.markAnimationSystemLoaded(systemName);
+        }
+      }
+    } catch (error) {
+      console.warn('Failed to notify loading system:', error);
+    }
+  }
+
+  /**
+   * Register animation system with loading tracker
+   * @param {string} systemName - Name of the animation system
+   * @param {number} weight - Weight for loading progress (0-1)
+   */
+  registerWithLoadingSystem(systemName, weight = 0.1) {
+    try {
+      if (typeof window !== 'undefined' && window.LoadingManager) {
+        window.LoadingManager.trackAnimationSystem(systemName, weight);
+      }
+    } catch (error) {
+      console.warn('Failed to register with loading system:', error);
+    }
   }
 
   /**

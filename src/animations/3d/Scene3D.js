@@ -40,6 +40,26 @@ const Scene3D = ({
   const shadowMapSize = performanceMode === 'high' ? 2048 : performanceMode === 'medium' ? 1024 : 512;
   const antialias = performanceMode !== 'low';
 
+  // Notify loading system about Scene3D initialization
+  React.useEffect(() => {
+    const notifyScene3DLoaded = () => {
+      try {
+        if (typeof window !== 'undefined' && window.LoadingManager) {
+          window.LoadingManager.markAnimationSystemLoaded('Scene3D');
+        }
+        if (typeof window !== 'undefined' && window.progressTracker) {
+          window.progressTracker.markAnimationSystemLoaded('Scene3D');
+        }
+      } catch (error) {
+        console.warn('Failed to notify loading system about Scene3D:', error);
+      }
+    };
+
+    // Delay notification to allow for scene setup
+    const timeoutId = setTimeout(notifyScene3DLoaded, 200);
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <div 
       className={`w-full h-full ${className}`} 

@@ -222,15 +222,14 @@ export function useSectionToSectionTransition(config = {}) {
 export function usePresetSection(presetName, options = {}) {
   const preset = TransitionPresets[presetName];
   
-  if (!preset) {
-    console.warn(`useSectionTransition: Preset "${presetName}" not found`);
-    return useSectionTransition(options);
-  }
-
-  const config = {
+  const config = preset ? {
     ...preset,
     ...options
-  };
+  } : options;
+
+  if (!preset) {
+    console.warn(`useSectionTransition: Preset "${presetName}" not found`);
+  }
 
   return useSectionTransition(config);
 }

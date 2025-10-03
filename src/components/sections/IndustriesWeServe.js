@@ -433,7 +433,7 @@ export default function IndustriesWeServe() {
           </h2>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From manufacturing to healthcare, we deliver AI solutions tailored to your industry's 
+            From manufacturing to healthcare, we deliver AI solutions tailored to your industry&apos;s 
             unique challenges and regulatory requirements.
           </p>
         </motion.div>

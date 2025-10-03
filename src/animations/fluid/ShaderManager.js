@@ -24,6 +24,7 @@ class ShaderManager {
     };
     this.qualityLevel = 'high'; // high, medium, low
     this.isWebGLSupported = true;
+    this.shaderCompilationNotified = false;
     
     // Performance thresholds
     this.thresholds = {
@@ -93,6 +94,10 @@ class ShaderManager {
 
       // Cache the compiled shader
       this.shaderCache.set(cacheKey, shader);
+      
+      // Notify loading system about shader compilation progress
+      this.notifyShaderCompilation();
+      
       return shader;
     } catch (error) {
       console.error('Shader creation failed:', error);
@@ -332,6 +337,30 @@ class ShaderManager {
       qualityLevel: this.qualityLevel,
       isWebGLSupported: this.isWebGLSupported
     };
+  }
+
+  /**
+   * Notify loading system about shader compilation progress
+   */
+  notifyShaderCompilation() {
+    // Track shader compilation progress
+    if (!this.shaderCompilationNotified && this.shaderCache.size >= 2) {
+      this.shaderCompilationNotified = true;
+      
+      try {
+        // Check if LoadingManager is available
+        if (typeof window !== 'undefined' && window.LoadingManager) {
+          window.LoadingManager.markAnimationSystemLoaded('ShaderCompilation');
+        }
+        
+        // Also check for ProgressTracker directly
+        if (typeof window !== 'undefined' && window.progressTracker) {
+          window.progressTracker.markAnimationSystemLoaded('ShaderCompilation');
+        }
+      } catch (error) {
+        console.warn('Failed to notify loading system about shader compilation:', error);
+      }
+    }
   }
 
   /**

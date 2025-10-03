@@ -79,6 +79,9 @@ class ParticleSystem {
    */
   initialize() {
     try {
+      // Notify loading system that ParticleSystem initialization started
+      this.notifyLoadingSystem('ParticleSystem', 'started');
+      
       // Get WebGL context
       this.gl = this.canvas.getContext('webgl') || this.canvas.getContext('experimental-webgl');
       
@@ -86,11 +89,17 @@ class ParticleSystem {
         throw new Error('WebGL not supported');
       }
       
+      // Notify loading system about WebGL context creation
+      this.notifyLoadingSystem('WebGLContext', 'completed');
+      
       // Set up WebGL state
       this.setupWebGL();
       
       // Create shader program
       this.createShaderProgram();
+      
+      // Notify loading system about shader compilation
+      this.notifyLoadingSystem('ShaderCompilation', 'completed');
       
       // Initialize particles
       this.initializeParticles();
@@ -108,8 +117,13 @@ class ParticleSystem {
       
       console.log('ParticleSystem initialized with WebGL');
       
+      // Notify loading system that ParticleSystem initialization completed
+      this.notifyLoadingSystem('ParticleSystem', 'completed');
+      
     } catch (error) {
       console.error('Failed to initialize ParticleSystem:', error);
+      // Still notify loading system to prevent hanging
+      this.notifyLoadingSystem('ParticleSystem', 'completed');
       this.fallbackToCanvas2D();
     }
   }
@@ -733,6 +747,31 @@ class ParticleSystem {
     // This would implement a 2D canvas fallback
     // For now, we'll just disable the system
     this.isRunning = false;
+  }
+
+  /**
+   * Notify loading system about particle system state changes
+   * @param {string} systemName - Name of the system
+   * @param {string} state - State change ('started', 'completed', 'failed')
+   */
+  notifyLoadingSystem(systemName, state) {
+    try {
+      // Check if LoadingManager is available
+      if (typeof window !== 'undefined' && window.LoadingManager) {
+        if (state === 'completed') {
+          window.LoadingManager.markAnimationSystemLoaded(systemName);
+        }
+      }
+      
+      // Also check for ProgressTracker directly
+      if (typeof window !== 'undefined' && window.progressTracker) {
+        if (state === 'completed') {
+          window.progressTracker.markAnimationSystemLoaded(systemName);
+        }
+      }
+    } catch (error) {
+      console.warn('Failed to notify loading system:', error);
+    }
   }
 
   /**

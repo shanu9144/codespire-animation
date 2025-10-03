@@ -315,7 +315,7 @@ const WhyCodeSpireWithScrollAnimations = () => {
             staggerDelay={20}
             triggerOffset="20%"
           >
-            Our approach is rooted in a deep understanding of today's challenges, 
+            Our approach is rooted in a deep understanding of today&apos;s challenges, 
             enabling our clients to innovate for growth, engineer efficient solutions 
             with precision, and evolve strategies to help our clients stay ahead of the curve.
           </ScrollRevealText>

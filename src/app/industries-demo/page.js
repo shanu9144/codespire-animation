@@ -1,4 +1,4 @@
-import IndustriesWeServe from '@/components/sections/IndustriesWeServe';
+import IndustriesWeServe from '../../components/sections/IndustriesWeServe';
 
 export default function IndustriesDemoPage() {
   return (
