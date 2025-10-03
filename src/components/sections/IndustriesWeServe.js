@@ -21,7 +21,7 @@ const industries = [
     description: 'Smart automation and AI-driven optimization for modern manufacturing processes',
     icon: Factory,
     color: 'from-blue-500 to-cyan-500',
-    image: '/api/placeholder/400/300',
+    image: 'https://picsum.photos/id/1060/400/300',
     features: ['Process Automation', 'Quality Control', 'Predictive Maintenance']
   },
   {
@@ -30,7 +30,7 @@ const industries = [
     description: 'Cutting-edge AI solutions for technology companies and digital transformation',
     icon: Cpu,
     color: 'from-purple-500 to-pink-500',
-    image: '/api/placeholder/400/300',
+    image: 'https://picsum.photos/id/1061/400/300',
     features: ['Digital Innovation', 'AI Integration', 'Tech Optimization']
   },
   {
@@ -39,7 +39,7 @@ const industries = [
     description: 'Banking, Financial Services & Insurance solutions with AI-powered insights',
     icon: Building2,
     color: 'from-green-500 to-emerald-500',
-    image: '/api/placeholder/400/300',
+    image: 'https://picsum.photos/id/1070/400/300',
     features: ['Risk Management', 'Fraud Detection', 'Customer Analytics']
   },
   {
@@ -48,7 +48,7 @@ const industries = [
     description: 'Secure, compliant AI systems for government and defense applications',
     icon: Shield,
     color: 'from-red-500 to-orange-500',
-    image: '/api/placeholder/400/300',
+    image: 'https://picsum.photos/id/1063/400/300',
     features: ['Security Systems', 'Compliance', 'Strategic Intelligence']
   },
   {
@@ -57,7 +57,7 @@ const industries = [
     description: 'AI-powered healthcare solutions improving patient outcomes and operational efficiency',
     icon: Heart,
     color: 'from-teal-500 to-blue-500',
-    image: '/api/placeholder/400/300',
+    image: 'https://picsum.photos/id/1064/400/300',
     features: ['Patient Care', 'Medical Analytics', 'Drug Discovery']
   }
 ];
@@ -174,17 +174,17 @@ const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
         <div className="p-6 pt-4">
           <motion.div
             className="space-y-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileHover={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            initial={false}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
           >
             {industry.features.map((feature, idx) => (
               <motion.div
                 key={feature}
                 className="flex items-center text-sm text-gray-600"
-                initial={{ opacity: 0, x: -20 }}
-                whileHover={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.1 }}
+                initial={false}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.25, delay: idx * 0.05 }}
               >
                 <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${industry.color} mr-3`} />
                 {feature}

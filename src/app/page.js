@@ -5,6 +5,7 @@ import IndustriesGrid from "../components/sections/IndustriesGrid";
 import FinalCTABanner from "../components/sections/FinalCTABanner";
 import OptimizedLiquidBackground from "../components/backgrounds/OptimizedLiquidBackground";
 import EnhancedLiquidBackground from "../components/backgrounds/EnhancedLiquidBackground";
+import IndustriesWeServe from "../components/sections/IndustriesWeServe";
 
 export default function Home() {
   return (
@@ -22,14 +23,14 @@ export default function Home() {
         <WhyCodeSpire />
       </EnhancedLiquidBackground>
 
-      {/* Industries with subtle animation */}
+      {/* Industries with subtle animation
       <OptimizedLiquidBackground variant="section" intensity="low">
         <IndustriesGrid />
-      </OptimizedLiquidBackground>
+      </OptimizedLiquidBackground> */}
 
       {/* Final CTA Banner */}
       <FinalCTABanner />
-      
+
       {/* Industries with enhanced animations */}
       <IndustriesWeServe />
     </div>

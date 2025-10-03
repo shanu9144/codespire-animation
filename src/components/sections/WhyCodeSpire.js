@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { 
   Zap, 
   Shield, 
@@ -14,8 +14,13 @@ import {
 } from 'lucide-react';
 
 const WhyCodeSpire = () => {
-  const [hoveredCard, setHoveredCard] = useState(null);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = React.useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-50px" });
+
+  React.useEffect(() => {
+    if (isInView) setHasAnimated(true);
+  }, [isInView]);
 
   // Simplified animation variants
   const containerVariants = {
@@ -52,7 +57,7 @@ const WhyCodeSpire = () => {
       subtitle: "Cutting-Edge AI Solutions",
       description: "Unleash cutting-edge creativity to pioneer market-leading solutions with advanced AI technologies and innovative approaches.",
       icon: Sparkles,
-      image: "https://picsum.photos/500/300?random=1",
+      image: "https://picsum.photos/id/1050/500/300",
       fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EInnovate%3C/text%3E%3C/svg%3E",
       gradient: "from-blue-500 to-cyan-500",
       position: "left"
@@ -63,7 +68,7 @@ const WhyCodeSpire = () => {
       subtitle: "Enterprise-Grade Development",
       description: "Achieve peak performance and optimize operational efficiency through meticulous digital engineering and robust architecture.",
       icon: Code2,
-      image: "https://picsum.photos/500/300?random=2",
+      image: "https://picsum.photos/id/1051/500/300",
       fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EEngineer%3C/text%3E%3C/svg%3E",
       gradient: "from-purple-500 to-pink-500",
       position: "right"
@@ -74,7 +79,7 @@ const WhyCodeSpire = () => {
       subtitle: "Continuous Innovation",
       description: "Change in the right direction to stay ahead in a dynamic digital world with adaptive solutions and future-ready technology.",
       icon: Rocket,
-      image: "https://picsum.photos/500/300?random=3",
+      image: "https://picsum.photos/id/1052/500/300",
       fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EEvolve%3C/text%3E%3C/svg%3E",
       gradient: "from-green-500 to-emerald-500",
       position: "left"
@@ -85,7 +90,7 @@ const WhyCodeSpire = () => {
       subtitle: "Quality Assurance",
       description: "Deliver exceptional results with rigorous testing, quality assurance, and enterprise-grade security standards.",
       icon: Award,
-      image: "https://picsum.photos/500/300?random=4",
+      image: "https://picsum.photos/id/1053/500/300",
       fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EExcellence%3C/text%3E%3C/svg%3E",
       gradient: "from-orange-500 to-red-500",
       position: "right"
@@ -96,7 +101,7 @@ const WhyCodeSpire = () => {
       subtitle: "Team Collaboration",
       description: "Enable teams with powerful tools, seamless collaboration, and comprehensive support for maximum productivity.",
       icon: Users,
-      image: "https://picsum.photos/500/300?random=5",
+      image: "https://picsum.photos/id/1054/500/300",
       fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EEmpower%3C/text%3E%3C/svg%3E",
       gradient: "from-teal-500 to-blue-500",
       position: "center"
@@ -104,7 +109,7 @@ const WhyCodeSpire = () => {
   ];
 
   // Enhanced Card Component with optimized image handling
-  const EnhancedCard = ({ highlight, index }) => {
+  const EnhancedCardBase = ({ highlight, index }) => {
     const Icon = highlight.icon;
     const isLeft = highlight.position === 'left';
     const isRight = highlight.position === 'right';
@@ -116,8 +121,6 @@ const WhyCodeSpire = () => {
         className={`relative group ${
           isCenter ? 'col-span-full max-w-md mx-auto' : ''
         }`}
-        onMouseEnter={() => setHoveredCard(index)}
-        onMouseLeave={() => setHoveredCard(null)}
       >
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 h-full transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
           {/* Image Section */}
@@ -166,6 +169,8 @@ const WhyCodeSpire = () => {
       </motion.div>
     );
   };
+
+  const EnhancedCard = React.memo(EnhancedCardBase);
 
   // Background Animation Component
   const AnimatedBackground = () => {
@@ -249,7 +254,7 @@ const WhyCodeSpire = () => {
   };
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 overflow-hidden">
+    <section ref={sectionRef} className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 overflow-hidden">
       <AnimatedBackground />
       
       <div className="container mx-auto px-6 relative z-10">
@@ -278,8 +283,7 @@ const WhyCodeSpire = () => {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          animate={hasAnimated ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
         >
           {highlights.slice(0, 4).map((highlight, index) => (

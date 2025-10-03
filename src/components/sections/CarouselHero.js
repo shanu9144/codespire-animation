@@ -7,7 +7,6 @@ import Link from "next/link";
 import Button from "../ui/Button";
 import { Heading, Text } from "../ui/Typography";
 import OptimizedLiquidBackground from "../backgrounds/OptimizedLiquidBackground";
-import PerformanceDebugger from "../debug/PerformanceDebugger";
 
 const CarouselHero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -22,7 +21,7 @@ const CarouselHero = () => {
       description:
         "Unlock speed, scale, and compliance with R Systems & SyncoraDMP",
       image:
-        "https://images.unsplash.com/photo-1593941707882-a5bac6861d75?w=800&h=600&fit=crop&crop=center",
+        "https://picsum.photos/id/1050/800/600",
       cta: "Learn More",
       ctaLink: "/ev-batteries",
       accent: "Panasonic CONNECT",
@@ -35,7 +34,7 @@ const CarouselHero = () => {
       description:
         "Advanced machine learning for faster, more accurate medical insights",
       image:
-        "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop&crop=center",
+        "https://picsum.photos/id/1051/800/600",
       cta: "Explore Solutions",
       ctaLink: "/healthcare",
       accent: "MedTech AI",
@@ -48,7 +47,7 @@ const CarouselHero = () => {
       description:
         "Industry 4.0 solutions that optimize production and reduce costs",
       image:
-        "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&h=600&fit=crop&crop=center",
+        "https://picsum.photos/id/1039/800/600",
       cta: "Get Started",
       ctaLink: "/manufacturing",
       accent: "SmartFactory Pro",
@@ -61,7 +60,7 @@ const CarouselHero = () => {
       description:
         "Real-time insights and predictive modeling for better decisions",
       image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&crop=center",
+        "https://picsum.photos/id/1043/800/600",
       cta: "Discover More",
       ctaLink: "/finance",
       accent: "FinanceAI Suite",
@@ -108,8 +107,6 @@ const CarouselHero = () => {
       intensity="medium"
       className="relative min-h-screen overflow-hidden"
     >
-      {/* Performance Monitor for Development */}
-      <PerformanceDebugger show={process.env.NODE_ENV === "development"} />
 
       <div className="container mx-auto px-4 h-screen flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
@@ -233,13 +230,21 @@ const CarouselHero = () => {
                   transition={{ duration: 0.7, ease: "easeOut" }}
                   className="absolute inset-0"
                 >
-                  {/* Placeholder for actual image */}
+                  {/* Image with error handling */}
+                  <img
+                    src={currentSlideData.image}
+                    alt={currentSlideData.title}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling.style.display = 'flex';
+                    }}
+                  />
+                  {/* Fallback gradient background */}
                   <div
-                    className="w-full h-full bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 flex items-center justify-center relative"
+                    className="w-full h-full bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 flex items-center justify-center relative hidden"
                     style={{
-                      backgroundImage: `url(${currentSlideData.image})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
+                      background: `linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1d4ed8 100%)`
                     }}
                   >
                     {/* Tech-inspired overlay pattern */}
