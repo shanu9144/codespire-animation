@@ -1,8 +1,11 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "../styles/loading-fallback.css";
 import Header from "../components/sections/Header";
 import Footer from "../components/sections/Footer";
 import { CursorSystem } from "../animations";
+import { LoadingProvider } from "../lib/loading/LoadingContext";
+import LoadingScreenWrapper from "../components/ui/LoadingScreenWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,12 +56,7 @@ export const metadata = {
     description: "Transform your business with cutting-edge AI solutions and expert engineering.",
     images: ["/og-image.jpg"],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  themeColor: "#384bff",
+
 };
 
 export default function RootLayout({ children }) {
@@ -70,26 +68,64 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#384bff" />
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col" suppressHydrationWarning={true}>
-        <CursorSystem
-          cursorType="invisible-magnetic"
-          magneticConfig={{
-            strength: 0.3,
-            radius: 80,
-            ease: 0.15
-          }}
-          touchConfig={{
-            enableRipples: true,
-            enableHaptics: true,
-            enableVisualFeedback: true,
-            rippleColor: '#384bff'
+        {/* CSS-only loading fallback for non-JS environments */}
+        <div className="css-loading-fallback" role="progressbar" aria-label="Loading content">
+          <div className="css-loading-fallback-content">
+            <div className="css-loading-fallback-brand">CodeSpire</div>
+            <div className="css-loading-fallback-subtitle">SOLUTIONS</div>
+            <div className="css-loading-fallback-spinner" aria-hidden="true"></div>
+            <div className="css-loading-fallback-text">
+              Loading<span className="css-loading-fallback-dots">...</span>
+            </div>
+            <div className="css-loading-fallback-progress" aria-hidden="true">
+              <div className="css-loading-fallback-progress-bar"></div>
+            </div>
+          </div>
+          <div className="css-loading-fallback-sr-only">Loading content, please wait...</div>
+        </div>
+
+        <LoadingProvider
+          autoStart={true}
+          enableErrorHandling={true}
+          config={{
+            minimumLoadingTime: 800,
+            maximumLoadingTime: 8000,
+            progressUpdateInterval: 16,
+            counterAnimationDuration: 300,
+            transitionDuration: 600
           }}
         >
-          <Header />
-          <main className="flex-1 pt-16">
-            {children}
-          </main>
-          <Footer />
-        </CursorSystem>
+          <LoadingScreenWrapper>
+            <CursorSystem
+              cursorType="invisible-magnetic"
+              magneticConfig={{
+                strength: 0.3,
+                radius: 80,
+                ease: 0.15
+              }}
+              touchConfig={{
+                enableRipples: true,
+                enableHaptics: true,
+                enableVisualFeedback: true,
+                rippleColor: '#384bff'
+              }}
+            >
+              <Header />
+              <main className="flex-1 pt-16">
+                {children}
+              </main>
+              <Footer />
+            </CursorSystem>
+          </LoadingScreenWrapper>
+        </LoadingProvider>
+
+        {/* JavaScript detection script */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Add js-enabled class to hide CSS fallback when JS is available
+            document.documentElement.classList.add('js-enabled');
+          `
+        }} />
       </body>
     </html>
   );

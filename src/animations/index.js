@@ -18,5 +18,8 @@ export * from './3d/index.js';
 // Fluid background system
 export * from './fluid/index.js';
 
+// Scroll-triggered animations
+export * from './scroll/index.js';
+
 // Re-export main engine as default
 export { default } from './core/AnimationEngine.js';

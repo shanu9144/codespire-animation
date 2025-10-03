@@ -29,6 +29,9 @@ export default function Home() {
 
       {/* Final CTA Banner */}
       <FinalCTABanner />
+      
+      {/* Industries with enhanced animations */}
+      <IndustriesWeServe />
     </div>
   );
 }
