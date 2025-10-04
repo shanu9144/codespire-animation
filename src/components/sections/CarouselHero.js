@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Play, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Button from "../ui/Button";
+import Wrapper from "../ui/Wrapper";
 import { Heading, Text } from "../ui/Typography";
 import OptimizedLiquidBackground from "../backgrounds/OptimizedLiquidBackground";
 
@@ -107,8 +108,7 @@ const CarouselHero = () => {
       intensity="medium"
       className="relative min-h-screen overflow-hidden"
     >
-
-      <div className="container mx-auto px-4 h-screen flex items-center">
+      <Wrapper className="h-screen flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
           {/* Left Content */}
           <div className="relative z-10">
@@ -242,7 +242,7 @@ const CarouselHero = () => {
                   />
                   {/* Fallback gradient background */}
                   <div
-                    className="w-full h-full bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 flex items-center justify-center relative hidden"
+                    className="w-full h-full bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 items-center justify-center relative hidden"
                     style={{
                       background: `linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1d4ed8 100%)`
                     }}
@@ -350,7 +350,7 @@ const CarouselHero = () => {
             />
           </div>
         </div>
-      </div>
+      </Wrapper>
 
       {/* Progress Bar */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-64 h-1 bg-white/20 rounded-full overflow-hidden">

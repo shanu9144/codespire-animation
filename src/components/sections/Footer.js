@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
+import Wrapper from "../ui/Wrapper";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -37,7 +38,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-blue-300 border-t border-blue-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <Wrapper className="py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
@@ -148,7 +149,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-      </div>
+      </Wrapper>
     </footer>
   );
 };

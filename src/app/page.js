@@ -6,33 +6,58 @@ import FinalCTABanner from "../components/sections/FinalCTABanner";
 import OptimizedLiquidBackground from "../components/backgrounds/OptimizedLiquidBackground";
 import EnhancedLiquidBackground from "../components/backgrounds/EnhancedLiquidBackground";
 import IndustriesWeServe from "../components/sections/IndustriesWeServe";
+import InfiniteIconCarousel from "../components/ui/InfiniteIconCarousel";
+import Wrapper from "../components/ui/Wrapper";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       {/* Modern Carousel Hero */}
       <CarouselHero />
 
       {/* Stats with subtle animation */}
       <OptimizedLiquidBackground variant="section" intensity="low">
-        <StatsBanner />
+        <Wrapper>
+          <div className="space-section">
+            <StatsBanner />
+          </div>
+        </Wrapper>
       </OptimizedLiquidBackground>
 
       {/* Why CodeSpire with enhanced rotating liquid animation */}
       <EnhancedLiquidBackground variant="section" intensity="high">
-        <WhyCodeSpire />
+        <Wrapper>
+          <div className="space-section">
+            <WhyCodeSpire />
+          </div>
+        </Wrapper>
       </EnhancedLiquidBackground>
 
       {/* Industries with subtle animation
       <OptimizedLiquidBackground variant="section" intensity="low">
-        <IndustriesGrid />
+        <Wrapper>
+          <div className="space-section">
+            <IndustriesGrid />
+          </div>
+        </Wrapper>
       </OptimizedLiquidBackground> */}
 
       {/* Final CTA Banner */}
-      <FinalCTABanner />
+      <Wrapper>
+        <div className="space-section">
+          <FinalCTABanner />
+        </div>
+      </Wrapper>
 
       {/* Industries with enhanced animations */}
-      <IndustriesWeServe />
+      <Wrapper>
+        <div className="space-section">
+          <IndustriesWeServe />
+        </div>
+      </Wrapper>
+
+      {/* Infinite Icon Carousel */}
+      <InfiniteIconCarousel />
     </div>
   );
 }

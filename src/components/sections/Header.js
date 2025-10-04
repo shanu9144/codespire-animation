@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Button from "../ui/Button";
+import Wrapper from "../ui/Wrapper";
 import Image from "next/image";
 
 const Header = () => {
@@ -58,62 +59,87 @@ const Header = () => {
         ease: "easeInOut",
       }}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-              className="flex items-center"
-              data-magnetic="true"
-              data-magnetic-strength="0.3"
-              data-magnetic-radius="80"
-            >
-              <Image
-                src="/assets/codespirelogo.png"
-                alt="CodeSpire Solutions"
-                width={140}
-                height={40}
-                className="h-8 w-auto"
-                priority
-              />
-            </motion.div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {menuItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="relative text-gray-900 hover:text-primary transition-colors duration-200 group"
+      <Wrapper>
+        <nav className="header-container">
+          {/* Header Left - Logo and Brand */}
+          <div className="header-left">
+            <Link href="/" className="flex items-center">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+                className="flex items-center"
                 data-magnetic="true"
-                data-magnetic-strength="0.25"
-                data-magnetic-radius="60"
+                data-magnetic-strength="0.3"
+                data-magnetic-radius="80"
               >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
-              </Link>
-            ))}
+                <Image
+                  src="/assets/codespirelogo.png"
+                  alt="CodeSpire Solutions"
+                  width={140}
+                  height={40}
+                  className="h-8 w-auto"
+                  priority
+                />
+              </motion.div>
+            </Link>
           </div>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden md:flex">
-            <Button variant="primary" size="md">
-              Schedule a Demo
-            </Button>
+          {/* Header Center - Desktop Navigation */}
+          <div className="header-center">
+            <ul className="nav-links">
+              {menuItems.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="relative px-4 py-2 text-gray-700 hover:text-primary transition-all duration-300 group font-medium rounded-lg hover:bg-primary/5"
+                    data-magnetic="true"
+                    data-magnetic-strength="0.25"
+                    data-magnetic-radius="60"
+                  >
+                    <span className="relative z-10">{item.label}</span>
+                    
+                    {/* Professional underline effect */}
+                    <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 rounded-md text-gray-900 hover:text-primary hover:bg-gray-50 transition-colors duration-200"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+          {/* Header Right - CTA Button and Mobile Menu */}
+          <div className="header-right">
+            {/* Desktop CTA Button */}
+            <div className="desktop-only">
+              <Button 
+                variant="primary" 
+                size="md"
+                className="group"
+              >
+                <span className="flex items-center gap-2">
+                  Schedule a Demo
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMenu}
+              className="mobile-nav p-3 rounded-lg text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-300 group"
+              aria-label="Toggle menu"
+            >
+              <div className="relative">
+                {isMenuOpen ? (
+                  <X size={24} className="transition-transform duration-300 group-hover:scale-110" />
+                ) : (
+                  <Menu size={24} className="transition-transform duration-300 group-hover:scale-110" />
+                )}
+              </div>
+            </button>
+          </div>
+        </nav>
 
         {/* Mobile Menu */}
         <AnimatePresence>
@@ -125,7 +151,7 @@ const Header = () => {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="md:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-4 border-t border-gray-100">
+              <div className="py-6 space-y-2 border-t border-gray-100">
                 {menuItems.map((item, index) => (
                   <motion.div
                     key={item.href}
@@ -136,9 +162,14 @@ const Header = () => {
                     <Link
                       href={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="block px-4 py-2 text-gray-900 hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200"
+                      className="block px-6 py-3 text-gray-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-300 group font-medium"
                     >
-                      {item.label}
+                      <span className="flex items-center justify-between">
+                        {item.label}
+                        <svg className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
                     </Link>
                   </motion.div>
                 ))}
@@ -146,17 +177,26 @@ const Header = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: menuItems.length * 0.1, duration: 0.3 }}
-                  className="px-4 pt-2"
+                  className="px-6 pt-4"
                 >
-                  <Button variant="primary" size="md" className="w-full">
-                    Schedule a Demo
+                  <Button 
+                    variant="primary" 
+                    size="md" 
+                    className="w-full group"
+                  >
+                    <span className="flex items-center justify-center gap-2">
+                      Schedule a Demo
+                      <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
                   </Button>
                 </motion.div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
-      </nav>
+      </Wrapper>
     </motion.header>
   );
 };

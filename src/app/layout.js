@@ -3,6 +3,7 @@ import "./globals.css";
 import "../styles/loading-fallback.css";
 import Header from "../components/sections/Header";
 import Footer from "../components/sections/Footer";
+import Wrapper from "../components/ui/Wrapper";
 import { CursorSystem } from "../animations";
 import { LoadingProvider } from "../lib/loading/LoadingContext";
 import LoadingScreenWrapper from "../components/ui/LoadingScreenWrapper";
@@ -110,11 +111,15 @@ export default function RootLayout({ children }) {
                 rippleColor: '#384bff'
               }}
             >
-              <Header />
-              <main className="flex-1 pt-16">
-                {children}
-              </main>
-              <Footer />
+              <div className="main">
+                <Header />
+                <main className="flex-1 pt-16">
+                  <Wrapper>
+                    {children}
+                  </Wrapper>
+                </main>
+                <Footer />
+              </div>
             </CursorSystem>
           </LoadingScreenWrapper>
         </LoadingProvider>
