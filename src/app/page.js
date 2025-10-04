@@ -7,6 +7,8 @@ import OptimizedLiquidBackground from "../components/backgrounds/OptimizedLiquid
 import EnhancedLiquidBackground from "../components/backgrounds/EnhancedLiquidBackground";
 import IndustriesWeServe from "../components/sections/IndustriesWeServe";
 import InfiniteIconCarousel from "../components/ui/InfiniteIconCarousel";
+import TechnologyStackCarousel from "../components/sections/TechnologyStackCarousel";
+import FeatureHighlightsCarousel from "../components/sections/FeatureHighlightsCarousel";
 import Wrapper from "../components/ui/Wrapper";
 
 export default function Home() {
@@ -55,6 +57,13 @@ export default function Home() {
           <IndustriesWeServe />
         </div>
       </Wrapper>
+
+      {/* Technology Stack Carousel */}
+      <TechnologyStackCarousel />
+
+
+      {/* Feature Highlights Carousel */}
+      <FeatureHighlightsCarousel />
 
       {/* Infinite Icon Carousel */}
       <InfiniteIconCarousel />

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Target, 
@@ -23,6 +23,8 @@ import {
 } from 'lucide-react';
 
 const InfiniteIconCarousel = () => {
+  const [isPaused, setIsPaused] = useState(false);
+  
   // Icon data with various shapes and colors
   const icons = [
     { Icon: Target, color: 'text-blue-600', bgColor: 'bg-blue-100' },
@@ -48,36 +50,38 @@ const InfiniteIconCarousel = () => {
   const duplicatedIcons = [...icons, ...icons];
 
   return (
-    <div className="relative w-full overflow-hidden bg-gray-50 py-8">
+    <div className="relative w-full overflow-hidden bg-gradient-to-r from-gray-50 to-white py-12">
       {/* Gradient overlays for fade effect */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-50 to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
       
       {/* Infinite scrolling container */}
       <motion.div
-        className="flex items-center space-x-6"
-        animate={{
+        className="flex items-center space-x-8"
+        animate={isPaused ? {} : {
           x: [0, -100 * icons.length], // Move by the width of one set of icons
         }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 20, // 20 seconds for one complete cycle
+            duration: 15, // 15 seconds for one complete cycle - faster for better visibility
             ease: "linear",
           },
         }}
         style={{
-          width: `${duplicatedIcons.length * 120}px`, // Total width for all icons
+          width: `${duplicatedIcons.length * 140}px`, // Total width for all icons
         }}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
       >
         {duplicatedIcons.map((iconData, index) => (
           <motion.div
             key={index}
-            className="flex-shrink-0 w-20 h-20 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center group hover:shadow-md transition-all duration-300"
+            className="flex-shrink-0 w-24 h-24 bg-white rounded-2xl shadow-md border border-gray-200 flex items-center justify-center group hover:shadow-lg transition-all duration-300"
             whileHover={{
               scale: 1.05,
-              y: -2,
+              y: -3,
             }}
             transition={{
               type: "spring",
@@ -85,8 +89,8 @@ const InfiniteIconCarousel = () => {
               damping: 25,
             }}
           >
-            <div className={`w-12 h-12 ${iconData.bgColor} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-              <iconData.Icon className={`w-6 h-6 ${iconData.color} group-hover:rotate-12 transition-transform duration-300`} />
+            <div className={`w-14 h-14 ${iconData.bgColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+              <iconData.Icon className={`w-7 h-7 ${iconData.color} group-hover:rotate-12 transition-transform duration-300`} />
             </div>
           </motion.div>
         ))}
