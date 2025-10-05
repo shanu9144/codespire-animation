@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Button from "../ui/Button";
 import Wrapper from "../ui/Wrapper";
@@ -36,7 +36,7 @@ const CarouselHero = () => {
         "Advanced machine learning for faster, more accurate medical insights",
       image:
         "https://picsum.photos/id/1051/800/600",
-      cta: "Explore Solutions",
+      cta: "Learn More",
       ctaLink: "/healthcare",
       accent: "MedTech AI",
       accentPosition: "bottom-left",
@@ -49,7 +49,7 @@ const CarouselHero = () => {
         "Industry 4.0 solutions that optimize production and reduce costs",
       image:
         "https://picsum.photos/id/1039/800/600",
-      cta: "Get Started",
+      cta: "Learn More",
       ctaLink: "/manufacturing",
       accent: "SmartFactory Pro",
       accentPosition: "top-left",
@@ -62,7 +62,7 @@ const CarouselHero = () => {
         "Real-time insights and predictive modeling for better decisions",
       image:
         "https://picsum.photos/id/1043/800/600",
-      cta: "Discover More",
+      cta: "Learn More",
       ctaLink: "/finance",
       accent: "FinanceAI Suite",
       accentPosition: "bottom-right",
@@ -166,15 +166,8 @@ const CarouselHero = () => {
                   className="flex items-center space-x-4"
                 >
                   <Link href={currentSlideData.ctaLink}>
-                    <Button
-                      variant="primary"
-                      size="lg"
-                      className="group relative overflow-hidden"
-                    >
-                      <span className="relative z-10">
-                        {currentSlideData.cta}
-                      </span>
-                      <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1 relative z-10" />
+                    <Button variant="primary" size="lg" className="group">
+                      <span>{currentSlideData.cta}</span>
                     </Button>
                   </Link>
 

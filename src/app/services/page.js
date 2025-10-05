@@ -117,7 +117,7 @@ const ServicesPage = () => {
       whileInView={{ scaleY: 1, opacity: 1 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 1.2, delay, ease: "easeOut" }}
-      className="relative flex justify-center my-16"
+      className="relative flex justify-center my-24"
     >
       <div className="w-0.5 h-24 bg-gradient-to-b from-primary via-purple-500 to-primary rounded-full relative overflow-hidden">
         <motion.div
@@ -374,13 +374,13 @@ const ServicesPage = () => {
 
       {/* Flagship Service Section */}
       <EnhancedLiquidBackground variant="section" intensity="high">
-        <Wrapper className="py-24" data-section="0">
+        <Wrapper className="py-28" data-section="0">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainer}
-            className="text-center mb-20"
+            className="text-center mb-24"
           >
             <motion.div
               className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-purple-500/10 px-6 py-3 rounded-full text-primary font-semibold text-sm mb-8"
@@ -413,7 +413,7 @@ const ServicesPage = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-24"
           >
             {flagshipBenefits.map((benefit, index) => (
               <motion.div
@@ -460,7 +460,7 @@ const ServicesPage = () => {
             variants={fadeInUp}
             className="text-center"
           >
-            <div className="relative bg-gradient-to-r from-primary via-purple-600 to-cyan-500 rounded-3xl p-12 md:p-16 text-white overflow-hidden">
+            <div className="relative bg-gradient-to-r from-primary via-purple-600 to-cyan-500 rounded-3xl p-12 md:p-16 lg:p-20 text-white overflow-hidden">
               {/* Background pattern */}
               <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20" />
               
@@ -491,13 +491,13 @@ const ServicesPage = () => {
       <ConnectingLine isActive={activeSection >= 2} delay={0.3} />
 
       {/* Other Services Section */}
-      <Wrapper className="py-24" data-section="1">
+        <Wrapper className="py-28" data-section="1">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
-          className="text-center mb-20"
+          className="text-center mb-24"
         >
           <motion.div
             className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500/10 to-teal-500/10 px-6 py-3 rounded-full text-green-600 font-semibold text-sm mb-8"
@@ -529,7 +529,7 @@ const ServicesPage = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
         >
           {otherServices.map((service, index) => (
             <motion.div
@@ -588,7 +588,7 @@ const ServicesPage = () => {
 
       {/* Final CTA Section */}
       <OptimizedLiquidBackground variant="section" intensity="low">
-        <Wrapper className="py-24" data-section="2">
+        <Wrapper className="py-32" data-section="2">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -604,15 +604,15 @@ const ServicesPage = () => {
               Ready to Transform?
             </motion.div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 md:mb-8">
               Ready to Transform Your Business with AI?
             </h2>
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-600 mb-10 md:mb-12 max-w-2xl md:max-w-3xl mx-auto leading-relaxed">
               Let's discuss how our AI services can accelerate your digital transformation 
               and drive measurable business outcomes.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
