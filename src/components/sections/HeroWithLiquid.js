@@ -154,7 +154,7 @@ const HeroWithLiquid = () => {
                 } : {}}
                 whileTap={config.enableComplexAnimations ? { scale: 0.95 } : {}}
               >
-                <Link href="/contact">
+                <Link href="/schedule-demo">
                   <Button 
                     variant="primary" 
                     size="lg"

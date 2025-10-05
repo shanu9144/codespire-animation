@@ -278,7 +278,7 @@ const FinalCTABanner = () => {
 
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} className="flex justify-center gap-4">
-            <Link href="/contact">
+            <Link href="/schedule-demo">
               <Button
                 variant="primary"
                 size="lg"
@@ -295,7 +295,7 @@ const FinalCTABanner = () => {
                 )}
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/schedule-demo">
               <Button variant="secondary" size="lg" className="group px-8 py-4 text-lg font-semibold">
                 <span className="relative z-10 flex items-center">Schedule a Demo</span>
               </Button>

@@ -190,7 +190,7 @@ const HeroWithScrollAnimations = () => {
                 whileHover={config.enableComplexAnimations ? { scale: 1.05 } : {}}
                 whileTap={config.enableComplexAnimations ? { scale: 0.95 } : {}}
               >
-                <Link href="/contact">
+                <Link href="/schedule-demo">
                   <Button 
                     variant="primary" 
                     size="lg"

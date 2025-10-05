@@ -104,18 +104,20 @@ const Header = () => {
           <div className="header-right ml-2 lg:ml-4">
             {/* Desktop CTA Button */}
             <div className="desktop-only">
-              <Button 
-                variant="primary" 
-                size="md"
-                className="group"
-              >
-                <span className="flex items-center gap-2">
-                  Schedule a Demo
-                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
-              </Button>
+              <Link href="/schedule-demo">
+                <Button 
+                  variant="primary" 
+                  size="md"
+                  className="group"
+                >
+                  <span className="flex items-center gap-2">
+                    Schedule a Demo
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -173,18 +175,20 @@ const Header = () => {
                   transition={{ delay: menuItems.length * 0.1, duration: 0.3 }}
                   className="px-6 pt-4"
                 >
-                  <Button 
-                    variant="primary" 
-                    size="md" 
-                    className="w-full group"
-                  >
-                    <span className="flex items-center justify-center gap-2">
-                      Schedule a Demo
-                      <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </span>
-                  </Button>
+                  <Link href="/schedule-demo">
+                    <Button 
+                      variant="primary" 
+                      size="md" 
+                      className="w-full group"
+                    >
+                      <span className="flex items-center justify-center gap-2">
+                        Schedule a Demo
+                        <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </Button>
+                  </Link>
                 </motion.div>
               </div>
             </motion.div>
