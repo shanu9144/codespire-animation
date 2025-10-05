@@ -25,8 +25,8 @@ const CarouselHero = () => {
         "https://picsum.photos/id/1050/800/600",
       cta: "Learn More",
       ctaLink: "/ev-batteries",
-      accent: "Panasonic CONNECT",
-      accentPosition: "top-right",
+      // accent removed
+      // accentPosition removed
     },
     {
       id: 2,
@@ -38,8 +38,8 @@ const CarouselHero = () => {
         "https://picsum.photos/id/1051/800/600",
       cta: "Learn More",
       ctaLink: "/healthcare",
-      accent: "MedTech AI",
-      accentPosition: "bottom-left",
+      // accent removed
+      // accentPosition removed
     },
     {
       id: 3,
@@ -51,8 +51,8 @@ const CarouselHero = () => {
         "https://picsum.photos/id/1039/800/600",
       cta: "Learn More",
       ctaLink: "/manufacturing",
-      accent: "SmartFactory Pro",
-      accentPosition: "top-left",
+      // accent removed
+      // accentPosition removed
     },
     {
       id: 4,
@@ -64,8 +64,8 @@ const CarouselHero = () => {
         "https://picsum.photos/id/1043/800/600",
       cta: "Learn More",
       ctaLink: "/finance",
-      accent: "FinanceAI Suite",
-      accentPosition: "bottom-right",
+      // accent removed
+      // accentPosition removed
     },
   ];
 
@@ -277,26 +277,7 @@ const CarouselHero = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Brand Accent */}
-              <motion.div
-                key={`accent-${currentSlide}`}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className={`absolute ${
-                  currentSlideData.accentPosition === "top-right"
-                    ? "top-4 right-4"
-                    : currentSlideData.accentPosition === "top-left"
-                    ? "top-4 left-4"
-                    : currentSlideData.accentPosition === "bottom-left"
-                    ? "bottom-4 left-4"
-                    : "bottom-4 right-4"
-                } bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg`}
-              >
-                <Text size="sm" className="font-semibold text-gray-800">
-                  {currentSlideData.accent}
-                </Text>
-              </motion.div>
+              {/* Brand Accent removed */}
             </div>
 
             {/* Navigation Arrows */}

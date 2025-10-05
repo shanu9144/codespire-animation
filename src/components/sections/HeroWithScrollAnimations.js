@@ -11,6 +11,7 @@ import { ArrowRight, Play } from 'lucide-react';
 import Link from 'next/link';
 import Button from '../ui/Button';
 import { Heading, Text } from '../ui/Typography';
+import TechnologyStackCarousel from './TechnologyStackCarousel';
 import { useAnimationPerformance } from '../../lib/performance';
 import HeroFallback from './HeroFallback';
 import PerformanceMonitor from '../ui/PerformanceMonitor';
@@ -21,78 +22,7 @@ import {
   ScrollProgressBar
 } from '../animations';
 
-// Enhanced floating elements with parallax
-const FloatingElements = ({ config }) => {
-  if (!config.enableFloatingElements) {
-    return null;
-  }
-
-  const elements = [
-    { id: 1, size: 'w-20 h-20', position: 'top-20 left-10', speed: 0.3 },
-    { id: 2, size: 'w-16 h-16', position: 'top-40 right-20', speed: -0.2 },
-    { id: 3, size: 'w-12 h-12', position: 'top-60 left-1/4', speed: 0.4 },
-    { id: 4, size: 'w-24 h-24', position: 'bottom-40 right-10', speed: -0.3 },
-    { id: 5, size: 'w-14 h-14', position: 'bottom-20 left-20', speed: 0.5 },
-  ];
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {elements.map((element) => (
-        <ParallaxElement
-          key={element.id}
-          speed={element.speed}
-          className={`absolute ${element.position}`}
-        >
-          <motion.div
-            className={`${element.size} bg-primary opacity-10 rounded-full ${config.enableBlur ? 'blur-sm' : ''}`}
-            initial={config.enableComplexAnimations ? { 
-              opacity: 0, 
-              scale: 0,
-              rotate: 0 
-            } : { opacity: 0.1 }}
-            animate={config.enableComplexAnimations ? { 
-              opacity: 0.1, 
-              scale: 1,
-              rotate: 360 
-            } : { opacity: 0.1 }}
-            transition={config.enableComplexAnimations ? { 
-              duration: 2 * config.animationDuration,
-              ease: "easeOut",
-              rotate: {
-                duration: 20,
-                repeat: Infinity,
-                ease: "linear"
-              }
-            } : { duration: 0 }}
-          />
-        </ParallaxElement>
-      ))}
-      
-      {/* Additional parallax shapes */}
-      {config.enableComplexAnimations && (
-        <>
-          <ParallaxElement speed={0.6} className="absolute top-32 right-1/3">
-            <motion.div
-              className="w-8 h-8 border-2 border-primary opacity-20 rotate-45"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 0.2, y: 0 }}
-              transition={{ duration: 1.5 * config.animationDuration, delay: 1 * config.animationDuration }}
-            />
-          </ParallaxElement>
-          
-          <ParallaxElement speed={-0.4} className="absolute bottom-32 left-1/3">
-            <motion.div
-              className="w-6 h-6 bg-primary opacity-15 rounded-sm"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 0.15, x: 0 }}
-              transition={{ duration: 1.5 * config.animationDuration, delay: 1.2 * config.animationDuration }}
-            />
-          </ParallaxElement>
-        </>
-      )}
-    </div>
-  );
-};
+// Floating elements removed in favor of TechnologyStackCarousel
 
 const HeroWithScrollAnimations = () => {
   const { config, shouldReduceAnimations, logMetrics } = useAnimationPerformance();
@@ -152,9 +82,9 @@ const HeroWithScrollAnimations = () => {
       {/* Performance Monitor for development */}
       <PerformanceMonitor show={process.env.NODE_ENV === 'development'} />
       
-      <section className="relative min-h-screen bg-white flex items-center justify-center overflow-hidden">
-        {/* Floating geometric background elements with parallax */}
-        <FloatingElements config={config} />
+      <section className="relative min-h-screen bg-white flex flex-col items-center justify-start overflow-hidden">
+        {/* Technology Stack Carousel replacing floating elements */}
+        <TechnologyStackCarousel />
       
         {/* Gradient mesh background overlay with parallax */}
         {config.enableGradients && (
@@ -163,7 +93,11 @@ const HeroWithScrollAnimations = () => {
           </ParallaxElement>
         )}
         
-        <div className="relative z-10 container mx-auto px-4 py-20 text-center">
+        <div className="relative z-10 container mx-auto px-4 pt-8 pb-16 text-center">
+          {/* Technology Stack - placed above the hero headline */}
+          <div className="mb-8 sm:mb-10">
+            <TechnologyStackCarousel />
+          </div>
           <motion.div
             variants={containerVariants}
             initial="hidden"

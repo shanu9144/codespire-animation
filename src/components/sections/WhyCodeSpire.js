@@ -265,7 +265,7 @@ const WhyCodeSpire = () => {
             What We Do
           </div>
           
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight md:leading-[1.15]">
             Purposeful
             <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Digital Engineering
@@ -279,28 +279,20 @@ const WhyCodeSpire = () => {
           </p>
         </div>
 
-        {/* Enhanced Cards Grid */}
+        {/* Enhanced Cards Grid - Only three cards with proper spacing */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={hasAnimated ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
         >
-          {highlights.slice(0, 4).map((highlight, index) => (
+          {highlights.slice(0, 3).map((highlight, index) => (
             <EnhancedCard
               key={highlight.id}
               highlight={highlight}
               index={index}
             />
           ))}
-          
-          {/* Center Card */}
-          <div className="md:col-span-2 flex justify-center mt-8">
-            <EnhancedCard
-              highlight={highlights[4]}
-              index={4}
-            />
-          </div>
         </motion.div>
       </div>
     </section>
