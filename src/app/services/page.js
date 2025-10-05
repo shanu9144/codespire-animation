@@ -169,82 +169,53 @@ const ServicesPage = () => {
   // Other services data
   const otherServices = [
     {
-      icon: Brain,
-      title: "AI Product Development",
-      description: "End-to-end AI product development from concept to deployment with cutting-edge technologies",
-      color: "from-blue-500 to-purple-600",
-      bgColor: "from-blue-50 to-purple-50"
+      icon: Code,
+      title: "Digital Engineering",
+      description:
+        "Cutting-edge engineering solutions for transformative digital experiences.",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
     },
     {
-      icon: Rocket,
-      title: "Prototyping & MVPs",
-      description: "Rapid prototyping and MVP development for AI solutions with fast time-to-market",
+      icon: Users,
+      title: "IT And Non-IT Staffing",
+      description:
+        "Expert talent for seamless workforce optimization.",
       color: "from-purple-500 to-pink-600",
-      bgColor: "from-purple-50 to-pink-50"
-    },
-    {
-      icon: Cpu,
-      title: "Generative AI / LLM Apps & AI Agents",
-      description: "Advanced LLM applications and intelligent agent development for automation",
-      color: "from-green-500 to-teal-600",
-      bgColor: "from-green-50 to-teal-50"
+      bgColor: "from-purple-50 to-pink-50",
     },
     {
       icon: Settings,
-      title: "AI Ops, monitoring & continuous learning",
-      description: "Operational excellence for AI systems in production with monitoring and optimization",
-      color: "from-orange-500 to-red-600",
-      bgColor: "from-orange-50 to-red-50"
-    },
-    {
-      icon: Server,
-      title: "Enterprise Software & IT Services",
-      description: "Scalable enterprise solutions and IT infrastructure for large organizations",
-      color: "from-indigo-500 to-blue-600",
-      bgColor: "from-indigo-50 to-blue-50"
-    },
-    {
-      icon: Smartphone,
-      title: "Custom Web & Mobile Applications",
-      description: "Native and cross-platform mobile and web applications with modern frameworks",
-      color: "from-pink-500 to-rose-600",
-      bgColor: "from-pink-50 to-rose-50"
-    },
-    {
-      icon: Globe,
-      title: "APIs, Microservices & Cloud-native Platforms",
-      description: "Modern cloud-native architectures and microservices for scalable applications",
-      color: "from-cyan-500 to-blue-600",
-      bgColor: "from-cyan-50 to-blue-50"
-    },
-    {
-      icon: TrendingUp,
-      title: "Legacy Modernization & Integrations",
-      description: "Modernizing legacy systems and seamless integrations with existing infrastructure",
-      color: "from-yellow-500 to-orange-600",
-      bgColor: "from-yellow-50 to-orange-50"
+      title: "Application Development And Testing",
+      description:
+        "Robust and modernized applications with rigorous quality assurance",
+      color: "from-rose-500 to-orange-600",
+      bgColor: "from-rose-50 to-orange-50",
     },
     {
       icon: BarChart3,
-      title: "Data & Analytics",
-      description: "Advanced analytics and data-driven insights for informed business decisions",
-      color: "from-emerald-500 to-green-600",
-      bgColor: "from-emerald-50 to-green-50"
+      title: "Data, Analytics And AI",
+      description:
+        "Actionable insights through advanced analytics and intelligent AI.",
+      color: "from-emerald-500 to-teal-600",
+      bgColor: "from-emerald-50 to-teal-50",
     },
     {
       icon: Cloud,
-      title: "Cloud, DevOps & Security",
-      description: "Cloud infrastructure, DevOps practices, and enterprise-grade security solutions",
-      color: "from-violet-500 to-purple-600",
-      bgColor: "from-violet-50 to-purple-50"
+      title: "Salesforce And ServiceNow",
+      description:
+        "Streamlined platforms for dynamic business efficiency.",
+      color: "from-indigo-500 to-blue-600",
+      bgColor: "from-indigo-50 to-blue-50",
     },
     {
       icon: Shield,
-      title: "Managed Services & Augmentation",
-      description: "Ongoing support and team augmentation services for continuous innovation",
-      color: "from-slate-500 to-gray-600",
-      bgColor: "from-slate-50 to-gray-50"
-    }
+      title: "24/7 SRE Support",
+      description:
+        "Reliable, proactive system resilience and performance.",
+      color: "from-slate-500 to-gray-700",
+      bgColor: "from-slate-50 to-gray-100",
+    },
   ];
 
   return (
