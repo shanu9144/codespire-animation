@@ -1,10 +1,9 @@
 import CarouselHero from "../components/sections/CarouselHero";
 import StatsBanner from "../components/sections/StatsBanner";
 import WhyCodeSpire from "../components/sections/WhyCodeSpire";
-import IndustriesGrid from "../components/sections/IndustriesGrid";
+// import IndustriesGrid from "../components/sections/IndustriesGrid";
 import FinalCTABanner from "../components/sections/FinalCTABanner";
 import OptimizedLiquidBackground from "../components/backgrounds/OptimizedLiquidBackground";
-import EnhancedLiquidBackground from "../components/backgrounds/EnhancedLiquidBackground";
 import IndustriesWeServe from "../components/sections/IndustriesWeServe";
 import InfiniteIconCarousel from "../components/ui/InfiniteIconCarousel";
 import TechnologyStackCarousel from "../components/sections/TechnologyStackCarousel";
@@ -26,14 +25,12 @@ export default function Home() {
         </Wrapper>
       </OptimizedLiquidBackground>
 
-      {/* Why CodeSpire with enhanced rotating liquid animation */}
-      <EnhancedLiquidBackground variant="section" intensity="high">
-        <Wrapper>
-          <div className="space-section">
-            <WhyCodeSpire />
-          </div>
-        </Wrapper>
-      </EnhancedLiquidBackground>
+      {/* Why CodeSpire - UI only, no liquid background */}
+      <Wrapper>
+        <div className="space-section">
+          <WhyCodeSpire />
+        </div>
+      </Wrapper>
 
       {/* Industries with subtle animation
       <OptimizedLiquidBackground variant="section" intensity="low">
