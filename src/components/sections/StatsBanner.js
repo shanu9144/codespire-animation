@@ -132,7 +132,7 @@ const StatsBanner = () => {
   return (
     <section 
       ref={ref}
-      className="relative py-4 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/40 overflow-hidden"
+      className="relative py-4 bg-gradient-to-br from-blue-50 via-blue-50/40 to-indigo-50/50 overflow-hidden"
     >
       {/* Clean animated background with floating tech elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
