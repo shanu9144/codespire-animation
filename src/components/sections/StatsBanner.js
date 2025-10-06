@@ -120,6 +120,12 @@ const StatsBanner = () => {
       suffix: '+',
       label: 'Technical Certifications',
       delay: 4
+    },
+    {
+      number: 4,
+      suffix: '+',
+      label: 'Delivery Centers',
+      delay: 5
     }
   ];
 

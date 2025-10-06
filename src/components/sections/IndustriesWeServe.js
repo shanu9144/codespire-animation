@@ -8,17 +8,14 @@ import {
   Building2, 
   Shield, 
   Heart,
-  ArrowRight,
-  Zap,
-  TrendingUp,
-  Users
+  Zap
 } from 'lucide-react';
 
 const industries = [
   {
     id: 'manufacturing',
     title: 'Manufacturing',
-    description: 'Transform production with smart RFQ automation, supplier and predictive intelligence that enhance quality, efficiency, and reliability across every process.',
+    description: 'Automate RFQs, predict demand, improve supplier quality.',
     icon: Factory,
     color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1060/400/300',
@@ -27,7 +24,7 @@ const industries = [
   {
     id: 'hitech',
     title: 'Hi-Tech',
-    description: 'Accelerate innovation with cutting-edge AI that drives digital transformation, product intelligence, and smarter technology ecosystems.',
+    description: 'Drive innovation with AI and smarter digital ecosystems.',
     icon: Cpu,
     color: 'from-purple-500 to-pink-500',
     image: 'https://picsum.photos/id/1061/400/300',
@@ -36,7 +33,7 @@ const industries = [
   {
     id: 'bfsi',
     title: 'BFSI',
-    description: 'Strengthen decision-making with AI-driven risk, fraud, and customer analytics for a smarter, more resilient financial ecosystem.',
+    description: 'Enhance decisions with AI for risk and fraud.',
     icon: Building2,
     color: 'from-green-500 to-emerald-500',
     image: 'https://picsum.photos/id/1070/400/300',
@@ -45,7 +42,7 @@ const industries = [
   {
     id: 'defense',
     title: 'Public Sector & Defense',
-    description: 'Build secure, compliant, and adaptive AI systems that enhance strategic operations, surveillance, and national intelligence.',
+    description: 'Secure operations using compliant and adaptive AI systems.',
     icon: Shield,
     color: 'from-red-500 to-orange-500',
     image: 'https://picsum.photos/id/1063/400/300',
@@ -54,13 +51,14 @@ const industries = [
   {
     id: 'healthcare',
     title: 'Healthcare & Life Sciences',
-    description: 'Empower better outcomes with AI-powered medical insights, accelerating diagnosis, discovery, and personalized care.',
+    description: 'Accelerate diagnosis, discovery, and personalized patient care.',
     icon: Heart,
     color: 'from-teal-500 to-blue-500',
     image: 'https://picsum.photos/id/1064/400/300',
     features: ['Patient Insights', 'Predictive Analytics', 'Drug Discovery']
   }
 ];
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -130,7 +128,7 @@ const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
     >
       {/* Card */}
       <motion.div
-        className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-gray-100 h-full transition-all duration-300 flex flex-col"
+        className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-gray-100 h-full transition-all duration-300 flex flex-col min-h-[620px]"
         whileHover={{ 
           y: -4,
           scale: 1.02,
@@ -139,7 +137,7 @@ const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
       >
         {/* Header with Icon */}
-        <div className="relative p-6 pb-4 min-h-[200px] flex flex-col">
+        <div className="relative p-6 pb-4 min-h-[280px] flex flex-col">
           <motion.div
             variants={iconVariants}
             className={`inline-flex h-12 w-12 items-center justify-center p-3 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 mb-4 shadow-sm`}
@@ -159,6 +157,12 @@ const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
           >
             {industry.title}
           </motion.h3>
+          {index < 3 && (
+            <div className="h-5" aria-hidden="true" />
+          )}
+          {index < 3 && (
+            <div className="h-5" aria-hidden="true" />
+          )}
           
           <motion.p 
             variants={textVariants}
@@ -169,7 +173,7 @@ const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
         </div>
 
         {/* Image Section */}
-        <div className="relative h-44 overflow-hidden">
+        <div className="relative h-48 overflow-hidden">
           <motion.img
             src={industry.image}
             alt={industry.title}
@@ -333,7 +337,7 @@ export default function IndustriesWeServe() {
   const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
-    <section className="relative py-16 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+    <section className="relative pt-16 pb-12 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
       <FloatingElements />
       <ParticleField />
       
@@ -389,31 +393,7 @@ export default function IndustriesWeServe() {
           ))}
         </motion.div>
 
-        {/* Stats Section */}
-        <motion.div
-          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          {[
-            { icon: TrendingUp, value: '500+', label: 'Projects Delivered' },
-            { icon: Users, value: '50+', label: 'Industry Experts' },
-            { icon: Zap, value: '99%', label: 'Client Satisfaction' }
-          ].map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              className="text-center p-6 bg-white rounded-lg shadow-sm border border-gray-100"
-              whileHover={{ y: -2, scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            >
-              <stat.icon className="w-6 h-6 text-blue-600 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
-              <div className="text-gray-600 text-sm">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Stats Section removed as per requirement */}
       </div>
     </section>
   );
