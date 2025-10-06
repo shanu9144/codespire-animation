@@ -1,14 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+ 
 import { 
   Factory, 
   Cpu, 
   Building2, 
   Shield, 
   Heart,
-  Zap
+  Zap,
+  TrendingUp,
+  Users
 } from 'lucide-react';
 
 const industries = [
@@ -116,15 +118,13 @@ const textVariants = {
   }
 };
 
-const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
+const IndustryCard = ({ industry }) => {
   const Icon = industry.icon;
   
   return (
     <motion.div
       variants={cardVariants}
       className="relative group h-full"
-      onMouseEnter={() => onHover(index)}
-      onMouseLeave={onLeave}
     >
       {/* Card */}
       <motion.div
@@ -136,84 +136,35 @@ const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
         }}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
       >
-        {/* Header with Icon */}
-        <div className="relative p-6 pb-4 min-h-[280px] flex flex-col">
-          <motion.div
-            variants={iconVariants}
-            className={`inline-flex h-12 w-12 items-center justify-center p-3 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 mb-4 shadow-sm`}
-            whileHover={{ 
-              scale: 1.05, 
-              rotate: 2,
-              boxShadow: "0 8px 25px -5px rgba(0, 0, 0, 0.1)"
-            }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          >
-            <Icon className="w-6 h-6 text-white" />
-          </motion.div>
-          
-          <motion.h3 
-            variants={textVariants}
-            className="text-xl font-semibold text-gray-900 mb-3 min-h-[28px] flex items-center"
-          >
-            {industry.title}
-          </motion.h3>
-          {index < 3 && (
-            <div className="h-5" aria-hidden="true" />
-          )}
-          {index < 3 && (
-            <div className="h-5" aria-hidden="true" />
-          )}
-          
-          <motion.p 
-            variants={textVariants}
-            className="text-gray-600 text-sm leading-relaxed min-h-20"
-          >
-            {industry.description}
-          </motion.p>
-        </div>
-
-        {/* Image Section */}
-        <div className="relative h-48 overflow-hidden">
+        {/* Fixed-height Image */}
+        <div className="w-full h-40 overflow-hidden">
           <motion.img
             src={industry.image}
             alt={industry.title}
             className="w-full h-full object-cover"
-            whileHover={{ scale: 1.08 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-          />
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           />
         </div>
 
-        {/* Features */}
-        <div className="p-6 pt-4 mt-auto">
-          <motion.div
-            variants={textVariants}
-            className="space-y-3"
-          >
-            {industry.features.map((feature, idx) => (
-              <motion.div
-                key={feature}
-                className="flex items-center text-sm text-blue-600"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.4 + idx * 0.1 }}
-              >
-                <motion.div 
-                  className={`w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 mr-3`}
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                />
-                {feature}
-              </motion.div>
-            ))}
+        {/* Content */}
+        <div className="flex-1 p-6 flex flex-col gap-3">
+          <motion.div variants={iconVariants} className={`inline-flex h-10 w-10 items-center justify-center rounded-md bg-gradient-to-r ${industry.color}`}>
+            <Icon className="w-5 h-5 text-white" />
           </motion.div>
-
+          <motion.h3 variants={textVariants} className="text-lg font-semibold text-gray-900">{industry.title}</motion.h3>
+          <motion.p variants={textVariants} className="text-gray-600 text-sm leading-relaxed">{industry.description}</motion.p>
         </div>
+
+        {/* Bullet list */}
+        <ul className="p-6 pt-0 space-y-2 mt-auto">
+          {industry.features.map((feature) => (
+            <li key={feature} className="flex items-center text-sm text-blue-600">
+              <span className="w-2 h-2 rounded-full bg-blue-500 mr-3"></span>
+              {feature}
+            </li>
+          ))}
+        </ul>
       </motion.div>
     </motion.div>
   );
@@ -334,14 +285,14 @@ const ParticleField = () => {
 };
 
 export default function IndustriesWeServe() {
-  const [hoveredCard, setHoveredCard] = useState(null);
+  
 
   return (
     <section className="relative pt-16 pb-12 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
       <FloatingElements />
       <ParticleField />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
           className="text-center mb-12"
@@ -381,19 +332,39 @@ export default function IndustriesWeServe() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {industries.map((industry, index) => (
+          {industries.map((industry) => (
             <IndustryCard
               key={industry.id}
               industry={industry}
-              index={index}
-              isHovered={hoveredCard}
-              onHover={setHoveredCard}
-              onLeave={() => setHoveredCard(null)}
             />
           ))}
         </motion.div>
 
-        {/* Stats Section removed as per requirement */}
+        {/* Stats Section */}
+        <motion.div
+          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          {[
+            { icon: TrendingUp, value: '500+', label: 'Projects Delivered' },
+            { icon: Users, value: '50+', label: 'Industry Experts' },
+            { icon: Zap, value: '99%', label: 'Client Satisfaction' }
+          ].map((stat) => (
+            <motion.div
+              key={stat.label}
+              className="text-center p-6 bg-white rounded-lg shadow-sm border border-gray-100"
+              whileHover={{ y: -2, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              <stat.icon className="w-6 h-6 text-blue-600 mx-auto mb-3" />
+              <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
+              <div className="text-gray-600 text-sm">{stat.label}</div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

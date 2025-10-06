@@ -1,32 +1,22 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import Wrapper from '../../components/ui/Wrapper';
 import OptimizedLiquidBackground from '../../components/backgrounds/OptimizedLiquidBackground';
 import EnhancedLiquidBackground from '../../components/backgrounds/EnhancedLiquidBackground';
 import { 
   Brain, 
-  Zap, 
   Users, 
   Rocket, 
   Shield, 
-  Database, 
   Cloud, 
   Code, 
-  Smartphone, 
-  Server, 
   BarChart3, 
   Settings,
   ArrowUp,
-  CheckCircle,
   Target,
-  Lightbulb,
   Cpu,
-  Globe,
-  Lock,
-  TrendingUp,
   ArrowRight,
   Sparkles,
   Star,
@@ -175,6 +165,14 @@ const ServicesPage = () => {
         "Cutting-edge engineering solutions for transformative digital experiences.",
       color: "from-blue-500 to-cyan-600",
       bgColor: "from-blue-50 to-cyan-50",
+    },
+    {
+      icon: Cpu,
+      title: "AI Pod",
+      description:
+        "Dedicated cross-functional AI squad delivering rapid, iterative value.",
+      color: "from-cyan-500 to-blue-600",
+      bgColor: "from-cyan-50 to-blue-50",
     },
     {
       icon: Users,
@@ -440,7 +438,7 @@ const ServicesPage = () => {
                   Ready to Deploy Your AI Strike Team?
                 </h3>
                 <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                  Let's discuss how AI PODs can accelerate your AI initiatives and drive measurable business outcomes.
+              Let&apos;s discuss how AI PODs can accelerate your AI initiatives and drive measurable business outcomes.
                 </p>
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
@@ -579,7 +577,7 @@ const ServicesPage = () => {
               Ready to Transform Your Business with AI?
             </h2>
             <p className="text-xl md:text-2xl text-gray-600 mb-10 md:mb-12 max-w-2xl md:max-w-3xl mx-auto leading-relaxed">
-              Let's discuss how our AI services can accelerate your digital transformation 
+              Let&apos;s discuss how our AI services can accelerate your digital transformation 
               and drive measurable business outcomes.
             </p>
             

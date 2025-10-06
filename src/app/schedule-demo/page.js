@@ -107,7 +107,7 @@ export default function ScheduleDemo() {
             <div className="bg-white rounded-lg shadow-sm p-6 max-w-2xl mx-auto">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Need Help?</h3>
               <p className="text-gray-600 mb-4">
-                If you have any questions or need assistance with scheduling, please don't hesitate to reach out.
+                If you have any questions or need assistance with scheduling, please don&apos;t hesitate to reach out.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 

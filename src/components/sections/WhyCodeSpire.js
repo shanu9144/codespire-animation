@@ -248,10 +248,8 @@ const WhyCodeSpire = () => {
             </span>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed text-balance">
-          Our approach is rooted in a deep understanding of today's challenges, enabling
-           our clients with AI to innovate for growth, engineer efficient AI solutions with
-            precision, and evolve strategies to help our clients stay ahead of the curve.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Our approach is rooted in a deep understanding of today&apos;s challenges, enabling our clients with AI to innovate for growth, engineer efficient AI solutions with precision, and evolve strategies to help our clients stay ahead of the curve.
           </p>
         </div>
 

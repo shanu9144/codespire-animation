@@ -122,7 +122,7 @@ export const Button3D = ({
       className={`
         ${config.baseClasses}
         ${sizeClasses}
-        rounded-lg font-medium transition-all duration-200
+        rounded-lg font-medium transition-all duration-200 cursor-pointer
         hover:shadow-lg active:shadow-sm
         ${className}
       `}

@@ -52,7 +52,7 @@ const Footer = () => {
                   alt="CodeSpire Logo"
                   width={150}
                   height={40}
-                  className="h-10 w-auto"
+                  className="h-10 w-auto brightness-0 invert"
                 />
               </motion.div>
             </Link>
@@ -140,7 +140,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-300 text-sm">
+            <p className="text-white text-sm">
               © {currentYear} CodeSpire Solutions. All rights reserved.
             </p>
             <p className="text-gray-300 text-sm mt-2 md:mt-0">
