@@ -1,32 +1,22 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import Wrapper from '../../components/ui/Wrapper';
 import OptimizedLiquidBackground from '../../components/backgrounds/OptimizedLiquidBackground';
 import EnhancedLiquidBackground from '../../components/backgrounds/EnhancedLiquidBackground';
 import { 
   Brain, 
-  Zap, 
   Users, 
   Rocket, 
   Shield, 
-  Database, 
   Cloud, 
   Code, 
-  Smartphone, 
-  Server, 
   BarChart3, 
   Settings,
   ArrowUp,
-  CheckCircle,
   Target,
-  Lightbulb,
   Cpu,
-  Globe,
-  Lock,
-  TrendingUp,
   ArrowRight,
   Sparkles,
   Star,
@@ -175,6 +165,14 @@ const ServicesPage = () => {
         "Cutting-edge engineering solutions for transformative digital experiences.",
       color: "from-blue-500 to-cyan-600",
       bgColor: "from-blue-50 to-cyan-50",
+    },
+    {
+      icon: Cpu,
+      title: "AI Pod",
+      description:
+        "Dedicated cross-functional AI squad delivering rapid, iterative value.",
+      color: "from-cyan-500 to-blue-600",
+      bgColor: "from-cyan-50 to-blue-50",
     },
     {
       icon: Users,
