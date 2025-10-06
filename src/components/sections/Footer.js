@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import Wrapper from "../ui/Wrapper";
 
 const Footer = () => {
@@ -22,7 +22,6 @@ const Footer = () => {
     ],
     social: [
       { label: "LinkedIn", href: "#", icon: Linkedin },
-      { label: "Twitter", href: "#", icon: Twitter },
     ],
   };
 
@@ -37,8 +36,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-blue-300 border-t border-blue-100">
-      <Wrapper className="py-12">
+    <footer className="bg-[#1e2875] border-t border-[#1e2875]">
+      <Wrapper className="py-12 text-gray-300">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
@@ -57,7 +56,7 @@ const Footer = () => {
                 />
               </motion.div>
             </Link>
-            <p className="text-gray-600 mb-6 max-w-md">
+            <p className="text-gray-300 mb-6 max-w-md">
               From Idea to Enterprise-Grade AI in a Blink. Transforming
               businesses with cutting-edge AI solutions and expert engineering.
             </p>
@@ -72,7 +71,7 @@ const Footer = () => {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center text-gray-600 hover:text-primary transition-colors duration-200"
+                    className="flex items-center text-gray-300 hover:text-white transition-colors duration-200"
                   >
                     <item.icon size={16} className="mr-3" />
                     {item.label}
@@ -84,16 +83,16 @@ const Footer = () => {
 
           {/* Company Links */}
           <div>
-            <h3 className="text-gray-900 font-semibold mb-4">Company</h3>
+            <h3 className="text-white font-semibold mb-4">Company</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-gray-600 hover:text-primary transition-colors duration-200 relative group"
+                    className="text-gray-300 hover:text-white transition-colors duration-200 relative group"
                   >
                     {link.label}
-                    <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                    <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                   </Link>
                 </li>
               ))}
@@ -102,16 +101,16 @@ const Footer = () => {
 
           {/* Legal & Social */}
           <div>
-            <h3 className="text-gray-900 font-semibold mb-4">Legal</h3>
+            <h3 className="text-white font-semibold mb-4">Legal</h3>
             <ul className="space-y-3 mb-6">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-gray-600 hover:text-primary transition-colors duration-200 relative group"
+                    className="text-gray-300 hover:text-white transition-colors duration-200 relative group"
                   >
                     {link.label}
-                    <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                    <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                   </Link>
                 </li>
               ))}
@@ -119,7 +118,7 @@ const Footer = () => {
 
             {/* Social Links */}
             <div>
-              <h4 className="text-gray-900 font-medium mb-3">Follow Us</h4>
+              <h4 className="text-white font-medium mb-3">Follow Us</h4>
               <div className="flex space-x-3">
                 {footerLinks.social.map((social, index) => (
                   <motion.a
@@ -127,7 +126,7 @@ const Footer = () => {
                     href={social.href}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="p-2 bg-white rounded-lg shadow-sm hover:shadow-md hover:bg-primary hover:text-white transition-all duration-200"
+                    className="p-2 bg-white/10 text-white border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-200"
                     aria-label={social.label}
                   >
                     <social.icon size={20} />
@@ -139,12 +138,12 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-200">
+        <div className="mt-12 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-300 text-sm">
               © {currentYear} CodeSpire Solutions. All rights reserved.
             </p>
-            <p className="text-gray-600 text-sm mt-2 md:mt-0">
+            <p className="text-gray-300 text-sm mt-2 md:mt-0">
               Built with ❤️ for enterprise AI transformation
             </p>
           </div>

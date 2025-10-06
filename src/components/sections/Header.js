@@ -41,15 +41,16 @@ const Header = () => {
 
   const menuItems = [
     { label: "Home", href: "/" },
-    { label: "Our Team", href: "/about" },
-    { label: "Services", href: "/services" },
     { label: "Products", href: "/products" },
+    { label: "Services", href: "/services" },
+    { label: "Resourses", href: "/resourse" },
+    { label: "Our Team", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100"
+      className="fixed top-0 left-0 right-0 z-50 bg-white"
       initial={{ y: 0 }}
       animate={{
         y: isVisible ? 0 : "-100%",
@@ -60,7 +61,7 @@ const Header = () => {
       }}
     >
       <Wrapper>
-        <nav className="header-container">
+        <nav className="flex items-center px-6 lg:px-8 py-4">
           {/* Header Left - Logo and Brand */}
           <div className="header-left">
             <Link href="/" className="flex items-center">
@@ -85,21 +86,15 @@ const Header = () => {
           </div>
 
           {/* Header Center - Desktop Navigation */}
-          <div className="header-center">
-            <ul className="nav-links">
+          <div className="hidden md:flex flex-1 justify-end pr-4 lg:pr-6">
+            <ul className="flex items-center gap-6 lg:gap-8 text-gray-700 font-medium">
               {menuItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="relative px-4 py-2 text-gray-700 hover:text-primary transition-all duration-300 group font-medium rounded-lg hover:bg-primary/5"
-                    data-magnetic="true"
-                    data-magnetic-strength="0.25"
-                    data-magnetic-radius="60"
+                    className="hover:text-primary transition-colors"
                   >
-                    <span className="relative z-10">{item.label}</span>
-                    
-                    {/* Professional underline effect */}
-                    <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -107,21 +102,23 @@ const Header = () => {
           </div>
 
           {/* Header Right - CTA Button and Mobile Menu */}
-          <div className="header-right">
+          <div className="header-right ml-2 lg:ml-4">
             {/* Desktop CTA Button */}
             <div className="desktop-only">
-              <Button 
-                variant="primary" 
-                size="md"
-                className="group"
-              >
-                <span className="flex items-center gap-2">
-                  Schedule a Demo
-                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
-              </Button>
+              <Link href="/schedule-demo">
+                <Button 
+                  variant="primary" 
+                  size="md"
+                  className="group"
+                >
+                  <span className="flex items-center gap-2">
+                    Schedule a Demo
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -179,18 +176,20 @@ const Header = () => {
                   transition={{ delay: menuItems.length * 0.1, duration: 0.3 }}
                   className="px-6 pt-4"
                 >
-                  <Button 
-                    variant="primary" 
-                    size="md" 
-                    className="w-full group"
-                  >
-                    <span className="flex items-center justify-center gap-2">
-                      Schedule a Demo
-                      <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </span>
-                  </Button>
+                  <Link href="/schedule-demo">
+                    <Button 
+                      variant="primary" 
+                      size="md" 
+                      className="w-full group"
+                    >
+                      <span className="flex items-center justify-center gap-2">
+                        Schedule a Demo
+                        <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </Button>
+                  </Link>
                 </motion.div>
               </div>
             </motion.div>

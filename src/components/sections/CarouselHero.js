@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Button from "../ui/Button";
 import Wrapper from "../ui/Wrapper";
@@ -17,55 +17,55 @@ const CarouselHero = () => {
   const slides = [
     {
       id: 1,
-      title: "Revolutionize EV Batteries with",
-      subtitle: "Next-gen Precision",
+      title: "Transforming RFQ Management with AI –",
+      subtitle: "Smart RFQ AI",
       description:
-        "Unlock speed, scale, and compliance with R Systems & SyncoraDMP",
+        "Intelligent Quoting for Modern Manufacturing",
       image:
         "https://picsum.photos/id/1050/800/600",
       cta: "Learn More",
-      ctaLink: "/ev-batteries",
-      accent: "Panasonic CONNECT",
-      accentPosition: "top-right",
+      ctaLink: "/smart-rfq-ai",
+      // accent removed
+      // accentPosition removed
     },
     {
       id: 2,
-      title: "Transform Healthcare with",
-      subtitle: "AI-Powered Diagnostics",
+      title: "Ready for Smart Sourcing? –",
+      subtitle: "Supplier Match AI",
       description:
-        "Advanced machine learning for faster, more accurate medical insights",
+        "Smart Supplier Selection",
       image:
         "https://picsum.photos/id/1051/800/600",
-      cta: "Explore Solutions",
-      ctaLink: "/healthcare",
-      accent: "MedTech AI",
-      accentPosition: "bottom-left",
+      cta: "Learn More",
+      ctaLink: "/supplier-match-ai",
+      // accent removed
+      // accentPosition removed
     },
     {
       id: 3,
-      title: "Accelerate Manufacturing with",
-      subtitle: "Smart Automation",
+      title: "Smarter Inventory and Sales Planning with",
+      subtitle: "Forecast AI",
       description:
-        "Industry 4.0 solutions that optimize production and reduce costs",
+        "Identifies trends and demand shifts early for proactive planning",
       image:
         "https://picsum.photos/id/1039/800/600",
-      cta: "Get Started",
-      ctaLink: "/manufacturing",
-      accent: "SmartFactory Pro",
-      accentPosition: "top-left",
+      cta: "Learn More",
+      ctaLink: "/forecast-ai",
+      // accent removed
+      // accentPosition removed
     },
     {
       id: 4,
-      title: "Enhance Finance with",
-      subtitle: "Intelligent Analytics",
+      title: "Delivering rapid outcomes for AI client projects –",
+      subtitle: "AI POD as a Service",
       description:
-        "Real-time insights and predictive modeling for better decisions",
+        "Agile focused flexible PODs that handles end-to-end application builds from UI/UX to scalable backends",
       image:
         "https://picsum.photos/id/1043/800/600",
-      cta: "Discover More",
-      ctaLink: "/finance",
-      accent: "FinanceAI Suite",
-      accentPosition: "bottom-right",
+      cta: "Learn More",
+      ctaLink: "/ai-pod-service",
+      // accent removed
+      // accentPosition removed
     },
   ];
 
@@ -166,15 +166,8 @@ const CarouselHero = () => {
                   className="flex items-center space-x-4"
                 >
                   <Link href={currentSlideData.ctaLink}>
-                    <Button
-                      variant="primary"
-                      size="lg"
-                      className="group relative overflow-hidden"
-                    >
-                      <span className="relative z-10">
-                        {currentSlideData.cta}
-                      </span>
-                      <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1 relative z-10" />
+                    <Button variant="primary" size="lg" className="group">
+                      <span>{currentSlideData.cta}</span>
                     </Button>
                   </Link>
 
@@ -284,26 +277,7 @@ const CarouselHero = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Brand Accent */}
-              <motion.div
-                key={`accent-${currentSlide}`}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className={`absolute ${
-                  currentSlideData.accentPosition === "top-right"
-                    ? "top-4 right-4"
-                    : currentSlideData.accentPosition === "top-left"
-                    ? "top-4 left-4"
-                    : currentSlideData.accentPosition === "bottom-left"
-                    ? "bottom-4 left-4"
-                    : "bottom-4 right-4"
-                } bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg`}
-              >
-                <Text size="sm" className="font-semibold text-gray-800">
-                  {currentSlideData.accent}
-                </Text>
-              </motion.div>
+              {/* Brand Accent removed */}
             </div>
 
             {/* Navigation Arrows */}

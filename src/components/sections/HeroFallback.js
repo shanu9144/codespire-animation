@@ -39,7 +39,7 @@ const HeroFallback = () => {
 
           {/* CTA Buttons without animations */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/contact">
+            <Link href="/schedule-demo">
               <Button 
                 variant="primary" 
                 size="lg"

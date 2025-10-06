@@ -10,7 +10,9 @@ import {
   Users, 
   Award,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Brain,
+  TrendingUp
 } from 'lucide-react';
 
 const WhyCodeSpire = () => {
@@ -49,62 +51,40 @@ const WhyCodeSpire = () => {
     }
   };
 
-  // Enhanced highlight data with reliable images
+  // Enhanced highlight data with new content
   const highlights = [
     {
       id: 1,
-      title: "Innovate",
-      subtitle: "Cutting-Edge AI Solutions",
-      description: "Unleash cutting-edge creativity to pioneer market-leading solutions with advanced AI technologies and innovative approaches.",
+      title: "Innovation",
+      subtitle: "AI POD as a Service",
+      description: "Driving transformation through AI POD as a Service and products like Smart RFQ AI, Supplier Match AI, and Forecast AI.",
       icon: Sparkles,
       image: "https://picsum.photos/id/1050/500/300",
-      fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EInnovate%3C/text%3E%3C/svg%3E",
+      fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EInnovation%3C/text%3E%3C/svg%3E",
       gradient: "from-blue-500 to-cyan-500",
       position: "left"
     },
     {
       id: 2,
-      title: "Engineer",
-      subtitle: "Enterprise-Grade Development",
-      description: "Achieve peak performance and optimize operational efficiency through meticulous digital engineering and robust architecture.",
-      icon: Code2,
+      title: "Intelligence",
+      subtitle: "Smart AI Solutions",
+      description: "Empowering smarter decisions with AI PODs and intelligent products that optimize data, supply chains, and business performance.",
+      icon: Brain,
       image: "https://picsum.photos/id/1051/500/300",
-      fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EEngineer%3C/text%3E%3C/svg%3E",
+      fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EIntelligence%3C/text%3E%3C/svg%3E",
       gradient: "from-purple-500 to-pink-500",
       position: "right"
     },
     {
       id: 3,
-      title: "Evolve",
-      subtitle: "Continuous Innovation",
-      description: "Change in the right direction to stay ahead in a dynamic digital world with adaptive solutions and future-ready technology.",
-      icon: Rocket,
+      title: "Impact",
+      subtitle: "Measurable Growth",
+      description: "Delivering measurable growth and efficiency through scalable AI solutions that turn innovation into lasting business value.",
+      icon: TrendingUp,
       image: "https://picsum.photos/id/1052/500/300",
-      fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EEvolve%3C/text%3E%3C/svg%3E",
+      fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EImpact%3C/text%3E%3C/svg%3E",
       gradient: "from-green-500 to-emerald-500",
       position: "left"
-    },
-    {
-      id: 4,
-      title: "Excellence",
-      subtitle: "Quality Assurance",
-      description: "Deliver exceptional results with rigorous testing, quality assurance, and enterprise-grade security standards.",
-      icon: Award,
-      image: "https://picsum.photos/id/1053/500/300",
-      fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EExcellence%3C/text%3E%3C/svg%3E",
-      gradient: "from-orange-500 to-red-500",
-      position: "right"
-    },
-    {
-      id: 5,
-      title: "Empower",
-      subtitle: "Team Collaboration",
-      description: "Enable teams with powerful tools, seamless collaboration, and comprehensive support for maximum productivity.",
-      icon: Users,
-      image: "https://picsum.photos/id/1054/500/300",
-      fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EEmpower%3C/text%3E%3C/svg%3E",
-      gradient: "from-teal-500 to-blue-500",
-      position: "center"
     }
   ];
 
@@ -139,10 +119,6 @@ const WhyCodeSpire = () => {
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
             
-            {/* Floating Icon */}
-            <div className={`absolute top-4 ${isLeft ? 'left-4' : 'right-4'} p-3 rounded-xl bg-gradient-to-r ${highlight.gradient} shadow-lg hover:scale-110 hover:rotate-3 transition-transform duration-200`}>
-              <Icon className="w-6 h-6 text-white" />
-            </div>
           </div>
 
           {/* Content Section */}
@@ -254,53 +230,43 @@ const WhyCodeSpire = () => {
   };
 
   return (
-    <section ref={sectionRef} className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 overflow-hidden">
+    <section ref={sectionRef} className="relative py-8 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 overflow-hidden">
       <AnimatedBackground />
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4 hover:scale-105 transition-transform">
-            <Zap className="w-4 h-4 mr-2" />
-            What We Do
+            <Zap className="w-6 h-6 mr-2 text-blue-600" />
+           <span className="text-blue-600 font-bold text-lg">What We Do</span>
           </div>
           
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Purposeful
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight md:leading-[1.15]">
+          Purpose AI Products and 
             <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Digital Engineering
+            Innovative Solutions
             </span>
           </h2>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Our approach is rooted in a deep understanding of today&apos;s challenges, 
-            enabling our clients to innovate for growth, engineer efficient solutions 
-            with precision, and evolve strategies to help our clients stay ahead of the curve.
+          Our approach is rooted in a deep understanding of today&apos;s challenges, enabling our clients with AI to innovate for growth, engineer efficient AI solutions with precision, and evolve strategies to help our clients stay ahead of the curve.
           </p>
         </div>
 
-        {/* Enhanced Cards Grid */}
+        {/* Enhanced Cards Grid - Only three cards with proper spacing */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={hasAnimated ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
         >
-          {highlights.slice(0, 4).map((highlight, index) => (
+          {highlights.slice(0, 3).map((highlight, index) => (
             <EnhancedCard
               key={highlight.id}
               highlight={highlight}
               index={index}
             />
           ))}
-          
-          {/* Center Card */}
-          <div className="md:col-span-2 flex justify-center mt-8">
-            <EnhancedCard
-              highlight={highlights[4]}
-              index={4}
-            />
-          </div>
         </motion.div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Rocket, Zap } from "lucide-react";
+import { Rocket, Zap } from "lucide-react";
 import Link from "next/link";
 import Button from "../ui/Button";
 import { Heading, Text } from "../ui/Typography";
@@ -60,94 +60,120 @@ const FinalCTABanner = () => {
       ref={ref}
       className="relative py-20 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent overflow-hidden"
     >
-      {/* Dynamic background elements */}
-      {config.enableGradients && (
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-primary/15" />
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-primary/5 to-primary/10" />
-        </div>
-      )}
+      {/* Subtle 3D-themed background (chip + neural network) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Soft radial glow behind headline */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(600px 300px at 50% 45%, rgba(56,75,255,0.18) 0%, rgba(139,92,246,0.12) 35%, rgba(56,75,255,0.06) 60%, rgba(56,75,255,0) 100%)",
+            filter: "blur(2px)",
+          }}
+        />
 
-      {/* Animated floating elements */}
-      {config.enableFloatingElements && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Large floating orb */}
-          <motion.div
-            className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
-            animate={
-              config.enableComplexAnimations
-                ? {
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.6, 0.3],
-                  }
-                : {}
-            }
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
+        <motion.svg
+          className="absolute top-8 left-6 opacity-35"
+          width="140" height="140" viewBox="0 0 140 140"
+          animate={config.enableComplexAnimations ? { rotate: [0, 8, 0] } : {}}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <defs>
+            <linearGradient id="ctaChip" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#384bff" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.45" />
+            </linearGradient>
+          </defs>
+          <rect x="25" y="25" width="90" height="90" rx="12" fill="url(#ctaChip)" />
+          <rect x="40" y="40" width="60" height="60" rx="8" stroke="url(#ctaChip)" strokeWidth="2" fill="none" />
+          {Array.from({ length: 8 }).map((_, i) => (
+            <rect key={i} x={14 + i * 14} y="12" width="5" height="14" fill="url(#ctaChip)" />
+          ))}
+        </motion.svg>
 
-          {/* Medium floating orb */}
-          <motion.div
-            className="absolute -bottom-16 -left-16 w-48 h-48 bg-primary/15 rounded-full blur-2xl"
-            animate={
-              config.enableComplexAnimations
-                ? {
-                    x: [0, 20, 0],
-                    y: [0, -15, 0],
-                    scale: [1, 1.1, 1],
-                  }
-                : {}
-            }
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2,
-            }}
+        <motion.svg
+          className="absolute bottom-8 right-10 opacity-35"
+          width="240" height="140" viewBox="0 0 200 120"
+          animate={config.enableComplexAnimations ? { y: [0, -8, 0] } : {}}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <defs>
+            <linearGradient id="ctaNet" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#384bff" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.6" />
+            </linearGradient>
+          </defs>
+          {[[20,60],[70,25],[70,95],[120,40],[120,80],[170,60]].map((p, idx) => (
+            <motion.circle key={idx} cx={p[0]} cy={p[1]} r="5" fill="url(#ctaNet)"
+              animate={{ r: [4.5, 6, 4.5], opacity: [0.6, 1, 0.6] }}
+              transition={{ duration: 2 + idx * 0.2, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          ))}
+          <motion.path d="M20 60 L70 25 L120 40 L170 60 M20 60 L70 95 L120 80 L170 60" stroke="url(#ctaNet)" strokeWidth="2" fill="none"
+            strokeDasharray="6 6"
+            animate={{ strokeDashoffset: [0, 12, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
           />
+        </motion.svg>
 
-          {/* Small accent elements */}
-          <motion.div
-            className="absolute top-1/3 left-1/4 w-8 h-8 bg-primary/30 rounded-full blur-sm"
-            animate={
-              config.enableComplexAnimations
-                ? {
-                    y: [0, -10, 0],
-                    opacity: [0.5, 1, 0.5],
-                  }
-                : {}
-            }
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-          />
+        {/* Rotating wireframe sphere */}
+        <motion.svg
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 opacity-25"
+          width="220" height="220" viewBox="0 0 200 200"
+          animate={config.enableComplexAnimations ? { rotate: 360 } : {}}
+          transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+        >
+          <defs>
+            <linearGradient id="wireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#384bff" stopOpacity="0.35" />
+            </linearGradient>
+          </defs>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="url(#wireGrad)" strokeWidth="1" />
+          {Array.from({ length: 5 }).map((_, i) => (
+            <ellipse key={`lat-${i}`} cx="100" cy="100" rx={80 - i * 12} ry={30 - i * 4} fill="none" stroke="url(#wireGrad)" strokeWidth="1" />
+          ))}
+          {Array.from({ length: 6 }).map((_, i) => (
+            <path key={`lon-${i}`} d={`M100 20 C ${100 + (i-3)*10} 60, ${100 + (i-3)*10} 140, 100 180`} fill="none" stroke="url(#wireGrad)" strokeWidth="1" />
+          ))}
+        </motion.svg>
 
-          <motion.div
-            className="absolute bottom-1/3 right-1/3 w-6 h-6 bg-primary/40 rounded-full blur-sm"
-            animate={
-              config.enableComplexAnimations
-                ? {
-                    y: [0, 8, 0],
-                    x: [0, 5, 0],
-                    opacity: [0.4, 0.8, 0.4],
-                  }
-                : {}
-            }
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 3,
-            }}
-          />
-        </div>
-      )}
+        {/* Particle trails */}
+        {config.enableComplexAnimations && (
+          <>
+            {[
+              { top: '30%', delay: 0 },
+              { top: '55%', delay: 0.6 },
+              { top: '70%', delay: 1.2 },
+            ].map((p, idx) => (
+              <motion.div
+                key={idx}
+                className="absolute h-1 w-24 rounded-full"
+                style={{
+                  top: p.top,
+                  left: '-10%',
+                  background:
+                    'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(139,92,246,0.55) 40%, rgba(34,211,238,0.55) 70%, rgba(255,255,255,0) 100%)',
+                  boxShadow: '0 0 16px rgba(139,92,246,0.35)',
+                }}
+                animate={{ x: ['-10%', '120%'] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: p.delay }}
+              />
+            ))}
+          </>
+        )}
+
+        {/* Moving light beam for added depth */}
+        <motion.div
+          className="absolute inset-y-0 w-1/2 -left-1/4"
+          animate={config.enableComplexAnimations ? { x: ["-25%", "125%", "-25%"] } : {}}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            background: 'linear-gradient(90deg, rgba(56,75,255,0) 0%, rgba(56,75,255,0.10) 50%, rgba(56,75,255,0) 100%)',
+            filter: 'blur(2px)'
+          }}
+        />
+      </div>
 
       <div className="relative z-10 container mx-auto px-4">
         <motion.div
@@ -174,6 +200,28 @@ const FinalCTABanner = () => {
               transition={{ duration: 0.3 }}
             >
               <Rocket className="w-12 h-12 text-primary" />
+
+            {/* Orbiting particles around icon */}
+            {config.enableComplexAnimations && (
+              <>
+                <motion.div
+                  className="absolute inset-0"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+                >
+                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_rgba(56,75,255,0.6)]" />
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-cyan-300 rounded-full shadow-[0_0_8px_rgba(34,211,238,0.6)]" />
+                </motion.div>
+                <motion.div
+                  className="absolute inset-0"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+                >
+                  <div className="absolute top-1/2 -left-1 w-1.5 h-1.5 bg-violet-400 rounded-full shadow-[0_0_8px_rgba(139,92,246,0.6)]" />
+                  <div className="absolute top-1/2 -right-1 w-1 h-1 bg-blue-300 rounded-full shadow-[0_0_6px_rgba(59,130,246,0.6)]" />
+                </motion.div>
+              </>
+            )}
 
               {/* Accent spark */}
               {config.enableComplexAnimations && (
@@ -203,7 +251,18 @@ const FinalCTABanner = () => {
               size="h1"
               className="mb-4 bg-gradient-to-r from-gray-900 via-primary to-gray-900 bg-clip-text text-transparent"
             >
-              Ready to accelerate your enterprise with AI?
+              <motion.span
+                animate={{
+                  textShadow: [
+                    '0 0 0px rgba(56,75,255,0)',
+                    '0 0 18px rgba(56,75,255,0.35)',
+                    '0 0 0px rgba(56,75,255,0)'
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                Ready to accelerate your enterprise with AI?
+              </motion.span>
             </Heading>
 
             <Text
@@ -217,60 +276,28 @@ const FinalCTABanner = () => {
             </Text>
           </motion.div>
 
-          {/* CTA Button with enhanced styling */}
-          <motion.div variants={itemVariants} className="flex justify-center">
-            <Link href="/contact">
+          {/* CTA Buttons */}
+          <motion.div variants={itemVariants} className="flex justify-center gap-4">
+            <Link href="/schedule-demo">
               <Button
                 variant="primary"
                 size="lg"
                 className="group relative overflow-hidden px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
               >
-                {/* Button background animation */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-primary to-primary-dark"
-                  whileHover={
-                    config.enableComplexAnimations
-                      ? {
-                          scale: 1.05,
-                        }
-                      : {}
-                  }
+                  whileHover={config.enableComplexAnimations ? { scale: 1.05 } : {}}
                   transition={{ duration: 0.2 }}
                 />
-
-                {/* Button content */}
-                <span className="relative z-10 flex items-center">
-                  Contact Us
-                  <motion.div
-                    className="ml-3"
-                    whileHover={
-                      config.enableComplexAnimations
-                        ? {
-                            x: 5,
-                          }
-                        : {}
-                    }
-                    transition={{ duration: 0.2 }}
-                  >
-                    <ArrowRight className="w-6 h-6" />
-                  </motion.div>
-                </span>
-
-                {/* Subtle shimmer effect */}
+                <span className="relative z-10">Contact Us</span>
                 {config.enableComplexAnimations && (
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"
-                    animate={{
-                      x: [-100, 300],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      repeatDelay: 3,
-                      ease: "easeInOut",
-                    }}
-                  />
+                  <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12" animate={{ x: [-100, 300] }} transition={{ duration: 2, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }} />
                 )}
+              </Button>
+            </Link>
+            <Link href="/schedule-demo">
+              <Button variant="secondary" size="lg" className="group px-8 py-4 text-lg font-semibold">
+                <span className="relative z-10 flex items-center">Schedule a Demo</span>
               </Button>
             </Link>
           </motion.div>

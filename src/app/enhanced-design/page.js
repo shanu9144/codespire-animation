@@ -3,7 +3,6 @@
 import React from 'react';
 import HeroWithLiquid from '../../components/sections/HeroWithLiquid';
 import StatsBanner from '../../components/sections/StatsBanner';
-import WhyCodeSpireWithLiquid from '../../components/sections/WhyCodeSpireWithLiquid';
 import IndustriesGrid from '../../components/sections/IndustriesGrid';
 import CodeSpireLiquidBackground from '../../components/backgrounds/CodeSpireLiquidBackground';
 
@@ -29,8 +28,7 @@ export default function EnhancedDesignPage() {
         <StatsBanner />
       </CodeSpireLiquidBackground>
       
-      {/* Enhanced Why CodeSpire Section */}
-      <WhyCodeSpireWithLiquid />
+      {/* Why CodeSpire section removed as requested */}
       
       {/* Industries Grid with Accent Background */}
       <CodeSpireLiquidBackground
