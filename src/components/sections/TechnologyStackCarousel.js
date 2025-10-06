@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { 
   Code2, 
   Database, 
@@ -137,8 +138,72 @@ const TechnologyStackCarousel = () => {
   });
 
   return (
-    <section className="py-16">
-      <div className="text-center mb-12">
+    <section className="py-8 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Floating code symbols */}
+        <motion.div
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 5, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-10 left-10 w-4 h-4 text-blue-400 opacity-30"
+        >
+          {'</>'}
+        </motion.div>
+        <motion.div
+          animate={{
+            y: [0, 15, 0],
+            rotate: [0, -3, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+          className="absolute top-20 right-16 w-3 h-3 text-purple-400 opacity-30"
+        >
+          {'{}'}
+        </motion.div>
+        <motion.div
+          animate={{
+            y: [0, -10, 0],
+            x: [0, 5, 0],
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+          className="absolute bottom-20 left-20 w-2 h-2 text-cyan-400 opacity-30"
+        >
+          {'AI'}
+        </motion.div>
+        <motion.div
+          animate={{
+            y: [0, 12, 0],
+            rotate: [0, 8, 0],
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3
+          }}
+          className="absolute bottom-10 right-20 w-3 h-3 text-green-400 opacity-30"
+        >
+          {'ML'}
+        </motion.div>
+      </div>
+
+      <div className="text-center mb-8 relative z-10">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
           Our Technology Stack
         </h2>
