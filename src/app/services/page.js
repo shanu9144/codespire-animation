@@ -440,7 +440,7 @@ const ServicesPage = () => {
                   Ready to Deploy Your AI Strike Team?
                 </h3>
                 <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                  Let's discuss how AI PODs can accelerate your AI initiatives and drive measurable business outcomes.
+              Let&apos;s discuss how AI PODs can accelerate your AI initiatives and drive measurable business outcomes.
                 </p>
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
@@ -579,7 +579,7 @@ const ServicesPage = () => {
               Ready to Transform Your Business with AI?
             </h2>
             <p className="text-xl md:text-2xl text-gray-600 mb-10 md:mb-12 max-w-2xl md:max-w-3xl mx-auto leading-relaxed">
-              Let's discuss how our AI services can accelerate your digital transformation 
+              Let&apos;s discuss how our AI services can accelerate your digital transformation 
               and drive measurable business outcomes.
             </p>
             
