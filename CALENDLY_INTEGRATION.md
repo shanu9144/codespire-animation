@@ -112,3 +112,4 @@ If you encounter any issues with the Calendly integration:
 ---
 
 **Note**: This integration is ready to use once you provide your Calendly URL. The placeholder UI will automatically be replaced with the actual booking widget.
+
