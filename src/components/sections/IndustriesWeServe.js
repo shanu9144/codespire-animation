@@ -18,47 +18,47 @@ const industries = [
   {
     id: 'manufacturing',
     title: 'Manufacturing',
-    description: 'Smart automation and AI-driven optimization for modern manufacturing processes',
+    description: 'Transform production with smart RFQ automation, supplier and predictive intelligence that enhance quality, efficiency, and reliability across every process.',
     icon: Factory,
     color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1060/400/300',
-    features: ['Process Automation', 'Quality Control', 'Predictive Maintenance']
+    features: ['RFQ Process Optimization', 'Supplier Match Intelligence', 'Predictive Forecasting']
   },
   {
     id: 'hitech',
     title: 'Hi-Tech',
-    description: 'Cutting-edge AI solutions for technology companies and digital transformation',
+    description: 'Accelerate innovation with cutting-edge AI that drives digital transformation, product intelligence, and smarter technology ecosystems.',
     icon: Cpu,
     color: 'from-purple-500 to-pink-500',
     image: 'https://picsum.photos/id/1061/400/300',
-    features: ['Digital Innovation', 'AI Integration', 'Tech Optimization']
+    features: ['Digital Acceleration', 'AI Integration', 'System Optimization']
   },
   {
     id: 'bfsi',
     title: 'BFSI',
-    description: 'Banking, Financial Services & Insurance solutions with AI-powered insights',
+    description: 'Strengthen decision-making with AI-driven risk, fraud, and customer analytics for a smarter, more resilient financial ecosystem.',
     icon: Building2,
     color: 'from-green-500 to-emerald-500',
     image: 'https://picsum.photos/id/1070/400/300',
-    features: ['Risk Management', 'Fraud Detection', 'Customer Analytics']
+    features: ['Risk Intelligence', 'Fraud Detection', 'Customer Insights']
   },
   {
     id: 'defense',
     title: 'Public Sector & Defense',
-    description: 'Secure, compliant AI systems for government and defense applications',
+    description: 'Build secure, compliant, and adaptive AI systems that enhance strategic operations, surveillance, and national intelligence.',
     icon: Shield,
     color: 'from-red-500 to-orange-500',
     image: 'https://picsum.photos/id/1063/400/300',
-    features: ['Security Systems', 'Compliance', 'Strategic Intelligence']
+    features: ['Strategic Intelligence', 'Compliance Automation', 'Secure AI Infrastructure']
   },
   {
     id: 'healthcare',
     title: 'Healthcare & Life Sciences',
-    description: 'AI-powered healthcare solutions improving patient outcomes and operational efficiency',
+    description: 'Empower better outcomes with AI-powered medical insights, accelerating diagnosis, discovery, and personalized care.',
     icon: Heart,
     color: 'from-teal-500 to-blue-500',
     image: 'https://picsum.photos/id/1064/400/300',
-    features: ['Patient Care', 'Medical Analytics', 'Drug Discovery']
+    features: ['Patient Insights', 'Predictive Analytics', 'Drug Discovery']
   }
 ];
 
@@ -124,13 +124,13 @@ const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
   return (
     <motion.div
       variants={cardVariants}
-      className="relative group"
+      className="relative group h-full"
       onMouseEnter={() => onHover(index)}
       onMouseLeave={onLeave}
     >
       {/* Card */}
       <motion.div
-        className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-gray-100 h-full transition-all duration-300"
+        className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-gray-100 h-full transition-all duration-300 flex flex-col"
         whileHover={{ 
           y: -4,
           scale: 1.02,
@@ -139,10 +139,10 @@ const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
       >
         {/* Header with Icon */}
-        <div className="relative p-6 pb-4">
+        <div className="relative p-6 pb-4 min-h-[200px] flex flex-col">
           <motion.div
             variants={iconVariants}
-            className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${industry.color} mb-4 shadow-sm`}
+            className={`inline-flex h-12 w-12 items-center justify-center p-3 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 mb-4 shadow-sm`}
             whileHover={{ 
               scale: 1.05, 
               rotate: 2,
@@ -155,21 +155,21 @@ const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
           
           <motion.h3 
             variants={textVariants}
-            className="text-xl font-semibold text-gray-900 mb-3"
+            className="text-xl font-semibold text-gray-900 mb-3 min-h-[28px] flex items-center"
           >
             {industry.title}
           </motion.h3>
           
           <motion.p 
             variants={textVariants}
-            className="text-gray-600 text-sm leading-relaxed"
+            className="text-gray-600 text-sm leading-relaxed min-h-20"
           >
             {industry.description}
           </motion.p>
         </div>
 
         {/* Image Section */}
-        <div className="relative h-40 overflow-hidden">
+        <div className="relative h-44 overflow-hidden">
           <motion.img
             src={industry.image}
             alt={industry.title}
@@ -186,7 +186,7 @@ const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
         </div>
 
         {/* Features */}
-        <div className="p-6 pt-4">
+        <div className="p-6 pt-4 mt-auto">
           <motion.div
             variants={textVariants}
             className="space-y-3"
@@ -194,13 +194,13 @@ const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
             {industry.features.map((feature, idx) => (
               <motion.div
                 key={feature}
-                className="flex items-center text-sm text-gray-600"
+                className="flex items-center text-sm text-blue-600"
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: 0.4 + idx * 0.1 }}
               >
                 <motion.div 
-                  className={`w-2 h-2 rounded-full bg-gradient-to-r ${industry.color} mr-3`}
+                  className={`w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 mr-3`}
                   whileHover={{ scale: 1.2 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 />
@@ -371,7 +371,7 @@ export default function IndustriesWeServe() {
 
         {/* Industries Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
