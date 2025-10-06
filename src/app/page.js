@@ -15,6 +15,9 @@ export default function Home() {
       {/* Modern Carousel Hero */}
       <CarouselHero />
 
+      {/* Technology Stack Carousel */}
+      <TechnologyStackCarousel />
+
       {/* Stats with subtle animation */}
       <OptimizedLiquidBackground variant="section" intensity="low">
         <Wrapper>
@@ -53,11 +56,6 @@ export default function Home() {
           <IndustriesWeServe />
         </div>
       </Wrapper>
-
-      {/* Technology Stack Carousel */}
-      <TechnologyStackCarousel />
-
-
 
       {/* Infinite Icon Carousel */}
       <InfiniteIconCarousel />
