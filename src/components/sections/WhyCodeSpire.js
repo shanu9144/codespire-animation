@@ -242,7 +242,7 @@ const WhyCodeSpire = () => {
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight md:leading-[1.15]">
-          Purpose AI Products and 
+          Purposeful AI Products and 
             <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Innovative Solutions
             </span>

@@ -101,7 +101,7 @@ const Header = () => {
           {/* Header Center - Desktop Navigation */}
           <div className="hidden md:flex flex-1 justify-end pr-4 lg:pr-6">
             <ul className="flex items-center gap-6 lg:gap-8 text-gray-700 font-medium">
-              {menuItems.filter((item) => !(item.label === "Home" && pathname === "/")).map((item) => (
+              {menuItems.map((item) => (
                 <li key={item.href} className="relative group cursor-pointer">
                   {item.children ? (
                     <>
@@ -177,7 +177,7 @@ const Header = () => {
               className="md:hidden overflow-hidden"
             >
               <div className="py-6 space-y-2 border-t border-gray-100">
-                {menuItems.filter((item) => !(item.label === "Home" && pathname === "/")).map((item, index) => (
+                {menuItems.map((item, index) => (
                   <motion.div
                     key={item.href}
                     initial={{ opacity: 0, x: -20 }}

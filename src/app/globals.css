@@ -144,6 +144,19 @@ body {
   font-weight: 400;
 }
 
+/* Multi-line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Balance text across lines for better two-line layout without truncation */
+.text-balance {
+  text-wrap: balance;
+}
+
 /* Enhanced text utilities */
 .text-gradient {
   background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
@@ -174,6 +187,14 @@ textarea:focus,
 select:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
+}
+
+/* Remove blue focus outline specifically for carousel arrow buttons */
+.carousel-arrow:focus,
+.carousel-arrow:focus-visible,
+.carousel-arrow:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Selection styles */

@@ -82,11 +82,12 @@ const TechnologyStackCarousel = React.memo(() => {
   return (
     <section className="py-4">
       <div className="text-center mb-6">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <h2 className="text-4xl font-bold text-blue-600 mb-4 ">
           Our Technology Stack
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Cutting-edge technologies and frameworks we use to build innovative AI solutions
+        <p className="text-lg font-bold text-black-700 max-w-2xl mx-auto">Cutting-edge technologies and</p>
+        <p className="text-lg font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-tight max-w-2xl mx-auto ">
+           Frameworks for Innovative AI Solutions
         </p>
       </div>
       

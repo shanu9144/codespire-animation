@@ -17,7 +17,7 @@ const industries = [
   {
     id: 'manufacturing',
     title: 'Manufacturing',
-    description: 'Transform production with smart RFQ automation, supplier and predictive intelligence that enhance quality, efficiency, and reliability across every process.',
+    description: 'Automate RFQs, predict demand, improve supplier quality.',
     icon: Factory,
     color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1060/400/300',
@@ -26,7 +26,7 @@ const industries = [
   {
     id: 'hitech',
     title: 'Hi-Tech',
-    description: 'Accelerate innovation with cutting-edge AI that drives digital transformation, product intelligence, and smarter technology ecosystems.',
+    description: 'Drive innovation with AI and smarter digital ecosystems.',
     icon: Cpu,
     color: 'from-purple-500 to-pink-500',
     image: 'https://picsum.photos/id/1061/400/300',
@@ -35,7 +35,7 @@ const industries = [
   {
     id: 'bfsi',
     title: 'BFSI',
-    description: 'Strengthen decision-making with AI-driven risk, fraud, and customer analytics for a smarter, more resilient financial ecosystem.',
+    description: 'Enhance decisions with AI for risk and fraud.',
     icon: Building2,
     color: 'from-green-500 to-emerald-500',
     image: 'https://picsum.photos/id/1070/400/300',
@@ -44,7 +44,7 @@ const industries = [
   {
     id: 'defense',
     title: 'Public Sector & Defense',
-    description: 'Build secure, compliant, and adaptive AI systems that enhance strategic operations, surveillance, and national intelligence.',
+    description: 'Secure operations using compliant and adaptive AI systems.',
     icon: Shield,
     color: 'from-red-500 to-orange-500',
     image: 'https://picsum.photos/id/1063/400/300',
@@ -53,13 +53,14 @@ const industries = [
   {
     id: 'healthcare',
     title: 'Healthcare & Life Sciences',
-    description: 'Empower better outcomes with AI-powered medical insights, accelerating diagnosis, discovery, and personalized care.',
+    description: 'Accelerate diagnosis, discovery, and personalized patient care.',
     icon: Heart,
     color: 'from-teal-500 to-blue-500',
     image: 'https://picsum.photos/id/1064/400/300',
     features: ['Patient Insights', 'Predictive Analytics', 'Drug Discovery']
   }
 ];
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -127,7 +128,7 @@ const IndustryCard = ({ industry }) => {
     >
       {/* Card */}
       <motion.div
-        className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-gray-100 h-full transition-all duration-300 flex flex-col"
+        className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-gray-100 h-full transition-all duration-300 flex flex-col min-h-[620px]"
         whileHover={{ 
           y: -4,
           scale: 1.02,
@@ -287,7 +288,7 @@ export default function IndustriesWeServe() {
   
 
   return (
-    <section className="relative py-16 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+    <section className="relative pt-16 pb-12 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
       <FloatingElements />
       <ParticleField />
       

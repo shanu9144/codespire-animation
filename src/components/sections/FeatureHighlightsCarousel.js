@@ -123,10 +123,11 @@ const FeatureHighlightsCarousel = () => {
 
   return (
     <section className="py-16">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
+      <div className="text-center mb-6">
+        <h2 className="text-3xl font-bold text-blue-600 mb-4">
           Why Choose CodeSpire?
         </h2>
+        <p className="text-lg font-bold bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent max-w-2xl mx-auto">Our trusted partner in AI journey</p>
       </div>
       
       <InfiniteCarousel
