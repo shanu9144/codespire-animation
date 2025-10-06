@@ -132,8 +132,33 @@ const StatsBanner = () => {
   return (
     <section 
       ref={ref}
-      className="relative py-4 bg-gray-50 overflow-hidden"
+      className="relative py-4 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/40 overflow-hidden"
     >
+      {/* Clean animated background with floating tech elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Floating tech icons */}
+        <div className="absolute top-10 left-8 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center animate-bounce opacity-20">
+          <span className="text-blue-600 font-bold text-sm">⚡</span>
+        </div>
+        <div className="absolute top-20 right-12 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center animate-pulse opacity-15">
+          <span className="text-purple-600 text-xs">🔗</span>
+        </div>
+        <div className="absolute top-32 left-1/4 w-7 h-7 bg-green-100 rounded-lg flex items-center justify-center animate-ping opacity-10">
+          <span className="text-green-600 text-sm">💻</span>
+        </div>
+        <div className="absolute top-16 right-1/3 w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center animate-bounce opacity-20" style={{ animationDelay: '1s' }}>
+          <span className="text-orange-600 text-xs">⚙️</span>
+        </div>
+        <div className="absolute top-24 left-1/2 w-6 h-6 bg-indigo-100 rounded-lg flex items-center justify-center animate-pulse opacity-15" style={{ animationDelay: '2s' }}>
+          <span className="text-indigo-600 text-xs">🌐</span>
+        </div>
+        <div className="absolute top-40 right-8 w-4 h-4 bg-pink-100 rounded-full flex items-center justify-center animate-ping opacity-10" style={{ animationDelay: '3s' }}>
+          <span className="text-pink-600 text-xs">🚀</span>
+        </div>
+        
+        {/* Subtle gradient overlay to enhance the theme */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-indigo-50/15"></div>
+      </div>
       <div className="relative z-10 container mx-auto px-4">
         {/* Technology Stack Section */}
         <motion.div
