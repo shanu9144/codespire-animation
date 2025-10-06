@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 /**
  * InfiniteCarousel - A flexible infinite scrolling carousel component
  * Can be used for icons, logos, text, or any other content
  */
-const InfiniteCarousel = ({ 
+const InfiniteCarousel = React.memo(({ 
   items, 
   speed = 15, 
   direction = 'left',
@@ -20,13 +20,22 @@ const InfiniteCarousel = ({
 }) => {
   const [isPaused, setIsPaused] = useState(false);
   
-  // Duplicate items for seamless loop
-  const duplicatedItems = [...items, ...items];
+  // Memoize duplicated items to prevent recreation
+  const duplicatedItems = useMemo(() => [...items, ...items], [items]);
   
-  // Animation direction
-  const animationX = direction === 'left' 
+  // Memoize animation direction
+  const animationX = useMemo(() => direction === 'left' 
     ? [0, -100 * items.length] 
-    : [-100 * items.length, 0];
+    : [-100 * items.length, 0], [direction, items.length]);
+  
+  // Memoize event handlers
+  const handleMouseEnter = useCallback(() => {
+    if (pauseOnHover) setIsPaused(true);
+  }, [pauseOnHover]);
+  
+  const handleMouseLeave = useCallback(() => {
+    if (pauseOnHover) setIsPaused(false);
+  }, [pauseOnHover]);
 
   return (
     <div className={`relative w-full overflow-hidden bg-gradient-to-r from-gray-50 to-white py-12 ${className}`}>
@@ -55,30 +64,23 @@ const InfiniteCarousel = ({
         style={{
           width: `${duplicatedItems.length * 140}px`,
         }}
-        onMouseEnter={() => pauseOnHover && setIsPaused(true)}
-        onMouseLeave={() => pauseOnHover && setIsPaused(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         {duplicatedItems.map((item, index) => (
-          <motion.div
+          <div
             key={index}
-            className={`flex-shrink-0 ${itemClassName}`}
-            whileHover={{
-              scale: 1.05,
-              y: -3,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 400,
-              damping: 25,
-            }}
+            className={`flex-shrink-0 ${itemClassName} transition-transform duration-200 hover:scale-105`}
           >
             {item}
-          </motion.div>
+          </div>
         ))}
       </motion.div>
     </div>
   );
-};
+});
+
+InfiniteCarousel.displayName = 'InfiniteCarousel';
 
 export default InfiniteCarousel;
 

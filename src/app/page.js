@@ -5,8 +5,6 @@ import WhyCodeSpire from "../components/sections/WhyCodeSpire";
 import FinalCTABanner from "../components/sections/FinalCTABanner";
 import OptimizedLiquidBackground from "../components/backgrounds/OptimizedLiquidBackground";
 import IndustriesWeServe from "../components/sections/IndustriesWeServe";
-import InfiniteIconCarousel from "../components/ui/InfiniteIconCarousel";
-import TechnologyStackCarousel from "../components/sections/TechnologyStackCarousel";
 import FeatureHighlightsCarousel from "../components/sections/FeatureHighlightsCarousel";
 import Wrapper from "../components/ui/Wrapper";
 
@@ -27,7 +25,7 @@ export default function Home() {
 
       {/* Why CodeSpire - UI only, no liquid background */}
       <Wrapper>
-        <div className="space-section">
+        <div className="py-4">
           <WhyCodeSpire />
         </div>
       </Wrapper>
@@ -55,15 +53,11 @@ export default function Home() {
         </div>
       </Wrapper>
 
-      {/* Technology Stack Carousel */}
-      <TechnologyStackCarousel />
 
 
       {/* Feature Highlights Carousel */}
       <FeatureHighlightsCarousel />
 
-      {/* Infinite Icon Carousel */}
-      <InfiniteIconCarousel />
     </div>
   );
 }

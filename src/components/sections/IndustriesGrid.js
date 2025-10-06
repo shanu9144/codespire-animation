@@ -154,7 +154,7 @@ const IndustriesGrid = () => {
           className="text-center mb-12 sm:mb-16"
         >
           <Heading level={2} size="h1" className="mb-6">
-            Industries We <span className="text-primary">Serve</span>
+            Industries We <span className="text-blue-600">Serve</span>
           </Heading>
           <Text 
             size="body-lg" 

@@ -209,22 +209,6 @@ const IndustryCard = ({ industry, index, isHovered, onHover, onLeave }) => {
             ))}
           </motion.div>
 
-          {/* CTA Button */}
-          <motion.button
-            className="mt-6 w-full flex items-center justify-center px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-lg text-sm font-medium text-gray-700 transition-all duration-300 group border border-gray-200 hover:border-gray-300"
-            whileHover={{ scale: 1.02, y: -1 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-          >
-            Learn More
-            <motion.div
-              className="ml-2"
-              whileHover={{ x: 2 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              <ArrowRight className="w-4 h-4" />
-            </motion.div>
-          </motion.button>
         </div>
       </motion.div>
     </motion.div>
@@ -367,8 +351,9 @@ export default function IndustriesWeServe() {
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <Zap className="w-4 h-4 mr-2" />
-            Industries We Serve
+            <Zap className="w-6 h-6 mr-2 text-blue-600" />
+            <span className="text-blue-600 font-bold text-lg">Industries We Serve</span>
+            
           </motion.div>
           
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">

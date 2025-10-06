@@ -17,53 +17,53 @@ const CarouselHero = () => {
   const slides = [
     {
       id: 1,
-      title: "Revolutionize EV Batteries with",
-      subtitle: "Next-gen Precision",
+      title: "Transforming RFQ Management with AI –",
+      subtitle: "Smart RFQ AI",
       description:
-        "Unlock speed, scale, and compliance with R Systems & SyncoraDMP",
+        "Intelligent Quoting for Modern Manufacturing",
       image:
         "https://picsum.photos/id/1050/800/600",
       cta: "Learn More",
-      ctaLink: "/ev-batteries",
+      ctaLink: "/smart-rfq-ai",
       // accent removed
       // accentPosition removed
     },
     {
       id: 2,
-      title: "Transform Healthcare with",
-      subtitle: "AI-Powered Diagnostics",
+      title: "Ready for Smart Sourcing? –",
+      subtitle: "Supplier Match AI",
       description:
-        "Advanced machine learning for faster, more accurate medical insights",
+        "Smart Supplier Selection",
       image:
         "https://picsum.photos/id/1051/800/600",
       cta: "Learn More",
-      ctaLink: "/healthcare",
+      ctaLink: "/supplier-match-ai",
       // accent removed
       // accentPosition removed
     },
     {
       id: 3,
-      title: "Accelerate Manufacturing with",
-      subtitle: "Smart Automation",
+      title: "Smarter Inventory and Sales Planning with",
+      subtitle: "Forecast AI",
       description:
-        "Industry 4.0 solutions that optimize production and reduce costs",
+        "Identifies trends and demand shifts early for proactive planning",
       image:
         "https://picsum.photos/id/1039/800/600",
       cta: "Learn More",
-      ctaLink: "/manufacturing",
+      ctaLink: "/forecast-ai",
       // accent removed
       // accentPosition removed
     },
     {
       id: 4,
-      title: "Enhance Finance with",
-      subtitle: "Intelligent Analytics",
+      title: "Delivering rapid outcomes for AI client projects –",
+      subtitle: "AI POD as a Service",
       description:
-        "Real-time insights and predictive modeling for better decisions",
+        "Agile focused flexible PODs that handles end-to-end application builds from UI/UX to scalable backends",
       image:
         "https://picsum.photos/id/1043/800/600",
       cta: "Learn More",
-      ctaLink: "/finance",
+      ctaLink: "/ai-pod-service",
       // accent removed
       // accentPosition removed
     },
