@@ -48,9 +48,7 @@ export default function Home() {
 
       {/* Industries with enhanced animations */}
       <Wrapper>
-        <div className="space-section">
-          <IndustriesWeServe />
-        </div>
+        <IndustriesWeServe />
       </Wrapper>
 
 

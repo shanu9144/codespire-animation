@@ -89,7 +89,7 @@ const InvisibleMagneticCursor = ({
         activeMagneticElement.style.transform = '';
       }
     };
-  }, [disabled, handleMouseMove, updateMagneticElements, activeMagneticElement]);
+  }, [disabled]); // Only depend on disabled state
   
   // This component renders nothing visible
   return null;

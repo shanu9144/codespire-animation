@@ -107,7 +107,7 @@ const AnimationLoader = ({ onAnimationsLoaded }) => {
 
     // Cleanup
     return () => clearInterval(interval);
-  }, [onAnimationsLoaded]);
+  }, []); // Remove onAnimationsLoaded dependency to prevent infinite loops
 
   // This component doesn't render anything visible
   return null;
