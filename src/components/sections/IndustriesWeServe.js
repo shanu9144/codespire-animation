@@ -136,7 +136,7 @@ const IndustryCard = ({ industry }) => {
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
       >
         {/* Fixed-height Image */}
-        <div className="w-full h-32 overflow-hidden">
+        <div className="w-full h-40 overflow-hidden">
           <motion.img
             src={industry.image}
             alt={industry.title}
