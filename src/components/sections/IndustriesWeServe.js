@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
  
 import { 
@@ -8,9 +9,7 @@ import {
   Building2, 
   Shield, 
   Heart,
-  Zap,
-  TrendingUp,
-  Users
+  Zap
 } from 'lucide-react';
 
 const industries = [
@@ -28,7 +27,7 @@ const industries = [
     title: 'Hi-Tech',
     description: 'Drive innovation with AI and smarter digital ecosystems.',
     icon: Cpu,
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1061/400/300',
     features: ['Digital Acceleration', 'AI Integration', 'System Optimization']
   },
@@ -37,7 +36,7 @@ const industries = [
     title: 'BFSI',
     description: 'Enhance decisions with AI for risk and fraud.',
     icon: Building2,
-    color: 'from-green-500 to-emerald-500',
+    color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1070/400/300',
     features: ['Risk Intelligence', 'Fraud Detection', 'Customer Insights']
   },
@@ -46,7 +45,7 @@ const industries = [
     title: 'Public Sector & Defense',
     description: 'Secure operations using compliant and adaptive AI systems.',
     icon: Shield,
-    color: 'from-red-500 to-orange-500',
+    color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1063/400/300',
     features: ['Strategic Intelligence', 'Compliance Automation', 'Secure AI Infrastructure']
   },
@@ -55,7 +54,7 @@ const industries = [
     title: 'Healthcare & Life Sciences',
     description: 'Accelerate diagnosis, discovery, and personalized patient care.',
     icon: Heart,
-    color: 'from-teal-500 to-blue-500',
+    color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1064/400/300',
     features: ['Patient Insights', 'Predictive Analytics', 'Drug Discovery']
   }
@@ -128,7 +127,7 @@ const IndustryCard = ({ industry }) => {
     >
       {/* Card */}
       <motion.div
-        className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-gray-100 h-full transition-all duration-300 flex flex-col min-h-[620px]"
+        className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-gray-100 h-full transition-all duration-300 flex flex-col min-h-[480px]"
         whileHover={{ 
           y: -4,
           scale: 1.02,
@@ -137,7 +136,7 @@ const IndustryCard = ({ industry }) => {
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
       >
         {/* Fixed-height Image */}
-        <div className="w-full h-40 overflow-hidden">
+        <div className="w-full h-32 overflow-hidden">
           <motion.img
             src={industry.image}
             alt={industry.title}
@@ -148,7 +147,7 @@ const IndustryCard = ({ industry }) => {
         </div>
 
         {/* Content */}
-        <div className="flex-1 p-6 flex flex-col gap-3">
+        <div className="flex-1 p-4 flex flex-col gap-2">
           <motion.div variants={iconVariants} className={`inline-flex h-10 w-10 items-center justify-center rounded-md bg-gradient-to-r ${industry.color}`}>
             <Icon className="w-5 h-5 text-white" />
           </motion.div>
@@ -157,7 +156,7 @@ const IndustryCard = ({ industry }) => {
         </div>
 
         {/* Bullet list */}
-        <ul className="p-6 pt-0 space-y-2 mt-auto">
+        <ul className="p-4 pt-0 space-y-1.5 mt-auto">
           {industry.features.map((feature) => (
             <li key={feature} className="flex items-center text-sm text-blue-600">
               <span className="w-2 h-2 rounded-full bg-blue-500 mr-3"></span>
@@ -246,14 +245,25 @@ const FloatingElements = () => {
 };
 
 const ParticleField = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Use fixed positions for SSR, random for client
   const particles = Array.from({ length: 8 }, (_, i) => ({
     id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    duration: Math.random() * 8 + 6,
-    delay: Math.random() * 3,
+    x: isClient ? Math.random() * 100 : (i * 12.5), // Fixed positions for SSR
+    y: isClient ? Math.random() * 100 : (i * 10 + 20), // Fixed positions for SSR
+    size: isClient ? Math.random() * 3 + 1 : 2, // Fixed size for SSR
+    duration: isClient ? Math.random() * 8 + 6 : 7, // Fixed duration for SSR
+    delay: isClient ? Math.random() * 3 : i * 0.3, // Fixed delay for SSR
   }));
+
+  if (!isClient) {
+    return null; // Don't render particles during SSR
+  }
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -288,7 +298,7 @@ export default function IndustriesWeServe() {
   
 
   return (
-    <section className="relative pt-16 pb-12 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+    <section className="relative pt-16 pb-6 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
       <FloatingElements />
       <ParticleField />
       
@@ -340,31 +350,6 @@ export default function IndustriesWeServe() {
           ))}
         </motion.div>
 
-        {/* Stats Section */}
-        <motion.div
-          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          {[
-            { icon: TrendingUp, value: '500+', label: 'Projects Delivered' },
-            { icon: Users, value: '50+', label: 'Industry Experts' },
-            { icon: Zap, value: '99%', label: 'Client Satisfaction' }
-          ].map((stat) => (
-            <motion.div
-              key={stat.label}
-              className="text-center p-6 bg-white rounded-lg shadow-sm border border-gray-100"
-              whileHover={{ y: -2, scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            >
-              <stat.icon className="w-6 h-6 text-blue-600 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
-              <div className="text-gray-600 text-sm">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

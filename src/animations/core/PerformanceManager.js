@@ -373,6 +373,33 @@ class PerformanceManager {
       performanceWarning: []
     };
   }
+
+  /**
+   * Whether performance metrics collection is enabled
+   * Used by LoadingManager to decide if it should record metrics.
+   * @returns {boolean}
+   */
+  isEnabled() {
+    // Enable in browser context when initialized or monitoring
+    if (typeof window === 'undefined') return false;
+    return this.isInitialized || this.isMonitoring;
+  }
+
+  /**
+   * Record a performance metric event
+   * @param {string} name - Metric name
+   * @param {Object} payload - Metric data
+   */
+  recordMetric(name, payload) {
+    try {
+      // In a real app, send to analytics endpoint; for now, log safely
+      // Avoid noisy logs in production by gating on console level if needed
+      // eslint-disable-next-line no-console
+      console.debug('[PerformanceMetric]', name, payload);
+    } catch {
+      // Swallow logging errors to avoid breaking app flow
+    }
+  }
 }
 
 // Export singleton instance

@@ -208,7 +208,7 @@ import { useState, useEffect } from "react";
 
 export const useAnimationPerformance = () => {
   const monitor = getPerformanceMonitor();
-  const [config, setConfig] = useState(monitor.getPerformanceConfig());
+  const [config, setConfig] = useState(() => monitor.getPerformanceConfig());
 
   useEffect(() => {
     // Only run in browser environment
@@ -247,7 +247,7 @@ export const useAnimationPerformance = () => {
         mediaQuery.removeListener(handleChange);
       }
     };
-  }, [monitor]);
+  }, []); // Remove monitor dependency to prevent infinite loops
 
   return {
     config,

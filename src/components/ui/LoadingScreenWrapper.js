@@ -5,7 +5,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import SimpleLoadingScreen from './SimpleLoadingScreen';
 import AnimationLoader from './AnimationLoader';
 
@@ -32,9 +32,9 @@ const LoadingScreenWrapper = ({ children }) => {
     setShowLoadingScreen(false);
   };
 
-  const handleAnimationsLoaded = (loadedSystems) => {
+  const handleAnimationsLoaded = useCallback((loadedSystems) => {
     console.log('Animations loaded:', loadedSystems);
-  };
+  }, []);
 
   return (
     <>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { 
   Zap, 
@@ -14,6 +14,7 @@ import {
   Brain,
   TrendingUp
 } from 'lucide-react';
+import InfiniteCarousel from '../ui/InfiniteCarousel';
 
 const WhyCodeSpire = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -50,6 +51,28 @@ const WhyCodeSpire = () => {
       }
     }
   };
+
+  // Marquee items for the section (pills)
+  const marqueeItems = useMemo(() => [
+    { label: 'Trusted AI Partner', Icon: Shield },
+    { label: 'End-to-End Execution', Icon: Rocket },
+    { label: 'AI POD as a Service', Icon: Sparkles },
+    { label: 'MLOps & Governance', Icon: Code2 },
+    { label: 'Enterprise Security', Icon: Shield },
+    { label: 'Faster Time-to-Value', Icon: TrendingUp },
+    { label: 'Human-in-the-Loop', Icon: Users },
+    { label: 'Proven Outcomes', Icon: Award }
+  ], []);
+
+  const marqueeNodes = useMemo(() => marqueeItems.map((item, idx) => (
+    <div
+      key={`marquee-pill-${idx}`}
+      className="px-4 py-2 bg-white/80 backdrop-blur border border-gray-200 rounded-full flex items-center gap-2 shadow-sm"
+    >
+      <item.Icon className="w-4 h-4 text-blue-600" />
+      <span className="text-sm font-medium text-gray-700">{item.label}</span>
+    </div>
+  )), [marqueeItems]);
 
   // Enhanced highlight data with new content
   const highlights = [
@@ -248,9 +271,24 @@ const WhyCodeSpire = () => {
             </span>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
           Our approach is rooted in a deep understanding of today&apos;s challenges, enabling our clients with AI to innovate for growth, engineer efficient AI solutions with precision, and evolve strategies to help our clients stay ahead of the curve.
           </p>
+        </div>
+
+        {/* Infinite marquee under the header */}
+        <div className="mb-12">
+          <InfiniteCarousel
+            items={marqueeNodes}
+            speed={40}
+            direction="left"
+            pauseOnHover={true}
+            className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl"
+            itemClassName=""
+            containerClassName=""
+            showGradients={true}
+            gradientSize="w-24"
+          />
         </div>
 
         {/* Enhanced Cards Grid - Only three cards with proper spacing */}

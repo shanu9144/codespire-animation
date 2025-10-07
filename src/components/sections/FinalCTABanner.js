@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { Rocket, Zap } from "lucide-react";
 import Link from "next/link";
@@ -10,12 +10,18 @@ import { useAnimationPerformance } from "../../lib/performance";
 
 const FinalCTABanner = () => {
   const { config, shouldReduceAnimations } = useAnimationPerformance();
+  const [isClient, setIsClient] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
     threshold: 0.3,
     margin: "-50px 0px",
   });
+
+  // Ensure client-side rendering for dynamic animations
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Animation variants
   const containerVariants = {
@@ -139,7 +145,7 @@ const FinalCTABanner = () => {
         </motion.svg>
 
         {/* Particle trails */}
-        {config.enableComplexAnimations && (
+        {isClient && config.enableComplexAnimations && (
           <>
             {[
               { top: '30%', delay: 0 },
@@ -178,13 +184,15 @@ const FinalCTABanner = () => {
       <div className="relative z-10 container mx-auto px-4">
         <motion.div
           variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          {...(isClient
+            ? { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } }
+            : { initial: false })}
           className="max-w-4xl mx-auto text-center"
         >
           {/* Icon with animation */}
           <motion.div
             variants={itemVariants}
+            {...(isClient ? { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } } : { initial: false })}
             className="flex justify-center mb-6"
           >
             <motion.div
@@ -202,7 +210,7 @@ const FinalCTABanner = () => {
               <Rocket className="w-12 h-12 text-primary" />
 
             {/* Orbiting particles around icon */}
-            {config.enableComplexAnimations && (
+            {isClient && config.enableComplexAnimations && (
               <>
                 <motion.div
                   className="absolute inset-0"
@@ -224,7 +232,7 @@ const FinalCTABanner = () => {
             )}
 
               {/* Accent spark */}
-              {config.enableComplexAnimations && (
+              {isClient && config.enableComplexAnimations && (
                 <motion.div
                   className="absolute -top-1 -right-1 p-1 bg-primary/20 rounded-full"
                   animate={{
@@ -245,7 +253,7 @@ const FinalCTABanner = () => {
           </motion.div>
 
           {/* Main headline */}
-          <motion.div variants={itemVariants} className="mb-6">
+          <motion.div variants={itemVariants} {...(isClient ? { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } } : { initial: false })} className="mb-6">
             <Heading
               level={2}
               size="h1"
@@ -277,7 +285,7 @@ const FinalCTABanner = () => {
           </motion.div>
 
           {/* CTA Buttons */}
-          <motion.div variants={itemVariants} className="flex justify-center gap-4">
+          <motion.div variants={itemVariants} {...(isClient ? { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } } : { initial: false })} className="flex justify-center gap-4">
             <Link href="/schedule-demo">
               <Button
                 variant="primary"
@@ -290,7 +298,7 @@ const FinalCTABanner = () => {
                   transition={{ duration: 0.2 }}
                 />
                 <span className="relative z-10">Contact Us</span>
-                {config.enableComplexAnimations && (
+                {isClient && config.enableComplexAnimations && (
                   <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12" animate={{ x: [-100, 300] }} transition={{ duration: 2, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }} />
                 )}
               </Button>
@@ -303,9 +311,10 @@ const FinalCTABanner = () => {
           </motion.div>
 
           {/* Bottom accent line */}
-          {config.enableComplexAnimations && (
+          {isClient && config.enableComplexAnimations && (
             <motion.div
               variants={itemVariants}
+              {...(isClient ? { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } } : { initial: false })}
               className="flex justify-center mt-12"
             >
               <motion.div
