@@ -28,11 +28,11 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: "hello@codespire.com",
-      href: "mailto:hello@codespire.com",
+      label: "info@codespiresolutions.com",
+      href: "mailto:info@codespiresolutions.com",
     },
-    { icon: Phone, label: "+1 (555) 123-4567", href: "tel:+15551234567" },
-    { icon: MapPin, label: "San Francisco, CA", href: "#" },
+    { icon: Phone, label: "(602) 837-3370", href: "tel:+16028373370" },
+    { icon: MapPin, label: "Noida, India", href: "#" },
   ];
 
   return (

@@ -23,21 +23,60 @@ import {
   SiMeta, 
   SiHuggingface 
 } from 'react-icons/si';
-import { Database, Brain, Cloud, Server, Wrench, TestTube, ShieldCheck } from 'lucide-react';
+import { Database, Brain, Wrench, TestTube, ShieldCheck } from 'lucide-react';
+
+// SVG icon wrappers: use official SVGs from public/
+const SvgImg = ({ src, alt, size = 24, ...props }) => (
+  <img src={src} alt={alt} width={size} height={size} {...props} />
+);
+
+const ServiceNowIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/servicenow.svg" alt="ServiceNow" size={size} {...props} />
+);
+const AWSIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/aws.svg" alt="AWS" size={size} {...props} />
+);
+const AzureIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/azure.svg" alt="Azure" size={size} {...props} />
+);
+const GCPIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/gcp.svg" alt="Google Cloud" size={size} {...props} />
+);
+const GitLabIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/gitlab-svgrepo-com.svg" alt="GitLab" size={size} {...props} />
+);
+const FigmaIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/figma.svg" alt="Figma" size={size} {...props} />
+);
+const DockerIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/docker.svg" alt="Docker" size={size} {...props} />
+);
+const KubernetesIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/kubernetes-svgrepo-com.svg" alt="Kubernetes" size={size} {...props} />
+);
+
+// Use GPT logo from public/
+const GPTIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/gpt.svg" alt="GPT" size={size} {...props} />
+);
 
 const TechnologyStackCarousel = React.memo(() => {
   // Memoize tech stacks to prevent recreation on every render
   const techStacks = useMemo(() => [
-    { name: 'React', icon: SiReact, color: '#61DAFB' },
+    { name: 'LLaMA', icon: SiMeta, color: '#1877F2' },
     { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
     { name: 'Express', icon: SiExpress, color: '#000000' },
     { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
     { name: 'GitHub', icon: SiGithub, color: '#181717' },
     { name: 'Jenkins', icon: SiJenkins, color: '#D24939' },
-    { name: 'AWS', icon: Cloud, color: '#FF9900' },
-    { name: 'Azure', icon: Server, color: '#0078D4' },
-    { name: 'GCP', icon: SiGooglecloud, color: '#4285F4' },
-    { name: 'ServiceNow', icon: Wrench, color: '#00D2BE' },
+    { name: 'GitLab', icon: GitLabIcon, color: '#FC6D26' },
+    { name: 'Figma', icon: FigmaIcon, color: '#F24E1E' },
+    { name: 'Docker', icon: DockerIcon, color: '#2496ED' },
+    { name: 'Kubernetes', icon: KubernetesIcon, color: '#326CE5' },
+    { name: 'AWS', icon: AWSIcon, color: '#FF9900' },
+    { name: 'Azure', icon: AzureIcon, color: '#0078D4' },
+    { name: 'GCP', icon: GCPIcon, color: '#4285F4' },
+    { name: 'ServiceNow', icon: ServiceNowIcon, color: '#00D2BE' },
     { name: 'Salesforce', icon: SiSalesforce, color: '#00A1E0' },
     { name: 'TensorFlow', icon: SiTensorflow, color: '#FF6F00' },
     { name: 'PyTorch', icon: SiPytorch, color: '#EE4C2C' },
@@ -51,9 +90,9 @@ const TechnologyStackCarousel = React.memo(() => {
     { name: 'Cypress', icon: SiCypress, color: '#17202C' },
     { name: 'Adobe', icon: SiAdobe, color: '#FF0000' },
     { name: 'SQL', icon: Database, color: '#336791' },
-    { name: 'GPT', icon: Brain, color: '#10A37F' },
-    { name: 'LLaMA', icon: SiMeta, color: '#1877F2' },
-    { name: 'BERT', icon: SiHuggingface, color: '#FF9B00' }
+    { name: 'GPT', icon: GPTIcon, color: '#10A37F' },
+    { name: 'BERT', icon: SiHuggingface, color: '#FF9B00' },
+    { name: 'React', icon: SiReact, color: '#61DAFB' }
   ], []);
 
   // Memoize carousel items to prevent recreation

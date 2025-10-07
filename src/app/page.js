@@ -17,7 +17,7 @@ export default function Home() {
       {/* Stats with subtle animation */}
       <OptimizedLiquidBackground variant="section" intensity="low">
         <Wrapper>
-          <div className="space-section">
+          <div className="py-8 lg:py-12">
             <StatsBanner />
           </div>
         </Wrapper>
@@ -41,7 +41,7 @@ export default function Home() {
 
       {/* Final CTA Banner */}
       <Wrapper>
-        <div className="space-section">
+        <div className="py-8 lg:py-12">
           <FinalCTABanner />
         </div>
       </Wrapper>

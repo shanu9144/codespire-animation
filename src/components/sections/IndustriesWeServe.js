@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
  
 import { 
@@ -244,14 +245,25 @@ const FloatingElements = () => {
 };
 
 const ParticleField = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Use fixed positions for SSR, random for client
   const particles = Array.from({ length: 8 }, (_, i) => ({
     id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    duration: Math.random() * 8 + 6,
-    delay: Math.random() * 3,
+    x: isClient ? Math.random() * 100 : (i * 12.5), // Fixed positions for SSR
+    y: isClient ? Math.random() * 100 : (i * 10 + 20), // Fixed positions for SSR
+    size: isClient ? Math.random() * 3 + 1 : 2, // Fixed size for SSR
+    duration: isClient ? Math.random() * 8 + 6 : 7, // Fixed duration for SSR
+    delay: isClient ? Math.random() * 3 : i * 0.3, // Fixed delay for SSR
   }));
+
+  if (!isClient) {
+    return null; // Don't render particles during SSR
+  }
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">

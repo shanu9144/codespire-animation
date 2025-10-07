@@ -184,13 +184,15 @@ const FinalCTABanner = () => {
       <div className="relative z-10 container mx-auto px-4">
         <motion.div
           variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          {...(isClient
+            ? { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } }
+            : { initial: false })}
           className="max-w-4xl mx-auto text-center"
         >
           {/* Icon with animation */}
           <motion.div
             variants={itemVariants}
+            {...(isClient ? { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } } : { initial: false })}
             className="flex justify-center mb-6"
           >
             <motion.div
@@ -251,7 +253,7 @@ const FinalCTABanner = () => {
           </motion.div>
 
           {/* Main headline */}
-          <motion.div variants={itemVariants} className="mb-6">
+          <motion.div variants={itemVariants} {...(isClient ? { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } } : { initial: false })} className="mb-6">
             <Heading
               level={2}
               size="h1"
@@ -283,7 +285,7 @@ const FinalCTABanner = () => {
           </motion.div>
 
           {/* CTA Buttons */}
-          <motion.div variants={itemVariants} className="flex justify-center gap-4">
+          <motion.div variants={itemVariants} {...(isClient ? { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } } : { initial: false })} className="flex justify-center gap-4">
             <Link href="/schedule-demo">
               <Button
                 variant="primary"
@@ -312,6 +314,7 @@ const FinalCTABanner = () => {
           {isClient && config.enableComplexAnimations && (
             <motion.div
               variants={itemVariants}
+              {...(isClient ? { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } } : { initial: false })}
               className="flex justify-center mt-12"
             >
               <motion.div

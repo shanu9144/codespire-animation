@@ -62,7 +62,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -124,13 +124,7 @@ export default function RootLayout({ children }) {
           </LoadingScreenWrapper>
         </LoadingProvider>
 
-        {/* JavaScript detection script */}
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            // Add js-enabled class to hide CSS fallback when JS is available
-            document.documentElement.classList.add('js-enabled');
-          `
-        }} />
+        {/* Note: Avoid mutating <html> classes before hydration to prevent mismatches */}
       </body>
     </html>
   );
