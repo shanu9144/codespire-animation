@@ -10,6 +10,7 @@ export { default as OptimizedLiquidBackground } from './OptimizedLiquidBackgroun
 export { default as EnhancedLiquidBackground } from './EnhancedLiquidBackground';
 export { default as DramaticLiquidBackground } from './DramaticLiquidBackground';
 export { default as SimpleLiquidBackground } from './SimpleLiquidBackground';
+export { default as ProfessionalB2BBackground } from './ProfessionalB2BBackground';
 
 // Re-export for convenience
 export * from './CodeSpireLiquidBackground';
