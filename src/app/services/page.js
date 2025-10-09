@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import Wrapper from '../../components/ui/Wrapper';
 import { ProfessionalB2BBackground } from '../../components/backgrounds';
 // import { Scene3D, FloatingGeometry } from '../../animations/3d';
@@ -165,6 +166,7 @@ const ServicesPage = () => {
         "Cutting-edge engineering solutions for transformative digital experiences.",
       color: "from-blue-400 to-blue-500",
       bgColor: "from-blue-50 to-blue-100",
+      href: "/services/digital-engineering",
     },
     {
       icon: Cpu,
@@ -173,6 +175,7 @@ const ServicesPage = () => {
         "Dedicated cross-functional AI squad delivering rapid, iterative value.",
       color: "from-blue-500 to-cyan-600",
       bgColor: "from-blue-50 to-cyan-50",
+      href: "/services/ai-pod",
     },
     {
       icon: Settings,
@@ -181,6 +184,7 @@ const ServicesPage = () => {
         "Robust and modernized applications with rigorous quality assurance",
       color: "from-blue-500 to-cyan-600",
       bgColor: "from-blue-50 to-cyan-50",
+      href: "/services/app-development",
     },
     {
       icon: BarChart3,
@@ -525,18 +529,19 @@ const ServicesPage = () => {
           variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {otherServices.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              whileHover={{ 
-                y: -8, 
-                scale: 1.02,
-                transition: { duration: 0.3, ease: "easeOut" }
-              }}
-              className="group relative"
-            >
-              <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-blue-100/30 h-full">
+          {otherServices.map((service, index) => {
+            const CardContent = (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.02,
+                  transition: { duration: 0.3, ease: "easeOut" }
+                }}
+                className="group relative"
+              >
+                <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-blue-100/30 h-full">
                 <motion.div 
                   className={`w-14 h-14 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
                   whileHover={{ rotate: 5 }}
@@ -571,9 +576,18 @@ const ServicesPage = () => {
                   className={`absolute inset-0 bg-gradient-to-br ${service.bgColor} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
                   initial={false}
                 />
-              </div>
-            </motion.div>
-          ))}
+                </div>
+              </motion.div>
+            );
+
+            return service.href ? (
+              <Link key={index} href={service.href} className="block">
+                {CardContent}
+              </Link>
+            ) : (
+              CardContent
+            );
+          })}
         </motion.div>
         </Wrapper>
       </div>
