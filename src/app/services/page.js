@@ -107,7 +107,7 @@ const ServicesPage = () => {
       whileInView={{ scaleY: 1, opacity: 1 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 1.2, delay, ease: "easeOut" }}
-      className="relative flex justify-center my-24"
+      className="relative flex justify-center my-4"
     >
       <div className="w-0.5 h-24 bg-gradient-to-b from-primary via-purple-500 to-primary rounded-full relative overflow-hidden">
         <motion.div
@@ -171,48 +171,40 @@ const ServicesPage = () => {
       title: "AI Pod",
       description:
         "Dedicated cross-functional AI squad delivering rapid, iterative value.",
-      color: "from-cyan-500 to-blue-600",
-      bgColor: "from-cyan-50 to-blue-50",
-    },
-    {
-      icon: Users,
-      title: "IT And Non-IT Staffing",
-      description:
-        "Expert talent for seamless workforce optimization.",
-      color: "from-purple-500 to-pink-600",
-      bgColor: "from-purple-50 to-pink-50",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
     },
     {
       icon: Settings,
       title: "Application Development And Testing",
       description:
         "Robust and modernized applications with rigorous quality assurance",
-      color: "from-rose-500 to-orange-600",
-      bgColor: "from-rose-50 to-orange-50",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
     },
     {
       icon: BarChart3,
       title: "Data, Analytics And AI",
       description:
         "Actionable insights through advanced analytics and intelligent AI.",
-      color: "from-emerald-500 to-teal-600",
-      bgColor: "from-emerald-50 to-teal-50",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
     },
     {
       icon: Cloud,
       title: "Salesforce And ServiceNow",
       description:
         "Streamlined platforms for dynamic business efficiency.",
-      color: "from-indigo-500 to-blue-600",
-      bgColor: "from-indigo-50 to-blue-50",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
     },
     {
       icon: Shield,
       title: "24/7 SRE Support",
       description:
         "Reliable, proactive system resilience and performance.",
-      color: "from-slate-500 to-gray-700",
-      bgColor: "from-slate-50 to-gray-100",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
     },
   ];
 
@@ -260,13 +252,13 @@ const ServicesPage = () => {
             />
 
             <motion.div
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-purple-500/10 px-4 py-2 rounded-full text-primary font-medium text-sm mb-8"
+              className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4 hover:scale-105 transition-transform"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <Sparkles className="w-4 h-4" />
-              AI-Powered Solutions
+              <Sparkles className="w-6 h-6 mr-2 text-blue-600" />
+              <span className="text-blue-600 font-bold text-lg">AI-Powered Solutions</span>
             </motion.div>
 
             <motion.h1 
@@ -343,20 +335,20 @@ const ServicesPage = () => {
 
       {/* Flagship Service Section */}
       <EnhancedLiquidBackground variant="section" intensity="high">
-        <Wrapper className="py-28" data-section="0">
+        <Wrapper className="py-8" data-section="0">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainer}
-            className="text-center mb-24"
+            className="text-center mb-6"
           >
             <motion.div
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-purple-500/10 px-6 py-3 rounded-full text-primary font-semibold text-sm mb-8"
+              className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4 hover:scale-105 transition-transform"
               variants={fadeInUp}
             >
-              <Star className="w-4 h-4" />
-              Our Flagship Service
+              <Star className="w-6 h-6 mr-2 text-blue-600" />
+              <span className="text-blue-600 font-bold text-lg">Our Flagship Service</span>
             </motion.div>
 
             <motion.h2 
@@ -382,7 +374,7 @@ const ServicesPage = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-24"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-6"
           >
             {flagshipBenefits.map((benefit, index) => (
               <motion.div
@@ -460,20 +452,20 @@ const ServicesPage = () => {
       <ConnectingLine isActive={activeSection >= 2} delay={0.3} />
 
       {/* Other Services Section */}
-        <Wrapper className="py-28" data-section="1">
+        <Wrapper className="py-8" data-section="1">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
-          className="text-center mb-24"
+          className="text-center mb-6"
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500/10 to-teal-500/10 px-6 py-3 rounded-full text-green-600 font-semibold text-sm mb-8"
+            className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4 hover:scale-105 transition-transform"
             variants={fadeInUp}
           >
-            <Cpu className="w-4 h-4" />
-            Comprehensive Services
+            <Cpu className="w-6 h-6 mr-2 text-blue-600" />
+            <span className="text-blue-600 font-bold text-lg">Comprehensive Services</span>
           </motion.div>
 
           <motion.h2 
@@ -557,7 +549,7 @@ const ServicesPage = () => {
 
       {/* Final CTA Section */}
       <OptimizedLiquidBackground variant="section" intensity="low">
-        <Wrapper className="py-32" data-section="2">
+        <Wrapper className="py-12" data-section="2">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -566,11 +558,11 @@ const ServicesPage = () => {
             className="text-center"
           >
             <motion.div
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 px-6 py-3 rounded-full text-cyan-600 font-semibold text-sm mb-8"
+              className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4 hover:scale-105 transition-transform"
               variants={fadeInUp}
             >
-              <Rocket className="w-4 h-4" />
-              Ready to Transform?
+              <Rocket className="w-6 h-6 mr-2 text-blue-600" />
+              <span className="text-blue-600 font-bold text-lg">Ready to Transform?</span>
             </motion.div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 md:mb-8">
