@@ -877,4 +877,5 @@ class LoadingManager {
 }
 
 // Export singleton instance
-export default new LoadingManager();
+const loadingManagerInstance = new LoadingManager();
+export default loadingManagerInstance;

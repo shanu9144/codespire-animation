@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Wrapper from '../../../components/ui/Wrapper';
 import Button from '../../../components/ui/Button';
-import { ArrowRight, ArrowDown, ChevronRight, Brain, Zap, Cog, Shield, FileText, Users, Cpu, Cloud, Database, Code2, Target, TrendingUp, Clock, Scale, CheckCircle, Factory, Heart, CreditCard, Truck, ShoppingCart, Laptop } from 'lucide-react';
+import { ArrowRight, ArrowDown, ChevronRight, Zap, Users, Target, TrendingUp, Scale, CheckCircle, Factory, Heart, CreditCard, Truck, ShoppingCart, Laptop } from 'lucide-react';
 
 const AIPodPage = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -320,7 +320,7 @@ const AIPodPage = () => {
                 <motion.div variants={cardVariants} className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg">
                   <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Overview</h2>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    CodeSpire's AI POD as a Service delivers a managed AI team, slashing costs by 60% versus in-house hires. For less than a $200K AI specialist, get 5+ experts delivering tailored solutions 70% faster.
+                    CodeSpire&apos;s AI POD as a Service delivers a managed AI team, slashing costs by 60% versus in-house hires. For less than a $200K AI specialist, get 5+ experts delivering tailored solutions 70% faster.
                   </p>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="bg-blue-50 p-6 rounded-xl">

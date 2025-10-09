@@ -247,7 +247,7 @@ export const useAnimationPerformance = () => {
         mediaQuery.removeListener(handleChange);
       }
     };
-  }, []); // Remove monitor dependency to prevent infinite loops
+  }, [monitor]); // Include monitor dependency
 
   return {
     config,
