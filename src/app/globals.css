@@ -173,7 +173,7 @@ body {
   color: var(--primary);
 }
 
-/* Focus styles for accessibility */
+/* Focus styles for accessibility - but remove for header navigation */
 *:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
@@ -187,6 +187,41 @@ textarea:focus,
 select:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
+}
+
+/* Remove focus outline for header navigation links */
+header a:focus,
+header button:focus,
+.nav-links a:focus,
+.nav-links button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove focus outline for mobile navigation */
+.mobile-nav:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove focus outline for clickable text elements and interactive components */
+.cursor-pointer:focus,
+[data-magnetic]:focus,
+.motion-button:focus,
+button[class*="cursor-pointer"]:focus,
+a[class*="cursor-pointer"]:focus,
+div[class*="cursor-pointer"]:focus,
+span[class*="cursor-pointer"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove focus outline for motion components and interactive divs */
+motion.div:focus,
+motion.button:focus,
+motion.a:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Remove blue focus outline specifically for carousel arrow buttons */
@@ -375,16 +410,14 @@ select:focus {
 }
 
 .nav-links a:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(56, 75, 255, 0.2);
-  border-radius: 0.5rem;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-/* Remove default focus outlines and add custom ones */
+/* Remove default focus outlines for nav links */
 .nav-links a:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-  border-radius: 0.5rem;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Enhanced Button System */
