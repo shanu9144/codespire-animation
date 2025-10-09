@@ -3,8 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Wrapper from '../../components/ui/Wrapper';
-import OptimizedLiquidBackground from '../../components/backgrounds/OptimizedLiquidBackground';
-import EnhancedLiquidBackground from '../../components/backgrounds/EnhancedLiquidBackground';
+// import OptimizedLiquidBackground from '../../components/backgrounds/OptimizedLiquidBackground';
+// import EnhancedLiquidBackground from '../../components/backgrounds/EnhancedLiquidBackground';
+import { ProfessionalB2BBackground } from '../../components/backgrounds';
+// import { Scene3D, FloatingGeometry } from '../../animations/3d';
 import { 
   Brain, 
   Users, 
@@ -130,29 +132,29 @@ const ServicesPage = () => {
       icon: Target,
       title: "Agile, focused PODs aligned to client goals",
       description: "Dedicated teams that understand your business objectives and deliver results that matter",
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "from-blue-50 to-cyan-50"
+      color: "from-blue-500 to-blue-600",
+      bgColor: "from-blue-50 to-blue-100"
     },
     {
       icon: Users,
       title: "Flexible integration — onsite or hybrid with client teams",
       description: "Seamless collaboration with your existing workforce and culture",
-      color: "from-purple-500 to-pink-500",
-      bgColor: "from-purple-50 to-pink-50"
+      color: "from-blue-600 to-blue-700",
+      bgColor: "from-blue-50 to-blue-100"
     },
     {
       icon: Code,
       title: "Full-stack delivery — from UI/UX to scalable backends",
       description: "Complete end-to-end development capabilities with modern tech stacks",
-      color: "from-green-500 to-emerald-500",
-      bgColor: "from-green-50 to-emerald-50"
+      color: "from-blue-400 to-blue-500",
+      bgColor: "from-blue-50 to-blue-100"
     },
     {
       icon: Brain,
       title: "Deployment of intelligent models solving real-world, high-value problems",
       description: "AI solutions that drive measurable business impact and competitive advantage",
-      color: "from-orange-500 to-red-500",
-      bgColor: "from-orange-50 to-red-50"
+      color: "from-blue-700 to-blue-800",
+      bgColor: "from-blue-50 to-blue-100"
     }
   ];
 
@@ -163,8 +165,8 @@ const ServicesPage = () => {
       title: "Digital Engineering",
       description:
         "Cutting-edge engineering solutions for transformative digital experiences.",
-      color: "from-blue-500 to-cyan-600",
-      bgColor: "from-blue-50 to-cyan-50",
+      color: "from-blue-400 to-blue-500",
+      bgColor: "from-blue-50 to-blue-100",
     },
     {
       icon: Cpu,
@@ -209,7 +211,37 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <div className="min-h-screen relative">
+      {/* Professional B2B Background with reduced whiteness */}
+      <ProfessionalB2BBackground 
+        intensity="medium" 
+        enableAnimation={true}
+        className="opacity-90"
+      />
+      
+      {/* Enhanced floating elements with 3D-like effects */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {/* Floating geometric shapes */}
+        <div className="absolute top-20 left-10 w-4 h-4 bg-gradient-to-br from-blue-400/30 to-blue-600/20 rounded-lg transform rotate-45 animate-pulse shadow-lg"></div>
+        <div className="absolute top-40 right-20 w-6 h-6 bg-gradient-to-br from-purple-400/30 to-purple-600/20 rounded-full animate-bounce shadow-lg" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-32 left-1/4 w-3 h-3 bg-gradient-to-br from-cyan-400/30 to-cyan-600/20 transform rotate-12 animate-pulse shadow-lg" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-20 right-1/3 w-5 h-5 bg-gradient-to-br from-blue-400/30 to-blue-600/20 rounded-lg transform -rotate-12 animate-bounce shadow-lg" style={{ animationDelay: '0.5s' }}></div>
+        
+        {/* Additional depth elements */}
+        <div className="absolute top-1/3 left-1/2 w-2 h-2 bg-gradient-to-br from-indigo-400/25 to-indigo-600/15 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute bottom-1/3 right-1/4 w-3 h-3 bg-gradient-to-br from-teal-400/25 to-teal-600/15 transform rotate-45 animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+        
+        {/* Subtle grid pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.02] bg-gradient-to-br from-blue-500 via-transparent to-purple-500" 
+             style={{
+               backgroundImage: `
+                 linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                 linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+               `,
+               backgroundSize: '50px 50px'
+             }}>
+        </div>
+      </div>
       {/* Back to Top Button */}
       {showBackToTop && (
         <motion.button
@@ -224,8 +256,8 @@ const ServicesPage = () => {
       )}
 
       {/* Hero Section */}
-      <OptimizedLiquidBackground variant="hero" intensity="medium">
-        <Wrapper className="py-24 lg:py-32">
+      <div className="relative z-10">
+        <Wrapper className="py-16 lg:py-20">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -328,7 +360,7 @@ const ServicesPage = () => {
             </motion.div>
           </motion.div>
         </Wrapper>
-      </OptimizedLiquidBackground>
+      </div>
 
       {/* Connecting Line */}
       <ConnectingLine isActive={activeSection >= 1} delay={0.5} />
@@ -352,20 +384,23 @@ const ServicesPage = () => {
             </motion.div>
 
             <motion.h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-8 leading-tight"
               variants={fadeInUp}
             >
               Your Dedicated AI Delivery Engine
             </motion.h2>
             
-            <motion.p 
-              className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            <motion.div 
+              className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-semibold"
               variants={fadeInUp}
             >
-              AI POD as a Service is our flagship approach to embedding agile, high-performance teams 
-              that deliver rapid business outcomes. Think of PODs as your AI strike teams — fast, 
-              focused, and impact-driven.
-            </motion.p>
+              <p className="mb-2">
+                AI POD as a Service is our flagship approach to embedding agile, high-performance teams that deliver rapid business outcomes.
+              </p>
+              <p>
+                Think of PODs as your AI strike teams — fast, focused, and impact-driven.
+              </p>
+            </motion.div>
           </motion.div>
 
           {/* Benefits Grid */}
@@ -387,7 +422,7 @@ const ServicesPage = () => {
                 }}
                 className="group relative"
               >
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/20 h-full">
+                <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-blue-100/30 h-full">
                   <motion.div 
                     className={`w-16 h-16 bg-gradient-to-r ${benefit.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
                     whileHover={{ rotate: 5 }}
@@ -435,18 +470,17 @@ const ServicesPage = () => {
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-primary px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 group"
+                  className="bg-white text-gray-900 px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer hover:bg-white focus:bg-white active:bg-white"
                 >
-                  <span className="flex items-center gap-3">
+                  <span>
                     Discover AI PODs
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
                 </motion.button>
               </div>
             </div>
           </motion.div>
         </Wrapper>
-      </EnhancedLiquidBackground>
+      </div>
 
       {/* Connecting Line */}
       <ConnectingLine isActive={activeSection >= 2} delay={0.3} />
@@ -490,7 +524,7 @@ const ServicesPage = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {otherServices.map((service, index) => (
             <motion.div
@@ -503,7 +537,7 @@ const ServicesPage = () => {
               }}
               className="group relative"
             >
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/20 h-full">
+              <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-blue-100/30 h-full">
                 <motion.div 
                   className={`w-14 h-14 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
                   whileHover={{ rotate: 5 }}
@@ -542,7 +576,8 @@ const ServicesPage = () => {
             </motion.div>
           ))}
         </motion.div>
-      </Wrapper>
+        </Wrapper>
+      </div>
 
       {/* Connecting Line */}
       <ConnectingLine isActive={activeSection >= 3} delay={0.2} />
@@ -598,7 +633,7 @@ const ServicesPage = () => {
             </div>
           </motion.div>
         </Wrapper>
-      </OptimizedLiquidBackground>
+      </div>
     </div>
   );
 };

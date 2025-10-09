@@ -127,7 +127,7 @@ const WhyCodeSpire = () => {
       >
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 h-full transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
           {/* Image Section */}
-          <div className="relative h-48 overflow-hidden">
+          <div className="relative h-56 overflow-hidden">
             {/* Gradient Background - Always visible */}
             <div className={`absolute inset-0 bg-gradient-to-br ${highlight.gradient} opacity-40`} />
             

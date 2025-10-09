@@ -65,12 +65,22 @@ const ProfessionalStatItem = ({ number, suffix, label, delay = 0, shouldAnimate 
       transition={{ delay: delay * 0.2, duration: 0.6 }}
       className="text-center"
     >
-      <div className="text-4xl lg:text-5xl font-semibold text-gray-800 mb-2">
+      <motion.div 
+        className="text-4xl lg:text-5xl font-bold text-gray-800 mb-2"
+        initial={{ scale: 0.9 }}
+        whileInView={{ scale: 1 }}
+        transition={{ delay: delay * 0.2 + 0.3, duration: 0.4 }}
+      >
         {mounted ? (shouldAnimate ? animatedNumber : number) : number}{suffix}
-      </div>
-      <div className="text-sm text-gray-600 font-medium">
+      </motion.div>
+      <motion.div 
+        className="text-sm text-gray-600 font-medium"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: delay * 0.2 + 0.5, duration: 0.4 }}
+      >
         {label}
-      </div>
+      </motion.div>
     </motion.div>
   );
 };
@@ -175,42 +185,45 @@ const StatsBanner = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 lg:p-12 shadow-lg border border-blue-200"
+          className="relative bg-white/30 backdrop-blur-sm rounded-2xl p-8 lg:p-12 border border-blue-100/20"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left side - Description */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="space-y-4"
-            >
-              <h3 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-tight">
-                From Idea to Enterprise-Grade AI in a Blink
-              </h3>
-              <p className="text-lg lg:text-xl text-gray-700 leading-relaxed font-medium">
-                We build AI-powered products and scalable platforms for businesses who want tomorrow&apos;s innovation today.
-              </p>
-            </motion.div>
+          {/* Content with relative positioning */}
+          <div className="relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Left side - Description */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="space-y-6"
+              >
+                <h3 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-tight tracking-tight">
+                  From Idea to Enterprise-Grade AI in a Blink
+                </h3>
+                <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed font-medium">
+                  We build AI-powered products and scalable platforms for businesses who want tomorrow&apos;s innovation today.
+                </p>
+              </motion.div>
 
-            {/* Right side - Stats Grid */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="grid grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              {stats.map((stat, index) => (
-                <ProfessionalStatItem
-                  key={index}
-                  number={stat.number}
-                  suffix={stat.suffix}
-                  label={stat.label}
-                  delay={stat.delay}
-                  shouldAnimate={mounted && isInView && !shouldReduceAnimations}
-                />
-              ))}
-            </motion.div>
+              {/* Right side - Stats Grid */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="grid grid-cols-2 lg:grid-cols-3 gap-8"
+              >
+                {stats.map((stat, index) => (
+                  <ProfessionalStatItem
+                    key={index}
+                    number={stat.number}
+                    suffix={stat.suffix}
+                    label={stat.label}
+                    delay={stat.delay}
+                    shouldAnimate={mounted && isInView && !shouldReduceAnimations}
+                  />
+                ))}
+              </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>

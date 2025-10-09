@@ -213,7 +213,7 @@ const CarouselHero = () => {
           {/* Right Image Carousel */}
           <div className="relative">
             {/* Main Image Container */}
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[5/4.2] rounded-2xl overflow-hidden shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide}
