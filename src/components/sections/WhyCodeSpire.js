@@ -159,9 +159,9 @@ const WhyCodeSpire = () => {
             </p>
 
             {/* CTA Button */}
-            <button className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 group hover:translate-x-1 transition-all duration-200">
+            <button className="flex items-center text-sm font-large text-blue-600 hover:text-white group hover:translate-x-1 transition-all duration-200" style={{ color: '#2563eb' }}>
               Learn More
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 ml-2 text-blue-600 group-hover:text-white group-hover:translate-x-1 transition-all duration-200" style={{ color: '#2563eb' }} />
             </button>
           </div>
         </div>
