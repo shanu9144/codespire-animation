@@ -67,13 +67,12 @@ const Header = () => {
   }, []);
 
   const services = [
+    { label: "AI Pod as a Service", href: "/services#ai-pod-as-a-service" },
     { label: "Digital Engineering", href: "/services#digital-engineering" },
-    { label: "IT And Non-IT Staffing", href: "/services#it-and-non-it-staffing" },
-    { label: "Application Development And Testing", href: "/services#application-development-and-testing" },
-    { label: "Data, Analytics And AI", href: "/services#data-analytics-and-ai" },
-    { label: "Salesforce And ServiceNow", href: "/services#salesforce-and-servicenow" },
+    { label: "Application Development and Testing", href: "/services#application-development-and-testing" },
+    { label: "Data and Analytics", href: "/services#data-and-analytics" },
+    { label: "Salesforce and ServiceNow", href: "/services#salesforce-and-servicenow" },
     { label: "24/7 SRE Support", href: "/services#sre-support" },
-    { label: "AI Pod", href: "/services#ai-pod" },
   ];
 
   const menuItems = [
@@ -136,7 +135,7 @@ const Header = () => {
                     <>
                       <Link href={item.href} className="hover:text-primary transition-colors inline-flex items-center cursor-pointer">
                         {item.label}
-                        <svg className={`ml-1 w-4 h-4 text-gray-500 transition-colors ${hoveredService === item.label ? 'text-primary' : ''}`} viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd"/></svg>
+                        <svg className={`ml-1 w-4 h-4 text-gray-500 transition-all duration-300 ${hoveredService === item.label ? 'text-primary rotate-0' : 'rotate-180'}`} viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd"/></svg>
                       </Link>
                       <div className={`absolute left-0 top-full mt-2 transition-all duration-200 ${hoveredService === item.label ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
                         <div 

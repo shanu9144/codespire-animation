@@ -56,7 +56,7 @@ const CarouselHero = () => {
     },
     {
       id: 4,
-      title: "Delivering Rapid AI Project Outcomes –",
+      title: "Delivering Rapid AI Project –",
       subtitle: "AI POD Service",
       description:
         "Agile focused flexible PODs that handles end-to-end application builds from UI/UX to scalable backends",
@@ -64,8 +64,6 @@ const CarouselHero = () => {
         "https://picsum.photos/id/1043/800/600",
       cta: "Learn More",
       ctaLink: "/ai-pod-service",
-      // accent removed
-      // accentPosition removed
     },
   ];
 
