@@ -3,8 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Wrapper from '../../components/ui/Wrapper';
-// import OptimizedLiquidBackground from '../../components/backgrounds/OptimizedLiquidBackground';
-// import EnhancedLiquidBackground from '../../components/backgrounds/EnhancedLiquidBackground';
 import { ProfessionalB2BBackground } from '../../components/backgrounds';
 // import { Scene3D, FloatingGeometry } from '../../animations/3d';
 import { 
@@ -366,7 +364,7 @@ const ServicesPage = () => {
       <ConnectingLine isActive={activeSection >= 1} delay={0.5} />
 
       {/* Flagship Service Section */}
-      <EnhancedLiquidBackground variant="section" intensity="high">
+      <div className="relative">
         <Wrapper className="py-8" data-section="0">
           <motion.div
             initial="hidden"
@@ -486,6 +484,7 @@ const ServicesPage = () => {
       <ConnectingLine isActive={activeSection >= 2} delay={0.3} />
 
       {/* Other Services Section */}
+      <div className="relative">
         <Wrapper className="py-8" data-section="1">
         <motion.div
           initial="hidden"
@@ -583,7 +582,7 @@ const ServicesPage = () => {
       <ConnectingLine isActive={activeSection >= 3} delay={0.2} />
 
       {/* Final CTA Section */}
-      <OptimizedLiquidBackground variant="section" intensity="low">
+      <div className="relative">
         <Wrapper className="py-12" data-section="2">
           <motion.div
             initial="hidden"
