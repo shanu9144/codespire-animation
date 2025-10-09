@@ -13,11 +13,26 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [hoveredService, setHoveredService] = useState(null);
   const lastScrollY = useRef(0);
   const pathname = usePathname();
+  const hoverTimeoutRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleServiceMouseEnter = (serviceLabel) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    setHoveredService(serviceLabel);
+  };
+
+  const handleServiceMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredService(null);
+    }, 150); // 150ms delay before closing
   };
 
   useEffect(() => {
@@ -40,6 +55,15 @@ const Header = () => {
 
     window.addEventListener("scroll", controlHeaderVisibility);
     return () => window.removeEventListener("scroll", controlHeaderVisibility);
+  }, []);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
   }, []);
 
   const services = [
@@ -102,15 +126,24 @@ const Header = () => {
           <div className="hidden md:flex flex-1 justify-end pr-4 lg:pr-6">
             <ul className="flex items-center gap-6 lg:gap-8 text-gray-700 font-medium">
               {menuItems.map((item) => (
-                <li key={item.href} className="relative group cursor-pointer">
+                <li 
+                  key={item.href} 
+                  className="relative cursor-pointer"
+                  onMouseEnter={() => item.children && handleServiceMouseEnter(item.label)}
+                  onMouseLeave={handleServiceMouseLeave}
+                >
                   {item.children ? (
                     <>
                       <Link href={item.href} className="hover:text-primary transition-colors inline-flex items-center cursor-pointer">
                         {item.label}
-                        <svg className="ml-1 w-4 h-4 text-gray-500 group-hover:text-primary transition-colors" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd"/></svg>
+                        <svg className={`ml-1 w-4 h-4 text-gray-500 transition-colors ${hoveredService === item.label ? 'text-primary' : ''}`} viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd"/></svg>
                       </Link>
-                      <div className="absolute left-0 top-full mt-2 hidden group-hover:block">
-                        <div className="min-w-[240px] rounded-lg border border-gray-100 bg-white shadow-lg p-2 cursor-default">
+                      <div className={`absolute left-0 top-full mt-2 transition-all duration-200 ${hoveredService === item.label ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+                        <div 
+                          className="min-w-[240px] rounded-lg border border-gray-100 bg-white shadow-lg p-2 cursor-default"
+                          onMouseEnter={() => handleServiceMouseEnter(item.label)}
+                          onMouseLeave={handleServiceMouseLeave}
+                        >
                           {item.children.map((child) => (
                             <Link key={child.href} href={child.href} className="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-50 hover:text-primary cursor-pointer">
                               {child.label}
