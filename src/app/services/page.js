@@ -109,7 +109,7 @@ const ServicesPage = () => {
       whileInView={{ scaleY: 1, opacity: 1 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 1.2, delay, ease: "easeOut" }}
-      className="relative flex justify-center my-8"
+      className="relative flex justify-center my-4"
     >
       <div className="w-0.5 h-24 bg-gradient-to-b from-primary via-purple-500 to-primary rounded-full relative overflow-hidden">
         <motion.div
@@ -173,48 +173,40 @@ const ServicesPage = () => {
       title: "AI Pod",
       description:
         "Dedicated cross-functional AI squad delivering rapid, iterative value.",
-      color: "from-blue-500 to-blue-600",
-      bgColor: "from-blue-50 to-blue-100",
-    },
-    {
-      icon: Users,
-      title: "IT And Non-IT Staffing",
-      description:
-        "Expert talent for seamless workforce optimization.",
-      color: "from-blue-600 to-blue-700",
-      bgColor: "from-blue-50 to-blue-100",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
     },
     {
       icon: Settings,
       title: "Application Development And Testing",
       description:
         "Robust and modernized applications with rigorous quality assurance",
-      color: "from-blue-700 to-blue-800",
-      bgColor: "from-blue-50 to-blue-100",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
     },
     {
       icon: BarChart3,
       title: "Data, Analytics And AI",
       description:
         "Actionable insights through advanced analytics and intelligent AI.",
-      color: "from-blue-300 to-blue-400",
-      bgColor: "from-blue-50 to-blue-100",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
     },
     {
       icon: Cloud,
       title: "Salesforce And ServiceNow",
       description:
         "Streamlined platforms for dynamic business efficiency.",
-      color: "from-blue-400 to-blue-500",
-      bgColor: "from-blue-50 to-blue-100",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
     },
     {
       icon: Shield,
       title: "24/7 SRE Support",
       description:
         "Reliable, proactive system resilience and performance.",
-      color: "from-blue-500 to-blue-600",
-      bgColor: "from-blue-50 to-blue-100",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
     },
   ];
 
@@ -374,14 +366,14 @@ const ServicesPage = () => {
       <ConnectingLine isActive={activeSection >= 1} delay={0.5} />
 
       {/* Flagship Service Section */}
-      <div className="relative z-10">
-        <Wrapper className="py-16 lg:py-20" data-section="0">
+      <EnhancedLiquidBackground variant="section" intensity="high">
+        <Wrapper className="py-8" data-section="0">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={staggerContainer}
-            className="text-center mb-12"
+            className="text-center mb-6"
           >
             <motion.div
               className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4 hover:scale-105 transition-transform"
@@ -417,7 +409,7 @@ const ServicesPage = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-6"
           >
             {flagshipBenefits.map((benefit, index) => (
               <motion.div
@@ -494,14 +486,13 @@ const ServicesPage = () => {
       <ConnectingLine isActive={activeSection >= 2} delay={0.3} />
 
       {/* Other Services Section */}
-      <div className="relative z-10">
-        <Wrapper className="py-16 lg:py-20" data-section="1">
+        <Wrapper className="py-8" data-section="1">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
-          className="text-center mb-12"
+          className="text-center mb-6"
         >
           <motion.div
             className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4 hover:scale-105 transition-transform"
@@ -592,8 +583,8 @@ const ServicesPage = () => {
       <ConnectingLine isActive={activeSection >= 3} delay={0.2} />
 
       {/* Final CTA Section */}
-      <div className="relative z-10">
-        <Wrapper className="py-16 lg:py-20" data-section="2">
+      <OptimizedLiquidBackground variant="section" intensity="low">
+        <Wrapper className="py-12" data-section="2">
           <motion.div
             initial="hidden"
             whileInView="visible"
