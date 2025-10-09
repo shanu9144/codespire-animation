@@ -127,7 +127,9 @@ const FeatureHighlightsCarousel = () => {
         <h2 className="text-3xl font-bold text-blue-600 mb-4">
           Why Choose CodeSpire?
         </h2>
-        <p className="text-lg font-bold bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent max-w-2xl mx-auto">Our trusted partner in AI journey</p>
+        <p className="text-lg font-bold text-gray-700 max-w-2xl mx-auto">
+          Our trusted partner <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent"> in AI journey</span>
+        </p>
       </div>
       
       <InfiniteCarousel

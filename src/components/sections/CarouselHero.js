@@ -30,7 +30,7 @@ const CarouselHero = () => {
     },
     {
       id: 2,
-      title: "Ready for Smart Sourcing? –",
+      title: "Ready for Smart Sourcing Solutions –",
       subtitle: "Supplier Match AI",
       description:
         "Smart Supplier Selection",
@@ -43,8 +43,8 @@ const CarouselHero = () => {
     },
     {
       id: 3,
-      title: "Smarter Inventory and Sales Planning with",
-      subtitle: "Forecast AI",
+      title: "Smarter Inventory and Sales Planning –",
+      subtitle: "Smart Forecast AI",
       description:
         "Identifies trends and demand shifts early for proactive planning",
       image:
@@ -56,8 +56,8 @@ const CarouselHero = () => {
     },
     {
       id: 4,
-      title: "Delivering rapid outcomes for AI client projects –",
-      subtitle: "AI POD as a Service",
+      title: "Delivering Rapid AI Project Outcomes –",
+      subtitle: "AI POD Service",
       description:
         "Agile focused flexible PODs that handles end-to-end application builds from UI/UX to scalable backends",
       image:
