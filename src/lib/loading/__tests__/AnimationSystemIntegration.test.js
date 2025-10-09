@@ -16,15 +16,8 @@ const mockWindow = {
   animationIntegration: null
 };
 
-// Mock HTMLCanvasElement
-const mockCanvas = {
-  getContext: vi.fn()
-};
-
 describe('AnimationSystemIntegration', () => {
   let integration;
-  let loadingManager;
-  let progressTracker;
 
   beforeEach(() => {
     // Set up global mocks

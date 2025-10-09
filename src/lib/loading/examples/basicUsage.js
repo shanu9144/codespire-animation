@@ -151,7 +151,7 @@ export function errorHandlingExample() {
     console.warn('Loading timed out - forcing completion');
   });
   
-  LoadingManager.onLoadingComplete((loadingTime) => {
+  LoadingManager.onLoadingComplete(() => {
     const state = LoadingManager.getState();
     console.log(`Loading completed with ${state.hasError ? 'errors' : 'no errors'}`);
     console.log(`Final progress: ${state.progress}%`);
@@ -170,8 +170,10 @@ export function errorHandlingExample() {
 }
 
 // Export all examples
-export default {
+const examples = {
   basicLoadingExample,
   advancedLoadingExample,
   errorHandlingExample
 };
+
+export default examples;

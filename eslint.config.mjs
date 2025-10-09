@@ -20,6 +20,13 @@ const eslintConfig = [...compat.extends("next/core-web-vitals", "next/typescript
     "build/**",
     "next-env.d.ts",
   ],
+  rules: {
+    "@typescript-eslint/no-unused-vars": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/no-anonymous-default-export": "warn",
+    "@next/next/no-img-element": "warn",
+    "react/no-unescaped-entities": "error"
+  }
 }, ...storybook.configs["flat/recommended"]];
 
 export default eslintConfig;

@@ -2,10 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import Wrapper from '../../components/ui/Wrapper';
 import Button from '../../components/ui/Button';
-import { ArrowRight, ArrowDown, ChevronRight, Calendar, Clock, Users, CheckCircle } from 'lucide-react';
+import { ArrowRight, Calendar, Users, CheckCircle } from 'lucide-react';
 
 const ScheduleDemoPage = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -18,10 +17,6 @@ const ScheduleDemoPage = () => {
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 60 },
-    visible: { opacity: 1, y: 0 }
-  };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
@@ -109,7 +104,7 @@ const ScheduleDemoPage = () => {
               <div className="max-w-4xl mx-auto">
                 <div className="bg-gradient-to-r from-primary to-blue-600 p-8 rounded-2xl text-white text-center">
                   <h3 className="text-2xl font-bold mb-4">Schedule Your 30-Minute Demo</h3>
-                  <p className="text-white/90 mb-6">Choose a time that works for you and let's discuss your AI transformation journey.</p>
+                  <p className="text-white/90 mb-6">Choose a time that works for you and let&apos;s discuss your AI transformation journey.</p>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
