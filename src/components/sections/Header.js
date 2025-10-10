@@ -124,7 +124,7 @@ const Header = () => {
           {/* Header Center - Desktop Navigation */}
           <div className="hidden md:flex flex-1 justify-end pr-4 lg:pr-6">
             <ul className="flex items-center gap-6 lg:gap-8 text-gray-700 font-medium">
-              {menuItems.map((item) => (
+              {menuItems?.map((item) => (
                 <li 
                   key={item.href} 
                   className="relative cursor-pointer"

@@ -23,24 +23,6 @@ const industries = [
     features: ['RFQ Process Optimization', 'Supplier Match Intelligence', 'Predictive Forecasting']
   },
   {
-    id: 'hitech',
-    title: 'Hi-Tech',
-    description: 'Drive innovation with AI and smarter digital ecosystems.',
-    icon: Cpu,
-    color: 'from-blue-500 to-cyan-500',
-    image: 'https://picsum.photos/id/1061/400/300',
-    features: ['Digital Acceleration', 'AI Integration', 'System Optimization']
-  },
-  {
-    id: 'bfsi',
-    title: 'BFSI',
-    description: 'Enhance decisions with AI for risk and fraud.',
-    icon: Building2,
-    color: 'from-blue-500 to-cyan-500',
-    image: 'https://picsum.photos/id/1070/400/300',
-    features: ['Risk Intelligence', 'Fraud Detection', 'Customer Insights']
-  },
-  {
     id: 'defense',
     title: 'Public Sector & Defense',
     description: 'Secure operations using compliant and adaptive AI systems.',
@@ -57,7 +39,25 @@ const industries = [
     color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1064/400/300',
     features: ['Patient Insights', 'Predictive Analytics', 'Drug Discovery']
-  }
+  },
+  {
+    id: 'bfsi',
+    title: 'BFSI',
+    description: 'Enhance decisions with AI for risk and fraud.',
+    icon: Building2,
+    color: 'from-blue-500 to-cyan-500',
+    image: 'https://picsum.photos/id/1070/400/300',
+    features: ['Risk Intelligence', 'Fraud Detection', 'Customer Insights']
+  },
+  {
+    id: 'hitech',
+    title: 'Hi-Tech',
+    description: 'Drive innovation with AI and smarter digital ecosystems.',
+    icon: Cpu,
+    color: 'from-blue-500 to-cyan-500',
+    image: 'https://picsum.photos/id/1061/400/300',
+    features: ['Digital Acceleration', 'AI Integration', 'System Optimization']
+  },
 ];
 
 
