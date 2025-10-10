@@ -66,12 +66,13 @@ const ProfessionalStatItem = ({ number, suffix, label, delay = 0, shouldAnimate 
       className="text-center"
     >
       <motion.div 
-        className="text-4xl lg:text-5xl font-bold text-gray-800 mb-2"
+        className="text-4xl lg:text-5xl font-bold text-gray-800 mb-2 flex items-center justify-center"
         initial={{ scale: 0.9 }}
         whileInView={{ scale: 1 }}
         transition={{ delay: delay * 0.2 + 0.3, duration: 0.4 }}
       >
-        {mounted ? (shouldAnimate ? animatedNumber : number) : number}{suffix}
+        {mounted ? (shouldAnimate ? animatedNumber : number) : number}
+        <span className="text-2xl lg:text-4xl ml-1">{suffix}</span>
       </motion.div>
       <motion.div 
         className="text-sm text-gray-600 font-medium"
@@ -132,7 +133,7 @@ const StatsBanner = () => {
       delay: 4
     },
     {
-      number: 4,
+      number: 2,
       suffix: '+',
       label: 'Delivery Centers',
       delay: 5

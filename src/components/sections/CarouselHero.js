@@ -169,10 +169,12 @@ const CarouselHero = () => {
                     </Button>
                   </Link>
 
-                  <Link href="/demo">
+                  <Link href={currentSlideData.id === 4 ? "/services#ai-pod-service" : "/demo"}>
                     <Button variant="secondary" size="lg" className="group">
-                      <Play className="w-5 h-5 mr-2 transition-transform group-hover:scale-110" />
-                      <span>Watch Demo</span>
+                      {currentSlideData.id !== 4 && (
+                        <Play className="w-5 h-5 mr-2 transition-transform group-hover:scale-110" />
+                      )}
+                      <span>{currentSlideData.id === 4 ? "View Services" : "Watch Demo"}</span>
                     </Button>
                   </Link>
                 </motion.div>
