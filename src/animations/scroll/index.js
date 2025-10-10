@@ -21,6 +21,11 @@ import { TransitionPresets } from './SectionTransitions';
 import { IconMorphPresets } from './MorphingAnimations';
 import { ParallaxEasing } from './ParallaxController';
 
+// Import components
+import ScrollAnimatedSection from './ScrollAnimatedSection';
+import ScrollRevealText from './ScrollRevealText';
+import ParallaxElement from './ParallaxElement';
+
 // Core scroll trigger system
 export { default as scrollTrigger, ScrollTrigger, getScrollTrigger } from './ScrollTrigger';
 export { 
@@ -89,6 +94,11 @@ export {
 
 // Common scroll animations
 export { default as ScrollAnimations } from './ScrollAnimations';
+
+// Components
+export { default as ScrollAnimatedSection } from './ScrollAnimatedSection';
+export { default as ScrollRevealText } from './ScrollRevealText';
+export { default as ParallaxElement } from './ParallaxElement';
 
 // Utility functions
 export const ScrollUtils = {
