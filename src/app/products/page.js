@@ -4,8 +4,7 @@ import Wrapper from "../../components/ui/Wrapper";
 import Button from "../../components/ui/Button";
 import { Download, Mail, Phone, ArrowRight, Zap, Target, TrendingUp, Brain, Cpu, Database, BarChart3, Users, Clock, Shield, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
-import { Scene3D, Scene3DProvider, FloatingGeometry } from "../../animations/3d";
-import { ScrollAnimatedSection, ScrollRevealText, ParallaxElement } from "../../animations/scroll";
+import { ScrollAnimatedSection, ScrollRevealText } from "../../animations/scroll";
 import { FluidBackground, MorphingShapes } from "../../animations/fluid";
 import Link from "next/link";
 
@@ -261,23 +260,19 @@ export default function Products() {
                   className="group"
                 >
                   <Link href={`/products/${product.id}`}>
-                    <div className="relative h-full min-h-[600px] bg-white rounded-2xl md:rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 overflow-hidden group-hover:shadow-2xl group-hover:-translate-y-2 cursor-pointer shadow-lg hover:shadow-2xl flex flex-col group-hover:scale-[1.02] group-hover:rotate-1">
+                    <div className="relative h-full min-h-[600px] bg-white rounded-2xl md:rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 overflow-hidden group-hover:shadow-2xl cursor-pointer shadow-lg hover:shadow-2xl flex flex-col">
                       {/* Card Background Gradient */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
                       
                       {/* Enhanced Glow Effect */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-xl -z-10`}></div>
                       
-                      {/* Animated Border */}
-                      <div className={`absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-r ${product.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[1px]`}>
-                        <div className="w-full h-full bg-white rounded-2xl md:rounded-3xl"></div>
-                      </div>
                       
                       {/* 3D Icon Container */}
                       <div className="relative p-6 md:p-8 pb-4 md:pb-6 flex flex-col h-full">
                         <div className="relative">
                           {/* 3D Icon Background */}
-                          <div className={`w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br ${product.gradient} rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 relative group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-xl`}>
+                          <div className={`w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br ${product.gradient} rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 relative transition-all duration-300 shadow-xl`}>
                             <product.icon className="w-9 h-9 md:w-12 md:h-12 text-white" />
                             
                             {/* Floating 3D Elements */}
@@ -285,28 +280,13 @@ export default function Products() {
                             <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-white/30 rounded-full animate-pulse delay-100"></div>
                     </div>
                     
-                          {/* Micro 3D Animation Elements */}
-                          <div className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <Scene3DProvider>
-                              <Scene3D enableControls={false}>
-                          <FloatingGeometry
-                            shapes={[
-                              { 
-                                      type: 'sphere', 
-                                position: [0, 0, 0], 
-                                      color: product.color,
-                                      scale: 0.3,
-                                      rotationSpeed: [0.01, 0.01, 0.01]
-                                    }
-                                  ]}
-                                  mouseInfluence={0.2}
-                                  animationSpeed={1.5}
-                            enableGlow={true}
-                                  glowIntensity={0.4}
+                          {/* Micro animation accent (no 3D) */}
+                          <motion.span
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileHover={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3 }}
+                            className="absolute top-0 right-0 w-16 h-16 rounded-full bg-gradient-to-br from-white/30 to-white/0 blur-lg pointer-events-none"
                           />
-                        </Scene3D>
-                      </Scene3DProvider>
-                          </div>
                         </div>
                         
                         {/* Product Title */}
