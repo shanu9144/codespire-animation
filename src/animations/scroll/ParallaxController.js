@@ -1,11 +1,15 @@
 /**
  * ParallaxController - Multi-layer parallax system with performance optimization
  * Supports both vertical and horizontal parallax effects with smooth interpolation
+ * Now optimized with Intersection Observer for better performance
  */
+
+import intersectionObserverManager from '../intersection/IntersectionObserverManager';
 
 class ParallaxController {
   constructor() {
     this.layers = new Map();
+    this.visibleLayers = new Set();
     this.isActive = true;
     this.scrollY = 0;
     this.scrollX = 0;
@@ -113,13 +117,17 @@ class ParallaxController {
   }
 
   /**
-   * Update all parallax layers
+   * Update only visible parallax layers for better performance
    */
   updateLayers() {
     if (!this.isActive) return;
 
-    this.layers.forEach((config) => {
-      this.updateLayer(config);
+    // Only update visible layers
+    this.visibleLayers.forEach(layerId => {
+      const layer = this.layers.get(layerId);
+      if (layer && layer.isVisible) {
+        this.updateLayer(layer);
+      }
     });
   }
 
@@ -196,7 +204,7 @@ class ParallaxController {
   }
 
   /**
-   * Add a parallax layer
+   * Add a parallax layer with intersection observer optimization
    */
   addLayer(config) {
     const {
@@ -208,6 +216,7 @@ class ParallaxController {
       easing = null,
       transformOrigin = "center center",
       onUpdate = null,
+      rootMargin = '100px' // Start animating before element is fully visible
     } = config;
 
     if (!element) {
@@ -233,9 +242,27 @@ class ParallaxController {
       transformOrigin,
       onUpdate,
       isActive: true,
+      isVisible: false,
+      lastScrollY: 0,
+      lastScrollX: 0
     };
 
     this.layers.set(id, layerConfig);
+
+    // Use intersection observer to only animate visible elements
+    intersectionObserverManager.observe(
+      element,
+      (entry) => {
+        layerConfig.isVisible = entry.isIntersecting;
+        
+        if (entry.isIntersecting) {
+          this.visibleLayers.add(id);
+        } else {
+          this.visibleLayers.delete(id);
+        }
+      },
+      { rootMargin }
+    );
 
     // Initial update
     this.updateLayer(layerConfig);

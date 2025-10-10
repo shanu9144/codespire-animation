@@ -47,10 +47,12 @@ const ScheduleDemoPage = () => {
             {/* Demo Benefits Section */}
             <motion.div variants={cardVariants} className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg">
               <div className="text-center mb-12">
-                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Why Schedule a Demo?</h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                  Discover how our AI solutions can transform your business in just 30 minutes. 
-                  Get personalized insights and see real results.
+                <h2 className="text-5xl font-bold text-blue-600 mb-6 tracking-tight">
+                  Why Schedule a Demo?
+                </h2>
+                <p className="text-xl font-semibold text-gray-700 max-w-3xl mx-auto mb-2">Discover how our AI solutions can</p>
+                <p className="text-xl font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-tight max-w-3xl mx-auto">
+                  Transform Your Business in 30 Minutes
                 </p>
               </div>
               <div className="grid md:grid-cols-3 gap-8">
@@ -122,14 +124,17 @@ const ScheduleDemoPage = () => {
               </div>
             </motion.div>
 
-            {/* What to Expect Section */}
-            <motion.div variants={cardVariants} className="bg-white rounded-3xl p-8 lg:p-16 shadow-2xl border border-gray-100">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">What to Expect</h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                  Your journey from demo to deployment is designed for maximum value and clarity
-                </p>
-              </div>
+                {/* What to Expect Section */}
+                <motion.div variants={cardVariants} className="bg-white rounded-3xl p-8 lg:p-16 shadow-2xl border border-gray-100">
+                  <div className="text-center mb-16">
+                    <h2 className="text-5xl font-bold text-blue-600 mb-6 tracking-tight">
+                      What to Expect
+                    </h2>
+                    <p className="text-xl font-semibold text-gray-700 max-w-3xl mx-auto mb-2">Your journey from demo to deployment is</p>
+                    <p className="text-xl font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-tight max-w-3xl mx-auto">
+                      Designed for Maximum Value and Clarity
+                    </p>
+                  </div>
               
               <div className="grid lg:grid-cols-2 gap-8">
                 {/* During the Demo */}
