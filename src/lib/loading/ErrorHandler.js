@@ -211,7 +211,7 @@ class ErrorHandler {
     this.notifyFallback(resourceUrl, fallbackInfo);
 
     // Implement resource-specific fallback strategies
-    this.implementFallbackStrategy(resourceUrl, errorInfo.resourceType, fallbackInfo);
+    this.implementFallbackStrategy(resourceUrl, errorInfo.resourceType);
   }
 
   /**
@@ -257,7 +257,7 @@ class ErrorHandler {
    * @param {string} resourceType - Type of resource
    * @param {Object} fallbackInfo - Fallback information
    */
-  implementFallbackStrategy(resourceUrl, resourceType, fallbackInfo) {
+  implementFallbackStrategy(resourceUrl, resourceType) {
     switch (resourceType) {
       case 'critical':
         // For critical resources, continue with degraded experience

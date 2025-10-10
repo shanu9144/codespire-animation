@@ -48,11 +48,12 @@ const CalendlyWidget = ({
 
     return () => {
       // Cleanup if needed
-      if (widgetRef.current) {
-        widgetRef.current.innerHTML = '';
+      const currentWidget = widgetRef.current;
+      if (currentWidget) {
+        currentWidget.innerHTML = '';
       }
     };
-  }, [url]);
+  }, [url, widgetRef]);
 
   if (!url) {
     return (
