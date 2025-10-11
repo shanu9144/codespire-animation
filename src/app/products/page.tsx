@@ -380,7 +380,7 @@ export default function Products() {
                           </Button>
                           
                           <Button 
-                            className={`w-full bg-white border-2 border-gray-200 text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:scale-105 group/btn transition-all duration-300 py-4 px-6 rounded-xl font-semibold text-base shadow-md hover:shadow-lg relative overflow-hidden`}
+                            className={`w-full  border-2 border-gray-200 text-gray-700 hover:text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:scale-105 group/btn transition-all duration-300 py-4 px-6 rounded-xl font-semibold text-base shadow-md hover:shadow-lg relative overflow-hidden`}
                             variant="outline"
                             data-magnetic="true"
                             data-magnetic-strength="0.1"
@@ -527,28 +527,6 @@ export default function Products() {
                     </a>
                   </div>
                   
-                  {/* Trust Indicators */}
-                  <div className="pt-8 md:pt-12 border-t border-gray-200/50">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center">
-                      {[
-                        { number: '50+', label: 'Skilled Experts' },
-                        { number: '7+', label: 'Satisfied Clients' },
-                        { number: '5+', label: 'Global Industries' },
-                      ].map((stat, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 }}
-                          viewport={{ once: true }}
-                          className="space-y-1 md:space-y-2"
-                        >
-                          <div className="text-2xl md:text-3xl font-bold text-primary">{stat.number}</div>
-                          <div className="text-xs md:text-sm text-gray-600 font-medium">{stat.label}</div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
                 </div>
               </div>
             </ScrollAnimatedSection>

@@ -173,23 +173,30 @@ const DigitalEngineeringHero = () => {
         />
       </div>
       
-      {/* Main Content with glassmorphism */}
-      <div className="relative z-10 max-w-5xl mx-auto text-center py-4">
+      {/* Main Content with enhanced design */}
+      <div className="relative z-10 max-w-6xl mx-auto text-center py-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="backdrop-blur-sm bg-white/10 rounded-3xl p-8 py-12 border border-white/20 shadow-xl"
+          className="bg-white rounded-3xl p-12 shadow-2xl border border-gray-100"
         >
-          <div className="space-y-6">
-            {/* Main Heading with two-line design */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-left">
+          <div className="space-y-8">
+            {/* Decorative stars */}
+            <div className="flex justify-center gap-4 mb-6">
+              <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+              <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+              <div className="w-3 h-3 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full"></div>
+            </div>
+            
+            {/* Main Heading with enhanced design */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
               <span className="text-[#2D3748]">Digital Engineering</span><br />
               <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">for Every Industry</span>
             </h1>
             
             {/* Description */}
-            <p className="text-lg md:text-xl text-[#4A5568] leading-relaxed max-w-3xl text-left">
+            <p className="text-xl md:text-2xl text-[#4A5568] leading-relaxed max-w-4xl mx-auto">
               From manufacturing to healthcare, we deliver AI solutions tailored to your industry's unique challenges and regulatory requirements.
             </p>
           </div>
