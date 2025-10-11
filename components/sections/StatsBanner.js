@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion';
 import { Users, Building, Globe, TrendingUp, Award } from 'lucide-react';
 import { Heading, Text } from '../ui/Typography';
 import { useAnimationPerformance } from '../../lib/performance';
+import { fontClasses } from '../../common';
 import TechnologyStackCarousel from './TechnologyStackCarousel';
 
 // Counter animation hook with hydration fix
@@ -198,10 +199,14 @@ const StatsBanner = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="space-y-6"
               >
-                <h3 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-tight tracking-tight">
-                  From Idea to Enterprise-Grade AI in a Blink
+                <h3 className="text-4xl lg:text-4xl font-bold leading-tight tracking-tight">
+                  From Idea to Enterprise Grade
+                  <br />
+                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+                    AI in a Blink
+                  </span>
                 </h3>
-                <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed font-medium">
+                <p className={`text-xl lg:text-xl text-gray-700 ${fontClasses.descriptionMedium}`}>
                   We build AI-powered products and scalable platforms for businesses who want tomorrow&apos;s innovation today.
                 </p>
               </motion.div>

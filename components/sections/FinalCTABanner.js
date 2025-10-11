@@ -7,6 +7,7 @@ import Link from "next/link";
 import Button from "../ui/Button";
 import { Heading, Text } from "../ui/Typography";
 import { useAnimationPerformance } from "../../lib/performance";
+import { fontClasses } from "../../common";
 
 const FinalCTABanner = () => {
   const { config, shouldReduceAnimations } = useAnimationPerformance();
@@ -276,7 +277,7 @@ const FinalCTABanner = () => {
             <Text
               size="body-lg"
               color="secondary"
-              className="max-w-2xl mx-auto leading-relaxed"
+              className={`max-w-2xl mx-auto ${fontClasses.descriptionMedium}`}
             >
               Transform your business operations, enhance productivity, and
               unlock new possibilities with cutting-edge AI solutions tailored

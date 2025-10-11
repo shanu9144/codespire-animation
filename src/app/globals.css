@@ -224,6 +224,18 @@ motion.a:focus {
   box-shadow: none !important;
 }
 
+/* Remove focus outline specifically for header logo */
+.header-left a:focus,
+.header-left a:focus-visible,
+.header-left a:hover,
+.header-left a:active,
+.header-left motion.div:focus,
+.header-left motion.div:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
 /* Remove blue focus outline specifically for carousel arrow buttons */
 .carousel-arrow:focus,
 .carousel-arrow:focus-visible,
