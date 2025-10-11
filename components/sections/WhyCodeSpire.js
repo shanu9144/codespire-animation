@@ -14,6 +14,7 @@ import {
   Brain,
   TrendingUp
 } from 'lucide-react';
+import { fontClasses } from '../../common';
 import InfiniteCarousel from '../ui/InfiniteCarousel';
 
 const WhyCodeSpire = () => {
@@ -154,7 +155,7 @@ const WhyCodeSpire = () => {
               {highlight.subtitle}
             </p>
             
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <p className={`text-gray-600 mb-4 ${fontClasses.description}`}>
               {highlight.description}
             </p>
 
@@ -258,7 +259,7 @@ const WhyCodeSpire = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4 hover:scale-105 transition-transform">
             <Zap className="w-6 h-6 mr-2 text-blue-600" />
            <span className="text-blue-600 font-bold text-lg">What We Do</span>
@@ -271,13 +272,13 @@ const WhyCodeSpire = () => {
             </span>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
+          <p className={`text-xl text-gray-600 max-w-6xl mx-auto ${fontClasses.descriptionMedium}`}>
           Our approach is rooted in a deep understanding of today&apos;s challenges, enabling our clients with AI to innovate for growth, engineer efficient AI solutions with precision, and evolve strategies to help our clients stay ahead of the curve.
           </p>
         </div>
 
         {/* Infinite marquee under the header */}
-        <div className="mb-12">
+        <div className="mb-8">
           <InfiniteCarousel
             items={marqueeNodes}
             speed={40}

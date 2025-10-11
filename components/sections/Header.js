@@ -100,11 +100,11 @@ const Header = () => {
         <nav className="flex items-center px-6 lg:px-8 py-4">
           {/* Header Left - Logo and Brand */}
           <div className="header-left">
-            <Link href="/" className="flex items-center cursor-pointer">
+            <Link href="/" className="flex items-center cursor-pointer focus:outline-none focus-visible:outline-none hover:outline-none">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
-                className="flex items-center cursor-pointer"
+                className="flex items-center cursor-pointer focus:outline-none focus-visible:outline-none"
                 data-magnetic="true"
                 data-magnetic-strength="0.3"
                 data-magnetic-radius="80"
