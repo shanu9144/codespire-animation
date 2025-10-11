@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Wrapper from '../../../components/ui/Wrapper';
-import Button from '../../../components/ui/Button';
+import { Wrapper, Button } from '../../../../components/ui';
 import { ArrowRight, ArrowDown, ChevronRight } from 'lucide-react';
 
 const AppDevelopmentPage = () => {

@@ -19,13 +19,72 @@ const eslintConfig = [...compat.extends("next/core-web-vitals", "next/typescript
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "**/*.d.ts",
+    "**/*.config.js",
+    "**/*.config.mjs",
   ],
   rules: {
-    "@typescript-eslint/no-unused-vars": "warn",
+    // TypeScript specific rules
+    "@typescript-eslint/no-unused-vars": ["warn", { 
+      "argsIgnorePattern": "^_",
+      "varsIgnorePattern": "^_",
+      "caughtErrorsIgnorePattern": "^_"
+    }],
+    "@typescript-eslint/no-explicit-any": "warn",
+    "prefer-const": "error",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/consistent-type-imports": ["error", { 
+      "prefer": "type-imports",
+      "disallowTypeAnnotations": false
+    }],
+    
+    // React specific rules
     "react-hooks/exhaustive-deps": "warn",
+    "react/no-unescaped-entities": "error",
+    "react/prop-types": "off", // Not needed with TypeScript
+    "react/react-in-jsx-scope": "off", // Not needed with Next.js
+    
+    // Import rules
     "import/no-anonymous-default-export": "warn",
+    "import/order": ["error", {
+      "groups": [
+        "builtin",
+        "external", 
+        "internal",
+        "parent",
+        "sibling",
+        "index"
+      ],
+      "newlines-between": "always",
+      "alphabetize": {
+        "order": "asc",
+        "caseInsensitive": true
+      }
+    }],
+    
+    // Next.js specific rules
     "@next/next/no-img-element": "warn",
-    "react/no-unescaped-entities": "error"
+    "@next/next/no-html-link-for-pages": "error",
+    
+    // General rules
+    "no-var": "error",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-debugger": "error",
+    "no-duplicate-imports": "error",
+    "no-unused-expressions": "error",
+    
+    // Code style
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"],
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "never"],
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }]
   }
 }, ...storybook.configs["flat/recommended"]];
 
