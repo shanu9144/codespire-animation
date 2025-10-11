@@ -1,10 +1,9 @@
 'use client';
 
-import Wrapper from "../../../components/ui/Wrapper";
-import Button from "../../../components/ui/Button";
+import { Wrapper, Button } from "../../../../components/ui";
 import { Download, Phone, ArrowRight, Target, Brain, Database, BarChart3, Clock, Shield, CheckCircle, Settings, FileText, Lightbulb, Search, Award, Cloud, Lock, Eye } from "lucide-react";
 import { motion } from "framer-motion";
-import { ScrollAnimatedSection } from "../../../animations/scroll";
+import { ScrollAnimatedSection } from "../../../../lib/animations/scroll";
 import Link from "next/link";
 
 export default function SupplierMatchAI() {

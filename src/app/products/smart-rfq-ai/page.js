@@ -1,11 +1,10 @@
 'use client';
 
-import Wrapper from "../../../components/ui/Wrapper";
-import Button from "../../../components/ui/Button";
+import { Wrapper, Button } from "../../../../components/ui";
 import { Download, Mail, Phone, ArrowRight, Zap, Target, TrendingUp, Brain, Cpu, Database, BarChart3, Clock, Shield, CheckCircle, Users, Settings, FileText, Calculator, Layers, Lightbulb, Send, FileCheck, DollarSign, PieChart, Award, Cloud, Lock, Star } from "lucide-react";
 import { motion } from "framer-motion";
-import { ScrollAnimatedSection, ScrollRevealText, ParallaxElement } from "../../../animations/scroll";
-import { FluidBackground, MorphingShapes } from "../../../animations/fluid";
+import { ScrollAnimatedSection, ScrollRevealText, ParallaxElement } from "../../../../lib/animations/scroll";
+import { FluidBackground, MorphingShapes } from "../../../../lib/animations/fluid";
 import Link from "next/link";
 
 export default function SmartRFQAI() {
