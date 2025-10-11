@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Wrapper } from '../../../components/ui';
 import { ProfessionalB2BBackground } from '../../../components/backgrounds';
+import { fontClasses } from '../../../common';
 // import { Scene3D, FloatingGeometry } from '../../../lib/animations/3d';
 import { 
   Brain, 
@@ -22,7 +23,8 @@ import {
   Sparkles,
   Star,
   ChevronDown,
-  Play
+  Play,
+  Monitor
 } from 'lucide-react';
 
 const ServicesPage = () => {
@@ -160,7 +162,16 @@ const ServicesPage = () => {
   // Other services data
   const otherServices = [
     {
-      icon: Code,
+      icon: Cpu,
+      title: "AI Pod as a Service",
+      description:
+        "Dedicated cross-functional AI squad delivering rapid, iterative value.",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
+      href: "/services/ai-pod",
+    },
+    {
+      icon: Monitor,
       title: "Digital Engineering",
       description:
         "Cutting-edge engineering solutions for transformative digital experiences.",
@@ -169,17 +180,8 @@ const ServicesPage = () => {
       href: "/services/digital-engineering",
     },
     {
-      icon: Cpu,
-      title: "AI Pod",
-      description:
-        "Dedicated cross-functional AI squad delivering rapid, iterative value.",
-      color: "from-blue-500 to-cyan-600",
-      bgColor: "from-blue-50 to-cyan-50",
-      href: "/services/ai-pod",
-    },
-    {
       icon: Settings,
-      title: "Application Development And Testing",
+      title: "Application Development and Testing",
       description:
         "Robust and modernized applications with rigorous quality assurance",
       color: "from-blue-500 to-cyan-600",
@@ -188,7 +190,7 @@ const ServicesPage = () => {
     },
     {
       icon: BarChart3,
-      title: "Data, Analytics And AI",
+      title: "Data and Analytics",
       description:
         "Actionable insights through advanced analytics and intelligent AI.",
       color: "from-blue-500 to-cyan-600",
@@ -306,7 +308,7 @@ const ServicesPage = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-12 max-w-4xl mx-auto"
+              className={`text-xl md:text-xl text-gray-600 mb-12 max-w-4xl mx-auto ${fontClasses.description}`}
               variants={fadeInUp}
             >
               At CodeSpire, we help enterprises conceive, build, and scale AI-powered products. 
@@ -340,7 +342,6 @@ const ServicesPage = () => {
               >
                 <span className="flex items-center gap-3">
                   View All Services
-                  <Play className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </motion.button>
             </motion.div>
@@ -386,20 +387,23 @@ const ServicesPage = () => {
             </motion.div>
 
             <motion.h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-8 leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
               variants={fadeInUp}
             >
-              Your Dedicated AI Delivery Engine
+              Your Dedicated{' '}
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+                AI Delivery Engine
+              </span>
             </motion.h2>
             
             <motion.div 
-              className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-semibold"
+              className="text-xl md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-semibold"
               variants={fadeInUp}
             >
-              <p className="mb-2">
+              <p className={`mb-2 ${fontClasses.description}`}>
                 AI POD as a Service is our flagship approach to embedding agile, high-performance teams that deliver rapid business outcomes.
               </p>
-              <p>
+              <p className={fontClasses.description}>
                 Think of PODs as your AI strike teams — fast, focused, and impact-driven.
               </p>
             </motion.div>
@@ -506,14 +510,21 @@ const ServicesPage = () => {
           </motion.div>
 
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
             variants={fadeInUp}
           >
-            Comprehensive AI & Technology Services
+            Comprehensive{' '}
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+              AI
+            </span>
+            {' '}&{' '}
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+              Technology Services
+            </span>
           </motion.h2>
           
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            className={`text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto ${fontClasses.description}`}
             variants={fadeInUp}
           >
             From AI product development to enterprise solutions, we provide end-to-end 
@@ -553,7 +564,7 @@ const ServicesPage = () => {
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className={`text-gray-600 mb-6 ${fontClasses.descriptionLight}`}>
                   {service.description}
                 </p>
 
@@ -640,7 +651,6 @@ const ServicesPage = () => {
               >
                 <span className="flex items-center gap-3">
                   Download Our Capabilities
-                  <Play className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                 </span>
               </motion.button>
             </div>
