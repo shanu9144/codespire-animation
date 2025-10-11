@@ -15,3 +15,11 @@ export { default as IndustriesWeServe } from './IndustriesWeServe';
 export { default as TechnologyStackCarousel } from './TechnologyStackCarousel';
 export { default as FeatureHighlightsCarousel } from './FeatureHighlightsCarousel';
 export { default as FinalCTABanner } from './FinalCTABanner';
+
+// Digital Engineering Page Components
+export { default as DigitalEngineeringHero } from './DigitalEngineeringHero';
+export { default as BreadcrumbNavigation } from './BreadcrumbNavigation';
+export { default as ServicesSidebar } from './ServicesSidebar';
+export { default as MainContentSection } from './MainContentSection';
+export { default as AIServicesGrid } from './AIServicesGrid';
+export { default as DigitalEngineeringCTA } from './DigitalEngineeringCTA';
