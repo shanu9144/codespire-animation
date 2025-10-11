@@ -106,8 +106,8 @@ const CarouselHero = () => {
       intensity="medium"
       className="relative min-h-screen overflow-hidden"
     >
-      <Wrapper className="h-screen flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+      <Wrapper className="min-h-screen flex items-center py-8 sm:py-12 lg:py-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center w-full">
           {/* Left Content */}
           <div className="relative z-10">
             <AnimatePresence mode="wait">
@@ -117,11 +117,11 @@ const CarouselHero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="space-y-6"
+                className="space-y-4 sm:space-y-6"
               >
                 {/* Main Title */}
                 <div>
-                  <Heading level={1} size="hero" className="mb-2">
+                  <Heading level={1} size="h1" className="mb-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                     <motion.span
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -150,7 +150,7 @@ const CarouselHero = () => {
                   <Text
                     size="body-lg"
                     color="secondary"
-                    className="max-w-xl leading-relaxed"
+                    className="max-w-xl leading-relaxed font-serif text-base sm:text-lg lg:text-xl"
                   >
                     {currentSlideData.description}
                   </Text>
@@ -161,16 +161,16 @@ const CarouselHero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 0.6 }}
-                  className="flex items-center space-x-4"
+                  className="flex flex-row items-center space-x-3 sm:space-x-4"
                 >
                   <Link href={currentSlideData.ctaLink}>
-                    <Button variant="primary" size="lg" className="group">
+                    <Button variant="primary" size="md" className="group">
                       <span>{currentSlideData.cta}</span>
                     </Button>
                   </Link>
 
                   <Link href={currentSlideData.id === 4 ? "/services#ai-pod-service" : "/demo"}>
-                    <Button variant="secondary" size="lg" className="group">
+                    <Button variant="secondary" size="md" className="group">
                       {currentSlideData.id !== 4 && (
                         <Play className="w-5 h-5 mr-2 transition-transform group-hover:scale-110" />
                       )}
@@ -186,7 +186,7 @@ const CarouselHero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.6 }}
-              className="flex items-center space-x-3 mt-12"
+              className="flex items-center justify-center lg:justify-start space-x-3 mt-8 sm:mt-12"
             >
               {slides.map((_, index) => (
                 <button
@@ -213,14 +213,14 @@ const CarouselHero = () => {
           {/* Right Image Carousel */}
           <div className="relative">
             {/* Main Image Container */}
-            <div className="relative aspect-[5/4.2] rounded-2xl overflow-hidden shadow-2xl">
-              <AnimatePresence mode="wait">
+            <div className="relative aspect-[4/3] sm:aspect-[5/4] lg:aspect-[5/4.2] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl bg-gray-100">
+              <AnimatePresence initial={false}>
                 <motion.div
                   key={currentSlide}
-                  initial={{ opacity: 0, scale: 1.1 }}
+                  initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
                   className="absolute inset-0"
                 >
                   {/* Image with error handling */}
@@ -283,16 +283,16 @@ const CarouselHero = () => {
             {/* Navigation Arrows */}
             <button
               onClick={prevSlide}
-              className="carousel-arrow absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors duration-200 z-10 focus:outline-none focus-visible:outline-none outline-none focus:outline-offset-0"
+              className="carousel-arrow absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors duration-200 z-10 focus:outline-none focus-visible:outline-none outline-none focus:outline-offset-0"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </button>
 
             <button
               onClick={nextSlide}
-              className="carousel-arrow absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors duration-200 z-10 focus:outline-none focus-visible:outline-none outline-none focus:outline-offset-0"
+              className="carousel-arrow absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors duration-200 z-10 focus:outline-none focus-visible:outline-none outline-none focus:outline-offset-0"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </button>
 
             {/* Floating Elements */}
@@ -306,7 +306,7 @@ const CarouselHero = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute -top-8 -left-8 w-16 h-16 bg-primary/20 rounded-full blur-xl"
+              className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 lg:-top-8 lg:-left-8 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-primary/20 rounded-full blur-xl"
             />
 
             <motion.div
@@ -320,14 +320,14 @@ const CarouselHero = () => {
                 ease: "easeInOut",
                 delay: 1,
               }}
-              className="absolute -bottom-6 -right-6 w-12 h-12 bg-primary/30 rounded-full blur-lg"
+              className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 lg:-bottom-6 lg:-right-6 w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 bg-primary/30 rounded-full blur-lg"
             />
           </div>
         </div>
       </Wrapper>
 
       {/* Progress Bar */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-64 h-1 bg-white/20 rounded-full overflow-hidden">
+      <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-1/2 -translate-x-1/2 w-48 sm:w-56 lg:w-64 h-1 bg-white/20 rounded-full overflow-hidden">
         <motion.div
           className="h-full bg-white rounded-full"
           initial={{ width: "0%" }}
