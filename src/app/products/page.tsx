@@ -1,11 +1,12 @@
 'use client';
 
-import { Wrapper, Button } from '../../../components/ui';
-import { Download, Mail, Phone, ArrowRight, Zap, Target, TrendingUp, Brain, Cpu, Database, BarChart3, Users, Clock, Shield, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { ScrollAnimatedSection, ScrollRevealText } from '../../../lib/animations/scroll';
-import { FluidBackground, MorphingShapes } from '../../../lib/animations/fluid';
+import { Mail, Phone, ArrowRight, Zap, Target, TrendingUp, Brain, Cpu, Database, BarChart3, Users, Clock, Shield, Calendar } from 'lucide-react';
 import Link from 'next/link';
+
+import { Wrapper, Button } from '../../../components/ui';
+import { FluidBackground, MorphingShapes } from '../../../lib/animations/fluid';
+import { ScrollAnimatedSection, ScrollRevealText } from '../../../lib/animations/scroll';
 
 interface Product {
   id: string;
@@ -15,6 +16,7 @@ interface Product {
   icon: React.ComponentType<{ className?: string }>;
   color: string;
   gradient: string;
+  href: string;
   features: string[];
   stats: Array<{
     label: string;
@@ -33,6 +35,7 @@ export default function Products() {
       icon: Target,
       color: '#384bff',
       gradient: 'from-blue-500 to-blue-600',
+      href: '/products/smart-rfq-ai',
       features: [
         'Automated CAD-to-quote processing',
         'Data-driven costing estimates',
@@ -52,6 +55,7 @@ export default function Products() {
       icon: Users,
       color: '#8b5cf6',
       gradient: 'from-purple-500 to-purple-600',
+      href: '/products/supplier-match-ai',
       features: [
         'Intelligent supplier discovery',
         'Automated RFQ-to-supplier matching',
@@ -71,6 +75,7 @@ export default function Products() {
       icon: BarChart3,
       color: '#06b6d4',
       gradient: 'from-cyan-500 to-cyan-600',
+      href: '/products/forecast-ai',
       features: [
         'AI-driven forecasting',
         'Real-time trend detection',
@@ -349,7 +354,7 @@ export default function Products() {
                               transition={{ duration: 0.5, delay: (index * 0.15) + (statIndex * 0.1) + 0.5, ease: 'easeOut' }}
                               className="text-center p-2 md:p-3 bg-gray-50 rounded-lg md:rounded-xl group-hover:bg-gray-100 transition-colors duration-300"
                             >
-                              <stat.icon className={`w-4 h-4 md:w-5 md:h-5 mx-auto mb-1 md:mb-2 text-gray-600 group-hover:text-gray-800 transition-colors duration-300`} />
+                              <stat.icon className={'w-4 h-4 md:w-5 md:h-5 mx-auto mb-1 md:mb-2 text-gray-600 group-hover:text-gray-800 transition-colors duration-300'} />
                               <div className="text-sm md:text-lg font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
                                 {stat.value}
                               </div>
@@ -379,19 +384,18 @@ export default function Products() {
                             </span>
                           </Button>
                           
-                          <Button 
-                            className={`w-full  border-2 border-gray-200 text-gray-700 hover:text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:scale-105 group/btn transition-all duration-300 py-4 px-6 rounded-xl font-semibold text-base shadow-md hover:shadow-lg relative overflow-hidden`}
-                            variant="outline"
-                            data-magnetic="true"
-                            data-magnetic-strength="0.1"
-                          >
-                            {/* Button Hover Effect */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-gray-100 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                            <span className="flex items-center justify-center">
-                              <Download className="mr-2 h-5 w-5 group-hover/btn:scale-110 transition-transform duration-200" />
-                              Download datasheet
-                            </span>
-                          </Button>
+                          <Link href={product.href}>
+                            <Button 
+                              className={'w-full border-2 border-gray-200 text-gray-700 hover:text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:scale-105 group/btn transition-all duration-300 py-4 px-6 rounded-xl font-semibold text-base shadow-md hover:shadow-lg'}
+                              variant="outline"
+                              data-magnetic="true"
+                              data-magnetic-strength="0.1"
+                            >
+                              <span className="flex items-center justify-center">
+                                Explore
+                              </span>
+                            </Button>
+                          </Link>
                         </div>
                       </div>
                     </div>
