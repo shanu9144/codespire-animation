@@ -169,13 +169,9 @@ const AIServicesGrid = () => {
                         {service.title}
                       </h3>
                       
-                      <p className="text-gray-600 leading-relaxed mb-6">
+                      <p className="text-gray-600 leading-relaxed">
                         {service.description}
                       </p>
-                      
-                      <button className="text-blue-600 font-semibold flex items-center gap-2 group-hover:gap-3 transition-all">
-                        Learn More <ArrowRight className="w-4 h-4" />
-                      </button>
                     </div>
                   </motion.div>
                 </motion.div>

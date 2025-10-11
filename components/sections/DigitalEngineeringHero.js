@@ -183,9 +183,9 @@ const DigitalEngineeringHero = () => {
         >
           <div className="space-y-6">
             {/* Main Heading with two-line design */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight text-left">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-left">
               <span className="text-[#2D3748]">Digital Engineering</span><br />
-              <span className="text-[#6B46C1]">for Every Industry</span>
+              <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">for Every Industry</span>
             </h1>
             
             {/* Description */}
