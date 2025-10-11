@@ -54,13 +54,13 @@ const MainContentSection = () => {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
       
       <div className="relative max-w-6xl mx-auto">
-        {/* Card with depth and subtle shadows */}
+        {/* Card with enhanced design */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative bg-white rounded-3xl shadow-xl p-10 md:p-12 lg:p-16 border border-gray-100"
+          className="relative bg-white rounded-3xl shadow-2xl p-12 md:p-16 lg:p-20 border border-gray-100"
         >
           {/* Add inner glow effect */}
           <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/50 pointer-events-none" />
@@ -126,18 +126,18 @@ const MainContentSection = () => {
                     {/* Background glow on hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-400/0 to-purple-400/0 group-hover:from-blue-400/20 group-hover:to-purple-400/20 rounded-2xl blur-xl transition-all duration-500" />
                     
-                    {/* Card with subtle gradient background */}
-                    <div className="relative flex flex-col items-center gap-3 p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 group-hover:border-blue-200 group-hover:shadow-xl transition-all duration-300">
-                      {/* Icon with gradient background and shadow */}
+                    {/* Card with enhanced design */}
+                    <div className="relative flex flex-col items-center gap-4 p-8 rounded-3xl bg-white border border-gray-100 group-hover:border-purple-200 group-hover:shadow-2xl transition-all duration-300">
+                      {/* Icon with enhanced styling */}
                       <div className="relative">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${card.color} flex items-center justify-center shadow-lg group-hover:shadow-blue-500/50 group-hover:scale-110 transition-all duration-300`}>
-                          <Icon className="w-8 h-8 text-white" />
+                        <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${card.color} flex items-center justify-center shadow-xl group-hover:shadow-purple-500/50 group-hover:scale-110 transition-all duration-300`}>
+                          <Icon className="w-10 h-10 text-white" />
                         </div>
-                        {/* Icon glow effect */}
-                        <div className={`absolute inset-0 blur-xl bg-blue-400/30 rounded-2xl group-hover:bg-blue-400/50 transition-all duration-300`} />
+                        {/* Enhanced glow effect */}
+                        <div className={`absolute inset-0 blur-2xl bg-purple-400/40 rounded-3xl group-hover:bg-purple-400/60 transition-all duration-300`} />
                       </div>
                       
-                      <span className="text-sm font-semibold text-gray-900 text-center">
+                      <span className="text-lg font-bold text-gray-900 text-center">
                         {card.title}
                       </span>
                     </div>
@@ -149,22 +149,22 @@ const MainContentSection = () => {
             {/* Enhanced CTA Button */}
             <div className="flex justify-center">
               <motion.button
-                className="relative group px-8 py-4 rounded-full font-semibold overflow-hidden transition-all duration-300 hover:scale-105"
+                className="relative group px-12 py-6 rounded-full font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {/* Gradient background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600" />
+                {/* Enhanced gradient background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6]" />
                 
                 {/* Animated shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
                 
-                {/* Shadow layers */}
-                <div className="absolute inset-0 shadow-lg group-hover:shadow-2xl group-hover:shadow-blue-500/50 transition-all duration-300" />
+                {/* Enhanced shadow layers */}
+                <div className="absolute inset-0 shadow-xl group-hover:shadow-2xl group-hover:shadow-purple-500/50 transition-all duration-300" />
                 
                 {/* Button text */}
-                <span className="relative text-white flex items-center gap-2">
-                  About Our Services <ArrowRight className="w-5 h-5" />
+                <span className="relative text-white flex items-center gap-3">
+                  About Our Services <ArrowRight className="w-6 h-6" />
                 </span>
               </motion.button>
             </div>
