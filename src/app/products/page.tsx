@@ -156,19 +156,19 @@ export default function Products() {
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
               <div className="space-y-6 md:space-y-8">
                 {/* Subtitle */}
-                <div className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold leading-tight max-w-4xl mx-auto">
+                <h1 className="text-4xl lg:text-5xl font-bold leading-tight tracking-tight max-w-4xl mx-auto">
                   <ScrollRevealText revealBy="word" staggerDelay={80}>
-                    <span className="text-gray-700">Explore our AI products built to</span>
+                    <span className="text-gray-900">Explore our AI products built to</span>
                   </ScrollRevealText>
                   <br />
                   <ScrollRevealText revealBy="word" staggerDelay={100}>
-                    <span className="bg-gradient-to-r from-primary via-blue-600 to-blue-700 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
                       Accelerate Manufacturing, Sourcing, and Planning
                     </span>
                   </ScrollRevealText>
-                </div>
+                </h1>
                 
-                <p className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                <p className="text-base md:text-lg max-w-4xl mx-auto leading-relaxed bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
                   Transform your business operations with intelligent automation, 
                   predictive analytics, and seamless integration across your entire workflow.
                 </p>
@@ -279,7 +279,7 @@ export default function Products() {
                   className="group"
                 >
                   <Link href={`/products/${product.id}`}>
-                    <div className="relative h-full min-h-[600px] bg-white rounded-2xl md:rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 overflow-hidden group-hover:shadow-2xl cursor-pointer shadow-lg hover:shadow-2xl flex flex-col">
+                    <div className="relative h-full min-h-[650px] bg-white rounded-2xl md:rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 overflow-hidden group-hover:shadow-2xl cursor-pointer shadow-lg hover:shadow-2xl flex flex-col">
                       {/* Card Background Gradient */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
                       
@@ -324,8 +324,8 @@ export default function Products() {
                       </div>
                       
                       {/* Features List */}
-                      <div className="px-6 md:px-8 pb-4 md:pb-6 flex-grow">
-                        <div className="space-y-2 md:space-y-3">
+                      <div className="px-6 md:px-8 pb-4 md:pb-6 flex-grow min-h-[120px]">
+                        <div className="space-y-3">
                           {product.features.map((feature, featureIndex) => (
                             <motion.div
                               key={featureIndex}
@@ -335,7 +335,7 @@ export default function Products() {
                               className="flex items-center space-x-3 group/feature"
                             >
                               <div className={`w-2 h-2 bg-gradient-to-r ${product.gradient} rounded-full group-hover/feature:scale-150 transition-transform duration-200`}></div>
-                              <span className="text-base text-gray-600 group-hover/feature:text-gray-800 transition-colors duration-200 font-medium">
+                              <span className="text-sm md:text-base text-gray-600 group-hover/feature:text-gray-800 transition-colors duration-200 font-medium whitespace-nowrap">
                                 {feature}
                               </span>
                             </motion.div>
@@ -416,7 +416,7 @@ export default function Products() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-br from-blue-50/30 via-white to-blue-50/20">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-br from-slate-50/40 via-white/60 to-blue-50/30 backdrop-blur-sm">
         {/* Enhanced Animated Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <FluidBackground

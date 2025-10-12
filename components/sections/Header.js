@@ -97,7 +97,7 @@ const Header = () => {
       }}
     >
       <Wrapper>
-        <nav className="flex items-center px-6 lg:px-8 py-4">
+        <nav className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           {/* Header Left - Logo and Brand */}
           <div className="header-left">
             <Link href="/" className="flex items-center cursor-pointer focus:outline-none focus-visible:outline-none hover:outline-none">
@@ -114,7 +114,7 @@ const Header = () => {
                   alt="CodeSpire Solutions"
                   width={140}
                   height={40}
-                  className="h-8 w-auto"
+                  className="h-6 sm:h-7 md:h-8 w-auto"
                   priority
                 />
               </motion.div>
@@ -122,8 +122,8 @@ const Header = () => {
           </div>
 
           {/* Header Center - Desktop Navigation */}
-          <div className="hidden md:flex flex-1 justify-end pr-4 lg:pr-6">
-            <ul className="flex items-center gap-6 lg:gap-8 text-gray-700 font-medium">
+          <div className="hidden lg:flex flex-1 justify-end pr-4 xl:pr-6">
+            <ul className="flex items-center gap-4 lg:gap-6 xl:gap-8 text-gray-700 font-medium">
               {menuItems?.map((item) => (
                 <li 
                   key={item.href} 
@@ -162,16 +162,16 @@ const Header = () => {
           </div>
 
           {/* Header Right - CTA Button and Mobile Menu */}
-          <div className="header-right ml-2 lg:ml-4">
+          <div className="header-right ml-2 sm:ml-4 lg:ml-6">
             {/* Desktop CTA Button */}
-            <div className="desktop-only">
+            <div className="hidden md:block">
               <Link href="/schedule-demo">
                 <Button 
                   variant="primary" 
-                  size="md"
+                  size="sm"
                   className="group"
                 >
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 text-white">
                     Schedule a Demo
                     <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -184,14 +184,14 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="mobile-nav p-3 rounded-lg text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-300 group cursor-pointer"
+              className="md:hidden p-2 sm:p-3 rounded-lg text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-300 group cursor-pointer"
               aria-label="Toggle menu"
             >
               <div className="relative">
                 {isMenuOpen ? (
-                  <X size={24} className="transition-transform duration-300 group-hover:scale-110" />
+                  <X size={20} className="sm:w-6 sm:h-6 transition-transform duration-300 group-hover:scale-110" />
                 ) : (
-                  <Menu size={24} className="transition-transform duration-300 group-hover:scale-110" />
+                  <Menu size={20} className="sm:w-6 sm:h-6 transition-transform duration-300 group-hover:scale-110" />
                 )}
               </div>
             </button>
@@ -206,9 +206,9 @@ const Header = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden overflow-hidden"
+              className="md:hidden overflow-hidden bg-white border-t border-gray-100"
             >
-              <div className="py-6 space-y-2 border-t border-gray-100">
+              <div className="py-4 sm:py-6 space-y-1 sm:space-y-2">
                 {menuItems.map((item, index) => (
                   <motion.div
                     key={item.href}
@@ -217,10 +217,10 @@ const Header = () => {
                     transition={{ delay: index * 0.1, duration: 0.3 }}
                   >
                     {item.children ? (
-                      <div className="px-4">
+                      <div className="px-3 sm:px-4">
                         <button
                           onClick={() => setIsServicesOpen((o) => !o)}
-                          className="w-full flex items-center justify-between px-2 py-3 text-left text-gray-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-300 font-medium cursor-pointer"
+                          className="w-full flex items-center justify-between px-2 py-2 sm:py-3 text-left text-gray-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-300 font-medium cursor-pointer text-sm sm:text-base"
                         >
                           <span>{item.label}</span>
                           <svg className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
@@ -241,7 +241,7 @@ const Header = () => {
                       <Link
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="block px-6 py-3 text-gray-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-300 group font-medium cursor-pointer"
+                        className="block px-4 sm:px-6 py-2 sm:py-3 text-gray-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-300 group font-medium cursor-pointer text-sm sm:text-base"
                       >
                         <span className="flex items-center justify-between">
                           {item.label}
@@ -257,15 +257,15 @@ const Header = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: menuItems.length * 0.1, duration: 0.3 }}
-                  className="px-6 pt-4"
+                  className="px-4 sm:px-6 pt-3 sm:pt-4"
                 >
                   <Link href="/schedule-demo">
                     <Button 
                       variant="primary" 
-                      size="md" 
+                      size="sm" 
                       className="w-full group"
                     >
-                      <span className="flex items-center justify-center gap-2">
+                      <span className="flex items-center justify-center gap-2 text-white">
                         Schedule a Demo
                         <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
