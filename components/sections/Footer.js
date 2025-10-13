@@ -13,6 +13,8 @@ const Footer = () => {
     company: [
       { label: "About Us", href: "/about" },
       { label: "Products", href: "/products" },
+      { label: "Services", href: "/services" },
+      { label: "Our Team", href: "/about" },
       { label: "Contact", href: "/contact" },
     ],
     legal: [
@@ -142,9 +144,6 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-white text-sm">
               © {currentYear} CodeSpire Solutions. All rights reserved.
-            </p>
-            <p className="text-gray-300 text-sm mt-2 md:mt-0">
-              Built with ❤️ for enterprise AI transformation
             </p>
           </div>
         </div>
