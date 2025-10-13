@@ -195,6 +195,7 @@ const ServicesPage = () => {
         "Actionable insights through advanced analytics and intelligent AI.",
       color: "from-blue-500 to-cyan-600",
       bgColor: "from-blue-50 to-cyan-50",
+      href: "/services/data-analytics",
     },
     {
       icon: Cloud,
@@ -203,6 +204,7 @@ const ServicesPage = () => {
         "Streamlined platforms for dynamic business efficiency.",
       color: "from-blue-500 to-cyan-600",
       bgColor: "from-blue-50 to-cyan-50",
+      href: "/services/salesforce-servicenow",
     },
     {
       icon: Shield,
@@ -211,6 +213,7 @@ const ServicesPage = () => {
         "Reliable, proactive system resilience and performance.",
       color: "from-blue-500 to-cyan-600",
       bgColor: "from-blue-50 to-cyan-50",
+      href: "/services/sre-support",
     },
   ];
 
@@ -552,24 +555,24 @@ const ServicesPage = () => {
                 }}
                 className="group relative"
               >
-                <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-blue-100/30 h-full">
+                <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-blue-100/30 h-full flex flex-col">
                 <motion.div 
-                  className={`w-14 h-14 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-14 h-14 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}
                   whileHover={{ rotate: 5 }}
                 >
                   <service.icon className="w-7 h-7 text-white" />
                 </motion.div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors duration-300 flex-shrink-0">
                   {service.title}
                 </h3>
                 
-                <p className={`text-gray-600 mb-6 ${fontClasses.descriptionLight}`}>
+                <p className={`text-gray-600 mb-6 ${fontClasses.descriptionLight} flex-grow`}>
                   {service.description}
                 </p>
 
                 <motion.div
-                  className="flex items-center text-primary font-semibold group-hover:translate-x-2 transition-transform duration-300"
+                  className="flex items-center text-primary font-semibold group-hover:translate-x-2 transition-transform duration-300 flex-shrink-0 mt-auto"
                   whileHover={{ x: 4 }}
                 >
                   Learn More

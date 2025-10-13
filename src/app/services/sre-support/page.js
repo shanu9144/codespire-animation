@@ -4,11 +4,11 @@ import React from 'react';
 
 import ParticleNetworkBackground from '../../../../components/backgrounds/ParticleNetworkBackground';
 import AIServicesGrid from '../../../../components/sections/AIServicesGrid';
-import AIPodCTA from '../../../../components/sections/AIPodCTA';
-import AIPodHero from '../../../../components/sections/AIPodHero';
-import AIPodMainContent from '../../../../components/sections/AIPodMainContent';
+import SRESupportCTA from '../../../../components/sections/SRESupportCTA';
+import SRESupportHero from '../../../../components/sections/SRESupportHero';
+import SRESupportMainContent from '../../../../components/sections/SRESupportMainContent';
 
-const AIPodPage = () => {
+const SRESupportPage = () => {
   return (
     <>
       <div className="min-h-screen bg-gradient-to-br from-slate-50/80 via-white/70 to-gray-50/60 relative">
@@ -29,16 +29,16 @@ const AIPodPage = () => {
           {/* Main Content Area - Full Width */}
           <main>
             {/* Hero Section */}
-            <AIPodHero />
+            <SRESupportHero />
             
             {/* Main Content Section */}
-            <AIPodMainContent />
+            <SRESupportMainContent />
             
             {/* AI Services Grid */}
             <AIServicesGrid />
             
             {/* CTA Section */}
-            <AIPodCTA />
+            <SRESupportCTA />
           </main>
         </div>
       </div>
@@ -46,4 +46,4 @@ const AIPodPage = () => {
   );
 };
 
-export default AIPodPage;
+export default SRESupportPage;

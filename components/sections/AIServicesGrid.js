@@ -157,7 +157,7 @@ const AIServicesGrid = () => {
                   
                   {/* Card with layered depth */}
                   <motion.div
-                    className="relative h-full bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gray-100/60 group-hover:border-gray-200 shadow-md group-hover:shadow-2xl transition-all duration-300"
+                    className="relative h-full bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gray-100/60 group-hover:border-gray-200 shadow-md group-hover:shadow-2xl transition-all duration-300 flex flex-col"
                     whileHover={{ 
                       y: -8,
                       transition: { duration: 0.2 }
@@ -167,9 +167,9 @@ const AIServicesGrid = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
                     {/* Content */}
-                    <div className="relative">
+                    <div className="relative flex flex-col h-full">
                       {/* Icon with depth */}
-                      <div className="mb-6">
+                      <div className="mb-6 flex-shrink-0">
                         <div className="relative inline-block">
                           <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                             <Icon className="w-8 h-8 text-white" />
@@ -179,11 +179,11 @@ const AIServicesGrid = () => {
                         </div>
                       </div>
                       
-                      <h3 className="text-xl font-bold mb-4 text-gray-900">
+                      <h3 className="text-xl font-bold mb-4 text-gray-900 flex-shrink-0">
                         {service.title}
                       </h3>
                       
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-gray-600 leading-relaxed flex-grow">
                         {service.description}
                       </p>
                     </div>

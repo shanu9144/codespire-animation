@@ -4,11 +4,11 @@ import React from 'react';
 
 import ParticleNetworkBackground from '../../../../components/backgrounds/ParticleNetworkBackground';
 import AIServicesGrid from '../../../../components/sections/AIServicesGrid';
-import AIPodCTA from '../../../../components/sections/AIPodCTA';
-import AIPodHero from '../../../../components/sections/AIPodHero';
-import AIPodMainContent from '../../../../components/sections/AIPodMainContent';
+import SalesforceServiceNowCTA from '../../../../components/sections/SalesforceServiceNowCTA';
+import SalesforceServiceNowHero from '../../../../components/sections/SalesforceServiceNowHero';
+import SalesforceServiceNowMainContent from '../../../../components/sections/SalesforceServiceNowMainContent';
 
-const AIPodPage = () => {
+const SalesforceServiceNowPage = () => {
   return (
     <>
       <div className="min-h-screen bg-gradient-to-br from-slate-50/80 via-white/70 to-gray-50/60 relative">
@@ -29,16 +29,16 @@ const AIPodPage = () => {
           {/* Main Content Area - Full Width */}
           <main>
             {/* Hero Section */}
-            <AIPodHero />
+            <SalesforceServiceNowHero />
             
             {/* Main Content Section */}
-            <AIPodMainContent />
+            <SalesforceServiceNowMainContent />
             
             {/* AI Services Grid */}
             <AIServicesGrid />
             
             {/* CTA Section */}
-            <AIPodCTA />
+            <SalesforceServiceNowCTA />
           </main>
         </div>
       </div>
@@ -46,4 +46,4 @@ const AIPodPage = () => {
   );
 };
 
-export default AIPodPage;
+export default SalesforceServiceNowPage;
