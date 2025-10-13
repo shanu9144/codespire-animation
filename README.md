@@ -24,7 +24,7 @@ A modern, minimalist B2B website for CodeSpire Solutions built with Next.js, sho
 - **H2**: 2.25rem (36px) - Semibold
 - **H3**: 1.875rem (30px) - Semibold
 - **Body Large**: 1.125rem (18px)
-- **Body**: 1rem (16px)
+- **Body**: 1rem (16px
 
 ## Project Structure
 
