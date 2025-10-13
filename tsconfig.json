@@ -23,10 +23,12 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/components/*": ["./src/components/*"],
-      "@/animations/*": ["./src/animations/*"],
       "@/lib/*": ["./src/lib/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/config/*": ["./src/config/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/context/*": ["./src/context/*"],
       "@/app/*": ["./src/app/*"],
-      "@/styles/*": ["./src/styles/*"],
       "@/stories/*": ["./src/stories/*"]
     },
     /* Strict Type-Checking Options */

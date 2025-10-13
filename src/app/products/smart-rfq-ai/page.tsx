@@ -36,10 +36,10 @@ import {
 import Link from 'next/link';
 import { useRef } from 'react';
 
-import { Wrapper, Button } from '../../../../components/ui';
-import { Heading, Text } from '../../../../components/ui/Typography';
-import { FluidBackground, MorphingShapes } from '../../../../lib/animations/fluid';
-import { ScrollAnimatedSection, ScrollRevealText } from '../../../../lib/animations/scroll';
+import { Wrapper, Button } from '@/components/ui';
+import { Heading, Text } from '@/components/ui/Typography';
+import { FluidBackground, MorphingShapes } from '@/lib/animations/fluid';
+import { ScrollAnimatedSection, ScrollRevealText } from '@/lib/animations/scroll';
 
 export default function SmartRFQAI() {
   const containerRef = useRef<HTMLDivElement>(null);

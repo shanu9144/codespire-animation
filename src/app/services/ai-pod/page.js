@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-import ParticleNetworkBackground from '../../../../components/backgrounds/ParticleNetworkBackground';
-import AIServicesGrid from '../../../../components/sections/AIServicesGrid';
-import AIPodCTA from '../../../../components/sections/AIPodCTA';
-import AIPodHero from '../../../../components/sections/AIPodHero';
-import AIPodMainContent from '../../../../components/sections/AIPodMainContent';
+import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
+import AIServicesGrid from '@/components/sections/AIServicesGrid';
+import AIPodCTA from '@/components/sections/AIPodCTA';
+import AIPodHero from '@/components/sections/AIPodHero';
+import AIPodMainContent from '@/components/sections/AIPodMainContent';
 
 const AIPodPage = () => {
   return (

@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-import ParticleNetworkBackground from '../../../../components/backgrounds/ParticleNetworkBackground';
-import AIServicesGrid from '../../../../components/sections/AIServicesGrid';
-import AppDevelopmentCTA from '../../../../components/sections/AppDevelopmentCTA';
-import AppDevelopmentHero from '../../../../components/sections/AppDevelopmentHero';
-import AppDevelopmentMainContent from '../../../../components/sections/AppDevelopmentMainContent';
+import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
+import AIServicesGrid from '@/components/sections/AIServicesGrid';
+import AppDevelopmentCTA from '@/components/sections/AppDevelopmentCTA';
+import AppDevelopmentHero from '@/components/sections/AppDevelopmentHero';
+import AppDevelopmentMainContent from '@/components/sections/AppDevelopmentMainContent';
 
 const AppDevelopmentPage = () => {
   return (

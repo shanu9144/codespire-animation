@@ -8,6 +8,7 @@ import Button from "../ui/Button";
 import Wrapper from "../ui/Wrapper";
 import { Heading, Text } from "../ui/Typography";
 import OptimizedLiquidBackground from "../backgrounds/OptimizedLiquidBackground";
+import { fontClasses } from "../../config/fonts";
 
 const CarouselHero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -150,7 +151,7 @@ const CarouselHero = () => {
                   <Text
                     size="body-lg"
                     color="secondary"
-                    className="max-w-xl leading-relaxed font-serif text-base sm:text-lg lg:text-xl"
+                    className={`max-w-xl leading-relaxed text-base sm:text-lg lg:text-xl ${fontClasses.descriptionMedium}`}
                   >
                     {currentSlideData.description}
                   </Text>

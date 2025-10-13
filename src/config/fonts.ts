@@ -1,7 +1,34 @@
 // Font family styles for CodeSpire Animation project
 // Common typography styles for descriptions and paragraphs
 
-export const fontFamilies = {
+export interface FontFamily {
+  fontFamily: string;
+  fontWeight: string;
+  lineHeight: string;
+  letterSpacing: string;
+}
+
+export interface FontClasses {
+  description: string;
+  descriptionModern: string;
+  descriptionLight: string;
+  descriptionMedium: string;
+}
+
+export interface TailwindFontConfig {
+  fontFamily: {
+    inter: string[];
+    'sf-pro': string[];
+  };
+  fontSize: {
+    'description-sm': [string, { lineHeight: string; letterSpacing: string }];
+    description: [string, { lineHeight: string; letterSpacing: string }];
+    'description-lg': [string, { lineHeight: string; letterSpacing: string }];
+    'description-xl': [string, { lineHeight: string; letterSpacing: string }];
+  };
+}
+
+export const fontFamilies: Record<string, FontFamily> = {
   // Primary font for descriptions and paragraphs
   description: {
     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
@@ -36,7 +63,7 @@ export const fontFamilies = {
 };
 
 // CSS classes for easy application
-export const fontClasses = {
+export const fontClasses: FontClasses = {
   description: 'font-inter font-normal leading-relaxed tracking-wide',
   descriptionModern: 'font-sf-pro font-normal leading-relaxed tracking-wide',
   descriptionLight: 'font-inter font-light leading-loose tracking-wider',
@@ -44,7 +71,7 @@ export const fontClasses = {
 };
 
 // Tailwind CSS configuration for custom fonts
-export const tailwindFontConfig = {
+export const tailwindFontConfig: TailwindFontConfig = {
   fontFamily: {
     'inter': ['Inter', 'sans-serif'],
     'sf-pro': ['"SF Pro Display"', 'sans-serif']
@@ -58,7 +85,7 @@ export const tailwindFontConfig = {
 };
 
 // React component styles for inline usage
-export const getDescriptionStyles = (variant = 'description') => {
+export const getDescriptionStyles = (variant: string = 'description'): FontFamily => {
   return fontFamilies[variant] || fontFamilies.description;
 };
 

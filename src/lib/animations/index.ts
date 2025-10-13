@@ -4,7 +4,6 @@ export * from './core';
 export * from './cursor';
 export * from './fluid';
 export * from './particles';
-export * from './utils';
 
 // Export intersection hooks with specific names to avoid conflicts
 export { 

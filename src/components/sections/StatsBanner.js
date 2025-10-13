@@ -5,7 +5,7 @@ import { motion, useInView } from 'framer-motion';
 import { Users, Building, Globe, TrendingUp, Award } from 'lucide-react';
 import { Heading, Text } from '../ui/Typography';
 import { useAnimationPerformance } from '../../lib/performance';
-import { fontClasses } from '../../common';
+import { fontClasses } from "@/config/fonts";
 import TechnologyStackCarousel from './TechnologyStackCarousel';
 
 // Counter animation hook with hydration fix

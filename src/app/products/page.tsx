@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, ArrowRight, Zap, Target, TrendingUp, Brain, Cpu, Database, BarChart3, Users, Clock, Shield, Calendar } from 'lucide-react';
 import Link from 'next/link';
 
-import { Wrapper, Button } from '../../../components/ui';
-import { FluidBackground, MorphingShapes } from '../../../lib/animations/fluid';
-import { ScrollAnimatedSection, ScrollRevealText } from '../../../lib/animations/scroll';
+import { Wrapper, Button } from '@/components/ui';
+import { FluidBackground, MorphingShapes } from '@/lib/animations/fluid';
+import { ScrollAnimatedSection, ScrollRevealText } from '@/lib/animations/scroll';
 
 interface Product {
   id: string;

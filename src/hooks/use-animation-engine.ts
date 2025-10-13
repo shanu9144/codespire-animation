@@ -4,20 +4,59 @@
  */
 
 import { useEffect, useState, useCallback, useRef } from 'react';
-import AnimationEngine from '../core/AnimationEngine.js';
-import PerformanceManager from '../core/PerformanceManager.js';
+import AnimationEngine from '../lib/animations/core/AnimationEngine.js';
+import PerformanceManager from '../lib/animations/core/PerformanceManager.js';
+
+export interface UseAnimationEngineOptions {
+  autoInitialize?: boolean;
+  config?: any;
+  trackMetrics?: boolean;
+  metricsInterval?: number;
+}
+
+export interface AnimationEngineInterface {
+  isInitialized: boolean;
+  metrics: any;
+  qualityLevel: string;
+  playAnimation: (id: string, animationOptions?: any) => Promise<any>;
+  pauseAnimation: (id: string) => void;
+  stopAnimation: (id: string) => void;
+  registerAnimation: (id: string, animation: any) => boolean;
+  setPerformanceMode: (mode: string) => void;
+  engine: any;
+  pauseAll: () => void;
+  resumeAll: () => void;
+  getConfig: () => any;
+}
+
+export interface UseAnimationPerformanceOptions {
+  memoryUpdateInterval?: number;
+}
+
+export interface AnimationPerformanceData {
+  fps: number;
+  frameTime: number;
+  qualityLevel: string;
+  memoryUsage: any;
+  metrics: any;
+}
+
+export interface ReducedMotionData {
+  prefersReducedMotion: boolean;
+  shouldAnimate: boolean;
+}
 
 /**
  * Hook to use the animation engine
- * @param {Object} options - Hook options
- * @returns {Object} Animation engine interface
+ * @param options - Hook options
+ * @returns Animation engine interface
  */
-export function useAnimationEngine(options = {}) {
+export function useAnimationEngine(options: UseAnimationEngineOptions = {}): AnimationEngineInterface {
   const [isInitialized, setIsInitialized] = useState(AnimationEngine.isInitialized);
-  const [metrics, setMetrics] = useState(null);
-  const [qualityLevel, setQualityLevel] = useState('high');
+  const [metrics, setMetrics] = useState<any>(null);
+  const [qualityLevel, setQualityLevel] = useState<string>('high');
   
-  const metricsIntervalRef = useRef(null);
+  const metricsIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Initialize engine if not already initialized
   useEffect(() => {
@@ -35,7 +74,7 @@ export function useAnimationEngine(options = {}) {
     if (!isInitialized) return;
 
     // Listen for quality changes
-    const handleQualityChange = (newLevel) => {
+    const handleQualityChange = (newLevel: string) => {
       setQualityLevel(newLevel);
     };
 
@@ -65,7 +104,7 @@ export function useAnimationEngine(options = {}) {
   }, []);
 
   // Animation control functions
-  const playAnimation = useCallback(async (id, animationOptions) => {
+  const playAnimation = useCallback(async (id: string, animationOptions?: any) => {
     if (!isInitialized) {
       console.warn('Animation engine not initialized');
       return Promise.resolve();
@@ -73,26 +112,26 @@ export function useAnimationEngine(options = {}) {
     return AnimationEngine.playAnimation(id, animationOptions);
   }, [isInitialized]);
 
-  const pauseAnimation = useCallback((id) => {
+  const pauseAnimation = useCallback((id: string) => {
     if (isInitialized) {
       AnimationEngine.pauseAnimation(id);
     }
   }, [isInitialized]);
 
-  const stopAnimation = useCallback((id) => {
+  const stopAnimation = useCallback((id: string) => {
     if (isInitialized) {
       AnimationEngine.stopAnimation(id);
     }
   }, [isInitialized]);
 
-  const registerAnimation = useCallback((id, animation) => {
+  const registerAnimation = useCallback((id: string, animation: any) => {
     if (isInitialized) {
       return AnimationEngine.registerAnimation(id, animation);
     }
     return false;
   }, [isInitialized]);
 
-  const setPerformanceMode = useCallback((mode) => {
+  const setPerformanceMode = useCallback((mode: string) => {
     if (isInitialized) {
       AnimationEngine.setPerformanceMode(mode);
     }
@@ -123,24 +162,24 @@ export function useAnimationEngine(options = {}) {
 
 /**
  * Hook for animation performance monitoring
- * @param {Object} options - Monitoring options
- * @returns {Object} Performance data and controls
+ * @param options - Monitoring options
+ * @returns Performance data and controls
  */
-export function useAnimationPerformance(options = {}) {
-  const [fps, setFPS] = useState(60);
-  const [frameTime, setFrameTime] = useState(16.67);
-  const [qualityLevel, setQualityLevel] = useState('high');
-  const [memoryUsage, setMemoryUsage] = useState(null);
+export function useAnimationPerformance(options: UseAnimationPerformanceOptions = {}): AnimationPerformanceData {
+  const [fps, setFPS] = useState<number>(60);
+  const [frameTime, setFrameTime] = useState<number>(16.67);
+  const [qualityLevel, setQualityLevel] = useState<string>('high');
+  const [memoryUsage, setMemoryUsage] = useState<any>(null);
 
   useEffect(() => {
     // Set up FPS monitoring
-    const handleFPSUpdate = (newFPS, newFrameTime) => {
+    const handleFPSUpdate = (newFPS: number, newFrameTime: number) => {
       setFPS(newFPS);
       setFrameTime(newFrameTime);
     };
 
     // Set up quality monitoring
-    const handleQualityChange = (newLevel) => {
+    const handleQualityChange = (newLevel: string) => {
       setQualityLevel(newLevel);
     };
 
@@ -171,10 +210,10 @@ export function useAnimationPerformance(options = {}) {
 
 /**
  * Hook for reduced motion detection
- * @returns {Object} Reduced motion state and utilities
+ * @returns Reduced motion state and utilities
  */
-export function useReducedMotion() {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(
+export function useReducedMotion(): ReducedMotionData {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState<boolean>(
     typeof window !== 'undefined' ? 
       window.matchMedia('(prefers-reduced-motion: reduce)').matches : 
       false
@@ -185,7 +224,7 @@ export function useReducedMotion() {
 
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     
-    const handleChange = (e) => {
+    const handleChange = (e: MediaQueryListEvent) => {
       setPrefersReducedMotion(e.matches);
     };
 

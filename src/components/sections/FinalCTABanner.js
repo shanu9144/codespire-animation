@@ -7,7 +7,7 @@ import Link from "next/link";
 import Button from "../ui/Button";
 import { Heading, Text } from "../ui/Typography";
 import { useAnimationPerformance } from "../../lib/performance";
-import { fontClasses } from "../../common";
+import { fontClasses } from "@/config/fonts";
 
 const FinalCTABanner = () => {
   const { config, shouldReduceAnimations } = useAnimationPerformance();

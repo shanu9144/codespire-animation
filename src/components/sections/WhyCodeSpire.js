@@ -14,7 +14,7 @@ import {
   Brain,
   TrendingUp
 } from 'lucide-react';
-import { fontClasses } from '../../common';
+import { fontClasses } from "@/config/fonts";
 import InfiniteCarousel from '../ui/InfiniteCarousel';
 
 const WhyCodeSpire = () => {

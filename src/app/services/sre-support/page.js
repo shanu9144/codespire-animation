@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-import ParticleNetworkBackground from '../../../../components/backgrounds/ParticleNetworkBackground';
-import AIServicesGrid from '../../../../components/sections/AIServicesGrid';
-import SRESupportCTA from '../../../../components/sections/SRESupportCTA';
-import SRESupportHero from '../../../../components/sections/SRESupportHero';
-import SRESupportMainContent from '../../../../components/sections/SRESupportMainContent';
+import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
+import AIServicesGrid from '@/components/sections/AIServicesGrid';
+import SRESupportCTA from '@/components/sections/SRESupportCTA';
+import SRESupportHero from '@/components/sections/SRESupportHero';
+import SRESupportMainContent from '@/components/sections/SRESupportMainContent';
 
 const SRESupportPage = () => {
   return (

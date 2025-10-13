@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-import ParticleNetworkBackground from '../../../../components/backgrounds/ParticleNetworkBackground';
-import AIServicesGrid from '../../../../components/sections/AIServicesGrid';
-import SalesforceServiceNowCTA from '../../../../components/sections/SalesforceServiceNowCTA';
-import SalesforceServiceNowHero from '../../../../components/sections/SalesforceServiceNowHero';
-import SalesforceServiceNowMainContent from '../../../../components/sections/SalesforceServiceNowMainContent';
+import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
+import AIServicesGrid from '@/components/sections/AIServicesGrid';
+import SalesforceServiceNowCTA from '@/components/sections/SalesforceServiceNowCTA';
+import SalesforceServiceNowHero from '@/components/sections/SalesforceServiceNowHero';
+import SalesforceServiceNowMainContent from '@/components/sections/SalesforceServiceNowMainContent';
 
 const SalesforceServiceNowPage = () => {
   return (

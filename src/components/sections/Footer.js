@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import Wrapper from "../ui/Wrapper";
+import { fontClasses } from "../../config/fonts";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -40,7 +41,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#1e2875] border-t border-[#1e2875]">
       <Wrapper className="py-12 text-gray-300">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-4">
@@ -58,7 +59,7 @@ const Footer = () => {
                 />
               </motion.div>
             </Link>
-            <p className="text-gray-300 mb-6 max-w-md">
+            <p className={`text-gray-300 mb-6 max-w-md ${fontClasses.descriptionMedium}`}>
               From Idea to Enterprise-Grade AI in a Blink. Transforming
               businesses with cutting-edge AI solutions and expert engineering.
             </p>
@@ -101,10 +102,10 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal & Social */}
+          {/* Legal Links */}
           <div>
             <h3 className="text-white font-semibold mb-4">Legal</h3>
-            <ul className="space-y-3 mb-6">
+            <ul className="space-y-3">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
                   <Link
@@ -117,24 +118,24 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
+          </div>
 
-            {/* Social Links */}
-            <div>
-              <h4 className="text-white font-medium mb-3">Follow Us</h4>
-              <div className="flex space-x-3">
-                {footerLinks.social.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="p-2 bg-white/10 text-white border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-200"
-                    aria-label={social.label}
-                  >
-                    <social.icon size={20} />
-                  </motion.a>
-                ))}
-              </div>
+          {/* Social Links */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Follow Us</h3>
+            <div className="flex space-x-3">
+              {footerLinks.social.map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="p-2 bg-white/10 text-white border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-200"
+                  aria-label={social.label}
+                >
+                  <social.icon size={20} />
+                </motion.a>
+              ))}
             </div>
           </div>
         </div>

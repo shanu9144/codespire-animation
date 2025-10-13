@@ -29,20 +29,54 @@ A modern, minimalist B2B website for CodeSpire Solutions built with Next.js, sho
 ## Project Structure
 
 ```
-src/
-├── app/
-│   ├── page.js (Homepage)
-│   ├── about/
-│   ├── products/
-│   └── layout.js
-├── components/
-│   ├── ui/ (Reusable UI components)
-│   ├── sections/ (Page sections)
-│   └── animations/ (Animation wrappers)
-├── lib/
-│   └── utils.js (Utility functions)
-└── styles/
-    └── globals.css
+codespire-animation/
+├── src/
+│   ├── app/                          # Next.js 15 App Router
+│   │   ├── page.tsx (Homepage)
+│   │   ├── contact/
+│   │   ├── products/
+│   │   ├── services/
+│   │   ├── schedule-demo/
+│   │   └── layout.tsx
+│   ├── components/                   # React components
+│   │   ├── ui/                       # Atomic UI components
+│   │   ├── sections/                 # Page sections
+│   │   ├── backgrounds/              # Background components
+│   │   ├── animations/               # Animation wrapper components
+│   │   ├── debug/                    # Debug components
+│   │   ├── demo/                     # Demo components
+│   │   ├── optimized/                # Optimized components
+│   │   └── providers/                # Context providers
+│   ├── lib/                          # Core libraries
+│   │   ├── animations/               # Animation system
+│   │   │   ├── 3d/                   # Three.js 3D animations
+│   │   │   ├── scroll/               # Scroll-based animations
+│   │   │   ├── cursor/               # Cursor effects
+│   │   │   ├── fluid/                # Fluid/liquid effects
+│   │   │   ├── particles/            # Particle systems
+│   │   │   ├── intersection/         # Intersection Observer
+│   │   │   └── core/                 # Animation engine core
+│   │   ├── performance/              # Performance utilities
+│   │   ├── accessibility/            # A11y utilities
+│   │   ├── seo/                      # SEO utilities
+│   │   └── utils/                    # General utilities
+│   ├── hooks/                        # Custom React hooks
+│   ├── context/                      # React contexts
+│   ├── types/                        # TypeScript type definitions
+│   ├── config/                       # Configuration files
+│   │   └── fonts.ts                  # Font configurations
+│   ├── stories/                      # Storybook stories
+│   └── test/                         # Test setup
+├── docs/                             # Documentation
+│   ├── animations/                   # Animation-specific docs
+│   ├── backgrounds/                  # Background-specific docs
+│   └── *.md                          # Project documentation
+├── public/                           # Static assets
+├── package.json
+├── next.config.js
+├── tsconfig.json
+├── tailwind.config.js
+└── README.md
 ```
 
 ## Getting Started
@@ -72,10 +106,23 @@ npm run dev
 ## Development
 
 The project follows a component-based architecture with:
-- Reusable UI components in `components/ui/`
-- Page sections in `components/sections/`
-- Animation utilities in `components/animations/`
-- Shared utilities in `lib/utils.js`
+- Reusable UI components in `src/components/ui/`
+- Page sections in `src/components/sections/`
+- Animation utilities in `src/lib/animations/`
+- Shared utilities in `src/lib/utils/`
+- Custom hooks in `src/hooks/`
+- Type definitions in `src/types/`
+- Configuration in `src/config/`
+
+### Path Aliases
+
+The project uses TypeScript path aliases for clean imports:
+- `@/components/*` → `src/components/*`
+- `@/lib/*` → `src/lib/*`
+- `@/hooks/*` → `src/hooks/*`
+- `@/config/*` → `src/config/*`
+- `@/types/*` → `src/types/*`
+- `@/context/*` → `src/context/*`
 
 ## Performance
 

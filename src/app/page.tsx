@@ -5,9 +5,9 @@ import {
   FinalCTABanner, 
   IndustriesWeServe, 
   FeatureHighlightsCarousel 
-} from '../../components/sections';
-import { OptimizedLiquidBackground } from '../../components/backgrounds';
-import { Wrapper } from '../../components/ui';
+} from '@/components/sections';
+import { OptimizedLiquidBackground } from '@/components/backgrounds';
+import { Wrapper } from '@/components/ui';
 
 export default function Home() {
   return (

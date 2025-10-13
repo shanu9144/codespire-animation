@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Wrapper, Button } from '../../../components/ui';
+import { Wrapper, Button } from '@/components/ui';
 import { ArrowRight, Calendar, Users, CheckCircle } from 'lucide-react';
 
 const ScheduleDemoPage: React.FC = () => {

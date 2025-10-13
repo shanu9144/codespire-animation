@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-import ParticleNetworkBackground from '../../../../components/backgrounds/ParticleNetworkBackground';
-import AIServicesGrid from '../../../../components/sections/AIServicesGrid';
-import DataAnalyticsCTA from '../../../../components/sections/DataAnalyticsCTA';
-import DataAnalyticsHero from '../../../../components/sections/DataAnalyticsHero';
-import DataAnalyticsMainContent from '../../../../components/sections/DataAnalyticsMainContent';
+import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
+import AIServicesGrid from '@/components/sections/AIServicesGrid';
+import DataAnalyticsCTA from '@/components/sections/DataAnalyticsCTA';
+import DataAnalyticsHero from '@/components/sections/DataAnalyticsHero';
+import DataAnalyticsMainContent from '@/components/sections/DataAnalyticsMainContent';
 
 const DataAnalyticsPage = () => {
   return (

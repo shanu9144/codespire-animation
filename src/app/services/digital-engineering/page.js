@@ -2,12 +2,12 @@
 
 import React from 'react';
 
-import ParticleNetworkBackground from '../../../../components/backgrounds/ParticleNetworkBackground';
-import AIServicesGrid from '../../../../components/sections/AIServicesGrid';
-import DigitalEngineeringCTA from '../../../../components/sections/DigitalEngineeringCTA';
-import DigitalEngineeringHero from '../../../../components/sections/DigitalEngineeringHero';
-import MainContentSection from '../../../../components/sections/MainContentSection';
-import { DigitalEngineeringSEO } from '../../../../lib/seo/DigitalEngineeringSEO';
+import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
+import AIServicesGrid from '@/components/sections/AIServicesGrid';
+import DigitalEngineeringCTA from '@/components/sections/DigitalEngineeringCTA';
+import DigitalEngineeringHero from '@/components/sections/DigitalEngineeringHero';
+import MainContentSection from '@/components/sections/MainContentSection';
+import { DigitalEngineeringSEO } from '@/lib/seo/DigitalEngineeringSEO';
 
 const DigitalEngineeringPage = () => {
   return (

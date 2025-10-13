@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, MapPin } from 'lucide-react';
-import { Wrapper } from '../../../components/ui';
+import { Wrapper } from '@/components/ui';
 
 interface FormData {
   fullName: string;
