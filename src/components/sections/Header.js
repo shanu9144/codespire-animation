@@ -27,27 +27,35 @@ const Header = () => {
   const handleServiceMouseEnter = (serviceLabel) => {
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
     }
+    // Close products dropdown when hovering over services
+    setHoveredProduct(null);
     setHoveredService(serviceLabel);
   };
 
   const handleServiceMouseLeave = () => {
     hoverTimeoutRef.current = setTimeout(() => {
       setHoveredService(null);
-    }, 150); // 150ms delay before closing
+      hoverTimeoutRef.current = null;
+    }, 200); // Increased to 200ms to allow mouse movement to dropdown
   };
 
   const handleProductMouseEnter = (productLabel) => {
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
     }
+    // Close services dropdown when hovering over products
+    setHoveredService(null);
     setHoveredProduct(productLabel);
   };
 
   const handleProductMouseLeave = () => {
     hoverTimeoutRef.current = setTimeout(() => {
       setHoveredProduct(null);
-    }, 150); // 150ms delay before closing
+      hoverTimeoutRef.current = null;
+    }, 200); // Increased to 200ms to allow mouse movement to dropdown
   };
 
   useEffect(() => {
@@ -80,6 +88,15 @@ const Header = () => {
       }
     };
   }, []);
+
+  // Close dropdowns when mouse leaves the entire navigation area
+  const handleNavigationMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredService(null);
+      setHoveredProduct(null);
+      hoverTimeoutRef.current = null;
+    }, 50); // Very short delay for immediate response
+  };
 
   const services = [
     { label: "AI Pod as a Service", href: "/services/ai-pod" },
@@ -143,7 +160,10 @@ const Header = () => {
 
           {/* Header Center - Desktop Navigation */}
           <div className="hidden lg:flex flex-1 justify-end pr-4 xl:pr-6">
-            <ul className="flex items-center gap-4 lg:gap-6 xl:gap-8 text-gray-700 font-medium">
+            <ul 
+              className="flex items-center gap-4 lg:gap-6 xl:gap-8 text-gray-700 font-medium"
+              onMouseLeave={handleNavigationMouseLeave}
+            >
               {menuItems?.map((item) => (
                 <li 
                   key={item.href} 
@@ -157,10 +177,25 @@ const Header = () => {
                         {item.label}
                         <svg className={`ml-1 w-4 h-4 text-gray-500 transition-all duration-300 ${(hoveredService === item.label || hoveredProduct === item.label) ? 'text-primary rotate-0' : 'rotate-180'}`} viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd"/></svg>
                       </Link>
-                      <div className={`absolute left-0 top-full mt-2 transition-all duration-200 ${(hoveredService === item.label || hoveredProduct === item.label) ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+                      <div className={`absolute left-0 top-full mt-1 transition-all duration-200 ${(hoveredService === item.label || hoveredProduct === item.label) ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+                        {/* Invisible bridge to help mouse movement */}
+                        <div className="absolute -top-1 left-0 right-0 h-1 bg-transparent"></div>
                         <div 
                           className="min-w-[240px] rounded-lg border border-gray-100 bg-white shadow-lg p-2 cursor-default"
-                          onMouseEnter={() => item.label === 'Services' ? handleServiceMouseEnter(item.label) : handleProductMouseEnter(item.label)}
+                          onMouseEnter={() => {
+                            if (hoverTimeoutRef.current) {
+                              clearTimeout(hoverTimeoutRef.current);
+                              hoverTimeoutRef.current = null;
+                            }
+                            // Close the other dropdown when entering this one
+                            if (item.label === 'Services') {
+                              setHoveredProduct(null);
+                              handleServiceMouseEnter(item.label);
+                            } else {
+                              setHoveredService(null);
+                              handleProductMouseEnter(item.label);
+                            }
+                          }}
                           onMouseLeave={() => item.label === 'Services' ? handleServiceMouseLeave() : handleProductMouseLeave()}
                         >
                           {item.children.map((child) => (

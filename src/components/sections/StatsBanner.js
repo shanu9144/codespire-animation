@@ -50,7 +50,7 @@ const useCounter = (end, duration = 2000, shouldStart = false) => {
 };
 
 
-// Professional stat item component
+// Professional stat item component with tile card styling
 const ProfessionalStatItem = ({ number, suffix, label, delay = 0, shouldAnimate }) => {
   const [mounted, setMounted] = useState(false);
   const animatedNumber = useCounter(number, 2000, shouldAnimate);
@@ -64,19 +64,19 @@ const ProfessionalStatItem = ({ number, suffix, label, delay = 0, shouldAnimate 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: delay * 0.2, duration: 0.6 }}
-      className="text-center"
+      className="bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-white/40 shadow-sm"
     >
       <motion.div 
-        className="text-4xl lg:text-5xl font-bold text-gray-800 mb-2 flex items-center justify-center"
+        className="text-3xl lg:text-4xl font-bold text-gray-800 mb-3 flex items-center justify-center"
         initial={{ scale: 0.9 }}
         whileInView={{ scale: 1 }}
         transition={{ delay: delay * 0.2 + 0.3, duration: 0.4 }}
       >
         {mounted ? (shouldAnimate ? animatedNumber : number) : number}
-        <span className="text-2xl lg:text-4xl ml-1">{suffix}</span>
+        <span className="text-2xl lg:text-3xl ml-1">{suffix}</span>
       </motion.div>
       <motion.div 
-        className="text-sm text-gray-600 font-medium"
+        className="text-sm text-gray-600 font-medium text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: delay * 0.2 + 0.5, duration: 0.4 }}
@@ -216,7 +216,7 @@ const StatsBanner = () => {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="grid grid-cols-2 lg:grid-cols-3 gap-8"
+                className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6"
               >
                 {stats.map((stat, index) => (
                   <ProfessionalStatItem
