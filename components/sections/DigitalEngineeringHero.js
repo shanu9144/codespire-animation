@@ -63,17 +63,29 @@ const DigitalEngineeringHero = () => {
   };
   
   return (
-    <section className="relative py-16 lg:py-20 px-6 pb-20 bg-gradient-to-br from-slate-50/50 to-white overflow-hidden">
-      {/* Gradient background with depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50">
+    <section className="relative py-16 lg:py-20 px-6 pb-20 bg-gradient-to-br from-slate-50/80 via-white/70 to-gray-50/60 overflow-hidden">
+      {/* Enhanced gradient background with depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50/60 via-blue-50/40 to-slate-50/50">
         {/* Add subtle radial gradient for depth */}
-        <div className="absolute inset-0 bg-gradient-radial from-blue-100/20 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-radial from-blue-100/30 via-transparent to-transparent" />
       </div>
       
-      {/* Animated mesh gradient overlay */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 opacity-[0.01]">
+        <div className="w-full h-full" style={{
+          backgroundImage: `
+            linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+      
+      {/* Enhanced animated mesh gradient overlay */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/12 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-500/8 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
       
       {/* Animated Background Elements */}
@@ -179,7 +191,7 @@ const DigitalEngineeringHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="bg-white rounded-3xl p-12 shadow-2xl border border-gray-100"
+          className="bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-gray-100/60"
         >
           <div className="space-y-8">
             {/* Decorative stars */}

@@ -15,7 +15,7 @@ const DigitalEngineeringPage = () => {
       {/* SEO Meta Tags */}
       <DigitalEngineeringSEO />
       
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white relative">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50/80 via-white/70 to-gray-50/60 relative">
         {/* Subtle texture overlay */}
         <div
           className="fixed inset-0 opacity-[0.02] pointer-events-none"

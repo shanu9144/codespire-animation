@@ -48,15 +48,15 @@ const AIServicesGrid = () => {
       icon: Lightbulb,
       title: "Smarter Consulting",
       description: "AI-driven insights and strategic guidance to optimize your engineering processes and decision-making capabilities.",
-      color: "from-yellow-400 to-orange-500",
-      bgColor: "bg-yellow-50",
-      borderColor: "border-yellow-200"
+      color: "from-blue-500 to-blue-600",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200"
     },
     {
       icon: Zap,
       title: "Faster Design & Engineering",
       description: "Accelerate your design cycles with AI-powered tools that automate complex calculations and optimize solutions.",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-blue-600 to-blue-700",
       bgColor: "bg-blue-50",
       borderColor: "border-blue-200"
     },
@@ -64,40 +64,56 @@ const AIServicesGrid = () => {
       icon: Cog,
       title: "Efficient Manufacturing",
       description: "Streamline production processes with intelligent automation and predictive maintenance systems.",
-      color: "from-green-500 to-emerald-500",
-      bgColor: "bg-green-50",
-      borderColor: "border-green-200"
+      color: "from-blue-400 to-blue-500",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200"
     },
     {
       icon: RefreshCw,
       title: "Seamless System Engineering",
       description: "Integrate complex systems with AI orchestration for seamless connectivity and optimal performance.",
-      color: "from-purple-500 to-pink-500",
-      bgColor: "bg-purple-50",
-      borderColor: "border-purple-200"
+      color: "from-blue-700 to-blue-800",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200"
     },
     {
       icon: FileText,
       title: "Reliable Product Testing",
       description: "Comprehensive testing frameworks powered by AI to ensure quality and reliability at every stage.",
-      color: "from-red-500 to-rose-500",
-      bgColor: "bg-red-50",
-      borderColor: "border-red-200"
+      color: "from-blue-500 to-blue-600",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200"
     },
     {
       icon: Users,
       title: "Streamlined Technical Publications",
       description: "Automated documentation and technical writing solutions that maintain consistency and accuracy.",
-      color: "from-indigo-500 to-blue-500",
-      bgColor: "bg-indigo-50",
-      borderColor: "border-indigo-200"
+      color: "from-blue-600 to-blue-700",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200"
     }
   ];
   
   return (
     <section ref={ref} className="relative py-24 lg:py-32 px-6">
-      {/* Subtle background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50/50 via-white to-slate-50/50" />
+      {/* Enhanced background with subtle textures */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/60 via-white/80 to-slate-50/40" />
+      
+      {/* Subtle mesh pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="w-full h-full" style={{
+          backgroundImage: `
+            linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px)
+          `,
+          backgroundSize: '50px 50px'
+        }} />
+      </div>
+      
+      {/* Soft depth elements */}
+      <div className="absolute top-20 left-20 w-80 h-80 bg-blue-500/4 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/3 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/3 rounded-full blur-2xl" />
       
       <div className="relative max-w-7xl mx-auto">
         <motion.div
@@ -111,13 +127,11 @@ const AIServicesGrid = () => {
             variants={itemVariants}
             className="text-center max-w-4xl mx-auto"
           >
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <Sparkles className="w-8 h-8 text-blue-500" />
+            <div className="mb-8">
               <h2 className="text-4xl md:text-5xl font-bold">
                 <span className="text-[#2D3748]">Our AI-Powered Digital</span><br />
                 <span className="text-[#6B46C1]">Engineering Services</span>
               </h2>
-              <Sparkles className="w-8 h-8 text-purple-500" />
             </div>
             <p className="text-xl text-[#4A5568] leading-relaxed">
               Comprehensive solutions that leverage artificial intelligence to transform 
@@ -143,7 +157,7 @@ const AIServicesGrid = () => {
                   
                   {/* Card with layered depth */}
                   <motion.div
-                    className="relative h-full bg-white rounded-2xl p-8 border border-gray-100 group-hover:border-gray-200 shadow-md group-hover:shadow-2xl transition-all duration-300"
+                    className="relative h-full bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gray-100/60 group-hover:border-gray-200 shadow-md group-hover:shadow-2xl transition-all duration-300"
                     whileHover={{ 
                       y: -8,
                       transition: { duration: 0.2 }
@@ -200,7 +214,6 @@ const AIServicesGrid = () => {
               
               {/* Button text */}
               <span className="relative text-white flex items-center gap-3">
-                <Sparkles className="w-5 h-5" />
                 Explore All Services
                 <ArrowRight className="w-5 h-5" />
               </span>
