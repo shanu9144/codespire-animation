@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Wrapper } from '../../../components/ui';
-import { ProfessionalB2BBackground } from '../../../components/backgrounds';
-import { fontClasses } from '../../../common';
+import { Wrapper } from '@/shared/ui';
+import { ProfessionalB2BBackground } from '@/shared/backgrounds';
+import { fontClasses } from '@/shared/config';
 // import { Scene3D, FloatingGeometry } from '../../../lib/animations/3d';
 import { 
   Brain, 

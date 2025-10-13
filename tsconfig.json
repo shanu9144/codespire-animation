@@ -22,10 +22,14 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "@/features/*": ["./src/features/*"],
+      "@/widgets/*": ["./src/widgets/*"],
+      "@/shared/*": ["./src/shared/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/app/*": ["./src/app/*"],
       "@/components/*": ["./src/components/*"],
       "@/animations/*": ["./src/animations/*"],
       "@/lib/*": ["./src/lib/*"],
-      "@/app/*": ["./src/app/*"],
       "@/styles/*": ["./src/styles/*"],
       "@/stories/*": ["./src/stories/*"]
     },

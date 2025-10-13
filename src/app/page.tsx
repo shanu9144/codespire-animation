@@ -1,13 +1,13 @@
-import { 
-  CarouselHero, 
-  StatsBanner, 
-  WhyCodeSpire, 
-  FinalCTABanner, 
-  IndustriesWeServe, 
-  FeatureHighlightsCarousel 
-} from '../../components/sections';
-import { OptimizedLiquidBackground } from '../../components/backgrounds';
-import { Wrapper } from '../../components/ui';
+import {
+  CarouselHero,
+  StatsBanner,
+  WhyCodeSpire,
+  FinalCTABanner,
+  IndustriesWeServe,
+  FeatureHighlightsCarousel
+} from '@/features';
+import { OptimizedLiquidBackground } from '@/shared/backgrounds';
+import { Wrapper } from '@/shared/ui';
 
 export default function Home() {
   return (

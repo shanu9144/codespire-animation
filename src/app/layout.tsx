@@ -3,9 +3,9 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 import './globals.css';
-import { Header, Footer } from '../../components/sections';
-import { Wrapper } from '../../components/ui';
-import { CursorSystem } from '../../lib/animations';
+import { Header, Footer } from '@/widgets';
+import { Wrapper } from '@/shared/ui';
+import { CursorSystem } from '@/shared/animations';
 
 const inter = Inter({
   subsets: ['latin'],

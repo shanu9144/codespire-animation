@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Wrapper, Button } from '../../../../components/ui';
+import { Wrapper, Button } from '@/shared/ui';
 import { ArrowRight, ArrowDown, ChevronRight, Zap, Users, Target, TrendingUp, Scale, CheckCircle, Factory, Heart, CreditCard, Truck, ShoppingCart, Laptop } from 'lucide-react';
 
 const AIPodPage = () => {

@@ -1,10 +1,10 @@
 'use client';
 
-import { Wrapper, Button } from '../../../components/ui';
+import { Wrapper, Button } from '@/shared/ui';
 import { Download, Mail, Phone, ArrowRight, Zap, Target, TrendingUp, Brain, Cpu, Database, BarChart3, Users, Clock, Shield, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { ScrollAnimatedSection, ScrollRevealText } from '../../../lib/animations/scroll';
-import { FluidBackground, MorphingShapes } from '../../../lib/animations/fluid';
+import { ScrollAnimatedSection, ScrollRevealText } from '@/shared/animations/scroll';
+import { FluidBackground, MorphingShapes } from '@/shared/animations/fluid';
 import Link from 'next/link';
 
 interface Product {
