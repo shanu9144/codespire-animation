@@ -12,15 +12,15 @@ const Footer = () => {
 
   const footerLinks = {
     company: [
+      { label: "Our Team", href: "/our-team" },
       { label: "About Us", href: "/about" },
       { label: "Products", href: "/products" },
       { label: "Services", href: "/services" },
-      { label: "Our Team", href: "/about" },
       { label: "Contact", href: "/contact" },
     ],
     legal: [
-      { label: "Privacy Policy", href: "/privacy" },
       { label: "Terms of Service", href: "/terms" },
+      { label: "Privacy Policy", href: "/privacy" },
       { label: "Cookie Policy", href: "/cookies" },
     ],
     social: [
