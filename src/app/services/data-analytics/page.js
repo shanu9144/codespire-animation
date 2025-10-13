@@ -4,17 +4,13 @@ import React from 'react';
 
 import ParticleNetworkBackground from '../../../../components/backgrounds/ParticleNetworkBackground';
 import AIServicesGrid from '../../../../components/sections/AIServicesGrid';
-import DigitalEngineeringCTA from '../../../../components/sections/DigitalEngineeringCTA';
-import DigitalEngineeringHero from '../../../../components/sections/DigitalEngineeringHero';
-import MainContentSection from '../../../../components/sections/MainContentSection';
-import { DigitalEngineeringSEO } from '../../../../lib/seo/DigitalEngineeringSEO';
+import DataAnalyticsCTA from '../../../../components/sections/DataAnalyticsCTA';
+import DataAnalyticsHero from '../../../../components/sections/DataAnalyticsHero';
+import DataAnalyticsMainContent from '../../../../components/sections/DataAnalyticsMainContent';
 
-const DigitalEngineeringPage = () => {
+const DataAnalyticsPage = () => {
   return (
     <>
-      {/* SEO Meta Tags */}
-      <DigitalEngineeringSEO />
-      
       <div className="min-h-screen bg-gradient-to-br from-slate-50/80 via-white/70 to-gray-50/60 relative">
         {/* Subtle texture overlay */}
         <div
@@ -33,16 +29,16 @@ const DigitalEngineeringPage = () => {
           {/* Main Content Area - Full Width */}
           <main>
             {/* Hero Section */}
-            <DigitalEngineeringHero />
+            <DataAnalyticsHero />
             
             {/* Main Content Section */}
-            <MainContentSection />
+            <DataAnalyticsMainContent />
             
             {/* AI Services Grid */}
             <AIServicesGrid />
             
             {/* CTA Section */}
-            <DigitalEngineeringCTA />
+            <DataAnalyticsCTA />
           </main>
         </div>
       </div>
@@ -50,4 +46,4 @@ const DigitalEngineeringPage = () => {
   );
 };
 
-export default DigitalEngineeringPage;
+export default DataAnalyticsPage;

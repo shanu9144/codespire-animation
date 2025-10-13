@@ -6,9 +6,9 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, Zap, Target, Clock } from 'lucide-react';
 
-const DigitalEngineeringCTA = () => {
+const AIPodCTA = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -16,9 +16,9 @@ const DigitalEngineeringCTA = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
   
   const itemVariants = {
@@ -28,9 +28,9 @@ const DigitalEngineeringCTA = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
-      }
-    }
+        ease: 'easeOut',
+      },
+    },
   };
   
   const cardVariants = {
@@ -40,9 +40,9 @@ const DigitalEngineeringCTA = () => {
       scale: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+        ease: 'easeOut',
+      },
+    },
   };
   
   return (
@@ -57,7 +57,7 @@ const DigitalEngineeringCTA = () => {
             linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
             linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px'
+          backgroundSize: '40px 40px',
         }} />
       </div>
       
@@ -69,7 +69,7 @@ const DigitalEngineeringCTA = () => {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={isInView ? 'visible' : 'hidden'}
           className="text-center space-y-12"
         >
           {/* Main Content */}
@@ -77,13 +77,12 @@ const DigitalEngineeringCTA = () => {
             <h2 className="text-5xl font-semibold text-gray-900 leading-tight">
               Transform your business with<br />
               <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                AI-powered Digital Engineering
+                AI POD as a Service
               </span>
             </h2>
             
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Unlock the full potential of your digital engineering projects with our AI-driven expertise. 
-              Contact us today to embark on a journey towards smarter innovation and a more efficient future.
+              Get more AI power for less. Contact us to transform your business with our managed AI team that delivers 5+ specialists for the cost of one hire.
             </p>
           </motion.div>
           
@@ -93,9 +92,9 @@ const DigitalEngineeringCTA = () => {
             className="grid grid-cols-3 gap-6 mt-10"
           >
             {[
-              { icon: Zap, label: '50% Faster', desc: 'Development Speed' },
-              { icon: Target, label: '90% Accuracy', desc: 'Predictive Models' },
-              { icon: Clock, label: '24/7 Support', desc: 'Always Available' }
+              { icon: Zap, label: '60% Less', desc: 'Cost vs In-House' },
+              { icon: Target, label: '5+ Experts', desc: 'AI Specialists' },
+              { icon: Clock, label: '2-4 Weeks', desc: 'Deployment Time' },
             ].map((stat, i) => (
               <motion.div
                 key={i}
@@ -149,4 +148,4 @@ const DigitalEngineeringCTA = () => {
   );
 };
 
-export default DigitalEngineeringCTA;
+export default AIPodCTA;

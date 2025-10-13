@@ -82,12 +82,12 @@ const Header = () => {
   }, []);
 
   const services = [
-    { label: "AI Pod as a Service", href: "/services#ai-pod-as-a-service" },
-    { label: "Digital Engineering", href: "/services#digital-engineering" },
-    { label: "Application Development and Testing", href: "/services#application-development-and-testing" },
-    { label: "Data and Analytics", href: "/services#data-and-analytics" },
-    { label: "Salesforce and ServiceNow", href: "/services#salesforce-and-servicenow" },
-    { label: "24/7 SRE Support", href: "/services#sre-support" },
+    { label: "AI Pod as a Service", href: "/services/ai-pod" },
+    { label: "Digital Engineering", href: "/services/digital-engineering" },
+    { label: "Application Development and Testing", href: "/services/app-development" },
+    { label: "Data and Analytics", href: "/services/data-analytics" },
+    { label: "Salesforce and ServiceNow", href: "/services/salesforce-servicenow" },
+    { label: "24/7 SRE Support", href: "/services/sre-support" },
   ];
 
   const products = [

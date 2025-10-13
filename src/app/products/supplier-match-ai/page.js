@@ -72,14 +72,14 @@ export default function SupplierMatchAI() {
         {/* Soft floating particles */}
         <div className="absolute inset-0">
           {Array.from({ length: 30 }).map((_, i) => (
-            <motion.div
-              key={i}
+          <motion.div
+            key={i}
               className="absolute w-2 h-2 bg-primary/20 rounded-full"
               style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
               animate={{ y: [0, -20, 0], opacity: [0.2, 0.8, 0.2] }}
               transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2 }}
-            />
-          ))}
+          />
+        ))}
         </div>
         {/* Gradient waves */}
         <motion.div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30" style={{ y, opacity }} />
@@ -114,12 +114,12 @@ export default function SupplierMatchAI() {
                 <h1 className="text-4xl lg:text-5xl font-bold leading-tight tracking-tight max-w-4xl mx-auto mb-6">
                   <span className="text-primary">Supplier Match AI</span>
                 </h1>
-              </motion.div>
-
+                </motion.div>
+                
               {/* Subheadline */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}>
                 <p className="text-lg md:text-xl text-gray-900 max-w-3xl mx-auto mb-8 font-semibold">Smarter Supplier Selection for Modern Sourcing</p>
-              </motion.div>
+                    </motion.div>
 
               {/* Description */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1 }}>
@@ -128,21 +128,21 @@ export default function SupplierMatchAI() {
                   <br />
                   <span className="text-purple-600 font-semibold">AI-powered sourcing that maximizes savings, improves quality, and accelerates RFQ closures.</span>
                 </p>
-              </motion.div>
-
+                  </motion.div>
+                  
               {/* CTA Button */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.2 }} className="flex items-center justify-center">
                 <Link href="/schedule-demo">
                   <Button className="group relative overflow-hidden bg-gradient-to-r from-primary to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                    <span className="relative z-10 flex items-center">
+                      <span className="relative z-10 flex items-center">
                       Request a demo
                       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
-                    </span>
+                      </span>
                     <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </Button>
+                    </Button>
                 </Link>
-              </motion.div>
-            </motion.div>
+                  </motion.div>
+                </motion.div>
           </div>
         </Wrapper>
 

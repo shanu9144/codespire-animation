@@ -4,17 +4,13 @@ import React from 'react';
 
 import ParticleNetworkBackground from '../../../../components/backgrounds/ParticleNetworkBackground';
 import AIServicesGrid from '../../../../components/sections/AIServicesGrid';
-import DigitalEngineeringCTA from '../../../../components/sections/DigitalEngineeringCTA';
-import DigitalEngineeringHero from '../../../../components/sections/DigitalEngineeringHero';
-import MainContentSection from '../../../../components/sections/MainContentSection';
-import { DigitalEngineeringSEO } from '../../../../lib/seo/DigitalEngineeringSEO';
+import SRESupportCTA from '../../../../components/sections/SRESupportCTA';
+import SRESupportHero from '../../../../components/sections/SRESupportHero';
+import SRESupportMainContent from '../../../../components/sections/SRESupportMainContent';
 
-const DigitalEngineeringPage = () => {
+const SRESupportPage = () => {
   return (
     <>
-      {/* SEO Meta Tags */}
-      <DigitalEngineeringSEO />
-      
       <div className="min-h-screen bg-gradient-to-br from-slate-50/80 via-white/70 to-gray-50/60 relative">
         {/* Subtle texture overlay */}
         <div
@@ -33,16 +29,16 @@ const DigitalEngineeringPage = () => {
           {/* Main Content Area - Full Width */}
           <main>
             {/* Hero Section */}
-            <DigitalEngineeringHero />
+            <SRESupportHero />
             
             {/* Main Content Section */}
-            <MainContentSection />
+            <SRESupportMainContent />
             
             {/* AI Services Grid */}
             <AIServicesGrid />
             
             {/* CTA Section */}
-            <DigitalEngineeringCTA />
+            <SRESupportCTA />
           </main>
         </div>
       </div>
@@ -50,4 +46,4 @@ const DigitalEngineeringPage = () => {
   );
 };
 
-export default DigitalEngineeringPage;
+export default SRESupportPage;

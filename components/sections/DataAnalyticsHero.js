@@ -1,67 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
 
-const DigitalEngineeringHero = () => {
-  const [scrollY, setScrollY] = useState(0);
-  
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-  
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-  
-  const titleVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        ease: "easeOut"
-      }
-    }
-  };
-  
-  const subtitleVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        delay: 0.3,
-        ease: "easeOut"
-      }
-    }
-  };
-  
+const DataAnalyticsHero = () => {
   return (
     <section className="relative py-16 lg:py-20 px-6 pb-20 bg-gradient-to-br from-slate-50/80 via-white/70 to-gray-50/60 overflow-hidden">
       {/* Enhanced gradient background with depth */}
@@ -77,7 +19,7 @@ const DigitalEngineeringHero = () => {
             linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
             linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px'
+          backgroundSize: '40px 40px',
         }} />
       </div>
       
@@ -95,12 +37,12 @@ const DigitalEngineeringHero = () => {
           className="absolute top-20 left-20 w-20 h-20 border-2 border-blue-200/60 rounded-lg opacity-40 shadow-lg"
           animate={{ 
             rotate: [0, 360],
-            scale: [1, 1.1, 1]
+            scale: [1, 1.1, 1],
           }}
           transition={{ 
             duration: 20, 
             repeat: Infinity, 
-            ease: "linear" 
+            ease: 'linear',
           }}
         />
         
@@ -108,12 +50,12 @@ const DigitalEngineeringHero = () => {
           className="absolute top-32 right-32 w-16 h-16 bg-gradient-to-r from-purple-200/80 to-pink-200/80 rounded-full opacity-50 shadow-lg"
           animate={{ 
             y: [0, -30, 0],
-            x: [0, 20, 0]
+            x: [0, 20, 0],
           }}
           transition={{ 
             duration: 8, 
             repeat: Infinity, 
-            ease: "easeInOut" 
+            ease: 'easeInOut',
           }}
         />
         
@@ -121,13 +63,13 @@ const DigitalEngineeringHero = () => {
           className="absolute bottom-32 left-1/4 w-12 h-12 bg-gradient-to-r from-cyan-200/80 to-blue-200/80 rounded-full opacity-60 shadow-lg"
           animate={{ 
             scale: [1, 1.3, 1],
-            opacity: [0.6, 0.9, 0.6]
+            opacity: [0.6, 0.9, 0.6],
           }}
           transition={{ 
             duration: 6, 
             repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 1
+            ease: 'easeInOut',
+            delay: 1,
           }}
         />
         
@@ -135,13 +77,13 @@ const DigitalEngineeringHero = () => {
           className="absolute top-1/2 right-20 w-8 h-8 border-2 border-green-200/60 rounded-full opacity-40 shadow-lg"
           animate={{ 
             rotate: [0, -360],
-            scale: [1, 0.8, 1]
+            scale: [1, 0.8, 1],
           }}
           transition={{ 
             duration: 12, 
             repeat: Infinity, 
-            ease: "linear",
-            delay: 2
+            ease: 'linear',
+            delay: 2,
           }}
         />
         
@@ -152,7 +94,7 @@ const DigitalEngineeringHero = () => {
               linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
               linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px'
+            backgroundSize: '50px 50px',
           }} />
         </div>
         
@@ -161,12 +103,12 @@ const DigitalEngineeringHero = () => {
           className="absolute top-40 left-1/3 w-2 h-2 bg-blue-400 rounded-full opacity-70 shadow-lg"
           animate={{ 
             y: [0, -20, 0],
-            opacity: [0.7, 1, 0.7]
+            opacity: [0.7, 1, 0.7],
           }}
           transition={{ 
             duration: 4, 
             repeat: Infinity, 
-            ease: "easeInOut" 
+            ease: 'easeInOut',
           }}
         />
         
@@ -174,13 +116,13 @@ const DigitalEngineeringHero = () => {
           className="absolute bottom-40 right-1/3 w-3 h-3 bg-purple-400 rounded-full opacity-60 shadow-lg"
           animate={{ 
             y: [0, 25, 0],
-            opacity: [0.6, 1, 0.6]
+            opacity: [0.6, 1, 0.6],
           }}
           transition={{ 
             duration: 5, 
             repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 1.5
+            ease: 'easeInOut',
+            delay: 1.5,
           }}
         />
       </div>
@@ -203,13 +145,13 @@ const DigitalEngineeringHero = () => {
             
             {/* Main Heading with enhanced design */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
-              <span className="text-[#2D3748]">Digital Engineering</span><br />
-              <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">for Every Industry</span>
+              <span className="text-[#2D3748]">Data and Analytics</span><br />
+              <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">AI-Powered Insights</span>
             </h1>
             
             {/* Description */}
             <p className="text-xl md:text-2xl text-[#4A5568] leading-relaxed max-w-4xl mx-auto">
-              From manufacturing to healthcare, we deliver AI solutions tailored to your industry's unique challenges and regulatory requirements.
+              Transform your data into actionable insights with our advanced analytics solutions. From data engineering to machine learning, we help you unlock the full potential of your information assets.
             </p>
           </div>
         </motion.div>
@@ -219,4 +161,4 @@ const DigitalEngineeringHero = () => {
   );
 };
 
-export default DigitalEngineeringHero;
+export default DataAnalyticsHero;
