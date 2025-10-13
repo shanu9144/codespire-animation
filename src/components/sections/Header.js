@@ -199,7 +199,7 @@ const Header = () => {
                           onMouseLeave={() => item.label === 'Services' ? handleServiceMouseLeave() : handleProductMouseLeave()}
                         >
                           {item.children.map((child) => (
-                            <Link key={child.href} href={child.href} className="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-50 hover:text-primary cursor-pointer">
+                            <Link key={child.href} href={child.href} className="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100 hover:text-primary cursor-pointer">
                               {child.label}
                             </Link>
                           ))}
