@@ -1,12 +1,17 @@
 'use client';
 
 import { Wrapper, Button } from "../../../../components/ui";
-import { Download, Phone, ArrowRight, Target, Brain, Database, BarChart3, Clock, Shield, CheckCircle, Settings, FileText, Lightbulb, Search, Award, Cloud, Lock, Eye } from "lucide-react";
-import { motion } from "framer-motion";
+import { Download, Phone, ArrowRight, Target, Brain, Cpu, Database, BarChart3, Clock, Shield, CheckCircle, Settings, FileText, Lightbulb, Search, Award, Cloud, Lock, Eye } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ScrollAnimatedSection } from "../../../../lib/animations/scroll";
 import Link from "next/link";
+import { useRef } from "react";
 
 export default function SupplierMatchAI() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
   const challenges = [
     {
       icon: Eye,
@@ -61,180 +66,90 @@ export default function SupplierMatchAI() {
 
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Premium Glassmorphism Background */}
+    <div ref={containerRef} className="min-h-screen relative overflow-hidden bg-white">
+      {/* Subtle Animated Background */}
       <div className="absolute inset-0 z-0">
-        {/* Vibrant purple gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#667eea] via-[#764ba2] to-[#667eea]"></div>
-        
-        {/* Animated gradient overlay for depth */}
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-tr from-[#764ba2]/20 via-transparent to-[#667eea]/20"
-          animate={{ 
-            background: [
-              "linear-gradient(45deg, rgba(118, 75, 162, 0.2) 0%, transparent 50%, rgba(102, 126, 234, 0.2) 100%)",
-              "linear-gradient(225deg, rgba(102, 126, 234, 0.2) 0%, transparent 50%, rgba(118, 75, 162, 0.2) 100%)",
-              "linear-gradient(45deg, rgba(118, 75, 162, 0.2) 0%, transparent 50%, rgba(102, 126, 234, 0.2) 100%)"
-            ]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        
-        {/* Floating geometric shapes */}
-        {Array.from({ length: 12 }).map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ 
-              opacity: [0, 0.1, 0],
-              scale: [0, 1, 0],
-              y: [0, -20, 0]
-            }}
-            transition={{ 
-              duration: 4 + Math.random() * 2,
-              delay: i * 0.3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute w-2 h-2 bg-white/30 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
+        {/* Soft floating particles */}
+        <div className="absolute inset-0">
+          {Array.from({ length: 30 }).map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-primary/20 rounded-full"
+              style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
+              animate={{ y: [0, -20, 0], opacity: [0.2, 0.8, 0.2] }}
+              transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2 }}
+            />
+          ))}
+        </div>
+        {/* Gradient waves */}
+        <motion.div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30" style={{ y, opacity }} />
+        {/* Glassmorphism blur */}
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl" />
       </div>
 
       {/* Hero Section */}
-      <section className="relative z-10 min-h-screen flex items-center justify-center">
+      <section className="relative z-10 py-24 flex items-center justify-center overflow-hidden">
         <Wrapper>
-          <div className="max-w-6xl mx-auto">
-            <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
-              <div className="text-center space-y-8">
-                {/* Breadcrumb */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="flex items-center justify-center space-x-2 text-sm"
-                >
-                  <Link href="/products" className="text-white/80 hover:text-white transition-colors duration-200">
-                    Products
-                  </Link>
-                  <span className="text-white">/</span>
-                  <span className="text-white font-medium">Supplier Match AI</span>
+          <div className="max-w-6xl mx-auto text-center px-4">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="space-y-8">
+              {/* 3D Icons */}
+              <div className="flex justify-center items-center space-x-8 mb-8">
+                <motion.div initial={{ opacity: 0, scale: 0.8, rotateY: -180 }} animate={{ opacity: 1, scale: 1, rotateY: 0 }} transition={{ duration: 1, delay: 0.2 }} className="relative">
+                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <Brain className="w-12 h-12 text-white" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
                 </motion.div>
-
-                {/* Premium Main Heading */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                  <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight tracking-tight" style={{ textShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
-                    Supplier Match AI
-                  </h1>
-                </motion.div>
-                
-                {/* Subtitle */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                >
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white/95 leading-tight" style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 0.2)' }}>
-                    Smarter Supplier Selection for Modern Sourcing
-                  </h2>
-                </motion.div>
-                
-                <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed"
-                >
-                  Discover, match, and validate suppliers in minutes. AI-powered sourcing that maximizes savings, improves quality, and accelerates RFQ closures.
-                </motion.p>
-
-                {/* Key Features */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 pt-8 md:pt-12">
-                  {[
-                    "Intelligent supplier discovery using real-time data",
-                    "Automated RFQ-to-supplier matching for best-fit recommendations", 
-                    "Pre-check validations to eliminate incomplete RFQs"
-                  ].map((feature, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      whileHover={{ y: -8, scale: 1.02 }}
-                      className="group p-8 bg-white/10 backdrop-blur-[20px] rounded-[20px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-300"
-                    >
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#4F46E5] to-[#667eea] rounded-[12px] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200">
-                        <CheckCircle className="w-6 h-6 text-white" />
-                      </div>
-                      <p className="text-white font-medium leading-relaxed">{feature}</p>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Enhanced CTA Buttons */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                  className="flex flex-col sm:flex-row gap-6 pt-12 md:pt-16 pb-8 md:pb-12 justify-center items-center"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Button 
-                      className="relative px-10 py-5 text-lg font-semibold bg-[#4F46E5] text-white rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 group overflow-hidden border-0"
-                      data-magnetic="true"
-                      data-magnetic-strength="0.3"
-                      style={{ 
-                        boxShadow: '0 10px 40px rgba(79, 70, 229, 0.4)',
-                        borderRadius: '16px'
-                      }}
-                    >
-                      <span className="relative z-10 flex items-center">
-                        Request a demo
-                        <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
-                      </span>
-                      <div className="absolute inset-0 bg-gray-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </Button>
-                  </motion.div>
-                  
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Button 
-                      className="relative px-10 py-5 text-lg font-semibold bg-[#8B5CF6] text-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 group overflow-hidden border border-[#A78BFA]" 
-                      variant="secondary"
-                      data-magnetic="true"
-                      data-magnetic-strength="0.2"
-                      style={{ 
-                        borderRadius: '16px',
-                        backgroundColor: '#8B5CF6',
-                        borderColor: '#A78BFA'
-                      }}
-                    >
-                      <span className="relative z-10 flex items-center">
-                        <Download className="mr-3 h-5 w-5 text-white group-hover:scale-110 transition-transform duration-200" /> 
-                        Download datasheet
-                      </span>
-                      <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </Button>
-                  </motion.div>
+                <motion.div initial={{ opacity: 0, scale: 0.8, rotateY: 180 }} animate={{ opacity: 1, scale: 1, rotateY: 0 }} transition={{ duration: 1, delay: 0.4 }} className="relative">
+                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <Cpu className="w-12 h-12 text-white" />
+                  </div>
+                  <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
                 </motion.div>
               </div>
-            </ScrollAnimatedSection>
+
+              {/* Main Heading */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}>
+                <h1 className="text-4xl lg:text-5xl font-bold leading-tight tracking-tight max-w-4xl mx-auto mb-6">
+                  <span className="text-primary">Supplier Match AI</span>
+                </h1>
+              </motion.div>
+
+              {/* Subheadline */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}>
+                <p className="text-lg md:text-xl text-gray-900 max-w-3xl mx-auto mb-8 font-semibold">Smarter Supplier Selection for Modern Sourcing</p>
+              </motion.div>
+
+              {/* Description */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1 }}>
+                <p className="text-base md:text-lg max-w-4xl mx-auto mb-12 text-gray-600 leading-relaxed">
+                  <span className="text-gray-900">Discover, match, and validate suppliers in minutes.</span>
+                  <br />
+                  <span className="text-purple-600 font-semibold">AI-powered sourcing that maximizes savings, improves quality, and accelerates RFQ closures.</span>
+                </p>
+              </motion.div>
+
+              {/* CTA Button */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.2 }} className="flex items-center justify-center">
+                <Link href="/schedule-demo">
+                  <Button className="group relative overflow-hidden bg-gradient-to-r from-primary to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                    <span className="relative z-10 flex items-center">
+                      Request a demo
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+                    </span>
+                    <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </Button>
+                </Link>
+              </motion.div>
+            </motion.div>
           </div>
         </Wrapper>
+
+        {/* Light rotating 3D object */}
+        <motion.div className="absolute top-1/4 right-1/4 w-32 h-32 opacity-10" animate={{ rotateY: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }}>
+          <div className="w-full h-full bg-gradient-to-br from-blue-400 to-purple-400 rounded-2xl transform rotate-45" />
+        </motion.div>
       </section>
 
       {/* Transform Sourcing Process Section */}

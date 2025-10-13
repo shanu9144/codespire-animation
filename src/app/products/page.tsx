@@ -43,8 +43,8 @@ export default function Products() {
       ],
       stats: [
         { label: 'Time Saved', value: '85%', icon: Clock },
-        { label: 'Accuracy', value: '95%', icon: Shield },
-        { label: 'Win Rate', value: '+40%', icon: TrendingUp },
+        { label: 'Win Rate', value: '+50%', icon: TrendingUp },
+        { label: 'Accuracy', value: '100%', icon:BarChart3 },
       ],
     },
     {
@@ -53,8 +53,8 @@ export default function Products() {
       subtitle: 'Smarter Supplier Selection for Modern Sourcing',
       description: 'Discover, match, and validate suppliers in minutes. AI-powered sourcing that maximizes savings, improves quality, and accelerates RFQ closures.',
       icon: Users,
-      color: '#8b5cf6',
-      gradient: 'from-purple-500 to-purple-600',
+      color: '#384bff',
+      gradient: 'from-blue-500 to-blue-600',
       href: '/products/supplier-match-ai',
       features: [
         'Intelligent supplier discovery',
@@ -62,9 +62,9 @@ export default function Products() {
         'Pre-check validations',
       ],
       stats: [
-        { label: 'Discovery Speed', value: '10x', icon: Zap },
-        { label: 'Cost Savings', value: '25%', icon: TrendingUp },
-        { label: 'Quality Score', value: '98%', icon: Shield },
+        { label: 'Cost Savings', value: '10-12%', icon: Database },
+        { label: 'Faster', value: '30%', icon: TrendingUp },
+        { label: 'Accuracy', value: '100%', icon:BarChart3 },
       ],
     },
     {
@@ -73,8 +73,8 @@ export default function Products() {
       subtitle: 'Predict What\'s Next, Plan with Confidence',
       description: 'AI-powered forecasting that identifies demand shifts, predicts revenue trends, and empowers smarter business planning across sales, operations, and supply chains.',
       icon: BarChart3,
-      color: '#06b6d4',
-      gradient: 'from-cyan-500 to-cyan-600',
+      color: '#384bff',
+      gradient: 'from-blue-500 to-blue-600',
       href: '/products/forecast-ai',
       features: [
         'AI-driven forecasting',
@@ -82,9 +82,9 @@ export default function Products() {
         'Scenario simulations',
       ],
       stats: [
-        { label: 'Accuracy', value: '92%', icon: Target },
         { label: 'Planning Speed', value: '5x', icon: Clock },
         { label: 'ROI Impact', value: '+30%', icon: TrendingUp },
+        { label: 'Accuracy', value: '99.99%', icon: Target },
       ],
     },
   ];
@@ -107,10 +107,10 @@ export default function Products() {
         {/* Secondary Floating Elements */}
         <div className="absolute inset-0">
           {/* Floating Geometric Shapes */}
-          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-full animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-purple-500/10 to-cyan-500/10 rounded-full animate-bounce" style={{ animationDuration: '3s' }}></div>
-          <div className="absolute bottom-40 left-20 w-40 h-40 bg-gradient-to-br from-cyan-500/10 to-primary/10 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-20 right-10 w-28 h-28 bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-full animate-bounce" style={{ animationDuration: '4s', animationDelay: '2s' }}></div>
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-primary/10 to-blue-600/10 rounded-full animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-blue-600/10 to-blue-700/10 rounded-full animate-bounce" style={{ animationDuration: '3s' }}></div>
+          <div className="absolute bottom-40 left-20 w-40 h-40 bg-gradient-to-br from-blue-700/10 to-primary/10 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-20 right-10 w-28 h-28 bg-gradient-to-br from-primary/10 to-blue-600/10 rounded-full animate-bounce" style={{ animationDuration: '4s', animationDelay: '2s' }}></div>
           
           {/* Animated Grid Pattern */}
           <div className="absolute inset-0 opacity-5">
@@ -156,19 +156,19 @@ export default function Products() {
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
               <div className="space-y-6 md:space-y-8">
                 {/* Subtitle */}
-                <div className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold leading-tight max-w-4xl mx-auto">
+                <h1 className="text-4xl lg:text-5xl font-bold leading-tight tracking-tight max-w-4xl mx-auto">
                   <ScrollRevealText revealBy="word" staggerDelay={80}>
-                    <span className="text-gray-700">Explore our AI products built to</span>
+                    <span className="text-gray-900">Explore our AI products built to</span>
                   </ScrollRevealText>
                   <br />
                   <ScrollRevealText revealBy="word" staggerDelay={100}>
-                    <span className="bg-gradient-to-r from-primary via-purple-600 to-cyan-500 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
                       Accelerate Manufacturing, Sourcing, and Planning
                     </span>
                   </ScrollRevealText>
-                </div>
+                </h1>
                 
-                <p className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                <p className="text-base md:text-lg max-w-4xl mx-auto leading-relaxed bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
                   Transform your business operations with intelligent automation, 
                   predictive analytics, and seamless integration across your entire workflow.
                 </p>
@@ -198,7 +198,7 @@ export default function Products() {
                 x: '95%',
                 y: '85%',
                 radius: 220,
-                color: '#8b5cf6',
+                color: '#2563eb',
                 opacity: 0.025,
                 morphSpeed: 0.01,
                 complexity: 10,
@@ -207,7 +207,7 @@ export default function Products() {
                 x: '50%',
                 y: '50%',
                 radius: 150,
-                color: '#06b6d4',
+                color: '#1d4ed8',
                 opacity: 0.02,
                 morphSpeed: 0.012,
                 complexity: 6,
@@ -220,16 +220,16 @@ export default function Products() {
           <div className="absolute inset-0">
             {/* Circuit-like Lines */}
             <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-pulse"></div>
-            <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-600/20 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
             
             {/* Floating Icons */}
             <div className="absolute top-1/3 left-1/4 w-8 h-8 text-primary/20 animate-bounce" style={{ animationDuration: '3s' }}>
               <Brain className="w-full h-full" />
             </div>
-            <div className="absolute top-2/3 right-1/4 w-8 h-8 text-purple-500/20 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
+            <div className="absolute top-2/3 right-1/4 w-8 h-8 text-blue-600/20 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
               <Cpu className="w-full h-full" />
             </div>
-            <div className="absolute top-1/2 left-1/2 w-8 h-8 text-cyan-500/20 animate-bounce" style={{ animationDuration: '5s', animationDelay: '2s' }}>
+            <div className="absolute top-1/2 left-1/2 w-8 h-8 text-blue-700/20 animate-bounce" style={{ animationDuration: '5s', animationDelay: '2s' }}>
               <Database className="w-full h-full" />
             </div>
           </div>
@@ -279,7 +279,7 @@ export default function Products() {
                   className="group"
                 >
                   <Link href={`/products/${product.id}`}>
-                    <div className="relative h-full min-h-[600px] bg-white rounded-2xl md:rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 overflow-hidden group-hover:shadow-2xl cursor-pointer shadow-lg hover:shadow-2xl flex flex-col">
+                    <div className="relative h-full min-h-[650px] bg-white rounded-2xl md:rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 overflow-hidden group-hover:shadow-2xl cursor-pointer shadow-lg hover:shadow-2xl flex flex-col">
                       {/* Card Background Gradient */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
                       
@@ -324,8 +324,8 @@ export default function Products() {
                       </div>
                       
                       {/* Features List */}
-                      <div className="px-6 md:px-8 pb-4 md:pb-6 flex-grow">
-                        <div className="space-y-2 md:space-y-3">
+                      <div className="px-6 md:px-8 pb-4 md:pb-6 flex-grow min-h-[120px]">
+                        <div className="space-y-3">
                           {product.features.map((feature, featureIndex) => (
                             <motion.div
                               key={featureIndex}
@@ -335,7 +335,7 @@ export default function Products() {
                               className="flex items-center space-x-3 group/feature"
                             >
                               <div className={`w-2 h-2 bg-gradient-to-r ${product.gradient} rounded-full group-hover/feature:scale-150 transition-transform duration-200`}></div>
-                              <span className="text-base text-gray-600 group-hover/feature:text-gray-800 transition-colors duration-200 font-medium">
+                              <span className="text-sm md:text-base text-gray-600 group-hover/feature:text-gray-800 transition-colors duration-200 font-medium whitespace-nowrap">
                                 {feature}
                               </span>
                             </motion.div>
@@ -358,7 +358,7 @@ export default function Products() {
                               <div className="text-sm md:text-lg font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
                                 {stat.value}
                               </div>
-                              <div className="text-xs text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-tight">
+                              <div className="text-xs text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-tight whitespace-nowrap">
                                 {stat.label}
                               </div>
                             </motion.div>
@@ -369,20 +369,22 @@ export default function Products() {
                       {/* Action Buttons */}
                       <div className="px-6 md:px-8 pb-6 md:pb-8 mt-auto">
                         <div className="flex flex-col gap-2 md:gap-3">
-                          <Button 
-                            className={`w-full bg-gradient-to-r ${product.gradient} text-white hover:shadow-xl hover:scale-105 group/btn transition-all duration-300 py-4 px-6 rounded-xl font-semibold text-base border-0 shadow-lg relative overflow-hidden`}
-                            data-magnetic="true"
-                            data-magnetic-strength="0.2"
-                          >
-                            {/* Button Ripple Effect */}
-                            <div className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                            {/* Button Glow */}
-                            <div className={`absolute inset-0 bg-gradient-to-r ${product.gradient} opacity-0 group-hover/btn:opacity-50 blur-lg transition-opacity duration-300 -z-10`}></div>
-                            <span className="flex items-center justify-center">
-                              Request a demo
-                              <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-200" />
-                            </span>
-                          </Button>
+                          <Link href="/schedule-demo">
+                            <Button 
+                              className={`w-full bg-gradient-to-r ${product.gradient} text-white hover:shadow-xl hover:scale-105 group/btn transition-all duration-300 py-4 px-6 rounded-xl font-semibold text-base border-0 shadow-lg relative overflow-hidden`}
+                              data-magnetic="true"
+                              data-magnetic-strength="0.2"
+                            >
+                              {/* Button Ripple Effect */}
+                              <div className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                              {/* Button Glow */}
+                              <div className={`absolute inset-0 bg-gradient-to-r ${product.gradient} opacity-0 group-hover/btn:opacity-50 blur-lg transition-opacity duration-300 -z-10`}></div>
+                              <span className="flex items-center justify-center">
+                                Request a demo
+                                <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                              </span>
+                            </Button>
+                          </Link>
                           
                           <Link href={product.href}>
                             <Button 
@@ -392,7 +394,7 @@ export default function Products() {
                               data-magnetic-strength="0.1"
                             >
                               <span className="flex items-center justify-center">
-                                Explore
+                                Explore Product
                               </span>
                             </Button>
                           </Link>
@@ -414,7 +416,7 @@ export default function Products() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-br from-slate-50/40 via-white/60 to-blue-50/30 backdrop-blur-sm">
         {/* Enhanced Animated Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <FluidBackground
@@ -430,18 +432,18 @@ export default function Products() {
           {/* Floating Action Elements */}
           <div className="absolute inset-0">
             {/* Animated Lines */}
-            <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent animate-pulse" style={{ animationDuration: '3s' }}></div>
+            <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-700/30 to-transparent animate-pulse" style={{ animationDuration: '3s' }}></div>
             <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
-            <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }}></div>
+            <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-600/20 to-transparent animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }}></div>
             
             {/* Floating Call-to-Action Icons */}
             <div className="absolute top-1/4 left-1/3 w-12 h-12 text-primary/20 animate-bounce" style={{ animationDuration: '4s' }}>
               <Phone className="w-full h-full" />
             </div>
-            <div className="absolute top-1/4 right-1/3 w-12 h-12 text-purple-500/20 animate-bounce" style={{ animationDuration: '5s', animationDelay: '1s' }}>
+            <div className="absolute top-1/4 right-1/3 w-12 h-12 text-blue-600/20 animate-bounce" style={{ animationDuration: '5s', animationDelay: '1s' }}>
               <Mail className="w-full h-full" />
             </div>
-            <div className="absolute bottom-1/4 left-1/2 w-12 h-12 text-cyan-500/20 animate-bounce" style={{ animationDuration: '6s', animationDelay: '2s' }}>
+            <div className="absolute bottom-1/4 left-1/2 w-12 h-12 text-blue-700/20 animate-bounce" style={{ animationDuration: '6s', animationDelay: '2s' }}>
               <Calendar className="w-full h-full" />
             </div>
           </div>
@@ -463,18 +465,18 @@ export default function Products() {
           </div>
           
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-purple-500/5 to-cyan-500/10"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-blue-600/5 to-blue-700/10"></div>
         </div>
 
         <Wrapper>
           <div className="relative z-10">
             <ScrollAnimatedSection transitionType="scale" stagger={200}>
-              <div className="max-w-5xl mx-auto text-center px-4 md:px-6">
+              <div className="max-w-3xl mx-auto text-center px-4 md:px-6">
                 <div className="space-y-6 md:space-y-8">
                   {/* Badge */}
-                  <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-primary/20 shadow-lg">
-                    <Zap className="w-5 h-5 text-primary mr-3" />
-                    <span className="text-sm font-semibold text-primary">Ready to Transform Your Business?</span>
+                  <div className="inline-flex items-center px-4 py-2 bg-blue-100/80 text-blue-600 rounded-full text-sm font-medium mb-4 hover:scale-105 transition-transform border-0 shadow-none">
+                    <Zap className="w-6 h-6 mr-2 text-blue-600" />
+                    <span className="text-blue-600 font-bold text-lg">Ready to Transform Your Business?</span>
                   </div>
                   
                   {/* Subtitle */}
@@ -485,34 +487,37 @@ export default function Products() {
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 md:pt-8">
                     <div className="relative group hover:scale-105 transition-transform duration-200">
-                      <Button 
-                        className="btn btn-primary px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold relative overflow-hidden rounded-lg md:rounded-xl"
-                        data-magnetic="true"
-                        data-magnetic-strength="0.4"
-                      >
-                        <span className="relative z-10 flex items-center">
-                          Request a demo
-                          <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
-                        </span>
-                        
-                        {/* Ripple Effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        
-                        {/* Glow Effect */}
-                        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/50 to-purple-600/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                      </Button>
+                      <Link href="/schedule-demo">
+                        <Button 
+                          className="btn btn-primary px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold relative overflow-hidden rounded-lg md:rounded-xl"
+                          data-magnetic="true"
+                          data-magnetic-strength="0.4"
+                        >
+                          <span className="relative z-10 flex items-center">
+                            Request a demo
+                            <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+                          </span>
+                          
+                          {/* Ripple Effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-primary to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          
+                          {/* Glow Effect */}
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/50 to-blue-600/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                        </Button>
+                      </Link>
                     </div>
                     
                     <div className="relative group hover:scale-105 transition-transform duration-200">
-                      <a 
-                        href="tel:+16028373370" 
-                        className="btn btn-secondary px-6 py-3 md:py-4 text-base md:text-lg font-semibold inline-flex items-center relative overflow-hidden rounded-lg md:rounded-xl"
-                        data-magnetic="true"
-                        data-magnetic-strength="0.3"
-                      >
-                        <Phone className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform duration-200" /> 
-                        (602) 837-3370
-                      </a>
+                      <Link href="/contact">
+                        <Button 
+                          className="btn btn-secondary px-6 py-3 md:py-4 text-base md:text-lg font-semibold inline-flex items-center relative overflow-hidden rounded-lg md:rounded-xl"
+                          data-magnetic="true"
+                          data-magnetic-strength="0.3"
+                        >
+                          <Phone className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform duration-200" /> 
+                          Talk to Sales
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                   
@@ -520,7 +525,7 @@ export default function Products() {
                   <div className="pt-6 md:pt-8">
                     <a 
                       href="mailto:info@codespiresolutions.com"
-                      className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-white/60 backdrop-blur-sm rounded-full border border-gray-200 hover:border-primary/30 transition-all duration-300 group hover:scale-105 text-sm md:text-base"
+                      className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-white/40 backdrop-blur-sm rounded-full border-0 shadow-none hover:bg-white/60 transition-all duration-300 group hover:scale-105 text-sm md:text-base"
                       data-magnetic="true"
                       data-magnetic-strength="0.2"
                     >
