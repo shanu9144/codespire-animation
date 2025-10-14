@@ -9,3 +9,4 @@ export { default as CalendlyWidget } from './CalendlyWidget';
 export { default as HighlightCard } from './HighlightCard';
 export { default as InfiniteCarousel } from './InfiniteCarousel';
 export { default as InfiniteIconCarousel } from './InfiniteIconCarousel';
+export { HeroSkeleton, SectionSkeleton } from './LoadingSkeleton';

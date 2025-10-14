@@ -152,7 +152,7 @@ const Header = () => {
                   width={140}
                   height={40}
                   className="h-6 sm:h-7 md:h-8 w-auto"
-                  priority
+                  priority={true} // Add priority flag
                 />
               </motion.div>
             </Link>
