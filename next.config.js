@@ -8,6 +8,7 @@ const nextConfig = {
   },
   // Enable typed routes
   typedRoutes: true,
+  
   // Webpack configuration for better TypeScript support
   webpack: (config, { isServer }) => {
     // Handle shader files

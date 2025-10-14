@@ -1,13 +1,14 @@
-import { 
-  CarouselHero, 
-  StatsBanner, 
-  WhyCodeSpire, 
-  FinalCTABanner, 
-  IndustriesWeServe, 
-  FeatureHighlightsCarousel 
-} from '@/components/sections';
-import { OptimizedLiquidBackground } from '@/components/backgrounds';
+import dynamic from 'next/dynamic';
 import { Wrapper } from '@/components/ui';
+import { StatsBanner, WhyCodeSpire, FinalCTABanner, IndustriesWeServe, FeatureHighlightsCarousel } from '@/components/sections';
+import { HeroSkeleton } from '@/components/ui';
+
+// Lazy load heavy components with loading states
+const CarouselHero = dynamic(() => import('@/components/sections/CarouselHero'), {
+  loading: () => <HeroSkeleton />
+});
+
+const OptimizedLiquidBackground = dynamic(() => import('@/components/backgrounds/OptimizedLiquidBackground'));
 
 export default function Home() {
   return (
