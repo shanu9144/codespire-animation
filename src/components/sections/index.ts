@@ -5,6 +5,7 @@ export { default as Hero } from './Hero';
 export { default as HeroFallback } from './HeroFallback';
 export { default as HeroWithLiquid } from './HeroWithLiquid';
 export { default as HeroWithScrollAnimations } from './HeroWithScrollAnimations';
+export { default as HeroDemoSection } from './HeroDemoSection';
 export { default as CarouselHero } from './CarouselHero';
 export { default as StatsBanner } from './StatsBanner';
 export { default as WhyCodeSpire } from './WhyCodeSpire';
