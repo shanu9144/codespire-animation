@@ -263,7 +263,7 @@ const ServicesPage = () => {
       )}
 
       {/* Hero Section */}
-      <div className="relative z-10">
+      <div className="relative z-10 pt-20 lg:pt-24">
         <Wrapper className="py-16 lg:py-20">
           <motion.div
             initial="hidden"
@@ -304,8 +304,8 @@ const ServicesPage = () => {
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight"
               variants={fadeInUp}
             >
-              AI-Powered Services for
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-600 to-cyan-500">
+              AI-Powered Services for{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500">
                 Enterprise
               </span>
             </motion.h1>
@@ -431,7 +431,7 @@ const ServicesPage = () => {
                 }}
                 className="group relative"
               >
-                <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-blue-100/30 h-full">
+                <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 h-full">
                   <motion.div 
                     className={`w-16 h-16 bg-gradient-to-r ${benefit.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
                     whileHover={{ rotate: 5 }}
@@ -516,7 +516,6 @@ const ServicesPage = () => {
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
             variants={fadeInUp}
           >
-            Comprehensive{' '}
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
               AI
             </span>
@@ -555,7 +554,7 @@ const ServicesPage = () => {
                 }}
                 className="group relative"
               >
-                <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-blue-100/30 h-full flex flex-col">
+                <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
                 <motion.div 
                   className={`w-14 h-14 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}
                   whileHover={{ rotate: 5 }}
@@ -611,7 +610,7 @@ const ServicesPage = () => {
 
       {/* Final CTA Section */}
       <div className="relative">
-        <Wrapper className="py-12" data-section="2">
+        <Wrapper className="py-10 pb-32 lg:pb-40" data-section="2">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -635,7 +634,7 @@ const ServicesPage = () => {
               and drive measurable business outcomes.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
+            <div className="flex justify-center">
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -644,16 +643,6 @@ const ServicesPage = () => {
                 <span className="flex items-center gap-3">
                   Schedule a Consultation
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </motion.button>
-              
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="group border-2 border-primary/20 text-primary px-10 py-5 rounded-2xl font-bold text-lg hover:bg-primary hover:text-white transition-all duration-300 hover:border-primary hover:shadow-xl"
-              >
-                <span className="flex items-center gap-3">
-                  Download Our Capabilities
                 </span>
               </motion.button>
             </div>

@@ -202,7 +202,7 @@ const DigitalEngineeringHero = () => {
             </div>
             
             {/* Main Heading with enhanced design */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight">
               <span className="text-[#2D3748]">Digital Engineering</span><br />
               <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">for Every Industry</span>
             </h1>
