@@ -40,8 +40,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#1e2875] border-t border-[#1e2875]">
-      <Wrapper className="py-12 text-gray-300">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <Wrapper className="py-8 lg:py-10 text-gray-300">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-4">
@@ -65,7 +65,7 @@ const Footer = () => {
             </p>
 
             {/* Contact Info */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               {contactInfo.map((item, index) => (
                 <motion.div
                   key={index}
@@ -141,7 +141,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/10">
+        <div className="mt-8 pt-6 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-white text-sm">
               © {currentYear} CodeSpire Solutions. All rights reserved.

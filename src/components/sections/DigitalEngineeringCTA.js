@@ -74,11 +74,9 @@ const DigitalEngineeringCTA = () => {
         >
           {/* Main Content */}
           <motion.div variants={itemVariants} className="space-y-8">
-            <h2 className="text-5xl font-semibold text-gray-900 leading-tight">
-              Transform your business with<br />
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                AI-powered Digital Engineering
-              </span>
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              <span className="text-[#2D3748]">Transform your business with</span><br />
+              <span className="text-[#6B46C1]">AI-powered Digital Engineering</span>
             </h2>
             
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">

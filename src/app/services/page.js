@@ -390,11 +390,11 @@ const ServicesPage = () => {
             </motion.div>
 
             <motion.h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
+              className="text-4xl md:text-5xl font-bold mb-8 leading-tight"
               variants={fadeInUp}
             >
-              Your Dedicated{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+              <span className="text-[#2D3748]">Your Dedicated</span>{' '}
+              <span className="text-[#6B46C1]">
                 AI Delivery Engine
               </span>
             </motion.h2>
