@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { X, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { X, Mail, Phone, MapPin, ArrowRight, Flame } from 'lucide-react';
 import Link from 'next/link';
 
 const VerticalContactButton = () => {
@@ -59,50 +59,59 @@ const VerticalContactButton = () => {
       <motion.button
         onClick={toggleExpanded}
         className={`
-          relative flex flex-col items-center justify-center
-          w-20 h-40 bg-gradient-to-b from-blue-500 via-blue-600 to-blue-700
-          text-white font-bold text-sm tracking-wide
-          rounded-l-3xl shadow-2xl shadow-blue-500/30
-          border-2 border-white/20 backdrop-blur-sm
+          relative flex flex-col items-center justify-between
+          w-16 h-48 bg-gradient-to-b from-purple-500 via-purple-600 to-blue-700
+          text-white font-bold text-xs tracking-wider
+          rounded-l-2xl shadow-2xl shadow-purple-500/40
+          border border-white/10 backdrop-blur-sm
           transition-all duration-500 ease-out
-          hover:shadow-blue-500/40 hover:shadow-3xl
-          hover:scale-110 hover:from-blue-400 hover:via-blue-500 hover:to-blue-600
+          hover:shadow-purple-500/50 hover:shadow-3xl
+          hover:scale-105 hover:from-purple-400 hover:via-purple-500 hover:to-blue-600
           group overflow-hidden
-          before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent
+          before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/5 before:to-transparent
           before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300
         `}
         whileHover={{ 
-          scale: 1.1,
-          boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.4)"
+          scale: 1.05,
+          boxShadow: "0 25px 50px -12px rgba(147, 51, 234, 0.4)"
         }}
         whileTap={{ scale: 0.95 }}
         initial={{ x: 0 }}
         animate={{ x: isExpanded ? -320 : 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        {/* Animated Background Pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-2 left-2 w-2 h-2 bg-white/60 rounded-full animate-pulse" />
-          <div className="absolute bottom-4 right-3 w-1 h-1 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
-          <div className="absolute top-1/2 left-1 w-1.5 h-1.5 bg-white/50 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-        </div>
-
-        {/* Vertical Text - No Icon */}
+        {/* Flame Icon at Top */}
         <motion.div
-          className="flex flex-col items-center space-y-2 relative z-10"
+          className="absolute top-2 left-1/2 transform -translate-x-1/2 z-10"
+          animate={{ 
+            scale: [1, 1.1, 1],
+            rotate: [0, 5, -5, 0]
+          }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <div className="w-6 h-6 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center shadow-lg">
+            <Flame className="w-3 h-3 text-white" />
+          </div>
+        </motion.div>
+
+        {/* Vertical Text */}
+        <motion.div
+          className="flex flex-col items-center justify-center flex-1 relative z-10"
           animate={{ rotate: isExpanded ? 180 : 0 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
         >
-          {/* Vertical Text */}
           <div className="flex flex-col items-center space-y-1">
-            <span className="text-xs font-bold tracking-wider uppercase leading-tight text-white">Contact</span>
-            <span className="text-xs font-bold tracking-wider uppercase leading-tight text-white">us</span>
+            <span className="text-xs font-bold tracking-wider uppercase leading-tight text-white transform -rotate-90">CONTACT</span>
           </div>
         </motion.div>
 
         {/* Close Icon */}
         <motion.div
-          className="absolute top-3 right-3 z-20"
+          className="absolute top-2 right-2 z-20"
           initial={{ opacity: 0, scale: 0, rotate: -90 }}
           animate={{ 
             opacity: isExpanded ? 1 : 0, 
@@ -111,17 +120,17 @@ const VerticalContactButton = () => {
           }}
           transition={{ duration: 0.3, delay: 0.1 }}
         >
-          <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+          <div className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
             <X className="w-3 h-3 text-white" />
           </div>
         </motion.div>
 
         {/* Pulse Effect */}
         <motion.div
-          className="absolute inset-0 rounded-l-3xl border-2 border-white/30"
+          className="absolute inset-0 rounded-l-2xl border border-white/20"
           animate={{ 
-            scale: [1, 1.05, 1],
-            opacity: [0.5, 0.8, 0.5]
+            scale: [1, 1.02, 1],
+            opacity: [0.3, 0.6, 0.3]
           }}
           transition={{ 
             duration: 3, 
@@ -133,7 +142,7 @@ const VerticalContactButton = () => {
 
       {/* Expanded Contact Options */}
       <motion.div
-        className="absolute right-20 top-0 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20"
+        className="absolute right-16 top-0 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20"
         initial={{ opacity: 0, x: 50, scale: 0.8 }}
         animate={{ 
           opacity: isExpanded ? 1 : 0, 
