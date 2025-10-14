@@ -4,24 +4,83 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { 
+  Cloud, 
+  Database, 
+  Zap, 
+  Layers, 
+  Globe, 
+  Shield, 
+  Rocket,
+  Sparkles,
+  Brain,
+  Settings,
+  Users,
+  Workflow
+} from 'lucide-react';
 
 const SalesforceServiceNowMainContent = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  
+  const platforms = [
+    {
+      icon: Users,
+      title: 'Salesforce CRM',
+      description: 'Custom implementations, integrations, and optimizations to maximize your sales and marketing efficiency.',
+      gradient: 'from-blue-600 to-blue-700',
+      glow: 'shadow-blue-500/25'
+    },
+    {
+      icon: Settings,
+      title: 'ServiceNow ITSM',
+      description: 'Complete IT service management solutions that automate workflows and improve service delivery.',
+      gradient: 'from-cyan-500 to-blue-600',
+      glow: 'shadow-cyan-500/25'
+    },
+    {
+      icon: Rocket,
+      title: 'Custom Development',
+      description: 'Building tailored applications and workflows that align with your unique business requirements.',
+      gradient: 'from-indigo-600 to-blue-600',
+      glow: 'shadow-indigo-500/25'
+    },
+    {
+      icon: Database,
+      title: 'Data Migration',
+      description: 'Seamless data transfer and system integration with minimal downtime and data loss.',
+      gradient: 'from-blue-600 to-indigo-600',
+      glow: 'shadow-blue-500/25'
+    },
+    {
+      icon: Zap,
+      title: 'Training & Support',
+      description: 'Comprehensive user training and ongoing support to ensure successful adoption.',
+      gradient: 'from-cyan-500 to-blue-700',
+      glow: 'shadow-cyan-500/25'
+    },
+    {
+      icon: Globe,
+      title: 'Cloud Integration',
+      description: 'Connecting Salesforce and ServiceNow with your existing systems and third-party applications.',
+      gradient: 'from-blue-700 to-indigo-600',
+      glow: 'shadow-blue-500/25'
+    }
+  ];
   
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
         delayChildren: 0.2,
       },
     },
   };
   
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
@@ -33,10 +92,11 @@ const SalesforceServiceNowMainContent = () => {
   };
   
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
+    hidden: { opacity: 0, scale: 0.9, y: 20 },
     visible: {
       opacity: 1,
       scale: 1,
+      y: 0,
       transition: {
         duration: 0.6,
         ease: 'easeOut',
@@ -44,57 +104,247 @@ const SalesforceServiceNowMainContent = () => {
     },
   };
   
+  const platformVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    },
+  };
+  
   return (
-    <section ref={ref} className="relative py-20 px-6">
-      {/* Clean minimal background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50/50" />
+    <section ref={ref} className="relative py-24 px-6 overflow-hidden">
+      {/* Modern light gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20" />
       
-      {/* Subtle geometric pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
+      {/* Animated geometric patterns */}
+      <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full" style={{
           backgroundImage: `
-            linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+            radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+            linear-gradient(45deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+            linear-gradient(-45deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px',
+          backgroundSize: '100px 100px, 150px 150px, 60px 60px, 60px 60px',
         }} />
       </div>
       
-      {/* Soft blurred shapes for depth */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+      {/* Floating enterprise-themed elements */}
+      <motion.div 
+        className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-xl"
+        animate={{ 
+          y: [0, -20, 0],
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ 
+          duration: 6, 
+          repeat: Infinity, 
+          ease: "easeInOut" 
+        }}
+      />
+      <motion.div 
+        className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 rounded-full blur-xl"
+        animate={{ 
+          y: [0, 20, 0],
+          scale: [1, 0.9, 1],
+          opacity: [0.2, 0.5, 0.2]
+        }}
+        transition={{ 
+          duration: 8, 
+          repeat: Infinity, 
+          ease: "easeInOut" 
+        }}
+      />
       
-      <div className="relative max-w-6xl mx-auto">
+      {/* Enterprise network pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
+          <defs>
+            <pattern id="enterprise" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+              <circle cx="50" cy="50" r="2" fill="currentColor" className="text-blue-400" />
+              <path d="M20,20 L80,80 M80,20 L20,80" stroke="currentColor" strokeWidth="0.5" className="text-blue-300" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#enterprise)" />
+        </svg>
+      </div>
+      
+      <div className="relative max-w-7xl mx-auto">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="space-y-16"
+          className="space-y-20"
         >
           {/* Main Content Section */}
-          <motion.div variants={itemVariants} className="bg-white/80 backdrop-blur-md rounded-2xl p-8 lg:p-12 border border-gray-100/50 shadow-sm">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Salesforce & ServiceNow Expertise</h3>
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  At CodeSpire Solutions, we are certified Salesforce and ServiceNow partners with deep expertise in enterprise implementations. Our team delivers comprehensive solutions that streamline your business processes, enhance customer relationships, and optimize IT service management.
-                </p>
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">Our Platform Expertise</h4>
-                <div className="space-y-3 text-gray-800">
-                  <p><span className="font-semibold">Salesforce CRM:</span> Custom implementations, integrations, and optimizations to maximize your sales and marketing efficiency.</p>
-                  <p><span className="font-semibold">ServiceNow ITSM:</span> Complete IT service management solutions that automate workflows and improve service delivery.</p>
-                  <p><span className="font-semibold">Custom Development:</span> Building tailored applications and workflows that align with your unique business requirements.</p>
-                  <p><span className="font-semibold">Data Migration:</span> Seamless data transfer and system integration with minimal downtime and data loss.</p>
-                  <p><span className="font-semibold">Training & Support:</span> Comprehensive user training and ongoing support to ensure successful adoption.</p>
-                  <p><span className="font-semibold">Cloud Integration:</span> Connecting Salesforce and ServiceNow with your existing systems and third-party applications.</p>
+          <motion.div 
+            variants={itemVariants} 
+            className="relative"
+          >
+            {/* Glassmorphism card */}
+            <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 lg:p-16 border border-blue-200/50 shadow-2xl">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                {/* Left Column - Content */}
+                <div className="space-y-8">
+                  {/* Main Heading */}
+                  <motion.div variants={itemVariants}>
+                    <div className="flex items-center gap-3 mb-6">
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center"
+                      >
+                        <Brain className="w-6 h-6 text-white" />
+                      </motion.div>
+                      <div className="h-8 w-px bg-gradient-to-b from-blue-500 to-cyan-500" />
+                    </div>
+                    <h3 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                      <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-500 bg-clip-text text-transparent">
+                        Salesforce & ServiceNow Expertise
+                      </span>
+                    </h3>
+                  </motion.div>
+                  
+                  {/* Description */}
+                  <motion.div variants={itemVariants}>
+                    <p className="text-xl text-gray-700 leading-relaxed mb-8">
+                      At <span className="text-blue-600 font-semibold">CodeSpire Solutions</span>, we are certified Salesforce and ServiceNow partners with deep expertise in enterprise implementations. Our team delivers comprehensive solutions that streamline your business processes, enhance customer relationships, and optimize IT service management.
+                    </p>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                      Whether you need robust platform implementations built from scratch or expert support to scale your vision, we deliver bespoke services in <span className="text-blue-600 font-semibold">Salesforce CRM, ServiceNow ITSM, custom development, data migration, training & support</span>, and more.
+                    </p>
+                  </motion.div>
+                  
+                  {/* Platform Expertise Heading */}
+                  <motion.div variants={itemVariants}>
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="h-px bg-gradient-to-r from-blue-500 to-cyan-500 flex-1" />
+                      <h4 className="text-2xl font-bold text-gray-900 whitespace-nowrap">
+                        Our Platform Expertise
+                      </h4>
+                      <div className="h-px bg-gradient-to-r from-cyan-500 to-blue-500 flex-1" />
+                    </div>
+                  </motion.div>
+                  
+                  {/* Platform Grid */}
+                  <div className="grid gap-4">
+                    {platforms.map((platform, index) => (
+                      <motion.div
+                        key={platform.title}
+                        variants={platformVariants}
+                        whileHover={{ 
+                          scale: 1.02, 
+                          x: 10,
+                          transition: { duration: 0.2 }
+                        }}
+                        className="group"
+                      >
+                        <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-blue-200/50 hover:border-blue-300/50 transition-all duration-300 hover:bg-white/80 hover:shadow-lg">
+                          <div className="flex items-start gap-4">
+                            <motion.div
+                              whileHover={{ scale: 1.1, rotate: 5 }}
+                              className={`w-12 h-12 bg-gradient-to-r ${platform.gradient} rounded-xl flex items-center justify-center shadow-lg ${platform.glow} group-hover:shadow-xl transition-all duration-300`}
+                            >
+                              <platform.icon className="w-6 h-6 text-white" />
+                            </motion.div>
+                            <div className="flex-1">
+                              <h5 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                                {platform.title}
+                              </h5>
+                              <p className="text-gray-600 leading-relaxed">
+                                {platform.description}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div>
-                <img
-                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1400&auto=format&fit=crop"
-                  alt="Salesforce ServiceNow Illustration"
-                  className="w-full rounded-2xl shadow-xl mx-auto"
-                />
+                
+                {/* Right Column - Visual */}
+                <motion.div 
+                  variants={cardVariants}
+                  className="relative"
+                >
+                  {/* Enterprise-themed visual container */}
+                  <div className="relative bg-gradient-to-br from-blue-50/80 to-indigo-50/60 rounded-3xl p-8 border border-blue-200/50 backdrop-blur-sm">
+                    {/* Floating enterprise elements */}
+                    <motion.div
+                      animate={{ y: [0, -10, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center"
+                    >
+                      <Cloud className="w-4 h-4 text-white" />
+                    </motion.div>
+                    
+                    <motion.div
+                      animate={{ y: [0, 10, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                      className="absolute bottom-4 left-4 w-8 h-8 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center"
+                    >
+                      <Database className="w-4 h-4 text-white" />
+                    </motion.div>
+                    
+                    {/* Main visual - Enterprise Platform Display */}
+                    <div className="bg-gray-900/90 rounded-2xl p-6 border border-blue-300/30">
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-2 mb-4">
+                          <div className="w-3 h-3 bg-red-500 rounded-full" />
+                          <div className="w-3 h-3 bg-yellow-500 rounded-full" />
+                          <div className="w-3 h-3 bg-green-500 rounded-full" />
+                          <span className="text-blue-300 text-sm ml-4">Enterprise Platform Integration</span>
+                        </div>
+                        
+                        <div className="space-y-2 font-mono text-sm">
+                          <div className="text-blue-400">
+                            <span className="text-purple-400">const</span> <span className="text-cyan-300">enterpriseApp</span> = <span className="text-yellow-300">new</span> <span className="text-green-400">Platform</span>();
+                          </div>
+                          <div className="text-blue-300">
+                            <span className="text-purple-400">enterpriseApp</span>.<span className="text-cyan-300">useSalesforce</span>(<span className="text-green-400">'CRM'</span>);
+                          </div>
+                          <div className="text-blue-400">
+                            <span className="text-purple-400">enterpriseApp</span>.<span className="text-cyan-300">useServiceNow</span>(<span className="text-green-400">'ITSM'</span>);
+                          </div>
+                          <div className="text-gray-400">
+                            <span className="text-gray-500">//</span> <span className="text-cyan-300">Streamlining enterprise workflows</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Glowing effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 rounded-3xl blur-xl" />
+                  </div>
+                  
+                  {/* Floating particles */}
+                  {[...Array(6)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full"
+                      style={{
+                        left: `${20 + i * 15}%`,
+                        top: `${30 + i * 10}%`,
+                      }}
+                      animate={{
+                        y: [0, -20, 0],
+                        opacity: [0.3, 1, 0.3],
+                        scale: [0.5, 1, 0.5],
+                      }}
+                      transition={{
+                        duration: 3 + i * 0.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
+                  ))}
+                </motion.div>
               </div>
             </div>
           </motion.div>

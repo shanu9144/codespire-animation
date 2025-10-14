@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
  
 import { 
   Factory, 
@@ -9,7 +9,10 @@ import {
   Building2, 
   Shield, 
   Heart,
-  Zap
+  Zap,
+  ArrowRight,
+  Sparkles,
+  CheckCircle
 } from 'lucide-react';
 
 const industries = [
@@ -66,7 +69,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.1,
       delayChildren: 0.2
     }
   }
@@ -75,7 +78,7 @@ const containerVariants = {
 const cardVariants = {
   hidden: { 
     opacity: 0, 
-    y: 30,
+    y: 40,
     scale: 0.95
   },
   visible: { 
@@ -83,10 +86,8 @@ const cardVariants = {
     y: 0,
     scale: 1,
     transition: {
-      type: "spring",
-      stiffness: 120,
-      damping: 20,
-      duration: 0.5
+      duration: 0.6,
+      ease: "easeOut"
     }
   }
 };
@@ -117,6 +118,18 @@ const textVariants = {
   }
 };
 
+const listItemVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut"
+    }
+  }
+};
+
 const IndustryCard = ({ industry }) => {
   const Icon = industry.icon;
   
@@ -127,43 +140,100 @@ const IndustryCard = ({ industry }) => {
     >
       {/* Card */}
       <motion.div
-        className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-gray-100 h-full transition-all duration-300 flex flex-col min-h-[480px]"
+        className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden border border-gray-200/50 hover:border-gray-300/50 h-full transition-all duration-300 flex flex-col group-hover:bg-white/90"
         whileHover={{ 
-          y: -4,
+          y: -8,
           scale: 1.02,
-          boxShadow: "0 20px 40px -12px rgba(0, 0, 0, 0.1)"
         }}
-        transition={{ type: "spring", stiffness: 400, damping: 25 }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        {/* Fixed-height Image */}
-        <div className="w-full h-40 overflow-hidden">
+        {/* Image Container with Overlay */}
+        <div className="relative w-full h-48 overflow-hidden">
           <motion.img
             src={industry.image}
             alt={industry.title}
-            className="w-full h-full object-cover"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
           />
+          
+          {/* Blue Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-600/30 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
+          
+          {/* Blue Accent Line */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
         </div>
 
-        {/* Content */}
-        <div className="flex-1 p-4 flex flex-col gap-2">
-          <motion.div variants={iconVariants} className={`inline-flex h-10 w-10 items-center justify-center rounded-md bg-gradient-to-r ${industry.color}`}>
-            <Icon className="w-5 h-5 text-white" />
+        {/* Content - Perfectly Structured */}
+        <div className="flex-1 flex flex-col p-6 min-h-[280px]">
+          {/* Icon */}
+          <motion.div 
+            variants={iconVariants} 
+            className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r ${industry.color} shadow-lg group-hover:shadow-xl transition-all duration-300 mb-4`}
+            whileHover={{ 
+              scale: 1.1, 
+              rotate: 5,
+              transition: { duration: 0.2 }
+            }}
+          >
+            <Icon className="w-6 h-6 text-white" />
           </motion.div>
-          <motion.h3 variants={textVariants} className="text-lg font-semibold text-gray-900">{industry.title}</motion.h3>
-          <motion.p variants={textVariants} className="text-gray-600 text-sm leading-relaxed">{industry.description}</motion.p>
-        </div>
+          
+          {/* Title - Fixed Height */}
+          <motion.h3 
+            variants={textVariants} 
+            className="text-xl font-bold text-gray-900 mb-3 leading-tight h-12 flex items-center"
+          >
+            {industry.title}
+          </motion.h3>
+          
+          {/* Description - Fixed Height */}
+          <motion.p 
+            variants={textVariants} 
+            className="text-gray-600 text-sm leading-relaxed mb-6 h-16 flex items-start"
+          >
+            {industry.description}
+          </motion.p>
 
-        {/* Bullet list */}
-        <ul className="p-4 pt-0 space-y-1.5 mt-auto">
-          {industry.features.map((feature) => (
-            <li key={feature} className="flex items-center text-sm text-blue-600">
-              <span className="w-2 h-2 rounded-full bg-blue-500 mr-3"></span>
-              {feature}
-            </li>
-          ))}
-        </ul>
+          {/* Feature List - Fixed at bottom with consistent spacing */}
+          <motion.ul 
+            className="space-y-3 mt-auto"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {industry.features.map((feature, index) => (
+              <motion.li 
+                key={feature} 
+                variants={listItemVariants}
+                className="flex items-center text-sm text-gray-700 min-h-[20px]"
+                whileHover={{ 
+                  x: 5,
+                  transition: { duration: 0.2 }
+                }}
+              >
+                <motion.div
+                  className="w-2 h-2 rounded-full bg-blue-500 mr-3 flex-shrink-0"
+                  whileHover={{ 
+                    scale: 1.2,
+                    backgroundColor: "#3B82F6"
+                  }}
+                  transition={{ duration: 0.2 }}
+                />
+                <span className="flex-1 leading-relaxed">{feature}</span>
+                <motion.div
+                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-2 flex-shrink-0"
+                  whileHover={{ x: 2 }}
+                >
+                  <ArrowRight className="w-3 h-3 text-blue-500" />
+                </motion.div>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </div>
+        
+        {/* Glow Effect */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
       </motion.div>
     </motion.div>
   );
@@ -172,12 +242,13 @@ const IndustryCard = ({ industry }) => {
 const FloatingElements = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Simple floating circles */}
+      {/* Modern geometric shapes */}
       <motion.div
-        className="absolute top-20 left-10 w-16 h-16 bg-blue-100 rounded-full opacity-40"
+        className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-2xl opacity-60"
         animate={{
-          y: [0, -15, 0],
-          x: [0, 8, 0],
+          y: [0, -20, 0],
+          x: [0, 10, 0],
+          rotate: [0, 5, 0],
         }}
         transition={{
           duration: 8,
@@ -187,10 +258,11 @@ const FloatingElements = () => {
       />
       
       <motion.div
-        className="absolute top-40 right-20 w-12 h-12 bg-purple-100 rounded-full opacity-30"
+        className="absolute top-40 right-20 w-16 h-16 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 rounded-full opacity-50"
         animate={{
-          y: [0, -10, 0],
-          x: [0, -5, 0],
+          y: [0, -15, 0],
+          x: [0, -8, 0],
+          scale: [1, 1.1, 1],
         }}
         transition={{
           duration: 6,
@@ -201,10 +273,10 @@ const FloatingElements = () => {
       />
       
       <motion.div
-        className="absolute bottom-32 left-1/4 w-10 h-10 bg-green-100 rounded-lg opacity-30"
+        className="absolute bottom-32 left-1/4 w-12 h-12 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-xl opacity-40"
         animate={{
           rotate: [0, 90, 0],
-          y: [0, -8, 0],
+          y: [0, -10, 0],
         }}
         transition={{
           duration: 10,
@@ -214,10 +286,10 @@ const FloatingElements = () => {
       />
       
       <motion.div
-        className="absolute top-1/3 right-1/4 w-8 h-8 bg-orange-100 rounded-full opacity-25"
+        className="absolute top-1/3 right-1/4 w-8 h-8 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-full opacity-30"
         animate={{
-          scale: [1, 1.2, 1],
-          y: [0, -5, 0],
+          scale: [1, 1.3, 1],
+          y: [0, -8, 0],
         }}
         transition={{
           duration: 7,
@@ -228,10 +300,10 @@ const FloatingElements = () => {
       />
       
       <motion.div
-        className="absolute bottom-20 right-10 w-6 h-6 bg-purple-100 rounded-full opacity-30"
+        className="absolute bottom-20 right-10 w-6 h-6 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full opacity-40"
         animate={{
-          y: [0, -10, 0],
-          x: [0, 5, 0],
+          y: [0, -12, 0],
+          x: [0, 6, 0],
         }}
         transition={{
           duration: 9,
@@ -244,103 +316,120 @@ const FloatingElements = () => {
   );
 };
 
-const ParticleField = () => {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  // Use fixed positions for SSR, random for client
-  const particles = Array.from({ length: 8 }, (_, i) => ({
-    id: i,
-    x: isClient ? Math.random() * 100 : (i * 12.5), // Fixed positions for SSR
-    y: isClient ? Math.random() * 100 : (i * 10 + 20), // Fixed positions for SSR
-    size: isClient ? Math.random() * 3 + 1 : 2, // Fixed size for SSR
-    duration: isClient ? Math.random() * 8 + 6 : 7, // Fixed duration for SSR
-    delay: isClient ? Math.random() * 3 : i * 0.3, // Fixed delay for SSR
-  }));
-
-  if (!isClient) {
-    return null; // Don't render particles during SSR
-  }
-
+const ModernBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((particle) => (
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="w-full h-full" style={{
+          backgroundImage: `
+            linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+        }} />
+      </div>
+      
+      {/* Floating Particles */}
+      {[...Array(12)].map((_, i) => (
         <motion.div
-          key={particle.id}
-          className="absolute bg-blue-200 rounded-full opacity-20"
+          key={i}
+          className="absolute w-1 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full opacity-30"
           style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
+            left: `${20 + i * 8}%`,
+            top: `${30 + i * 5}%`,
           }}
           animate={{
-            y: [0, -50, 0],
-            opacity: [0, 0.3, 0],
+            y: [0, -30, 0],
+            opacity: [0, 0.6, 0],
             scale: [0, 1, 0],
           }}
           transition={{
-            duration: particle.duration,
+            duration: 4 + i * 0.3,
             repeat: Infinity,
-            delay: particle.delay,
             ease: "easeInOut",
+            delay: i * 0.2,
           }}
         />
       ))}
+      
+      {/* Large Background Blobs */}
+      <motion.div
+        className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.6, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      
+      <motion.div
+        className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-r from-indigo-500/5 to-blue-500/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 0.8, 1],
+          opacity: [0.2, 0.5, 0.2],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      />
     </div>
   );
 };
 
 export default function IndustriesWeServe() {
-  
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="relative pt-16 pb-6 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+    <section ref={ref} className="relative py-24 px-6 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 overflow-hidden">
+      <ModernBackground />
       <FloatingElements />
-      <ParticleField />
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-flex items-center px-3 py-1.5 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4"
-            whileHover={{ scale: 1.02 }}
+            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-600 rounded-full text-sm font-medium mb-6 border border-blue-200/50"
+            whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <Zap className="w-6 h-6 mr-2 text-blue-600" />
-            <span className="text-blue-600 font-bold text-lg">Industries We Serve</span>
-            
+            <Sparkles className="w-5 h-5 mr-2 text-blue-600" />
+            <span className="text-blue-600 font-bold">Industries We Serve</span>
           </motion.div>
           
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Tailored AI Solutions for
-            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-500 bg-clip-text text-transparent">
               Every Industry
             </span>
           </h2>
           
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            From manufacturing to healthcare, we deliver AI solutions tailored to your industry&apos;s 
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            From manufacturing to healthcare, we deliver AI solutions tailored to your industry's 
             unique challenges and regulatory requirements.
           </p>
         </motion.div>
 
         {/* Industries Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 items-stretch"
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          animate={isInView ? "visible" : "hidden"}
         >
           {industries.map((industry) => (
             <IndustryCard
@@ -349,7 +438,6 @@ export default function IndustriesWeServe() {
             />
           ))}
         </motion.div>
-
       </div>
     </section>
   );

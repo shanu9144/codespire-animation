@@ -182,14 +182,12 @@ const Header = () => {
         <nav className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           {/* Header Left - Logo and Brand */}
           <div className="header-left">
-            <Link href="/" className="flex items-center cursor-pointer focus:outline-none focus-visible:outline-none hover:outline-none">
+            <Link href="/" className="inline-block">
               <motion.div
                 whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="flex items-center cursor-pointer focus:outline-none focus-visible:outline-none"
-                data-magnetic="true"
-                data-magnetic-strength="0.3"
-                data-magnetic-radius="80"
+                className="px-3 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200 cursor-pointer"
               >
                 <Image
                   src="/assets/codespirelogo.png"
@@ -197,7 +195,7 @@ const Header = () => {
                   width={140}
                   height={40}
                   className="h-6 sm:h-7 md:h-8 w-auto"
-                  priority={true} // Add priority flag
+                  priority={true}
                 />
               </motion.div>
             </Link>
@@ -331,7 +329,7 @@ const Header = () => {
                       </AnimatePresence>
                     </>
                   ) : (
-                    <Link href={item.href} className="hover:text-primary transition-colors cursor-pointer">
+                    <Link href={item.href} className="px-4 py-2 rounded-lg hover:bg-gray-50 hover:text-primary transition-all duration-300 cursor-pointer">
                       {item.label}
                     </Link>
                   )}
@@ -401,8 +399,8 @@ const Header = () => {
                           onClick={() => item.label === 'Services' ? setIsServicesOpen((o) => !o) : setIsProductsOpen((o) => !o)}
                           className={`w-full flex items-center justify-between px-3 py-3 text-left rounded-lg transition-all duration-300 font-medium cursor-pointer text-sm sm:text-base ${
                             (item.label === 'Services' ? isServicesOpen : isProductsOpen)
-                              ? 'bg-blue-50 text-primary'
-                              : 'text-gray-700 hover:text-primary hover:bg-blue-50'
+                              ? 'bg-gray-100 text-primary'
+                              : 'text-gray-700 hover:text-primary hover:bg-gray-50'
                           }`}
                         >
                           <span>{item.label}</span>
@@ -426,7 +424,7 @@ const Header = () => {
                                   <Link 
                                     href={child.href} 
                                     onClick={() => setIsMenuOpen(false)} 
-                                    className="flex items-center space-x-3 px-3 py-3 text-sm text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-all duration-300 cursor-pointer"
+                                    className="flex items-center space-x-3 px-3 py-3 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-300 cursor-pointer"
                                   >
                                     <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
                                       <child.icon className="w-4 h-4 text-white" />
@@ -446,7 +444,7 @@ const Header = () => {
                       <Link
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="block px-4 sm:px-6 py-2 sm:py-3 text-gray-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-300 group font-medium cursor-pointer text-sm sm:text-base"
+                        className="block px-4 sm:px-6 py-2 sm:py-3 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-300 group font-medium cursor-pointer text-sm sm:text-base"
                       >
                         <span className="flex items-center justify-between">
                           {item.label}
