@@ -108,7 +108,7 @@ const OurTeamPage = () => {
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                   <span className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-800 to-gray-600">Revolutionizing</span>
                   <span className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500">B2B Market</span>
-                  <span className="block italic text-2xl md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-purple-400">By AI</span>
+                  <span className="block italic text-2xl md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-purple-400 text-center">By AI</span>
                 </h1>
               </div>
 
