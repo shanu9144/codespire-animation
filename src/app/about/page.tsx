@@ -16,14 +16,14 @@ const OurTeamPage = () => {
 
   const founders = [
     {
-      name: 'Alex Johnson',
+      name: 'Ankit Vij',
       role: 'Founder & CEO',
       image: '/assets/team/alex-johnson.svg',
       bio: 'Visionary leader with 15+ years in AI and enterprise solutions. Passionate about transforming businesses through innovative technology.',
       linkedin: 'https://linkedin.com/in/alexjohnson',
     },
     {
-      name: 'Sarah Chen',
+      name: 'Vik Sahni',
       role: 'Co-Founder & CTO',
       image: '/assets/team/sarah-chen.svg',
       bio: 'Technical architect and AI researcher with expertise in machine learning and scalable systems. Leading our innovation initiatives.',
@@ -41,7 +41,7 @@ const OurTeamPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50">
+      <section className="relative py-16 flex items-center justify-center overflow-hidden bg-gray-50">
         {/* Background decorative elements */}
         <div className="absolute inset-0 z-0">
           {/* Subtle background patterns */}
@@ -61,13 +61,13 @@ const OurTeamPage = () => {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="relative"
             >
-              <div className="w-full h-36 bg-white rounded-lg shadow-lg overflow-hidden p-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <Users className="w-6 h-6 text-white" />
+              <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden p-3">
+                <div className="flex items-center space-x-2">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                    <Users className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900">AI Startup</h3>
+                    <h3 className="text-base font-bold text-gray-900">AI Startup</h3>
                     <p className="text-gray-600 text-xs">Innovation Hub</p>
                   </div>
                 </div>
@@ -81,13 +81,13 @@ const OurTeamPage = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="relative"
             >
-              <div className="w-full h-36 bg-white rounded-lg shadow-lg overflow-hidden p-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <Award className="w-6 h-6 text-white" />
+              <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden p-3">
+                <div className="flex items-center space-x-2">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                    <Award className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900">Our Founders</h3>
+                    <h3 className="text-base font-bold text-gray-900">Our Founders</h3>
                     <p className="text-gray-600 text-xs">Leadership Team</p>
                   </div>
                 </div>
@@ -96,12 +96,12 @@ const OurTeamPage = () => {
           </div>
 
           {/* Center Content */}
-          <div className="lg:col-span-6 text-center space-y-8 max-w-4xl mx-auto">
+          <div className="lg:col-span-6 text-center space-y-6 max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut' }}
-              className="space-y-6"
+              className="space-y-4"
             >
               {/* Main Heading */}
               <div className="space-y-2">
@@ -132,7 +132,7 @@ const OurTeamPage = () => {
               </motion.div>
 
               {/* Description */}
-              <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
                 CodeSpire is home to 50+ passionate AI experts with expertise across diverse disciplines—machine learning specialists, data scientists, engineers, and more.
               </p>
 
@@ -163,13 +163,13 @@ const OurTeamPage = () => {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="relative"
             >
-              <div className="w-full h-36 bg-white rounded-lg shadow-lg overflow-hidden p-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <Heart className="w-6 h-6 text-white" />
+              <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden p-3">
+                <div className="flex items-center space-x-2">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                    <Heart className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900">AI Expert</h3>
+                    <h3 className="text-base font-bold text-gray-900">AI Expert</h3>
                     <p className="text-gray-600 text-xs">Specialist Team</p>
                   </div>
                 </div>
@@ -183,13 +183,13 @@ const OurTeamPage = () => {
               transition={{ delay: 0.8, duration: 0.8 }}
               className="relative"
             >
-              <div className="w-full h-36 bg-white rounded-lg shadow-lg overflow-hidden p-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <Globe className="w-6 h-6 text-white" />
+              <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden p-3">
+                <div className="flex items-center space-x-2">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                    <Globe className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900">Global Team</h3>
+                    <h3 className="text-base font-bold text-gray-900">Global Team</h3>
                     <p className="text-gray-600 text-xs">Worldwide Reach</p>
                   </div>
                 </div>
@@ -200,19 +200,19 @@ const OurTeamPage = () => {
       </section>
 
       {/* Team Stats Section */}
-      <section id="team-stats" className="py-20 bg-white">
+      <section id="team-stats" className="py-16 bg-white">
         <Wrapper>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700">Team</span> at a Glance
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We&apos;re a diverse group of AI innovators, creators, and problem-solvers working together to revolutionize B2B markets.
             </p>
           </motion.div>
@@ -239,19 +239,19 @@ const OurTeamPage = () => {
       </section>
 
       {/* Founders Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <Wrapper>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Meet Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700">Leadership</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               The visionary leaders who founded CodeSpire and continue to drive our AI revolution forward.
             </p>
           </motion.div>
@@ -267,15 +267,15 @@ const OurTeamPage = () => {
                 whileHover={{ scale: 1.02 }}
                 className="relative group"
               >
-                <div className="bg-white rounded-3xl shadow-2xl p-8 hover:shadow-3xl transition-all duration-500 border border-gray-100">
+                <div className="bg-white rounded-3xl shadow-2xl p-6 hover:shadow-3xl transition-all duration-500 border border-gray-100">
                   {/* Profile Image */}
-                  <div className="relative mb-8">
-                    <div className="w-48 h-48 mx-auto relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100">
+                  <div className="relative mb-6">
+                    <div className="w-40 h-40 mx-auto relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100">
                       <Image
                         src={founder.image}
                         alt={founder.name}
-                        width={192}
-                        height={192}
+                        width={160}
+                        height={160}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -302,9 +302,9 @@ const OurTeamPage = () => {
 
                   {/* Content */}
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{founder.name}</h3>
-                    <p className="text-blue-600 font-semibold mb-4">{founder.role}</p>
-                    <p className="text-gray-600 leading-relaxed">{founder.bio}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{founder.name}</h3>
+                    <p className="text-blue-600 font-semibold mb-3">{founder.role}</p>
+                    <p className="text-gray-600 leading-relaxed text-sm">{founder.bio}</p>
                   </div>
                 </div>
               </motion.div>

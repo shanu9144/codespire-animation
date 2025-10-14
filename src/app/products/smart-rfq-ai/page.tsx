@@ -532,7 +532,7 @@ export default function SmartRFQAI() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-16 overflow-hidden">
         {/* Gradient background with floating particles */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-blue-600/10" />
         
@@ -574,13 +574,13 @@ export default function SmartRFQAI() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-6"
             >
-              <Heading level={2} size="h1" className="mb-6 text-gray-900">
+              <Heading level={2} size="h1" className="mb-4 text-gray-900">
                 Ready to Transform Your Quoting Process?
               </Heading>
               
-              <Text size="body-lg" className="max-w-3xl mx-auto mb-12">
+              <Text size="body-lg" className="max-w-3xl mx-auto mb-8">
                 <span className="text-gray-900">Join hundreds of manufacturing companies already using Smart RFQ AI to</span>
                 <br />
                 <span className="text-purple-600 font-semibold">accelerate their growth and streamline operations.</span>
@@ -589,11 +589,11 @@ export default function SmartRFQAI() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                 <Link href="/schedule-demo">
                   <Button 
-                    className="group relative overflow-hidden bg-gradient-to-r from-primary to-blue-600 text-white px-10 py-5 rounded-xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+                    className="group relative overflow-hidden bg-gradient-to-r from-primary to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                   >
                     <span className="relative z-10 flex items-center">
                       Request a demo
-                      <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-200" />
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
                     </span>
                     <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {/* 3D effect */}
@@ -604,18 +604,18 @@ export default function SmartRFQAI() {
                 <Link href="/contact">
                   <Button 
                     variant="outline"
-                    className="group bg-white border-2 border-gray-300 text-gray-500 hover:border-gray-400 hover:text-gray-600 hover:bg-gray-50 px-10 py-5 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    className="group bg-white border-2 border-gray-300 text-gray-500 hover:border-gray-400 hover:text-gray-600 hover:bg-gray-50 px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                   >
                     <span className="flex items-center">
                       Talk to sales
-                      <Phone className="ml-3 h-6 w-6 group-hover:scale-110 transition-transform duration-200" />
+                      <Phone className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
                     </span>
                   </Button>
                 </Link>
               </div>
 
               {/* Contact info */}
-              <div className="pt-8">
+              <div className="pt-4">
                 <a 
                   href="mailto:info@codespiresolutions.com"
                   className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300 group hover:scale-105 text-white"
