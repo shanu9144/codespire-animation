@@ -12,7 +12,6 @@ const Footer = () => {
 
   const footerLinks = {
     company: [
-      { label: "Our Team", href: "/our-team" },
       { label: "About Us", href: "/about" },
       { label: "Products", href: "/products" },
       { label: "Services", href: "/services" },
