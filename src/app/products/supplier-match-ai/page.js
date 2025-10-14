@@ -1,7 +1,7 @@
 'use client';
 
 import { Wrapper, Button } from "@/components/ui";
-import { Download, Phone, ArrowRight, Target, Brain, Cpu, Database, BarChart3, Clock, Shield, CheckCircle, Settings, FileText, Lightbulb, Search, Award, Cloud, Lock, Eye } from "lucide-react";
+import { Download, Phone, ArrowRight, Target, Brain, Cpu, Database, BarChart3, Clock, Shield, CheckCircle, Settings, FileText, Lightbulb, Search, Award, Cloud, Lock, Eye, TrendingUp } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ScrollAnimatedSection } from "@/lib/animations/scroll";
 import Link from "next/link";
@@ -60,6 +60,11 @@ export default function SupplierMatchAI() {
       icon: Brain,
       title: "Self-learning Engine",
       description: "Continuously improves supplier matching accuracy using sourcing feedback and past RFQ outcomes."
+    },
+    {
+      icon: TrendingUp,
+      title: "Predictive Insights",
+      description: "Anticipates supplier risks and performance trends using AI-driven analytics - helping sourcing teams make proactive, data-backed decisions."
     }
   ];
 
@@ -153,20 +158,11 @@ export default function SupplierMatchAI() {
       </section>
 
       {/* Transform Sourcing Process Section */}
-      <section className="relative py-24 bg-[#F5F3FF]">
+      <section className="relative py-24 bg-blue-100">
         <Wrapper>
           <div className="max-w-6xl mx-auto">
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
               <div className="text-center mb-16">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-purple-200 shadow-lg mb-6"
-                >
-                  <span className="text-sm font-semibold text-purple-600">How it works</span>
-                </motion.div>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Transform Your Sourcing Process
                 </h2>
@@ -243,18 +239,18 @@ export default function SupplierMatchAI() {
                       scale: 1.03,
                       transition: { duration: 0.3 }
                     }}
-                    className="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-red-300 transition-all duration-300 shadow-lg hover:shadow-2xl relative overflow-hidden"
+                    className="group p-8 bg-white rounded-2xl border border-gray-200 hover:border-blue-300 transition-all duration-300 shadow-lg hover:shadow-2xl relative overflow-hidden"
                   >
                     {/* Animated background gradient */}
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-red-50/0 via-red-50/0 to-red-50/0 group-hover:from-red-50/20 group-hover:via-red-50/10 group-hover:to-red-50/20 transition-all duration-500"
+                      className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-blue-50/0 to-blue-50/0 group-hover:from-blue-50/20 group-hover:via-blue-50/10 group-hover:to-blue-50/20 transition-all duration-500"
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                     />
                     
                     <div className="relative z-10 flex items-start space-x-4">
                       <motion.div 
-                        className="w-14 h-14 bg-gradient-to-br from-red-100 to-red-200 rounded-xl flex items-center justify-center flex-shrink-0"
+                        className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center flex-shrink-0"
                         whileHover={{ 
                           scale: 1.15,
                           rotate: 5,
@@ -267,7 +263,7 @@ export default function SupplierMatchAI() {
                           transition={{ duration: 0.4, delay: index * 0.1 + 0.3 }}
                           viewport={{ once: true }}
                         >
-                          <challenge.icon className="w-7 h-7 text-red-600" />
+                          <challenge.icon className="w-7 h-7 text-blue-600" />
                         </motion.div>
                       </motion.div>
                       <div className="flex-1">
@@ -321,10 +317,10 @@ export default function SupplierMatchAI() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="group p-6 bg-white rounded-2xl border border-gray-200 hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg"
+                    className="group p-6 bg-white rounded-2xl border border-gray-200 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg"
                   >
-                    <div className="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200">
-                      <solution.icon className="w-6 h-6 text-purple-600" />
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200">
+                      <solution.icon className="w-6 h-6 text-blue-600" />
                     </div>
                     <h4 className="text-xl font-semibold text-gray-900 mb-3">
                       {solution.title}
@@ -346,15 +342,6 @@ export default function SupplierMatchAI() {
           <div className="max-w-6xl mx-auto">
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
               <div className="text-center mb-16">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-purple-200 shadow-lg mb-6"
-                >
-                  <span className="text-sm font-semibold text-purple-600">Capabilities</span>
-                </motion.div>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Key Capabilities
                 </h2>
@@ -369,37 +356,37 @@ export default function SupplierMatchAI() {
                     icon: Search,
                     title: "Smart supplier discovery",
                     description: "Find the right suppliers faster with intelligent search and categorization",
-                    color: "#4F46E5"
+                    color: "#2563EB"
                   },
                   {
                     icon: Brain,
                     title: "AI matching engine",
                     description: "Automatically matches RFQs with suppliers based on key metrics and past performance",
-                    color: "#10B981"
+                    color: "#2563EB"
                   },
                   {
                     icon: Award,
                     title: "Quality & capacity insights",
                     description: "Evaluate supplier capabilities with performance dashboards",
-                    color: "#F59E0B"
+                    color: "#2563EB"
                   },
                   {
                     icon: Shield,
                     title: "RFQ pre-flight check",
                     description: "Prevent delays by ensuring complete RFQ data before release",
-                    color: "#8B5CF6"
+                    color: "#2563EB"
                   },
                   {
                     icon: Lightbulb,
                     title: "Learning engine",
                     description: "Improves accuracy of matches with each sourcing cycle",
-                    color: "#EC4899"
+                    color: "#2563EB"
                   },
                   {
                     icon: BarChart3,
                     title: "Integrated analytics",
                     description: "Gain transparency into sourcing KPIs and supplier performance trends",
-                    color: "#06B6D4"
+                    color: "#2563EB"
                   }
                 ].map((capability, index) => (
                   <motion.div
@@ -432,20 +419,11 @@ export default function SupplierMatchAI() {
       </section>
 
       {/* Benefits & ROI */}
-      <section className="relative py-24 bg-[#F5F3FF]">
+      <section className="relative py-24 bg-blue-50">
         <Wrapper>
           <div className="max-w-6xl mx-auto">
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
               <div className="text-center mb-16">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-purple-200 shadow-lg mb-6"
-                >
-                  <span className="text-sm font-semibold text-purple-600">Why choose us</span>
-                </motion.div>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Benefits & ROI
                 </h2>
@@ -457,7 +435,7 @@ export default function SupplierMatchAI() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {[
                   {
-                    theme: "purple",
+                    theme: "blue",
                     heading: "For procurement teams",
                     benefits: [
                       "Reduce supplier discovery time by 80%",
@@ -472,7 +450,7 @@ export default function SupplierMatchAI() {
                     ]
                   },
                   {
-                    theme: "green",
+                    theme: "blue",
                     heading: "For operations",
                     benefits: [
                       "Streamline supplier onboarding and validation processes"
@@ -486,11 +464,7 @@ export default function SupplierMatchAI() {
                     transition={{ duration: 0.5, delay: index * 0.2 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -8, scale: 1.02 }}
-                    className={`group p-6 rounded-2xl border transition-all duration-300 shadow-lg hover:shadow-xl ${
-                      benefit.theme === 'purple' ? 'bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200' :
-                      benefit.theme === 'blue' ? 'bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200' :
-                      'bg-gradient-to-br from-green-50 to-green-100 border-green-200'
-                    }`}
+                    className="group p-6 rounded-2xl border transition-all duration-300 shadow-lg hover:shadow-xl bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200"
                   >
                     <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors duration-200">
                       {benefit.heading}
@@ -505,16 +479,8 @@ export default function SupplierMatchAI() {
                           viewport={{ once: true }}
                           className="flex items-start space-x-3"
                         >
-                          <div className={`w-5 h-5 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0 ${
-                            benefit.theme === 'purple' ? 'bg-purple-100' :
-                            benefit.theme === 'blue' ? 'bg-blue-100' :
-                            'bg-green-100'
-                          }`}>
-                            <CheckCircle className={`w-3 h-3 ${
-                              benefit.theme === 'purple' ? 'text-purple-600' :
-                              benefit.theme === 'blue' ? 'text-blue-600' :
-                              'text-green-600'
-                            }`} />
+                          <div className="w-5 h-5 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0 bg-blue-100">
+                            <CheckCircle className="w-3 h-3 text-blue-600" />
                           </div>
                           <p className="text-gray-700 font-medium text-sm">{item}</p>
                         </motion.div>
@@ -587,20 +553,11 @@ export default function SupplierMatchAI() {
       </section>
 
       {/* Deployment & Security */}
-      <section className="relative py-24 bg-[#F5F3FF]">
+      <section className="relative py-24 bg-blue-50">
         <Wrapper>
           <div className="max-w-6xl mx-auto">
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
               <div className="text-center mb-16">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-purple-200 shadow-lg mb-6"
-                >
-                  <span className="text-sm font-semibold text-purple-600">Enterprise Security</span>
-                </motion.div>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Deployment & Security
                 </h2>

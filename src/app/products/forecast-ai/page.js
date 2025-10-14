@@ -230,20 +230,11 @@ export default function ForecastAI() {
       </section>
 
       {/* Transform Business Planning Section */}
-      <section className="relative py-24 bg-[#F5F3FF]">
+      <section className="relative py-24 bg-blue-50">
         <Wrapper>
           <div className="max-w-6xl mx-auto">
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
               <div className="text-center mb-16">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-purple-200 shadow-lg mb-6"
-                >
-                  <span className="text-sm font-semibold text-purple-600">How it works</span>
-                </motion.div>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Transform Your Business Planning
                 </h2>
@@ -509,20 +500,11 @@ export default function ForecastAI() {
       </section>
 
       {/* Benefits & ROI */}
-      <section className="relative py-24 bg-[#F5F3FF]">
+      <section className="relative py-24 bg-blue-50">
         <Wrapper>
           <div className="max-w-6xl mx-auto">
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
               <div className="text-center mb-16">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-purple-200 shadow-lg mb-6"
-                >
-                  <span className="text-sm font-semibold text-purple-600">Why choose us</span>
-                </motion.div>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Benefits & ROI
                 </h2>

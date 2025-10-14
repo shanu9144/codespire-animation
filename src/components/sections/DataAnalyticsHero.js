@@ -144,9 +144,9 @@ const DataAnalyticsHero = () => {
             </div>
             
             {/* Main Heading with enhanced design */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
               <span className="text-[#2D3748]">Data and Analytics</span><br />
-              <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">AI-Powered Insights</span>
+              <span className="text-3xl md:text-4xl lg:text-5xl bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">AI-Powered Insights</span>
             </h1>
             
             {/* Description */}

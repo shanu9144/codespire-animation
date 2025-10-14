@@ -634,13 +634,13 @@ const ServicesPage = () => {
               and drive measurable business outcomes.
             </p>
             
-            <div className="flex justify-center">
+            <div className="flex justify-center pb-4">
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="group bg-gradient-to-r from-primary to-purple-600 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300"
               >
-                <span className="flex items-center gap-3">
+                <span className="flex items-center">
                   Schedule a Consultation
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
@@ -648,7 +648,7 @@ const ServicesPage = () => {
             </div>
           </motion.div>
         </Wrapper>
-      </div>
+      </div>Schedule a
     </div>
   );
 };

@@ -358,7 +358,7 @@ export default function Products() {
                               <div className="text-sm md:text-lg font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
                                 {stat.value}
                               </div>
-                              <div className="text-xs text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-tight whitespace-nowrap">
+                              <div className="text-smpro text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-tight">
                                 {stat.label}
                               </div>
                             </motion.div>
@@ -489,7 +489,7 @@ export default function Products() {
                     <div className="relative group hover:scale-105 transition-transform duration-200">
                       <Link href="/schedule-demo">
                         <Button 
-                          className="btn btn-primary px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold relative overflow-hidden rounded-lg md:rounded-xl"
+                          className="btn btn-primary px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold inline-flex items-center relative overflow-hidden rounded-lg md:rounded-xl"
                           data-magnetic="true"
                           data-magnetic-strength="0.4"
                         >
@@ -510,7 +510,7 @@ export default function Products() {
                     <div className="relative group hover:scale-105 transition-transform duration-200">
                       <Link href="/contact">
                         <Button 
-                          className="btn btn-secondary px-6 py-3 md:py-4 text-base md:text-lg font-semibold inline-flex items-center relative overflow-hidden rounded-lg md:rounded-xl"
+                          className="btn btn-secondary px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold inline-flex items-center relative overflow-hidden rounded-lg md:rounded-xl"
                           data-magnetic="true"
                           data-magnetic-strength="0.3"
                         >
@@ -522,15 +522,15 @@ export default function Products() {
                   </div>
                   
                   {/* Contact Info */}
-                  <div className="pt-6 md:pt-8">
+                  <div className="pt-3 md:pt-4">
                     <a 
                       href="mailto:info@codespiresolutions.com"
-                      className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-white/40 backdrop-blur-sm rounded-full border-0 shadow-none hover:bg-white/60 transition-all duration-300 group hover:scale-105 text-sm md:text-base"
+                      className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-white/60 backdrop-blur-sm rounded-full border-0 shadow-none text-sm md:text-base"
                       data-magnetic="true"
                       data-magnetic-strength="0.2"
                     >
-                      <Mail className="mr-3 h-5 w-5 text-gray-600 group-hover:text-primary transition-colors duration-200" /> 
-                      <span className="text-gray-700 group-hover:text-primary transition-colors duration-200 font-medium">
+                      <Mail className="mr-3 h-5 w-5 text-primary" /> 
+                      <span className="text-primary font-semibold">
                         info@codespiresolutions.com
                       </span>
                     </a>
