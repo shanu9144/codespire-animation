@@ -1,10 +1,8 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { TrendingUp, Users, Zap, Scale, Target, Factory, Heart, CreditCard, Truck, ShoppingCart, Laptop, CheckCircle } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { TrendingUp, Users, Zap, Scale, Target, Factory, Heart, CreditCard, Truck, ShoppingCart, Laptop, CheckCircle, Shield } from 'lucide-react';
 
 const AIPodMainContent = () => {
   const ref = useRef(null);
@@ -71,6 +69,11 @@ const AIPodMainContent = () => {
       icon: Target,
       title: 'High Impact',
       description: '90%+ model accuracy, $500K+ in value.',
+    },
+    {
+      icon: Shield,
+      title: 'Risk-Free',
+      description: 'No long-term commitments, cancel anytime.',
     },
   ];
 

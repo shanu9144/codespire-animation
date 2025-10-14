@@ -29,19 +29,19 @@ const MainContentSection = () => {
       icon: Cloud,
       title: "Cloud Native",
       description: "Scalable cloud infrastructure designed for modern applications and services",
-      color: "from-blue-600 to-blue-700"
+      color: "from-blue-500 to-blue-600"
     },
     {
       icon: Database,
       title: "Robust APIs",
       description: "High-performance APIs with comprehensive documentation and monitoring",
-      color: "from-blue-400 to-blue-500"
+      color: "from-blue-500 to-blue-600"
     },
     {
       icon: Code,
       title: "Edge AI",
       description: "Distributed AI processing at the edge for real-time insights and responses",
-      color: "from-blue-700 to-blue-800"
+      color: "from-blue-500 to-blue-600"
     }
   ];
 
@@ -96,10 +96,10 @@ const MainContentSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start"
+          className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-stretch"
         >
           {/* Left side - Content (60% width) */}
-          <motion.div variants={itemVariants} className="lg:col-span-3 space-y-8">
+          <motion.div variants={itemVariants} className="lg:col-span-3 space-y-8 flex flex-col justify-center">
             {/* Main Heading */}
             <div className="space-y-4">
               <h2 className="text-4xl font-bold text-gray-900 leading-tight">
@@ -165,37 +165,91 @@ const MainContentSection = () => {
 
           {/* Right side - Visual (40% width) */}
           <motion.div variants={itemVariants} className="lg:col-span-2 relative">
-            <div className="relative h-96 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 flex items-center justify-center">
+            <div className="relative h-full bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 flex items-center justify-center">
               {/* Abstract AI Visual */}
               <div className="relative w-full h-full">
-                {/* Neural Network Lines */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 300">
-                  {/* Connection lines */}
+                {/* Neural Network Lines - Repeated Pattern */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 800">
+                  {/* Original connection lines */}
                   <path
                     d="M50,50 Q150,100 250,50 M50,150 Q150,200 250,150 M50,250 Q150,300 250,250"
                     stroke="url(#gradient1)"
-                    strokeWidth="2"
+                    strokeWidth="3"
                     fill="none"
-                    opacity="0.6"
+                    opacity="0.8"
                   />
                   <path
                     d="M50,50 Q150,150 250,50 M50,150 Q150,250 250,150"
                     stroke="url(#gradient2)"
-                    strokeWidth="1.5"
+                    strokeWidth="2"
+                    fill="none"
+                    opacity="0.6"
+                  />
+                  
+                  {/* Repeated pattern in middle area */}
+                  <path
+                    d="M50,300 Q150,350 250,300 M50,400 Q150,450 250,400 M50,500 Q150,550 250,500"
+                    stroke="url(#gradient1)"
+                    strokeWidth="3"
+                    fill="none"
+                    opacity="0.7"
+                  />
+                  <path
+                    d="M50,300 Q150,400 250,300 M50,400 Q150,500 250,400"
+                    stroke="url(#gradient2)"
+                    strokeWidth="2"
+                    fill="none"
+                    opacity="0.5"
+                  />
+                  
+                  {/* Repeated pattern in upper area */}
+                  <path
+                    d="M50,600 Q150,650 250,600 M50,700 Q150,750 250,700 M50,800 Q150,850 250,800"
+                    stroke="url(#gradient1)"
+                    strokeWidth="3"
+                    fill="none"
+                    opacity="0.6"
+                  />
+                  <path
+                    d="M50,600 Q150,700 250,600 M50,700 Q150,800 250,700"
+                    stroke="url(#gradient2)"
+                    strokeWidth="2"
                     fill="none"
                     opacity="0.4"
                   />
                   
-                  {/* Nodes */}
-                  <circle cx="50" cy="50" r="4" fill="url(#gradient1)" opacity="0.8" />
-                  <circle cx="150" cy="100" r="3" fill="url(#gradient2)" opacity="0.7" />
-                  <circle cx="250" cy="50" r="4" fill="url(#gradient1)" opacity="0.8" />
-                  <circle cx="50" cy="150" r="3" fill="url(#gradient2)" opacity="0.7" />
-                  <circle cx="150" cy="200" r="4" fill="url(#gradient1)" opacity="0.8" />
-                  <circle cx="250" cy="150" r="3" fill="url(#gradient2)" opacity="0.7" />
-                  <circle cx="50" cy="250" r="4" fill="url(#gradient1)" opacity="0.8" />
-                  <circle cx="150" cy="300" r="3" fill="url(#gradient2)" opacity="0.7" />
-                  <circle cx="250" cy="250" r="4" fill="url(#gradient1)" opacity="0.8" />
+                  {/* Original nodes */}
+                  <circle cx="50" cy="50" r="5" fill="url(#gradient1)" opacity="0.9" />
+                  <circle cx="150" cy="100" r="4" fill="url(#gradient2)" opacity="0.8" />
+                  <circle cx="250" cy="50" r="5" fill="url(#gradient1)" opacity="0.9" />
+                  <circle cx="50" cy="150" r="4" fill="url(#gradient2)" opacity="0.8" />
+                  <circle cx="150" cy="200" r="5" fill="url(#gradient1)" opacity="0.9" />
+                  <circle cx="250" cy="150" r="4" fill="url(#gradient2)" opacity="0.8" />
+                  <circle cx="50" cy="250" r="5" fill="url(#gradient1)" opacity="0.9" />
+                  <circle cx="150" cy="300" r="4" fill="url(#gradient2)" opacity="0.8" />
+                  <circle cx="250" cy="250" r="5" fill="url(#gradient1)" opacity="0.9" />
+                  
+                  {/* Middle area nodes */}
+                  <circle cx="50" cy="300" r="4" fill="url(#gradient1)" opacity="0.7" />
+                  <circle cx="150" cy="350" r="3" fill="url(#gradient2)" opacity="0.6" />
+                  <circle cx="250" cy="300" r="4" fill="url(#gradient1)" opacity="0.7" />
+                  <circle cx="50" cy="400" r="3" fill="url(#gradient2)" opacity="0.6" />
+                  <circle cx="150" cy="450" r="4" fill="url(#gradient1)" opacity="0.7" />
+                  <circle cx="250" cy="400" r="3" fill="url(#gradient2)" opacity="0.6" />
+                  <circle cx="50" cy="500" r="4" fill="url(#gradient1)" opacity="0.7" />
+                  <circle cx="150" cy="550" r="3" fill="url(#gradient2)" opacity="0.6" />
+                  <circle cx="250" cy="500" r="4" fill="url(#gradient1)" opacity="0.7" />
+                  
+                  {/* Upper area nodes */}
+                  <circle cx="50" cy="600" r="3" fill="url(#gradient1)" opacity="0.6" />
+                  <circle cx="150" cy="650" r="2" fill="url(#gradient2)" opacity="0.5" />
+                  <circle cx="250" cy="600" r="3" fill="url(#gradient1)" opacity="0.6" />
+                  <circle cx="50" cy="700" r="2" fill="url(#gradient2)" opacity="0.5" />
+                  <circle cx="150" cy="750" r="3" fill="url(#gradient1)" opacity="0.6" />
+                  <circle cx="250" cy="700" r="2" fill="url(#gradient2)" opacity="0.5" />
+                  <circle cx="50" cy="800" r="3" fill="url(#gradient1)" opacity="0.6" />
+                  <circle cx="150" cy="850" r="2" fill="url(#gradient2)" opacity="0.5" />
+                  <circle cx="250" cy="800" r="3" fill="url(#gradient1)" opacity="0.6" />
                   
                   {/* Gradients */}
                   <defs>
@@ -210,7 +264,7 @@ const MainContentSection = () => {
                   </defs>
                 </svg>
                 
-                {/* Floating elements */}
+                {/* Floating elements - Original */}
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -224,6 +278,38 @@ const MainContentSection = () => {
                   className="absolute bottom-8 left-8"
                 >
                   <Network className="w-8 h-8 text-blue-500 opacity-60" />
+                </motion.div>
+                
+                {/* Additional floating elements in middle area */}
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  className="absolute top-1/3 right-12"
+                >
+                  <Cpu className="w-6 h-6 text-indigo-400 opacity-50" />
+                </motion.div>
+                <motion.div
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                  className="absolute top-1/2 left-12"
+                >
+                  <Network className="w-6 h-6 text-blue-400 opacity-50" />
+                </motion.div>
+                
+                {/* Additional floating elements in upper area */}
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                  className="absolute top-2/3 right-16"
+                >
+                  <Cpu className="w-5 h-5 text-indigo-300 opacity-40" />
+                </motion.div>
+                <motion.div
+                  animate={{ y: [0, 6, 0] }}
+                  transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                  className="absolute top-3/4 left-16"
+                >
+                  <Network className="w-5 h-5 text-blue-300 opacity-40" />
                 </motion.div>
               </div>
             </div>
@@ -255,7 +341,7 @@ const MainContentSection = () => {
                       </div>
                     </div>
                     
-                    <h4 className="text-sm font-bold text-gray-900 mb-2">{card.title}</h4>
+                    <h4 className="text-sm font-bold text-black mb-2">{card.title}</h4>
                     <p className="text-xs text-gray-600 leading-relaxed flex-grow">{card.description}</p>
                   </div>
                 </motion.div>

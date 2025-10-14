@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, Brain, Code, Database, Users, Settings, Zap, BarChart3, Cpu, Network, Shield, Rocket, Target } from "lucide-react";
 import Button from "../ui/Button";
 import Wrapper from "../ui/Wrapper";
 import Image from "next/image";
@@ -99,18 +99,63 @@ const Header = () => {
   };
 
   const services = [
-    { label: "AI Pod as a Service", href: "/services/ai-pod" },
-    { label: "Digital Engineering", href: "/services/digital-engineering" },
-    { label: "Application Development and Testing", href: "/services/app-development" },
-    { label: "Data and Analytics", href: "/services/data-analytics" },
-    { label: "Salesforce and ServiceNow", href: "/services/salesforce-servicenow" },
-    { label: "24/7 SRE Support", href: "/services/sre-support" },
+    { 
+      label: "AI Pod as a Service", 
+      href: "/services/ai-pod",
+      icon: Brain,
+      description: "Managed AI teams delivering rapid business outcomes"
+    },
+    { 
+      label: "Digital Engineering", 
+      href: "/services/digital-engineering",
+      icon: Code,
+      description: "AI solutions tailored to your industry's unique challenges"
+    },
+    { 
+      label: "Application Development", 
+      href: "/services/app-development",
+      icon: Settings,
+      description: "UI/UX Design, Scalable Engineering, and Enterprise-Grade Quality"
+    },
+    { 
+      label: "Data and Analytics", 
+      href: "/services/data-analytics",
+      icon: BarChart3,
+      description: "Transform your data into actionable AI-powered insights"
+    },
+    { 
+      label: "Salesforce & ServiceNow", 
+      href: "/services/salesforce-servicenow",
+      icon: Users,
+      description: "Maximize your CRM and ITSM investments with expert implementations"
+    },
+    { 
+      label: "24/7 SRE Support", 
+      href: "/services/sre-support",
+      icon: Shield,
+      description: "Ensure your systems run smoothly around the clock"
+    },
   ];
 
   const products = [
-    { label: "Smart RFQ AI", href: "/products/smart-rfq-ai" },
-    { label: "Supplier Match AI", href: "/products/supplier-match-ai" },
-    { label: "Forecast AI", href: "/products/forecast-ai" },
+    { 
+      label: "Smart RFQ AI", 
+      href: "/products/smart-rfq-ai",
+      icon: Target,
+      description: "Intelligent request for quotation processing"
+    },
+    { 
+      label: "Supplier Match AI", 
+      href: "/products/supplier-match-ai",
+      icon: Network,
+      description: "AI-powered supplier discovery and matching"
+    },
+    { 
+      label: "Forecast AI", 
+      href: "/products/forecast-ai",
+      icon: Rocket,
+      description: "Advanced predictive analytics for business forecasting"
+    },
   ];
 
   const menuItems = [
@@ -173,38 +218,117 @@ const Header = () => {
                 >
                   {item.children ? (
                     <>
-                      <Link href={item.href} className="hover:text-primary transition-colors inline-flex items-center cursor-pointer">
+                      <Link 
+                        href={item.href} 
+                        className={`relative px-4 py-2 rounded-lg transition-all duration-300 inline-flex items-center cursor-pointer ${
+                          (hoveredService === item.label || hoveredProduct === item.label) 
+                            ? 'bg-gray-100 text-primary' 
+                            : 'hover:bg-gray-50 hover:text-primary'
+                        }`}
+                      >
                         {item.label}
-                        <svg className={`ml-1 w-4 h-4 text-gray-500 transition-all duration-300 ${(hoveredService === item.label || hoveredProduct === item.label) ? 'text-primary rotate-0' : 'rotate-180'}`} viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd"/></svg>
+                        <ChevronDown className={`ml-1 w-4 h-4 transition-all duration-300 ${
+                          (hoveredService === item.label || hoveredProduct === item.label) 
+                            ? 'text-primary rotate-180' 
+                            : 'text-gray-500 rotate-0'
+                        }`} />
                       </Link>
-                      <div className={`absolute left-0 top-full mt-1 transition-all duration-200 ${(hoveredService === item.label || hoveredProduct === item.label) ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
-                        {/* Invisible bridge to help mouse movement */}
-                        <div className="absolute -top-1 left-0 right-0 h-1 bg-transparent"></div>
-                        <div 
-                          className="min-w-[240px] rounded-lg border border-gray-100 bg-white shadow-lg p-2 cursor-default"
-                          onMouseEnter={() => {
-                            if (hoverTimeoutRef.current) {
-                              clearTimeout(hoverTimeoutRef.current);
-                              hoverTimeoutRef.current = null;
-                            }
-                            // Close the other dropdown when entering this one
-                            if (item.label === 'Services') {
-                              setHoveredProduct(null);
-                              handleServiceMouseEnter(item.label);
-                            } else {
-                              setHoveredService(null);
-                              handleProductMouseEnter(item.label);
-                            }
-                          }}
-                          onMouseLeave={() => item.label === 'Services' ? handleServiceMouseLeave() : handleProductMouseLeave()}
-                        >
-                          {item.children.map((child) => (
-                            <Link key={child.href} href={child.href} className="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100 hover:text-primary cursor-pointer">
-                              {child.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
+                      
+                      {/* Modern Grid Dropdown */}
+                      <AnimatePresence>
+                        {(hoveredService === item.label || hoveredProduct === item.label) && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            className="absolute left-0 top-full mt-2 z-50"
+                          >
+                            {/* Invisible bridge to help mouse movement */}
+                            <div className="absolute -top-2 left-0 right-0 h-2 bg-transparent"></div>
+                            
+                            <div 
+                              className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 min-w-[600px] cursor-default"
+                              onMouseEnter={() => {
+                                if (hoverTimeoutRef.current) {
+                                  clearTimeout(hoverTimeoutRef.current);
+                                  hoverTimeoutRef.current = null;
+                                }
+                                if (item.label === 'Services') {
+                                  setHoveredProduct(null);
+                                  handleServiceMouseEnter(item.label);
+                                } else {
+                                  setHoveredService(null);
+                                  handleProductMouseEnter(item.label);
+                                }
+                              }}
+                              onMouseLeave={() => item.label === 'Services' ? handleServiceMouseLeave() : handleProductMouseLeave()}
+                            >
+                              {/* Header */}
+                              <div className="mb-6">
+                                <h3 className="text-lg font-bold text-gray-900 mb-1">
+                                  {item.label}
+                                </h3>
+                                <p className="text-sm text-gray-600">
+                                  {item.label === 'Services' 
+                                    ? 'Comprehensive AI and technology solutions for your business'
+                                    : 'Cutting-edge AI products designed for enterprise success'
+                                  }
+                                </p>
+                              </div>
+                              
+                              {/* Grid Layout */}
+                              <div className={`grid gap-4 ${
+                                item.children.length <= 3 
+                                  ? 'grid-cols-1' 
+                                  : item.children.length <= 6 
+                                    ? 'grid-cols-2' 
+                                    : 'grid-cols-3'
+                              }`}>
+                                {item.children.map((child, index) => (
+                                  <motion.div
+                                    key={child.href}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.05, duration: 0.3 }}
+                                  >
+                                    <Link 
+                                      href={child.href} 
+                                      className="group flex items-start space-x-3 p-4 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300 border border-transparent hover:border-blue-100 hover:shadow-lg"
+                                    >
+                                      {/* Icon */}
+                                      <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                                        <child.icon className="w-5 h-5 text-white" />
+                                      </div>
+                                      
+                                      {/* Content */}
+                                      <div className="flex-1 min-w-0">
+                                        <h4 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 mb-1">
+                                          {child.label}
+                                        </h4>
+                                        <p className="text-xs text-gray-600 group-hover:text-blue-500 transition-colors duration-200 leading-relaxed">
+                                          {child.description}
+                                        </p>
+                                      </div>
+                                    </Link>
+                                  </motion.div>
+                                ))}
+                              </div>
+                              
+                              {/* Footer CTA */}
+                              <div className="mt-6 pt-4 border-t border-gray-100">
+                                <Link 
+                                  href={item.href}
+                                  className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200"
+                                >
+                                  View all {item.label.toLowerCase()}
+                                  <ChevronDown className="ml-1 w-4 h-4 rotate-[-90deg]" />
+                                </Link>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </>
                   ) : (
                     <Link href={item.href} className="hover:text-primary transition-colors cursor-pointer">
@@ -275,18 +399,44 @@ const Header = () => {
                       <div className="px-3 sm:px-4">
                         <button
                           onClick={() => item.label === 'Services' ? setIsServicesOpen((o) => !o) : setIsProductsOpen((o) => !o)}
-                          className="w-full flex items-center justify-between px-2 py-2 sm:py-3 text-left text-gray-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-300 font-medium cursor-pointer text-sm sm:text-base"
+                          className={`w-full flex items-center justify-between px-3 py-3 text-left rounded-lg transition-all duration-300 font-medium cursor-pointer text-sm sm:text-base ${
+                            (item.label === 'Services' ? isServicesOpen : isProductsOpen)
+                              ? 'bg-blue-50 text-primary'
+                              : 'text-gray-700 hover:text-primary hover:bg-blue-50'
+                          }`}
                         >
                           <span>{item.label}</span>
-                          <svg className={`w-4 h-4 transition-transform ${(item.label === 'Services' ? isServicesOpen : isProductsOpen) ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
+                          <ChevronDown className={`w-4 h-4 transition-transform ${(item.label === 'Services' ? isServicesOpen : isProductsOpen) ? 'rotate-180' : 'rotate-0'}`} />
                         </button>
                         <AnimatePresence>
                           {(item.label === 'Services' ? isServicesOpen : isProductsOpen) && (
-                            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="pl-4">
-                              {item.children.map((child) => (
-                                <Link key={child.href} href={child.href} onClick={() => setIsMenuOpen(false)} className="block px-2 py-2 text-sm text-gray-700 hover:text-primary cursor-pointer">
-                                  {child.label}
-                                </Link>
+                            <motion.div 
+                              initial={{ height: 0, opacity: 0 }} 
+                              animate={{ height: 'auto', opacity: 1 }} 
+                              exit={{ height: 0, opacity: 0 }} 
+                              className="pl-4 space-y-2"
+                            >
+                              {item.children.map((child, childIndex) => (
+                                <motion.div
+                                  key={child.href}
+                                  initial={{ opacity: 0, x: -20 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: childIndex * 0.1, duration: 0.3 }}
+                                >
+                                  <Link 
+                                    href={child.href} 
+                                    onClick={() => setIsMenuOpen(false)} 
+                                    className="flex items-center space-x-3 px-3 py-3 text-sm text-gray-700 hover:text-primary hover:bg-blue-50 rounded-lg transition-all duration-300 cursor-pointer"
+                                  >
+                                    <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                                      <child.icon className="w-4 h-4 text-white" />
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <div className="font-medium">{child.label}</div>
+                                      <div className="text-xs text-gray-500 mt-1">{child.description}</div>
+                                    </div>
+                                  </Link>
+                                </motion.div>
                               ))}
                             </motion.div>
                           )}

@@ -10,3 +10,4 @@ export { default as HighlightCard } from './HighlightCard';
 export { default as InfiniteCarousel } from './InfiniteCarousel';
 export { default as InfiniteIconCarousel } from './InfiniteIconCarousel';
 export { HeroSkeleton, SectionSkeleton } from './LoadingSkeleton';
+export { default as VerticalContactButton } from './VerticalContactButton';

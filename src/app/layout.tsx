@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 
 import './globals.css';
 import { Header, Footer } from '@/components/sections';
-import { Wrapper } from '@/components/ui';
+import { Wrapper, VerticalContactButton } from '@/components/ui';
 
 // Lazy load CursorSystem
 const CursorSystem = dynamic(() => import('@/lib/animations').then(mod => ({ default: mod.CursorSystem })), {
@@ -111,6 +111,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </Wrapper>
             </main>
             <Footer />
+            
+            {/* Global Vertical Contact Button */}
+            <VerticalContactButton />
           </div>
         </CursorSystem>
 
