@@ -11,6 +11,7 @@ import {
   Heart,
   Zap,
   ArrowRight,
+  ArrowLeft,
   Sparkles,
   CheckCircle
 } from 'lucide-react';
@@ -165,7 +166,7 @@ const IndustryCard = ({ industry }) => {
         </div>
 
         {/* Content - Perfectly Structured */}
-        <div className="flex-1 flex flex-col p-6 min-h-[280px]">
+        <div className="flex-1 flex flex-col p-6 min-h-[280px] min-w-[320px]">
           {/* Icon */}
           <motion.div 
             variants={iconVariants} 
@@ -221,12 +222,6 @@ const IndustryCard = ({ industry }) => {
                   transition={{ duration: 0.2 }}
                 />
                 <span className="flex-1 leading-relaxed">{feature}</span>
-                <motion.div
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-2 flex-shrink-0"
-                  whileHover={{ x: 2 }}
-                >
-                  <ArrowRight className="w-3 h-3 text-blue-500" />
-                </motion.div>
               </motion.li>
             ))}
           </motion.ul>
@@ -387,6 +382,31 @@ const ModernBackground = () => {
 export default function IndustriesWeServe() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const nextSlide = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentIndex((prev) => (prev + 1) % (industries.length - 2));
+    setTimeout(() => setIsAnimating(false), 600);
+  };
+
+  const prevSlide = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentIndex((prev) => (prev - 1 + (industries.length - 2)) % (industries.length - 2));
+    setTimeout(() => setIsAnimating(false), 600);
+  };
+
+  // Show all cards but only animate the visible ones
+  const getCardAnimation = (index) => {
+    const cardIndex = index - currentIndex;
+    if (cardIndex < 0 || cardIndex >= 3) {
+      return { opacity: 0, x: cardIndex < 0 ? -100 : 100, scale: 0.95 };
+    }
+    return { opacity: 1, x: 0, scale: 1 };
+  };
 
   return (
     <section ref={ref} className="relative py-24 px-6 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 overflow-hidden">
@@ -424,20 +444,65 @@ export default function IndustriesWeServe() {
           </p>
         </motion.div>
 
-        {/* Industries Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 items-stretch"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {industries.map((industry) => (
-            <IndustryCard
-              key={industry.id}
-              industry={industry}
-            />
-          ))}
-        </motion.div>
+        {/* Industries Container with Navigation */}
+        <div className="relative">
+          {/* Navigation Buttons */}
+          <motion.button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:shadow-xl border border-gray-200/50 hover:border-gray-300/50 transition-all duration-300 group focus:outline-none focus:ring-0 focus:border-gray-200/50 active:outline-none"
+            style={{ outline: 'none', boxShadow: 'none' }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
+            <ArrowLeft className="w-6 h-6 text-gray-600 group-hover:text-blue-600 transition-colors duration-300" />
+          </motion.button>
+
+          <motion.button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:shadow-xl border border-gray-200/50 hover:border-gray-300/50 transition-all duration-300 group focus:outline-none focus:ring-0 focus:border-gray-200/50 active:outline-none"
+            style={{ outline: 'none', boxShadow: 'none' }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
+            <ArrowRight className="w-6 h-6 text-gray-600 group-hover:text-blue-600 transition-colors duration-300" />
+          </motion.button>
+
+          {/* Industries Grid - Showing only 3 cards with increased width */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch px-8"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            {industries.map((industry, index) => {
+              const animation = getCardAnimation(index);
+              const isVisible = index >= currentIndex && index < currentIndex + 3;
+              
+              return (
+                <motion.div
+                  key={industry.id}
+                  animate={animation}
+                  transition={{
+                    duration: 0.5,
+                    delay: isVisible ? (index - currentIndex) * 0.1 : 0,
+                    ease: "easeOut"
+                  }}
+                  className={isVisible ? "block" : "hidden"}
+                >
+                  <IndustryCard
+                    industry={industry}
+                  />
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
