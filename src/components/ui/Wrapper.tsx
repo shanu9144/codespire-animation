@@ -36,7 +36,7 @@ const Wrapper: React.FC<WrapperProps> = ({
   const centerClasses = center ? 'mx-auto' : '';
   
   // Padding classes
-  const paddingClasses = padding ? 'px-4 sm:px-6 lg:px-8' : '';
+  const paddingClasses = padding ? 'px-6 sm:px-8 lg:px-12' : '';
   
   // Combine all classes
   const combinedClassName = [

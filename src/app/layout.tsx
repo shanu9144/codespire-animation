@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 
 import './globals.css';
 import { Header, Footer } from '@/components/sections';
-import { Wrapper, VerticalContactButton } from '@/components/ui';
+import { Wrapper } from '@/components/ui';
 
 // Lazy load CursorSystem
 const CursorSystem = dynamic(() => import('@/lib/animations').then(mod => ({ default: mod.CursorSystem })), {
@@ -77,10 +77,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           *{box-sizing:border-box}
           body{background:var(--white);color:var(--text-primary);font-family:var(--font-inter),system-ui,sans-serif;line-height:1.6;margin:0;padding:0}
           .main{min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(135deg,#f8fafc 0%,#ffffff 100%)}
-          .wrapper{width:100%;max-width:1520px;margin:0 auto;padding:0 1.25rem}
+          .wrapper{width:100%;max-width:1520px;margin:0 auto;padding:0 2rem}
           .text-hero{font-size:4rem;line-height:1.1;font-weight:700}
           .btn-primary{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-hover) 100%);color:white;padding:0.75rem 1.5rem;border-radius:0.75rem}
-          @media(min-width:768px){.wrapper{padding:0 2rem}}
+          @media(min-width:768px){.wrapper{padding:0 3rem}}
         `}} />
         <link rel="icon" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -112,8 +112,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </main>
             <Footer />
             
-            {/* Global Vertical Contact Button */}
-            <VerticalContactButton />
           </div>
         </CursorSystem>
 

@@ -408,13 +408,13 @@ export default function IndustriesWeServe() {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <Sparkles className="w-5 h-5 mr-2 text-blue-600" />
-            <span className="text-blue-600 font-bold">Industries We Serve</span>
+            <span className="text-blue-600 font-bold text-lg">Industries We Serve</span>
           </motion.div>
           
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Tailored AI Solutions for
-            <span className="block bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-500 bg-clip-text text-transparent">
-              Every Industry
+            Tailored AI Solutions for {" "}
+            <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+                Every Industry
             </span>
           </h2>
           
