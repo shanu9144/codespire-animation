@@ -35,15 +35,6 @@ export default function Home() {
         </div>
       </Wrapper>
 
-      {/* Industries with subtle animation
-      <OptimizedLiquidBackground variant="section" intensity="low">
-        <Wrapper>
-          <div className="space-section">
-            <IndustriesGrid />
-          </div>
-        </Wrapper>
-      </OptimizedLiquidBackground> */}
-
       {/* Final CTA Banner */}
       <Wrapper>
         <div className="py-8 lg:py-12">

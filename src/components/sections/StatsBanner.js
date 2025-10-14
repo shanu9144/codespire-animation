@@ -38,6 +38,7 @@ const OllamaIcon = ({ size = 24, ...props }) => (
 const AITextWithLogos = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
+  const intervalRef = useRef(null);
   
   const llmLogos = [
     { name: 'ChatGPT', icon: ChatGPTIcon, color: '#10A37F' },
@@ -48,13 +49,30 @@ const AITextWithLogos = () => {
   ];
 
   useEffect(() => {
-    if (!isHovered) return;
+    if (isHovered) {
+      // Clear any existing interval
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      
+      // Start new interval
+      intervalRef.current = setInterval(() => {
+        setCurrentLogoIndex((prev) => (prev + 1) % llmLogos.length);
+      }, 1500); 
+    } else {
+      // Clear interval when not hovered
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    }
     
-    const interval = setInterval(() => {
-      setCurrentLogoIndex((prev) => (prev + 1) % llmLogos.length);
-    }, 2000); 
-    
-    return () => clearInterval(interval);
+    // Cleanup on unmount
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
   }, [isHovered, llmLogos.length]);
 
   const handleMouseEnter = () => {
@@ -72,35 +90,36 @@ const AITextWithLogos = () => {
 
   return (
     <span 
-      className="relative inline-block cursor-pointer bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent"
+      className="relative inline-block cursor-pointer"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <motion.span
         className="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent"
         animate={{
-          rotateY: isHovered ? 90 : 0,
+          opacity: isHovered ? 0 : 1,
+          scale: isHovered ? 0.8 : 1,
         }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
       >
         AI
       </motion.span>
       
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isHovered && (
           <motion.div
             className="absolute inset-0 flex items-center justify-center"
-            initial={{ rotateY: -90, opacity: 0 }}
-            animate={{ rotateY: 0, opacity: 1 }}
-            exit={{ rotateY: 90, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
           >
             <motion.div
               key={currentLogoIndex}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
               className="flex items-center justify-center"
             >
               <LogoComponent 
