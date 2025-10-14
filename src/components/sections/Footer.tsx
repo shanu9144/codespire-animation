@@ -23,7 +23,7 @@ const Footer = () => {
       { label: "Cookie Policy", href: "/cookies" },
     ],
     social: [
-      { label: "LinkedIn", href: "#", icon: Linkedin },
+      { label: "LinkedIn", href: "https://www.linkedin.com/company/codespire-solutions", icon: Linkedin },
     ],
   };
 
