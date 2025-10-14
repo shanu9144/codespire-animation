@@ -162,7 +162,7 @@ const Header = () => {
     { label: "Home", href: "/" },
     { label: "Products", href: "/products", children: products },
     { label: "Services", href: "/services", children: services },
-    { label: "Our Team", href: "/about" },
+    { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -204,7 +204,7 @@ const Header = () => {
           {/* Header Center - Desktop Navigation */}
           <div className="hidden lg:flex flex-1 justify-end pr-4 xl:pr-6">
             <ul 
-              className="flex items-center gap-4 lg:gap-6 xl:gap-8 text-gray-700 font-medium"
+              className="flex items-center gap-2 lg:gap-1 xl:gap-2 text-gray-700 font-medium"
               onMouseLeave={handleNavigationMouseLeave}
             >
               {menuItems?.map((item) => (

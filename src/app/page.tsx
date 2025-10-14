@@ -16,6 +16,9 @@ export default function Home() {
       {/* Modern Carousel Hero */}
       <CarouselHero />
 
+      {/* Feature Highlights Carousel */}
+      <FeatureHighlightsCarousel />
+
       {/* Stats with subtle animation */}
       <OptimizedLiquidBackground variant="section" intensity="low">
         <Wrapper>
@@ -53,8 +56,6 @@ export default function Home() {
         <IndustriesWeServe />
       </Wrapper>
 
-      {/* Feature Highlights Carousel */}
-      <FeatureHighlightsCarousel />
     </div>
   );
 }

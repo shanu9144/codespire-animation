@@ -1,12 +1,120 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Users, Building, Globe, TrendingUp, Award } from 'lucide-react';
 import { Heading, Text } from '../ui/Typography';
 import { useAnimationPerformance } from '../../lib/performance';
 import { fontClasses } from "@/config/fonts";
 import TechnologyStackCarousel from './TechnologyStackCarousel';
+
+// SVG icon wrappers for LLM logos
+const SvgImg = ({ src, alt, size = 24, ...props }) => (
+  <img src={src} alt={alt} width={size} height={size} {...props} />
+);
+
+// LLM Logo components
+const ChatGPTIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/gpt.svg" alt="ChatGPT" size={size} {...props} />
+);
+
+const GeminiIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/gemini.webp" alt="Gemini" size={size} {...props} />
+);
+
+const PerplexityIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/perplexity.webp" alt="Perplexity" size={size} {...props} />
+);
+
+const GrokIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/grok.webp" alt="Grok" size={size} {...props} />
+);
+
+const OllamaIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/ollama.webp" alt="Ollama" size={size} {...props} />
+);
+
+// AI Text with LLM Logo Flip Component
+const AITextWithLogos = () => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
+  
+  const llmLogos = [
+    { name: 'ChatGPT', icon: ChatGPTIcon, color: '#10A37F' },
+    { name: 'Gemini', icon: GeminiIcon, color: '#4285F4' },
+    { name: 'Ollama', icon: OllamaIcon, color: '#2496ED' },
+    { name: 'Grok', icon: GrokIcon, color: '#FF9900' },
+    { name: 'Perplexity', icon: PerplexityIcon, color: '#FF9900' },
+  ];
+
+  useEffect(() => {
+    if (!isHovered) return;
+    
+    const interval = setInterval(() => {
+      setCurrentLogoIndex((prev) => (prev + 1) % llmLogos.length);
+    }, 2000); 
+    
+    return () => clearInterval(interval);
+  }, [isHovered, llmLogos.length]);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    setCurrentLogoIndex(0);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setCurrentLogoIndex(0);
+  };
+
+  const currentLogo = llmLogos[currentLogoIndex];
+  const LogoComponent = currentLogo.icon;
+
+  return (
+    <span 
+      className="relative inline-block cursor-pointer bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <motion.span
+        className="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent"
+        animate={{
+          rotateY: isHovered ? 90 : 0,
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
+        AI
+      </motion.span>
+      
+      <AnimatePresence>
+        {isHovered && (
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center"
+            initial={{ rotateY: -90, opacity: 0 }}
+            animate={{ rotateY: 0, opacity: 1 }}
+            exit={{ rotateY: 90, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <motion.div
+              key={currentLogoIndex}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="flex items-center justify-center"
+            >
+              <LogoComponent 
+                size={32} 
+                style={{ color: currentLogo.color }}
+                className="drop-shadow-sm"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </span>
+  );
+};
 
 // Counter animation hook with hydration fix
 const useCounter = (end, duration = 2000, shouldStart = false) => {
@@ -104,13 +212,13 @@ const StatsBanner = () => {
   // Updated stats data with new numbers
   const stats = [
     {
-      number: 70,
+      number: 50,
       suffix: '+',
       label: 'Skilled Experts',
       delay: 0
     },
     {
-      number: 30,
+      number: 10,
       suffix: '+',
       label: 'Satisfied Clients',
       delay: 1
@@ -122,13 +230,13 @@ const StatsBanner = () => {
       delay: 2
     },
     {
-      number: 160,
+      number: 30,
       suffix: '+',
       label: 'Projects Delivered',
       delay: 3
     },
     {
-      number: 200,
+      number: 70,
       suffix: '+',
       label: 'Technical Certifications',
       delay: 4
@@ -146,31 +254,6 @@ const StatsBanner = () => {
       ref={ref}
       className="relative py-4 bg-gradient-to-br from-blue-50 via-blue-50/40 to-indigo-50/50 overflow-hidden"
     >
-      {/* Clean animated background with floating tech elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Floating tech icons */}
-        <div className="absolute top-10 left-8 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center animate-bounce opacity-20">
-          <span className="text-blue-600 font-bold text-sm">⚡</span>
-        </div>
-        <div className="absolute top-20 right-12 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center animate-pulse opacity-15">
-          <span className="text-purple-600 text-xs">🔗</span>
-        </div>
-        <div className="absolute top-32 left-1/4 w-7 h-7 bg-green-100 rounded-lg flex items-center justify-center animate-ping opacity-10">
-          <span className="text-green-600 text-sm">💻</span>
-        </div>
-        <div className="absolute top-16 right-1/3 w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center animate-bounce opacity-20" style={{ animationDelay: '1s' }}>
-          <span className="text-orange-600 text-xs">⚙️</span>
-        </div>
-        <div className="absolute top-24 left-1/2 w-6 h-6 bg-indigo-100 rounded-lg flex items-center justify-center animate-pulse opacity-15" style={{ animationDelay: '2s' }}>
-          <span className="text-indigo-600 text-xs">🌐</span>
-        </div>
-        <div className="absolute top-40 right-8 w-4 h-4 bg-pink-100 rounded-full flex items-center justify-center animate-ping opacity-10" style={{ animationDelay: '3s' }}>
-          <span className="text-pink-600 text-xs">🚀</span>
-        </div>
-        
-        {/* Subtle gradient overlay to enhance the theme */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-indigo-50/15"></div>
-      </div>
       <div className="relative z-10 container mx-auto px-4">
         {/* Technology Stack Section */}
         <motion.div
@@ -203,7 +286,8 @@ const StatsBanner = () => {
                   From Idea to Enterprise Grade
                   <br />
                   <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-                    AI in a Blink
+                    <AITextWithLogos />
+                    <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent"> in a Blink</span>
                   </span>
                 </h3>
                 <p className={`text-xl lg:text-xl text-gray-700 ${fontClasses.descriptionMedium}`}>

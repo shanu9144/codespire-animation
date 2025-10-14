@@ -144,7 +144,7 @@ const TechnologyStackCarousel = React.memo(() => {
         
         <InfiniteCarousel
           items={carouselItems}
-          speed={30}
+          speed={60}
           direction="right"
           pauseOnHover={true}
           className="bg-white/70 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-blue-100/30"
