@@ -50,12 +50,6 @@ export default function Home() {
           <FinalCTABanner />
         </div>
       </Wrapper>
-
-      {/* Industries with enhanced animations */}
-      <Wrapper>
-        <IndustriesWeServe />
-      </Wrapper>
-
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { ChevronDown, Linkedin, Users, Award, Globe, Heart } from 'lucide-react'
 import Image from 'next/image';
 
 import { Wrapper } from '@/components/ui';
+import IndustriesWeServe from '@/components/sections/IndustriesWeServe';
 
 const OurTeamPage = () => {
   const scrollToNextSection = () => {
@@ -199,6 +200,11 @@ const OurTeamPage = () => {
         </div>
       </section>
 
+      {/* Industries with enhanced animations */}
+      <Wrapper>
+        <IndustriesWeServe />
+      </Wrapper>
+      
       {/* Team Stats Section */}
       <section id="team-stats" className="py-16 bg-white">
         <Wrapper>
