@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Wrapper, Button } from '@/components/ui';
 import { ArrowRight, Calendar, Users, CheckCircle } from 'lucide-react';
+import { HeroDemoSection } from '@/components/sections';
 
 const ScheduleDemoPage: React.FC = () => {
   const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
@@ -33,8 +34,11 @@ const ScheduleDemoPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <HeroDemoSection />
+      
       {/* Main Content */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-16 lg:py-24 bg-white">
         <Wrapper>
           <motion.div
             initial="hidden"
@@ -69,7 +73,7 @@ const ScheduleDemoPage: React.FC = () => {
                 <motion.div
                   variants={cardVariants}
                   whileHover={{ y: -8, scale: 1.03 }}
-                  className="text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl border border-green-200 hover:border-primary transition-all duration-300 group shadow-lg hover:shadow-xl"
+                  className="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl border border-blue-200 hover:border-primary transition-all duration-300 group shadow-lg hover:shadow-xl"
                 >
                   <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 transition-colors duration-300 shadow-lg">
                     <Users className="w-10 h-10 text-white" />
@@ -81,7 +85,7 @@ const ScheduleDemoPage: React.FC = () => {
                 <motion.div
                   variants={cardVariants}
                   whileHover={{ y: -8, scale: 1.03 }}
-                  className="text-center p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl border border-purple-200 hover:border-primary transition-all duration-300 group shadow-lg hover:shadow-xl"
+                  className="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl border border-blue-200 hover:border-primary transition-all duration-300 group shadow-lg hover:shadow-xl"
                 >
                   <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 transition-colors duration-300 shadow-lg">
                     <CheckCircle className="w-10 h-10 text-white" />
@@ -92,35 +96,6 @@ const ScheduleDemoPage: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Calendly Integration Section */}
-            <motion.div variants={cardVariants} className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Book Your Demo</h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Ready to see how AI can transform your business? Schedule a 30-minute demo with our experts.
-                </p>
-              </div>
-              
-              <div className="max-w-4xl mx-auto">
-                <div className="bg-gradient-to-r from-primary to-blue-600 p-8 rounded-2xl text-white text-center">
-                  <h3 className="text-2xl font-bold mb-4">Schedule Your 30-Minute Demo</h3>
-                  <p className="text-white/90 mb-6">Choose a time that works for you and let&apos;s discuss your AI transformation journey.</p>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <a
-                      href="https://calendly.com/vik-codespiresolutions/30min"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block bg-white text-primary hover:bg-gray-50 text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-semibold cursor-pointer hover:cursor-pointer"
-                    >
-                      Book Demo Now <ArrowRight className="ml-2 inline h-5 w-5" />
-                    </a>
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
 
             {/* What to Expect Section */}
             <motion.div variants={cardVariants} className="bg-white rounded-3xl p-8 lg:p-16 shadow-2xl border border-gray-100">
@@ -157,7 +132,7 @@ const ScheduleDemoPage: React.FC = () => {
                           transition={{ delay: 0.1 }}
                           className="flex items-start group"
                         >
-                          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                             <CheckCircle className="w-5 h-5 text-white" />
                           </div>
                           <span className="text-gray-700 text-lg leading-relaxed">Live demonstration of our AI solutions tailored to your industry</span>
@@ -168,7 +143,7 @@ const ScheduleDemoPage: React.FC = () => {
                           transition={{ delay: 0.2 }}
                           className="flex items-start group"
                         >
-                          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                             <CheckCircle className="w-5 h-5 text-white" />
                           </div>
                           <span className="text-gray-700 text-lg leading-relaxed">Deep dive into your specific business challenges and pain points</span>
@@ -179,7 +154,7 @@ const ScheduleDemoPage: React.FC = () => {
                           transition={{ delay: 0.3 }}
                           className="flex items-start group"
                         >
-                          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                             <CheckCircle className="w-5 h-5 text-white" />
                           </div>
                           <span className="text-gray-700 text-lg leading-relaxed">Custom solution recommendations with real-world examples</span>
@@ -190,7 +165,7 @@ const ScheduleDemoPage: React.FC = () => {
                           transition={{ delay: 0.4 }}
                           className="flex items-start group"
                         >
-                          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                             <CheckCircle className="w-5 h-5 text-white" />
                           </div>
                           <span className="text-gray-700 text-lg leading-relaxed">ROI analysis & implementation timeline discussion</span>
@@ -206,8 +181,8 @@ const ScheduleDemoPage: React.FC = () => {
                   whileHover={{ y: -5 }}
                   className="relative h-full"
                 >
-                  <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border border-green-200 relative overflow-hidden h-full flex flex-col">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-green-200 rounded-full -translate-y-16 translate-x-16 opacity-20"></div>
+                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border border-blue-200 relative overflow-hidden h-full flex flex-col">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200 rounded-full -translate-y-16 translate-x-16 opacity-20"></div>
                     <div className="relative z-10 flex flex-col h-full">
                       <div className="flex items-center mb-6">
                         <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mr-4 shadow-lg">
@@ -222,7 +197,7 @@ const ScheduleDemoPage: React.FC = () => {
                           transition={{ delay: 0.1 }}
                           className="flex items-start group"
                         >
-                          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                             <CheckCircle className="w-5 h-5 text-white" />
                           </div>
                           <span className="text-gray-700 text-lg leading-relaxed">Comprehensive proposal with transparent pricing and timelines</span>
@@ -233,7 +208,7 @@ const ScheduleDemoPage: React.FC = () => {
                           transition={{ delay: 0.2 }}
                           className="flex items-start group"
                         >
-                          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                             <CheckCircle className="w-5 h-5 text-white" />
                           </div>
                           <span className="text-gray-700 text-lg leading-relaxed">Detailed implementation roadmap with milestones</span>
@@ -244,7 +219,7 @@ const ScheduleDemoPage: React.FC = () => {
                           transition={{ delay: 0.3 }}
                           className="flex items-start group"
                         >
-                          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                             <CheckCircle className="w-5 h-5 text-white" />
                           </div>
                           <span className="text-gray-700 text-lg leading-relaxed">Dedicated follow-up consultation and support</span>
@@ -255,7 +230,7 @@ const ScheduleDemoPage: React.FC = () => {
                           transition={{ delay: 0.4 }}
                           className="flex items-start group"
                         >
-                          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                             <CheckCircle className="w-5 h-5 text-white" />
                           </div>
                           <span className="text-gray-700 text-lg leading-relaxed">Exclusive access to our AI resources and documentation</span>
@@ -270,7 +245,7 @@ const ScheduleDemoPage: React.FC = () => {
             {/* Contact Alternative Section */}
             <motion.div 
               variants={cardVariants}
-              className="bg-gradient-to-r from-primary to-blue-600 p-8 lg:p-12 rounded-2xl text-white text-center"
+              className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 p-8 lg:p-12 rounded-2xl text-white text-center"
             >
               <h3 className="text-2xl lg:text-3xl font-bold mb-4">
                 Prefer to Talk First?
@@ -282,8 +257,8 @@ const ScheduleDemoPage: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button className="bg-white text-primary hover:bg-white text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer hover:cursor-pointer">
-                  <span className="text-primary">Contact Us</span> <ArrowRight className="ml-2 h-5 w-5 text-primary" />
+                <Button className="bg-white text-purple-600 hover:bg-white text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer hover:cursor-pointer">
+                  <span className="text-purple-600">Contact Us</span> <ArrowRight className="ml-2 h-5 w-5 text-purple-600" />
                 </Button>
               </motion.div>
             </motion.div>

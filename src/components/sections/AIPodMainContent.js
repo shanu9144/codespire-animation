@@ -177,8 +177,8 @@ const AIPodMainContent = () => {
                 <div className="text-3xl font-bold text-primary mb-2">60%</div>
                 <div className="text-gray-700">Cost Reduction vs In-House</div>
               </div>
-              <div className="bg-green-50 p-6 rounded-xl">
-                <div className="text-3xl font-bold text-green-600 mb-2">70%</div>
+              <div className="bg-blue-50 p-6 rounded-xl">
+                <div className="text-3xl font-bold text-blue-600 mb-2">70%</div>
                 <div className="text-gray-700">Faster Delivery</div>
               </div>
             </div>
@@ -255,48 +255,48 @@ const AIPodMainContent = () => {
           {/* Why AI POD Section */}
           <motion.div variants={itemVariants} className="bg-white/80 backdrop-blur-md rounded-2xl p-8 lg:p-12 border border-gray-100/50 shadow-sm">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Why AI POD?</h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <p className="text-lg bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-relaxed mb-6">
               In-house AI costs $500K+ for 2-3 experts. Our AI POD delivers 5+ specialists, faster results, and scalability for less than $100K, maximizing ROI without risks.
             </p>
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-red-50 p-6 rounded-xl border border-red-200">
-                <h3 className="text-xl font-semibold text-red-800 mb-4">In-House AI Team</h3>
-                <ul className="space-y-2 text-red-700">
+              <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
+                <h3 className="text-xl font-semibold text-blue-800 mb-4">In-House AI Team</h3>
+                <ul className="space-y-2 text-blue-700">
                   <li className="flex items-center">
-                    <span className="w-2 h-2 bg-red-500 rounded-full mr-3"></span>
+                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
                     $500K+ annual cost
                   </li>
                   <li className="flex items-center">
-                    <span className="w-2 h-2 bg-red-500 rounded-full mr-3"></span>
+                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
                     Only 2-3 experts
                   </li>
                   <li className="flex items-center">
-                    <span className="w-2 h-2 bg-red-500 rounded-full mr-3"></span>
+                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
                     Long hiring process
                   </li>
                   <li className="flex items-center">
-                    <span className="w-2 h-2 bg-red-500 rounded-full mr-3"></span>
+                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
                     Fixed costs & risks
                   </li>
                 </ul>
               </div>
-              <div className="bg-green-50 p-6 rounded-xl border border-green-200">
-                <h3 className="text-xl font-semibold text-green-800 mb-4">AI POD as a Service</h3>
-                <ul className="space-y-2 text-green-700">
+              <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
+                <h3 className="text-xl font-semibold text-blue-800 mb-4">AI POD as a Service</h3>
+                <ul className="space-y-2 text-blue-700">
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    <CheckCircle className="w-5 h-5 text-blue-500 mr-3" />
                     Less than $100K annually
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    <CheckCircle className="w-5 h-5 text-blue-500 mr-3" />
                     5+ AI specialists
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    <CheckCircle className="w-5 h-5 text-blue-500 mr-3" />
                     Deploy in 2-4 weeks
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    <CheckCircle className="w-5 h-5 text-blue-500 mr-3" />
                     Scalable & flexible
                   </li>
                 </ul>
