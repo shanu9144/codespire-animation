@@ -33,10 +33,12 @@ const OurTeamPage = () => {
   ];
 
   const teamStats = [
-    { icon: Users, label: 'Team Members', value: '50+' },
-    { icon: Award, label: 'Years Experience', value: '15+' },
-    { icon: Globe, label: 'Countries', value: '12' },
-    { icon: Heart, label: 'Happy Clients', value: '100+' },
+    { icon: Users, label: 'Skilled Experts', value: '50+' },
+    { icon: Heart, label: 'Satisfied Clients', value: '10+' },
+    { icon: Globe, label: 'Global Industries', value: '5+' },
+    { icon: Award, label: 'Projects Delivered', value: '30+' },
+    { icon: ChevronDown, label: 'Technical Certifications', value: '70+' },
+    { icon: ChevronDown, label: 'Delivery Centers', value: '2+' }
   ];
 
   return (
@@ -106,10 +108,9 @@ const OurTeamPage = () => {
             >
               {/* Main Heading */}
               <div className="space-y-2">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                  <span className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-800 to-gray-600">Revolutionizing</span>
-                  <span className="block font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500">B2B Market</span>
-                  <span className="block italic text-2xl md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-purple-400 text-center">By AI</span>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                  <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-800 to-gray-600 whitespace-nowrap">Revolutionizing </span>
+                  <span className="block text-xl md:text-3xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-purple-400 text-center"> B2B Market By AI</span>
                 </h1>
               </div>
 
@@ -148,8 +149,8 @@ const OurTeamPage = () => {
                 className="inline-flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg"
               >
                 Discover more
-                <div className="w-6 h-6 bg-white rounded flex items-center justify-center">
-                  <ChevronDown className="w-4 h-4 text-blue-600" />
+                <div className="w-6 h-6 rounded flex items-center justify-center">
+                  <ChevronDown className="w-6 h-6 text-white" />
                 </div>
               </motion.button>
             </motion.div>
@@ -167,7 +168,7 @@ const OurTeamPage = () => {
               <div className="w-full bg-white rounded-lg shadow-lg overflow-hidden p-3">
                 <div className="flex items-center space-x-2">
                   <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <Heart className="w-5 h-5 text-white" />
+                    <Users className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <h3 className="text-base font-bold text-gray-900">AI Expert</h3>
@@ -223,7 +224,7 @@ const OurTeamPage = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {teamStats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -231,13 +232,13 @@ const OurTeamPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="text-center bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
+                className="text-center bg-gray-50 rounded-lg p-4 hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="w-8 h-8 text-white" />
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <stat.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</h3>
-                <p className="text-gray-600 font-medium">{stat.label}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">{stat.value}</h3>
+                <p className="text-black font-medium text-sm">{stat.label}</p>
               </motion.div>
             ))}
           </div>
