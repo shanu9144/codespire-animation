@@ -1,40 +1,41 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
-import Wrapper from "../ui/Wrapper";
-import { fontClasses } from "../../config/fonts";
+import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { fontClasses } from '../../config/fonts';
+import Wrapper from '../ui/Wrapper';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     company: [
-      { label: "About Us", href: "/about" },
-      { label: "Products", href: "/products" },
-      { label: "Services", href: "/services" },
-      { label: "Contact", href: "/contact" },
+      { label: 'About Us', href: '/about' },
+      { label: 'Products', href: '/products' },
+      { label: 'Services', href: '/services' },
+      { label: 'Contact', href: '/contact' },
     ],
     legal: [
-      { label: "Terms of Service", href: "/terms" },
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Cookie Policy", href: "/cookies" },
+      { label: 'Terms of Service', href: '/terms' },
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Cookie Policy', href: '/cookies' },
     ],
     social: [
-      { label: "LinkedIn", href: "https://www.linkedin.com/company/codespire-solutions", icon: Linkedin },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/company/codespire-solutions', icon: Linkedin },
     ],
   };
 
   const contactInfo = [
     {
       icon: Mail,
-      label: "info@codespiresolutions.com",
-      href: "mailto:info@codespiresolutions.com",
+      label: 'info@codespiresolutions.com',
+      href: 'mailto:info@codespiresolutions.com',
     },
-    { icon: Phone, label: "(602) 837-3370", href: "tel:+16028373370" },
-    { icon: MapPin, label: "25th Floor, Gold Tower, Wave One, 2514, Sector 18, Noida, Uttar Pradesh 201301", href: "https://maps.google.com/?q=25th%20Floor%2C%20Gold%20Tower%2C%20Wave%20One%2C%202514%2C%20Sector%2018%2C%20Noida%2C%20Uttar%20Pradesh%20201301" },
+    { icon: Phone, label: '(602) 837-3370', href: 'tel:+16028373370' },
+    { icon: MapPin, label: '25th Floor, Gold Tower, Wave One, 2514, Sector 18, Noida, Uttar Pradesh 201301', href: 'https://maps.google.com/?q=25th%20Floor%2C%20Gold%20Tower%2C%20Wave%20One%2C%202514%2C%20Sector%2018%2C%20Noida%2C%20Uttar%20Pradesh%20201301' },
   ];
 
   return (
@@ -43,7 +44,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block mb-4">
+            <Link href="/" className="inline-block mb-4 focus:outline-none focus:ring-0">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
@@ -73,7 +74,7 @@ const Footer = () => {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center text-gray-300 hover:text-white transition-colors duration-200"
+                    className="flex items-center text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-0"
                   >
                     <item.icon size={16} className="mr-3" />
                     {item.label}
@@ -91,7 +92,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 relative group"
+                    className="text-gray-300 hover:text-white transition-colors duration-200 relative group focus:outline-none focus:ring-0"
                   >
                     {link.label}
                     <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
@@ -109,7 +110,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 relative group"
+                    className="text-gray-300 hover:text-white transition-colors duration-200 relative group focus:outline-none focus:ring-0"
                   >
                     {link.label}
                     <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
@@ -129,7 +130,7 @@ const Footer = () => {
                   href={social.href}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2 bg-white/10 text-white border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-200"
+                  className="p-2 bg-white/10 text-white border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-200 focus:outline-none focus:ring-0"
                   aria-label={social.label}
                 >
                   <social.icon size={20} />
