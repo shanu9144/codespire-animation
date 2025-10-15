@@ -236,6 +236,17 @@ motion.a:focus {
   border: none !important;
 }
 
+/* Remove focus outline for footer elements */
+footer a:focus,
+footer button:focus,
+footer .motion-a:focus,
+footer .motion-button:focus,
+footer [class*="motion"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
 /* Remove blue focus outline specifically for carousel arrow buttons */
 .carousel-arrow:focus,
 .carousel-arrow:focus-visible,
