@@ -309,9 +309,9 @@ export default function ForecastAI() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+                  className="text-purple-600 font-semibold text-lg"
                 >
-                  Modern businesses operate in volatile environments — markets shift, demand fluctuates, and consumer behavior changes rapidly. Yet most organizations still rely on static reports or spreadsheets to plan ahead.
+                  Modern businesses operate in volatile environments - markets shift, demand fluctuates, and consumer behavior changes rapidly. Yet most organizations still rely on static reports or spreadsheets to plan ahead.
                 </motion.p>
               </div>
 
@@ -394,10 +394,10 @@ export default function ForecastAI() {
           <div className="max-w-6xl mx-auto">
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
               <div className="text-center mb-16">
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   The Solution
                 </h3>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                <p className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent font-semibold text-lg">
                   Forecast AI transforms how enterprises forecast, plan, and respond. It unifies data across departments, applies AI-driven predictive modeling, and provides real-time insights for proactive planning.
                 </p>
               </div>
@@ -438,7 +438,7 @@ export default function ForecastAI() {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Key Capabilities
                 </h2>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent font-semibold text-lg">
                   Everything you need to forecast smarter, plan better, and make data-driven decisions
                 </p>
               </div>
@@ -520,7 +520,7 @@ export default function ForecastAI() {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Benefits & ROI
                 </h2>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent font-semibold text-lg">
                   Real results from businesses using Forecast AI
                 </p>
               </div>
@@ -607,7 +607,7 @@ export default function ForecastAI() {
                 Integrations & Compatibility
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent font-semibold">
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent font-semibold text-lg">
                   Seamlessly integrate with your existing systems and workflows
                 </span>
               </p>
@@ -647,10 +647,10 @@ export default function ForecastAI() {
           <div className="max-w-6xl mx-auto">
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
               <div className="text-center mb-16">
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Deployment & Security
                 </h3>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                <p className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent font-semibold text-lg">
                   Enterprise-ready deployment options with robust security and scalability
                 </p>
               </div>

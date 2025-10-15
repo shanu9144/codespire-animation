@@ -216,7 +216,7 @@ export default function SupplierMatchAI() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+                  className="text-purple-600 font-semibold text-lg"
                 >
                   Traditional sourcing is riddled with inefficiencies that lead to wasted effort and higher costs
                 </motion.p>
@@ -301,10 +301,10 @@ export default function SupplierMatchAI() {
           <div className="max-w-6xl mx-auto">
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
               <div className="text-center mb-16">
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   The Solution
                 </h3>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                <p className="text-purple-600 font-semibold text-lg">
                   Supplier Match AI brings structure and intelligence to the supplier discovery and RFQ matching process
                 </p>
               </div>
@@ -345,7 +345,7 @@ export default function SupplierMatchAI() {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Key Capabilities
                 </h2>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-purple-600 font-semibold text-lg">
                   Everything you need to source smarter, match better, and close deals faster
                 </p>
               </div>
@@ -427,7 +427,7 @@ export default function SupplierMatchAI() {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Benefits & ROI
                 </h2>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-purple-600 font-semibold text-lg">
                   Real results from manufacturers using Supplier Match AI
                 </p>
               </div>
@@ -503,7 +503,7 @@ export default function SupplierMatchAI() {
                 <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                   Integrations & Compatibility
                 </h3>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                <p className="text-purple-600 font-semibold text-lg">
                   Works seamlessly with your existing systems and workflows
                 </p>
               </div>
@@ -561,7 +561,7 @@ export default function SupplierMatchAI() {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Deployment & Security
                 </h2>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-purple-600 font-semibold text-lg">
                   Enterprise-grade security and flexible deployment options
                 </p>
               </div>
