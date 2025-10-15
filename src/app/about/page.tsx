@@ -135,7 +135,7 @@ const OurTeamPage = () => {
 
               {/* Description */}
               <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                CodeSpire is home to 50+ passionate AI experts with expertise across diverse disciplines—machine learning specialists, data scientists, engineers, and more.
+                CodeSpire is home to 50+ passionate AI experts with expertise across diverse disciplines-machine learning specialists, data scientists, engineers, and more.
               </p>
 
               {/* Discover More Button */}

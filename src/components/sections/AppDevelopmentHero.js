@@ -151,7 +151,7 @@ const AppDevelopmentHero = () => {
             
             {/* Description */}
             <p className="text-xl md:text-2xl text-[#4A5568] leading-relaxed max-w-4xl mx-auto">
-              UI/UX Design, Scalable Engineering, and Enterprise-Grade Quality. At Codespire Solutions, we craft tailor–made application development solutions that power your business with the latest and greatest technologies.
+              UI/UX Design, Scalable Engineering, and Enterprise-Grade Quality. At Codespire Solutions, we craft tailor-made application development solutions that power your business with the latest and greatest technologies.
             </p>
           </div>
         </motion.div>

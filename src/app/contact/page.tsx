@@ -118,7 +118,7 @@ export default function Contact() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900"
               >
-                Let's Transform Your Business<span className="text-blue-600">.</span>
+                Let's Transform Your Business<span className="text-blue-600"></span>
               </motion.h1>
 
               {/* Description */}

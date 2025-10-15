@@ -138,14 +138,14 @@ const ServicesPage = () => {
     },
     {
       icon: Users,
-      title: "Flexible integration — onsite or hybrid with client teams",
+      title: "Flexible integration - onsite or hybrid with client teams",
       description: "Seamless collaboration with your existing workforce and culture",
       color: "from-blue-600 to-blue-700",
       bgColor: "from-blue-50 to-blue-100"
     },
     {
       icon: Code,
-      title: "Full-stack delivery — from UI/UX to scalable backends",
+      title: "Full-stack delivery - from UI/UX to scalable backends",
       description: "Complete end-to-end development capabilities with modern tech stacks",
       color: "from-blue-400 to-blue-500",
       bgColor: "from-blue-50 to-blue-100"
@@ -315,7 +315,7 @@ const ServicesPage = () => {
               variants={fadeInUp}
             >
               At CodeSpire, we help enterprises conceive, build, and scale AI-powered products. 
-              At the core of our delivery model is AI POD as a Service — our flagship approach 
+              At the core of our delivery model is AI POD as a Service - our flagship approach 
               to embedding agile, high-performance teams that deliver rapid business outcomes.
             </motion.p>
 
@@ -407,7 +407,7 @@ const ServicesPage = () => {
                 AI POD as a Service is our flagship approach to embedding agile, high-performance teams that deliver rapid business outcomes.
               </p>
               <p className={fontClasses.description}>
-                Think of PODs as your AI strike teams — fast, focused, and impact-driven.
+                Think of PODs as your AI strike teams - fast, focused, and impact-driven.
               </p>
             </motion.div>
           </motion.div>
