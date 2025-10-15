@@ -1,7 +1,7 @@
 'use client';
 
 import { Wrapper, Button } from "@/components/ui";
-import { Download, Mail, Phone, ArrowRight, Zap, Target, TrendingUp, Brain, Cpu, Database, BarChart3, Clock, Shield, CheckCircle, Users, Settings, FileText, Calculator, Layers, Lightbulb, Send, Search, Filter, Award, Globe, Link as LinkIcon, Eye, Activity, PieChart, LineChart, FileCheck, DollarSign, Star } from "lucide-react";
+import { Download, Mail, Phone, ArrowRight, Zap, Target, TrendingUp, Brain, Cpu, Database, BarChart3, Clock, Shield, CheckCircle, Users, Settings, FileText, Calculator, Layers, Lightbulb, Send, Search, Filter, Award, Globe, Link as LinkIcon, Eye, Activity, PieChart, LineChart, FileCheck, DollarSign, Star, Building2, BarChart, Cloud, MessageSquare } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ScrollAnimatedSection, ScrollRevealText, ParallaxElement } from "@/lib/animations/scroll";
 import { FluidBackground, MorphingShapes } from "@/lib/animations/fluid";
@@ -129,10 +129,26 @@ export default function ForecastAI() {
   ];
 
   const integrations = [
-    { category: "ERP & CRM", description: "Connects with SAP, Oracle, Salesforce, HubSpot, etc." },
-    { category: "BI Tools", description: "Power BI, Tableau, Looker, and more." },
-    { category: "Data Lakes & APIs", description: "Integrates with Snowflake, AWS, Azure, or your enterprise data." },
-    { category: "Collaboration Tools", description: "Share insights via Slack, Teams, or embedded dashboards." }
+    { 
+      category: "ERP & CRM", 
+      description: "Connects with SAP, Oracle, Salesforce, HubSpot, etc.",
+      icon: Building2
+    },
+    { 
+      category: "BI Tools", 
+      description: "Power BI, Tableau, Looker, and more.",
+      icon: BarChart
+    },
+    { 
+      category: "Data Lakes & APIs", 
+      description: "Integrates with Snowflake, AWS, Azure, or your enterprise data.",
+      icon: Cloud
+    },
+    { 
+      category: "Collaboration Tools", 
+      description: "Share insights via Slack, Teams, or embedded dashboards.",
+      icon: MessageSquare
+    }
   ];
 
   const deploymentFeatures = [
@@ -608,6 +624,9 @@ export default function ForecastAI() {
                   className="group"
                 >
                   <div className="bg-white backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 hover:border-blue-400/30 text-center">
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-200">
+                      <integration.icon className="w-6 h-6 text-blue-600" />
+                    </div>
                     <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 mb-2">
                       {integration.category}
                     </h3>

@@ -384,26 +384,49 @@ export default function IndustriesWeServe() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isHovered && isInView) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prev) => {
+          const nextIndex = prev + 1;
+          return nextIndex >= industries.length - 2 ? 0 : nextIndex;
+        });
+      }, 4000); // Auto-advance every 4 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [isHovered, isInView]);
 
   const nextSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentIndex((prev) => (prev + 1) % (industries.length - 2));
-    setTimeout(() => setIsAnimating(false), 600);
+    setCurrentIndex((prev) => {
+      const nextIndex = prev + 1;
+      // If we're at the end, loop back to start
+      return nextIndex >= industries.length - 2 ? 0 : nextIndex;
+    });
+    setTimeout(() => setIsAnimating(false), 500);
   };
 
   const prevSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentIndex((prev) => (prev - 1 + (industries.length - 2)) % (industries.length - 2));
-    setTimeout(() => setIsAnimating(false), 600);
+    setCurrentIndex((prev) => {
+      const prevIndex = prev - 1;
+      // If we're at the start, loop to end
+      return prevIndex < 0 ? industries.length - 3 : prevIndex;
+    });
+    setTimeout(() => setIsAnimating(false), 500);
   };
 
   // Show all cards but only animate the visible ones
   const getCardAnimation = (index) => {
     const cardIndex = index - currentIndex;
     if (cardIndex < 0 || cardIndex >= 3) {
-      return { opacity: 0, x: cardIndex < 0 ? -100 : 100, scale: 0.95 };
+      return { opacity: 0, x: cardIndex < 0 ? -100 : 100, scale: 0.9 };
     }
     return { opacity: 1, x: 0, scale: 1 };
   };
@@ -445,7 +468,11 @@ export default function IndustriesWeServe() {
         </motion.div>
 
         {/* Industries Container with Navigation */}
-        <div className="relative">
+        <div 
+          className="relative"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           {/* Navigation Buttons */}
           <motion.button
             onClick={prevSlide}
@@ -489,9 +516,9 @@ export default function IndustriesWeServe() {
                   key={industry.id}
                   animate={animation}
                   transition={{
-                    duration: 0.5,
-                    delay: isVisible ? (index - currentIndex) * 0.1 : 0,
-                    ease: "easeOut"
+                    duration: 0.6,
+                    delay: isVisible ? (index - currentIndex) * 0.15 : 0,
+                    ease: [0.25, 0.46, 0.45, 0.94] // Custom easing for smoother transitions
                   }}
                   className={isVisible ? "block" : "hidden"}
                 >
