@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Users, Building, Globe, TrendingUp, Award } from 'lucide-react';
 import { Heading, Text } from '../ui/Typography';
@@ -34,56 +34,60 @@ const OllamaIcon = ({ size = 24, ...props }) => (
   <SvgImg src="/ollama.webp" alt="Ollama" size={size} {...props} />
 );
 
+// LLM Logos array - moved outside component to prevent recreation on every render
+const llmLogos = [
+  { name: 'ChatGPT', icon: ChatGPTIcon, color: '#10A37F' },
+  { name: 'Perplexity', icon: PerplexityIcon, color: '#FF9900' },
+  { name: 'Gemini', icon: GeminiIcon, color: '#4285F4' },
+  { name: 'Grok', icon: GrokIcon, color: '#FF9900' },
+  { name: 'Ollama', icon: OllamaIcon, color: '#2496ED' },
+];
+
 // AI Text with LLM Logo Flip Component
 const AITextWithLogos = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
   const intervalRef = useRef(null);
-  
-  const llmLogos = [
-    { name: 'ChatGPT', icon: ChatGPTIcon, color: '#10A37F' },
-    { name: 'Gemini', icon: GeminiIcon, color: '#4285F4' },
-    { name: 'Ollama', icon: OllamaIcon, color: '#2496ED' },
-    { name: 'Grok', icon: GrokIcon, color: '#FF9900' },
-    { name: 'Perplexity', icon: PerplexityIcon, color: '#FF9900' },
-  ];
+
+  // Clear interval helper
+  const clearIntervalSafely = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
 
   useEffect(() => {
     if (isHovered) {
-      // Clear any existing interval
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-      
-      // Start new interval
+      // Start cycling through logos immediately and continuously
       intervalRef.current = setInterval(() => {
-        setCurrentLogoIndex((prev) => (prev + 1) % llmLogos.length);
-      }, 1500); 
+        setCurrentLogoIndex((prev) => {
+          const nextIndex = (prev + 1) % llmLogos.length;
+          console.log('Logo changing from', prev, 'to', nextIndex, llmLogos[nextIndex].name);
+          return nextIndex;
+        });
+      }, 1500); // Slightly faster for better UX
     } else {
       // Clear interval when not hovered
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
+      clearIntervalSafely();
     }
     
-    // Cleanup on unmount
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [isHovered, llmLogos.length]);
+    // Cleanup function
+    return () => clearIntervalSafely();
+  }, [isHovered]);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-    setCurrentLogoIndex(0);
-  };
 
-  const handleMouseLeave = () => {
+  const handleMouseEnter = useCallback(() => {
+    if (!isHovered) {
+      setIsHovered(true);
+      setCurrentLogoIndex(0);
+    }
+  }, [isHovered]);
+
+  const handleMouseLeave = useCallback(() => {
     setIsHovered(false);
     setCurrentLogoIndex(0);
-  };
+  }, []);
 
   const currentLogo = llmLogos[currentLogoIndex];
   const LogoComponent = currentLogo.icon;
@@ -115,18 +119,22 @@ const AITextWithLogos = () => {
             transition={{ duration: 0.2, ease: "easeInOut" }}
           >
             <motion.div
-              key={currentLogoIndex}
+              key={`logo-${currentLogoIndex}-${currentLogo.name}`}
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.5 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="flex items-center justify-center"
+              className="flex flex-col items-center justify-center"
             >
               <LogoComponent 
                 size={32} 
                 style={{ color: currentLogo.color }}
                 className="drop-shadow-sm"
               />
+              {/* <span className="text-xs text-gray-500 mt-1 font-medium">
+                {currentLogo.name}
+              </span> */} 
+              {/* /Uncomment for display of logo name */}
             </motion.div>
           </motion.div>
         )}
