@@ -27,6 +27,11 @@ import {
   Workflow,
   Bot,
   Sparkles,
+  Wrench,
+  Cog,
+  Nut,
+  Server,
+  Briefcase,
   Star,
   ChevronRight,
   Play,
@@ -101,25 +106,25 @@ export default function SmartRFQAI() {
       icon: TrendingUp,
       title: "50% Higher Win Rate",
       description: "More competitive and accurate pricing",
-      color: "bg-green-50 border-green-200"
+      color: "bg-blue-50 border-blue-200"
     },
     {
       icon: DollarSign,
       title: "30% Cost Savings",
       description: "Optimized pricing and reduced manual effort",
-      color: "bg-purple-50 border-purple-200"
+      color: "bg-blue-50 border-blue-200"
     }
   ];
 
   const integrations = [
-    { name: "AutoCAD", icon: "🔧" },
-    { name: "SolidWorks", icon: "⚙️" },
-    { name: "Fusion 360", icon: "🔩" },
-    { name: "SAP", icon: "📊" },
-    { name: "Oracle", icon: "🗄️" },
-    { name: "Salesforce", icon: "☁️" },
-    { name: "Microsoft Dynamics", icon: "💼" },
-    { name: "PTC Creo", icon: "🎯" }
+    { name: "AutoCAD", icon: Wrench },
+    { name: "SolidWorks", icon: Cog },
+    { name: "Fusion 360", icon: Nut },
+    { name: "SAP", icon: BarChart3 },
+    { name: "Oracle", icon: Server },
+    { name: "Salesforce", icon: Cloud },
+    { name: "Microsoft Dynamics", icon: Briefcase },
+    { name: "PTC Creo", icon: Target }
   ];
 
   const securityFeatures = [
@@ -196,8 +201,8 @@ export default function SmartRFQAI() {
                   transition={{ duration: 1, delay: 0.2 }}
                   className="relative"
                 >
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <Brain className="w-12 h-12 text-white" />
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <Brain className="w-10 h-10 text-white" />
                   </div>
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
                 </motion.div>
@@ -208,8 +213,8 @@ export default function SmartRFQAI() {
                   transition={{ duration: 1, delay: 0.4 }}
                   className="relative"
                 >
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <Cpu className="w-12 h-12 text-white" />
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <Cpu className="w-10 h-10 text-white" />
                   </div>
                   <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
                 </motion.div>
@@ -221,7 +226,7 @@ export default function SmartRFQAI() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                <Heading level={1} size="hero" className="mb-6">
+                <Heading level={1} size="h1" className="mb-6">
                   <span className="text-primary">Smart RFQ AI</span>
                 </Heading>
               </motion.div>
@@ -455,11 +460,11 @@ export default function SmartRFQAI() {
                   viewport={{ once: true }}
                   className="group"
                 >
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-200/60 hover:border-primary/30 text-center">
-                    <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                      {integration.icon}
+                  <div className="bg-blue-50 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-blue-200/60 hover:border-blue-400/30 text-center">
+                    <div className="text-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300">
+                      <integration.icon className="w-8 h-8 mx-auto" />
                     </div>
-                    <h3 className="font-semibold text-gray-900 group-hover:text-primary transition-colors duration-300">
+                    <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
                       {integration.name}
                     </h3>
                   </div>
@@ -532,7 +537,7 @@ export default function SmartRFQAI() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="relative py-16 overflow-hidden">
+      <section className="relative py-16 bg-blue-50 overflow-hidden">
         {/* Gradient background with floating particles */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-blue-600/10" />
         
@@ -618,7 +623,7 @@ export default function SmartRFQAI() {
               <div className="pt-4">
                 <a 
                   href="mailto:info@codespiresolutions.com"
-                  className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300 group hover:scale-105 text-white"
+                  className="inline-flex items-center px-6 py-3 bg-blue-100 backdrop-blur-sm rounded-full border border-blue-200 hover:bg-blue-200 transition-all duration-300 group hover:scale-105 text-blue-700"
                 >
                   <Mail className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform duration-200" /> 
                   <span className="font-medium">

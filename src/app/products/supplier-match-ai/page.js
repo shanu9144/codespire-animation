@@ -1,7 +1,7 @@
 'use client';
 
 import { Wrapper, Button } from "@/components/ui";
-import { Download, Phone, ArrowRight, Target, Brain, Cpu, Database, BarChart3, Clock, Shield, CheckCircle, Settings, FileText, Lightbulb, Search, Award, Cloud, Lock, Eye, TrendingUp } from "lucide-react";
+import { Download, Phone, ArrowRight, Target, Brain, Cpu, Database, BarChart3, Clock, Shield, CheckCircle, Settings, FileText, Lightbulb, Search, Award, Cloud, Lock, Eye, TrendingUp, Mail } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ScrollAnimatedSection } from "@/lib/animations/scroll";
 import Link from "next/link";
@@ -101,14 +101,14 @@ export default function SupplierMatchAI() {
               {/* 3D Icons */}
               <div className="flex justify-center items-center space-x-8 mb-8">
                 <motion.div initial={{ opacity: 0, scale: 0.8, rotateY: -180 }} animate={{ opacity: 1, scale: 1, rotateY: 0 }} transition={{ duration: 1, delay: 0.2 }} className="relative">
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <Brain className="w-12 h-12 text-white" />
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <Brain className="w-10 h-10 text-white" />
                   </div>
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
                 </motion.div>
                 <motion.div initial={{ opacity: 0, scale: 0.8, rotateY: 180 }} animate={{ opacity: 1, scale: 1, rotateY: 0 }} transition={{ duration: 1, delay: 0.4 }} className="relative">
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <Cpu className="w-12 h-12 text-white" />
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <Cpu className="w-10 h-10 text-white" />
                   </div>
                   <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
                 </motion.div>
@@ -116,7 +116,7 @@ export default function SupplierMatchAI() {
 
               {/* Main Heading */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}>
-                <h1 className="text-4xl lg:text-5xl font-bold leading-tight tracking-tight max-w-4xl mx-auto mb-6">
+                <h1 className="text-2xl lg:text-4xl font-bold leading-tight tracking-tight max-w-4xl mx-auto mb-6">
                   <span className="text-primary">Supplier Match AI</span>
                 </h1>
                 </motion.div>
@@ -163,7 +163,7 @@ export default function SupplierMatchAI() {
           <div className="max-w-6xl mx-auto">
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
               <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
                   Transform Your Sourcing Process
                 </h2>
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -272,7 +272,7 @@ export default function SupplierMatchAI() {
                           whileInView={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
                           viewport={{ once: true }}
-                          className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-red-600 transition-colors duration-200"
+                          className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200"
                         >
                           {challenge.title}
                         </motion.h4>
@@ -535,10 +535,10 @@ export default function SupplierMatchAI() {
                     whileHover={{ y: -8, scale: 1.02 }}
                     className="group p-6 bg-white rounded-xl border border-gray-200 hover:border-purple-500/30 transition-all duration-300 shadow-sm hover:shadow-lg"
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200">
-                      <integration.icon className="w-6 h-6 text-purple-600" />
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200">
+                      <integration.icon className="w-6 h-6 text-blue-600" />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors duration-200">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
                       {integration.title}
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
@@ -553,7 +553,7 @@ export default function SupplierMatchAI() {
       </section>
 
       {/* Deployment & Security */}
-      <section className="relative py-24 bg-blue-50">
+      <section className="relative py-24 bg-white">
         <Wrapper>
           <div className="max-w-6xl mx-auto">
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
@@ -593,8 +593,8 @@ export default function SupplierMatchAI() {
                     whileHover={{ y: -8, scale: 1.02 }}
                     className="group p-6 bg-white/80 backdrop-blur-md rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300"
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200">
-                      <security.icon className="w-6 h-6 text-purple-600" />
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200">
+                      <security.icon className="w-6 h-6 text-blue-600" />
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors duration-200">
                       {security.title}
@@ -611,78 +611,101 @@ export default function SupplierMatchAI() {
       </section>
 
 
-      {/* Final CTA */}
-      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[#667eea] to-[#764ba2]">
+      {/* Final CTA Section */}
+      <section className="relative py-16 bg-blue-50 overflow-hidden">
+        {/* Gradient background with floating particles */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-blue-600/10" />
+        
+        {/* Floating particle animation */}
+        <div className="absolute inset-0">
+          {Array.from({ length: 50 }).map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-primary/40 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.3, 0.8, 0.3],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 3,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Mesh lines effect */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent animate-pulse" />
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-600/50 to-transparent animate-pulse" style={{ animationDelay: '2s' }} />
+        </div>
+
         <Wrapper>
-          <div className="relative z-10">
-            <ScrollAnimatedSection transitionType="scale" stagger={200}>
-              <div className="max-w-4xl mx-auto text-center">
-                <div className="space-y-8">
-                  <motion.h2 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="text-4xl md:text-5xl font-bold text-white leading-tight"
-                    style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.3)' }}
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Ready to Transform Your Sourcing Process?
+              </h2>
+              
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+                <span className="text-gray-900">Join hundreds of manufacturing companies already using Supplier Match AI to</span>
+                <br />
+                <span className="text-purple-600 font-semibold">accelerate their growth and streamline operations.</span>
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <Link href="/schedule-demo">
+                  <Button 
+                    className="group relative overflow-hidden bg-gradient-to-r from-primary to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                   >
-                    Ready to make sourcing smarter?
-                  </motion.h2>
-                  
-                  <motion.p 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed"
+                    <span className="relative z-10 flex items-center">
+                      Request a demo
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+                    </span>
+                    <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {/* 3D effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-blue-600/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                  </Button>
+                </Link>
+
+                <Link href="/contact">
+                  <Button 
+                    variant="outline"
+                    className="group bg-white border-2 border-gray-300 text-gray-500 hover:border-gray-400 hover:text-gray-600 hover:bg-gray-50 px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                   >
-                    Join hundreds of manufacturers who&apos;ve already made the switch
-                  </motion.p>
-                  
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Button 
-                        className="relative px-8 py-4 text-lg font-semibold bg-[#8B5CF6] border-2  text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden"
-                        data-magnetic="true"
-                        data-magnetic-strength="0.4"
-                      >
-                        <span className="relative z-10 flex items-center">
-                          Request a demo
-                          <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
-                        </span>
-                        <div className="absolute inset-0 bg-gray-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </Button>
-                    </motion.div>
-                    
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Button 
-                        className="relative px-6 py-4 text-lg font-semibold bg-transparent border-2 border-white text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden"
-                        data-magnetic="true"
-                        data-magnetic-strength="0.3"
-                      >
-                        <span className="relative z-10 flex items-center">
-                          Talk to sales
-                          <Phone className="ml-3 h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
-                        </span>
-                        <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </Button>
-                    </motion.div>
-                  </motion.div>
-                </div>
+                    <span className="flex items-center">
+                      Talk to sales
+                      <Phone className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
+                    </span>
+                  </Button>
+                </Link>
               </div>
-            </ScrollAnimatedSection>
+
+              {/* Contact info */}
+              <div className="pt-4">
+                <a 
+                  href="mailto:info@codespiresolutions.com"
+                  className="inline-flex items-center px-6 py-3 bg-blue-100 backdrop-blur-sm rounded-full border border-blue-200 hover:bg-blue-200 transition-all duration-300 group hover:scale-105 text-blue-700"
+                >
+                  <Mail className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform duration-200" /> 
+                  <span className="font-medium">
+                    info@codespiresolutions.com
+                  </span>
+                </a>
+              </div>
+            </motion.div>
           </div>
         </Wrapper>
       </section>
