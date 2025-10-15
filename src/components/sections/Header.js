@@ -346,7 +346,7 @@ const Header = () => {
                 <Button 
                   variant="primary" 
                   size="sm"
-                  className="group"
+                  className="group focus:ring-0 focus:ring-offset-0"
                 >
                   <span className="flex items-center gap-2 text-white">
                     Schedule a Demo
@@ -466,7 +466,7 @@ const Header = () => {
                     <Button 
                       variant="primary" 
                       size="sm" 
-                      className="w-full group"
+                      className="w-full group focus"
                     >
                       <span className="flex items-center justify-center gap-2 text-white">
                         Schedule a Demo
