@@ -3,96 +3,83 @@
 import React, { useMemo, useCallback } from 'react';
 import InfiniteCarousel from '../ui/InfiniteCarousel';
 import { 
-  SiReact, 
-  SiNodedotjs, 
-  SiExpress, 
-  SiMongodb, 
   SiGithub, 
-  SiJenkins, 
   SiGooglecloud, 
-  SiSalesforce, 
-  SiTensorflow, 
-  SiPytorch, 
-  SiJest, 
-  SiMocha, 
-  SiJasmine, 
-  SiPostman, 
-  SiSelenium, 
-  SiCypress, 
-  SiAdobe, 
-  SiMeta, 
-  SiHuggingface 
+  SiMongodb,
+  SiPostgresql,
+  SiTerraform,
+  SiPrometheus,
+  SiGrafana,
+  SiOpenai,
+  SiAnthropic,
+  SiKubernetes
 } from 'react-icons/si';
-import { Database, Brain, Wrench, TestTube, ShieldCheck } from 'lucide-react';
+// Removed unused Lucide React imports since we're now using actual logo files
 
 // SVG icon wrappers: use official SVGs from public/
 const SvgImg = ({ src, alt, size = 24, ...props }) => (
   <img src={src} alt={alt} width={size} height={size} {...props} />
 );
 
-const ServiceNowIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/servicenow.svg" alt="ServiceNow" size={size} {...props} />
-);
-const AWSIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/aws.svg" alt="AWS" size={size} {...props} />
-);
-const AzureIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/azure.svg" alt="Azure" size={size} {...props} />
-);
 const GCPIcon = ({ size = 24, ...props }) => (
   <SvgImg src="/gcp.svg" alt="Google Cloud" size={size} {...props} />
-);
-const GitLabIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/gitlab-svgrepo-com.svg" alt="GitLab" size={size} {...props} />
-);
-const FigmaIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/figma.svg" alt="Figma" size={size} {...props} />
-);
-const DockerIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/docker.svg" alt="Docker" size={size} {...props} />
 );
 const KubernetesIcon = ({ size = 24, ...props }) => (
   <SvgImg src="/kubernetes-svgrepo-com.svg" alt="Kubernetes" size={size} {...props} />
 );
-
-// Use GPT logo from public/
 const GPTIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/gpt.svg" alt="GPT" size={size} {...props} />
+  <SvgImg src="/gpt.svg" alt="OpenAI" size={size} {...props} />
+);
+const GeminiIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/gemini.webp" alt="Gemini" size={size} {...props} />
+);
+const GitHubActionsIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/githubActions.png" alt="GitHub Actions" size={size} {...props} />
+);
+const ApacheApisixIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/apacheApisix.svg" alt="Apache APISIX" size={size} {...props} />
+);
+const OpenTelemetryIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/opentelementry.png" alt="OpenTelemetry" size={size} {...props} />
+);
+const SonarQubeIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/sonarqube.png" alt="SonarQube" size={size} {...props} />
+);
+const ApigeeIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/apigee.png" alt="Apigee" size={size} {...props} />
+);
+const BigQueryIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/bigQuery.png" alt="BigQuery" size={size} {...props} />
+);
+const DatastreamIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/Datastream.svg" alt="Datastream" size={size} {...props} />
+);
+const LookerIcon = ({ size = 24, ...props }) => (
+  <SvgImg src="/Looker.svg" alt="Looker" size={size} {...props} />
 );
 
 const TechnologyStackCarousel = React.memo(() => {
   // Memoize tech stacks to prevent recreation on every render
   const techStacks = useMemo(() => [
-    { name: 'LLaMA', icon: SiMeta, color: '#1877F2' },
-    { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
-    { name: 'Express', icon: SiExpress, color: '#000000' },
-    { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
     { name: 'GitHub', icon: SiGithub, color: '#181717' },
-    { name: 'Jenkins', icon: SiJenkins, color: '#D24939' },
-    { name: 'GitLab', icon: GitLabIcon, color: '#FC6D26' },
-    { name: 'Figma', icon: FigmaIcon, color: '#F24E1E' },
-    { name: 'Docker', icon: DockerIcon, color: '#2496ED' },
-    { name: 'Kubernetes', icon: KubernetesIcon, color: '#326CE5' },
-    { name: 'AWS', icon: AWSIcon, color: '#FF9900' },
-    { name: 'Azure', icon: AzureIcon, color: '#0078D4' },
+    { name: 'GitHub Actions', icon: GitHubActionsIcon, color: '#2088FF' },
     { name: 'GCP', icon: GCPIcon, color: '#4285F4' },
-    { name: 'ServiceNow', icon: ServiceNowIcon, color: '#00D2BE' },
-    { name: 'Salesforce', icon: SiSalesforce, color: '#00A1E0' },
-    { name: 'TensorFlow', icon: SiTensorflow, color: '#FF6F00' },
-    { name: 'PyTorch', icon: SiPytorch, color: '#EE4C2C' },
-    { name: 'Jest', icon: SiJest, color: '#C21325' },
-    { name: 'Mocha', icon: SiMocha, color: '#8D6748' },
-    { name: 'Jasmine', icon: SiJasmine, color: '#8A4182' },
-    { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
-    { name: 'Newman', icon: TestTube, color: '#FF6C37' },
-    { name: 'Pact', icon: ShieldCheck, color: '#3EAAAF' },
-    { name: 'Selenium', icon: SiSelenium, color: '#43B02A' },
-    { name: 'Cypress', icon: SiCypress, color: '#17202C' },
-    { name: 'Adobe', icon: SiAdobe, color: '#FF0000' },
-    { name: 'SQL', icon: Database, color: '#336791' },
-    { name: 'GPT', icon: GPTIcon, color: '#10A37F' },
-    { name: 'BERT', icon: SiHuggingface, color: '#FF9B00' },
-    { name: 'React', icon: SiReact, color: '#61DAFB' }
+    { name: 'Kubernetes', icon: KubernetesIcon, color: '#326CE5' },
+    { name: 'Terraform', icon: SiTerraform, color: '#7B42BC' },
+    { name: 'Apache APISIX', icon: ApacheApisixIcon, color: '#E2211C' },
+    { name: 'OpenTelemetry', icon: OpenTelemetryIcon, color: '#000000' },
+    { name: 'Prometheus', icon: SiPrometheus, color: '#E6522C' },
+    { name: 'SonarQube', icon: SonarQubeIcon, color: '#4E9BCD' },
+    { name: 'Grafana', icon: SiGrafana, color: '#F46800' },
+    { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+    { name: 'PostgreSQL', icon: SiPostgresql, color: '#336791' },
+    { name: 'OpenAI', icon: GPTIcon, color: '#10A37F' },
+    { name: 'Gemini', icon: GeminiIcon, color: '#4285F4' },
+    { name: 'Anthropic', icon: SiAnthropic, color: '#D97706' },
+    { name: 'Apigee', icon: ApigeeIcon, color: '#00A1E0' },
+    { name: 'BigQuery', icon: BigQueryIcon, color: '#4285F4' },
+    { name: 'Datastream', icon: DatastreamIcon, color: '#4285F4' },
+    { name: 'Looker', icon: LookerIcon, color: '#4285F4' }
   ], []);
 
   // Memoize carousel items to prevent recreation
