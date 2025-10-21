@@ -186,97 +186,127 @@ export default function SmartRFQAI() {
         </div>
 
         <Wrapper className="relative z-10">
-          <div className="max-w-6xl mx-auto text-center px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
-            >
-              {/* 3D Icons */}
-              <div className="flex justify-center items-center space-x-8 mb-8">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8, rotateY: -180 }}
-                  animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                  transition={{ duration: 1, delay: 0.2 }}
-                  className="relative"
-                >
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <Brain className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8, rotateY: 180 }}
-                  animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                  transition={{ duration: 1, delay: 0.4 }}
-                  className="relative"
-                >
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <Cpu className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
-                </motion.div>
-              </div>
-
-              {/* Main Heading */}
+          <div className="max-w-8xl mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 items-start">
+              {/* Left Content */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6 lg:col-span-2 flex flex-col justify-center h-full"
               >
-                <Heading level={1} size="h1" className="mb-6">
-                  <span className="text-primary">Smart RFQ AI</span>
-                </Heading>
-              </motion.div>
-
-              {/* Subheadline */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              >
-                <Text size="body-lg" className="text-gray-900 max-w-3xl mx-auto mb-8">
-                  <span className="font-semibold">
-                    Intelligent quoting for modern manufacturing
-                  </span>
-                </Text>
-              </motion.div>
-
-              {/* Description */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
-              >
-                <Text size="body-lg" className="max-w-4xl mx-auto mb-12">
-                  <span className="text-gray-900">Turn 2D/3D drawings into accurate, professional quotes in minutes.</span>
-                  <br />
-                  <span className="text-purple-600 font-semibold">Reduce manual effort, speed RFQ cycles, and win more orders with AI-powered precision.</span>
-                </Text>
-              </motion.div>
-
-              {/* CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-                className="flex items-center justify-center"
-              >
-                <Link href="/schedule-demo">
-                  <Button 
-                    className="group relative overflow-hidden bg-gradient-to-r from-primary to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                {/* 3D Icons */}
+                <div className="flex justify-center lg:justify-start items-center space-x-8 mb-8">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, rotateY: -180 }}
+                    animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                    className="relative"
                   >
-                    <span className="relative z-10 flex items-center">
-                      Request a demo
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                      <Brain className="w-10 h-10 text-white" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, rotateY: 180 }}
+                    animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                    transition={{ duration: 1, delay: 0.4 }}
+                    className="relative"
+                  >
+                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                      <Cpu className="w-10 h-10 text-white" />
+                    </div>
+                    <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
+                  </motion.div>
+                </div>
+
+                {/* Main Heading */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  <Heading level={1} size="h1" className="mb-6 text-center lg:text-left">
+                    <span className="text-primary">Smart RFQ AI</span>
+                  </Heading>
+                </motion.div>
+
+                {/* Subheadline */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                >
+                  <Text size="body-lg" className="text-gray-900 max-w-3xl mx-auto lg:mx-0 mb-8 text-center lg:text-left">
+                    <span className="font-semibold">
+                      Intelligent quoting for modern manufacturing
                     </span>
-                    <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </Button>
-                </Link>
+                  </Text>
+                </motion.div>
+
+                {/* Description */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1 }}
+                >
+                  <Text size="body-lg" className="max-w-4xl mx-auto lg:mx-0 mb-12 text-center lg:text-left">
+                    <span className="text-gray-900">Turn 2D/3D drawings into accurate, professional quotes in minutes.</span>
+                    <br />
+                    <span className="text-purple-600 font-semibold">Reduce manual effort, speed RFQ cycles, and win more orders with AI-powered precision.</span>
+                  </Text>
+                </motion.div>
+
+                {/* CTA Button */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.2 }}
+                  className="flex items-center justify-center lg:justify-start"
+                >
+                  <Link href="/schedule-demo">
+                    <Button 
+                      className="group relative overflow-hidden bg-gradient-to-r from-primary to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                    >
+                      <span className="relative z-10 flex items-center">
+                        Request a demo
+                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+                      </span>
+                      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </Button>
+                  </Link>
+                </motion.div>
               </motion.div>
-            </motion.div>
+
+              {/* Right Video */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="relative lg:col-span-5 flex flex-col justify-center h-full"
+              >
+                <div className="relative group">
+                  {/* Video Container */}
+                  <div className="relative bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-3 shadow-2xl">
+                    <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl">
+                      {/* Video Element */}
+                      <video
+                        className="w-full h-[450px] lg:h-[550px] object-cover rounded-2xl"
+                        controls
+                        preload="metadata"
+                        playsInline
+                        aria-label="Smart RFQ AI Demo Video"
+                      >
+                        <source src="/SmartRFQVideo.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </Wrapper>
 
