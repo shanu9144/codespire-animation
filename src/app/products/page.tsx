@@ -30,7 +30,7 @@ export default function Products() {
     {
       id: 'smart-rfq-ai',
       title: 'Smart RFQ AI',
-      subtitle: 'Intelligent quoting for modern manufacturing',
+      subtitle: 'Intelligent Quoting for Modern Manufacturing',
       description: 'Turn 2D/3D drawings into accurate, professional quotes in minutes. Reduce manual effort, speed RFQ cycles, and win more orders.',
       icon: Target,
       color: '#384bff',
