@@ -21,14 +21,14 @@ const OurTeamPage = () => {
       role: 'Co-Founder & Chief Executive Officer',
       image: '/AnkitVij.png',
       bio: 'Visionary leader with 25+ years in Manufacturing and Tech Solutions. Passionate about transforming businesses through innovative technologies.',
-      linkedin: 'https://linkedin.com/in/alexjohnson',
+      linkedin: 'https://www.linkedin.com/in/ankit-vij-66119038',
     },
     {
       name: 'Vik Sahni',
       role: 'Co-Founder & Chief Sales Officer',
       image: '/assets/team/sarah-chen.svg',
       bio: 'With 25 years of global experience in manufacturing, operations, and tech-driven transformation, Vik Sahni is a proven leader driving innovation, efficiency, and growth.',
-      linkedin: 'https://linkedin.com/in/sarahchen',
+      linkedin: 'https://www.linkedin.com/in/viksahni/',
     },
   ];
 
