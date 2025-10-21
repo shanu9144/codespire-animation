@@ -569,7 +569,7 @@ const ServicesPage = () => {
                 }}
                 className="group relative"
               >
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col border border-gray-100/50 hover:border-gray-200/50">
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-[280px] flex flex-col border border-gray-100/50 hover:border-gray-200/50">
                 <motion.div 
                   className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}
                   whileHover={{ rotate: 5 }}
@@ -581,7 +581,7 @@ const ServicesPage = () => {
                   {service.title}
                 </h3>
                 
-                <p className={`text-gray-600 mb-4 text-sm leading-relaxed flex-grow`}>
+                <p className={`text-gray-600 mb-4 text-sm leading-relaxed flex-grow line-clamp-4`}>
                   {service.description}
                 </p>
 
