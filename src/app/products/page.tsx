@@ -84,7 +84,7 @@ export default function Products() {
       stats: [
         { label: 'Planning Speed', value: '5x', icon: Clock },
         { label: 'ROI Impact', value: '+30%', icon: TrendingUp },
-        { label: 'Accuracy', value: '99.99%', icon: Target },
+        { label: 'Accuracy', value: '98%', icon: Target },
       ],
     },
   ];
