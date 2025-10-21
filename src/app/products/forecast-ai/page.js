@@ -531,21 +531,21 @@ export default function ForecastAI() {
                 {[
                   {
                     theme: "purple",
-                    heading: "For sales teams",
+                    heading: "For Sales Teams",
                     benefits: [
                       "Improve quota accuracy and pipeline predictability"
                     ]
                   },
                   {
                     theme: "blue",
-                    heading: "For operations & supply chain",
+                    heading: "For Operations & Supply Chain",
                     benefits: [
                       "Balance production and inventory to match forecasted demand"
                     ]
                   },
                   {
                     theme: "green",
-                    heading: "For finance & strategy",
+                    heading: "For Finance & Strategy",
                     benefits: [
                       "Enhance revenue visibility and improve financial planning cycles"
                     ]

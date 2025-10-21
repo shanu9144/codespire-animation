@@ -472,7 +472,7 @@ export default function SupplierMatchAI() {
                 {[
                   {
                     theme: "blue",
-                    heading: "For procurement teams",
+                    heading: "For Procurement Teams",
                     benefits: [
                       "Reduce supplier discovery time by 80%",
                       "Improve RFQ response rates and quality"
@@ -480,14 +480,14 @@ export default function SupplierMatchAI() {
                   },
                   {
                     theme: "blue",
-                    heading: "For sourcing managers",
+                    heading: "For Sourcing Managers",
                     benefits: [
                       "Find better-fit suppliers faster with AI matching"
                     ]
                   },
                   {
                     theme: "blue",
-                    heading: "For operations",
+                    heading: "For Operations",
                     benefits: [
                       "Streamline supplier onboarding and validation processes"
                     ]
