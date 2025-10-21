@@ -257,9 +257,11 @@ const ScheduleDemoPage: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button className="bg-white text-purple-600 hover:bg-white text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer hover:cursor-pointer">
-                  <span className="text-purple-600">Contact Us</span> <ArrowRight className="ml-2 h-5 w-5 text-purple-600" />
-                </Button>
+                <a href="mailto:info@codespiresolutions.com?subject=Contact Us&body=Hi, I would like to get in touch to learn more about your AI solutions.">
+                  <Button className="bg-white text-purple-600 hover:bg-white text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer hover:cursor-pointer">
+                    <span className="text-purple-600">Contact Us</span> <ArrowRight className="ml-2 h-5 w-5 text-purple-600" />
+                  </Button>
+                </a>
               </motion.div>
             </motion.div>
           </motion.div>

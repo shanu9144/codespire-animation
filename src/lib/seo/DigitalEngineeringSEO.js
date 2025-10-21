@@ -182,10 +182,10 @@ export const organizationStructuredData = {
   "foundingDate": "2020",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "123 Innovation Drive",
-    "addressLocality": "San Francisco",
-    "addressRegion": "CA",
-    "postalCode": "94105",
+    "streetAddress": "4754 U.S. Route 40",
+    "addressLocality": "Tipp City",
+    "addressRegion": "OH",
+    "postalCode": "45371",
     "addressCountry": "US"
   },
   "contactPoint": {

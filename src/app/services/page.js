@@ -24,7 +24,8 @@ import {
   Star,
   ChevronDown,
   Play,
-  Monitor
+  Monitor,
+  Palette
 } from 'lucide-react';
 
 const ServicesPage = () => {
@@ -162,13 +163,31 @@ const ServicesPage = () => {
   // Other services data
   const otherServices = [
     {
-      icon: Cpu,
+      icon: Brain,
       title: "AI Pod as a Service",
       description:
-        "Dedicated cross-functional AI squad delivering rapid, iterative value.",
+        "Max AI Impact, Min Cost - Get 5+ AI specialists for less than $100K annually, delivering tailored solutions 70% faster.",
       color: "from-blue-500 to-cyan-600",
       bgColor: "from-blue-50 to-cyan-50",
       href: "/services/ai-pod",
+    },
+    {
+      icon: Rocket,
+      title: "MVP & Prototyping",
+      description:
+        "Turn ideas into scalable realities with AI-driven MVP development and rapid prototyping.",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
+      href: "/services/mvp-prototyping",
+    },
+    {
+      icon: Palette,
+      title: "UI/UX Design",
+      description:
+        "Designing experiences that inspire and perform with AI-powered user research and design systems.",
+      color: "from-blue-500 to-purple-600",
+      bgColor: "from-blue-50 to-purple-50",
+      href: "/services/ui-ux-design",
     },
     {
       icon: Monitor,
@@ -180,15 +199,6 @@ const ServicesPage = () => {
       href: "/services/digital-engineering",
     },
     {
-      icon: Settings,
-      title: "Application Development and Testing",
-      description:
-        "Robust and modernized applications with rigorous quality assurance",
-      color: "from-blue-500 to-cyan-600",
-      bgColor: "from-blue-50 to-cyan-50",
-      href: "/services/app-development",
-    },
-    {
       icon: BarChart3,
       title: "Data and Analytics",
       description:
@@ -198,22 +208,31 @@ const ServicesPage = () => {
       href: "/services/data-analytics",
     },
     {
-      icon: Cloud,
-      title: "Salesforce And ServiceNow",
+      icon: Settings,
+      title: "Application Development",
       description:
-        "Streamlined platforms for dynamic business efficiency.",
+        "Robust and modernized applications with rigorous quality assurance and enterprise-grade quality.",
       color: "from-blue-500 to-cyan-600",
       bgColor: "from-blue-50 to-cyan-50",
-      href: "/services/salesforce-servicenow",
+      href: "/services/app-development",
     },
     {
       icon: Shield,
       title: "24/7 SRE Support",
       description:
-        "Reliable, proactive system resilience and performance.",
+        "Reliable, proactive system resilience and performance around the clock.",
       color: "from-blue-500 to-cyan-600",
       bgColor: "from-blue-50 to-cyan-50",
       href: "/services/sre-support",
+    },
+    {
+      icon: Cloud,
+      title: "Salesforce & ServiceNow",
+      description:
+        "Maximize your CRM and ITSM investments with expert implementations and streamlined platforms.",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50",
+      href: "/services/salesforce-servicenow",
     },
   ];
 
@@ -536,7 +555,7 @@ const ServicesPage = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto"
         >
           {otherServices.map((service, index) => {
             const CardContent = (
@@ -550,19 +569,19 @@ const ServicesPage = () => {
                 }}
                 className="group relative"
               >
-                <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col border border-gray-100/50 hover:border-gray-200/50">
                 <motion.div 
-                  className={`w-14 h-14 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}
+                  className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}
                   whileHover={{ rotate: 5 }}
                 >
-                  <service.icon className="w-7 h-7 text-white" />
+                  <service.icon className="w-6 h-6 text-white" />
                 </motion.div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors duration-300 flex-shrink-0">
+                <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300 flex-shrink-0">
                   {service.title}
                 </h3>
                 
-                <p className={`text-gray-600 mb-6 ${fontClasses.descriptionLight} flex-grow`}>
+                <p className={`text-gray-600 mb-4 text-sm leading-relaxed flex-grow`}>
                   {service.description}
                 </p>
 

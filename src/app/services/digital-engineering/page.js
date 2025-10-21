@@ -3,7 +3,6 @@
 import React from 'react';
 
 import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
-import AIServicesGrid from '@/components/sections/AIServicesGrid';
 import DigitalEngineeringCTA from '@/components/sections/DigitalEngineeringCTA';
 import DigitalEngineeringHero from '@/components/sections/DigitalEngineeringHero';
 import { DigitalEngineeringSEO } from '@/lib/seo/DigitalEngineeringSEO';
@@ -33,9 +32,6 @@ const DigitalEngineeringPage = () => {
           <main>
             {/* Hero Section */}
             <DigitalEngineeringHero />
-            
-            {/* AI Services Grid */}
-            <AIServicesGrid />
             
             {/* CTA Section */}
             <DigitalEngineeringCTA />

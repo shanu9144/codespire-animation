@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronDown, Linkedin, Users, Award, Globe, Heart } from 'lucide-react';
+import { ChevronDown, Linkedin, Users, Award, Globe, Heart, GraduationCap, Building } from 'lucide-react';
 import Image from 'next/image';
 
 import { Wrapper } from '@/components/ui';
@@ -37,8 +37,8 @@ const OurTeamPage = () => {
     { icon: Heart, label: 'Satisfied Clients', value: '10+' },
     { icon: Globe, label: 'Global Industries', value: '5+' },
     { icon: Award, label: 'Projects Delivered', value: '30+' },
-    { icon: ChevronDown, label: 'Technical Certifications', value: '70+' },
-    { icon: ChevronDown, label: 'Delivery Centers', value: '2+' }
+    { icon: GraduationCap, label: 'Technical Certifications', value: '70+' },
+    { icon: Building, label: 'Delivery Centers', value: '2+' }
   ];
 
   return (

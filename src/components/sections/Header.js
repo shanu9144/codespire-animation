@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Brain, Code, Database, Users, Settings, Zap, BarChart3, Cpu, Network, Shield, Rocket, Target } from "lucide-react";
+import { Menu, X, ChevronDown, Brain, Code, Database, Users, Settings, Zap, BarChart3, Cpu, Network, Shield, Rocket, Target, Palette } from "lucide-react";
 import Button from "../ui/Button";
 import Wrapper from "../ui/Wrapper";
 import Image from "next/image";
@@ -103,37 +103,49 @@ const Header = () => {
       label: "AI Pod as a Service", 
       href: "/services/ai-pod",
       icon: Brain,
-      description: "Managed AI teams delivering rapid business outcomes"
+      description: "Max AI Impact, Min Cost - Get 5+ AI specialists for less than $100K annually"
+    },
+    { 
+      label: "MVP & Prototyping", 
+      href: "/services/mvp-prototyping",
+      icon: Rocket,
+      description: "Turn ideas into scalable realities with AI-driven development"
+    },
+    { 
+      label: "UI/UX Design", 
+      href: "/services/ui-ux-design",
+      icon: Palette,
+      description: "Designing experiences that inspire and perform with AI-powered design"
     },
     { 
       label: "Digital Engineering", 
       href: "/services/digital-engineering",
       icon: Code,
-      description: "AI solutions tailored to your industry's unique challenges"
-    },
-    { 
-      label: "Application Development", 
-      href: "/services/app-development",
-      icon: Settings,
-      description: "UI/UX Design, Scalable Engineering, and Enterprise-Grade Quality"
+      description: "Cutting-edge engineering solutions for transformative digital experiences"
     },
     { 
       label: "Data and Analytics", 
       href: "/services/data-analytics",
       icon: BarChart3,
-      description: "Transform your data into actionable AI-powered insights"
+      description: "Actionable insights through advanced analytics and intelligent AI"
+    },
+    { 
+      label: "Application Development", 
+      href: "/services/app-development",
+      icon: Settings,
+      description: "Robust and modernized applications with rigorous quality assurance"
+    },
+    { 
+      label: "24/7 SRE Support", 
+      href: "/services/sre-support",
+      icon: Shield,
+      description: "Reliable, proactive system resilience and performance around the clock"
     },
     { 
       label: "Salesforce & ServiceNow", 
       href: "/services/salesforce-servicenow",
       icon: Users,
       description: "Maximize your CRM and ITSM investments with expert implementations"
-    },
-    { 
-      label: "24/7 SRE Support", 
-      href: "/services/sre-support",
-      icon: Shield,
-      description: "Ensure your systems run smoothly around the clock"
     },
   ];
 

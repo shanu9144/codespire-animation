@@ -75,14 +75,11 @@ const AIPodCTA = () => {
           {/* Main Content */}
           <motion.div variants={itemVariants} className="space-y-8">
             <h2 className="text-5xl font-semibold text-gray-900 leading-tight">
-              Transform your business with<br />
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                AI POD as a Service
-              </span>
+              Start Now!
             </h2>
             
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Get more AI power for less. Contact us to transform your business with our managed AI team that delivers 5+ specialists for the cost of one hire.
+              Get more AI power for less. Contact us to transform your business.
             </p>
           </motion.div>
           

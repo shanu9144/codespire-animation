@@ -3,11 +3,11 @@
 import React from 'react';
 
 import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
-import AIPodCTA from '@/components/sections/AIPodCTA';
-import AIPodHero from '@/components/sections/AIPodHero';
-import AIPodMainContent from '@/components/sections/AIPodMainContent';
+import MVPServicesCTA from '@/components/sections/MVPServicesCTA';
+import MVPServicesGrid from '@/components/sections/MVPServicesGrid';
+import MVPServicesHero from '@/components/sections/MVPServicesHero';
 
-const AIPodPage = () => {
+const MVPServicesPage = () => {
   return (
     <>
       <div className="min-h-screen bg-gradient-to-br from-slate-50/80 via-white/70 to-gray-50/60 relative">
@@ -28,13 +28,13 @@ const AIPodPage = () => {
           {/* Main Content Area - Full Width */}
           <main>
             {/* Hero Section */}
-            <AIPodHero />
+            <MVPServicesHero />
             
-            {/* Main Content Section */}
-            <AIPodMainContent />
+            {/* MVP Services Grid */}
+            <MVPServicesGrid />
             
             {/* CTA Section */}
-            <AIPodCTA />
+            <MVPServicesCTA />
           </main>
         </div>
       </div>
@@ -42,4 +42,4 @@ const AIPodPage = () => {
   );
 };
 
-export default AIPodPage;
+export default MVPServicesPage;
