@@ -44,7 +44,7 @@ export default function Products() {
       stats: [
         { label: 'Time Saved', value: '85%', icon: Clock },
         { label: 'Win Rate', value: '+50%', icon: TrendingUp },
-        { label: 'Accuracy', value: '100%', icon:BarChart3 },
+        { label: 'Accuracy', value: '>80%', icon:BarChart3 },
       ],
     },
     {
@@ -64,7 +64,7 @@ export default function Products() {
       stats: [
         { label: 'Cost Savings', value: '10-12%', icon: Database },
         { label: 'Faster', value: '30%', icon: TrendingUp },
-        { label: 'Accuracy', value: '100%', icon:BarChart3 },
+        { label: 'Accuracy', value: '>80%', icon:BarChart3 },
       ],
     },
     {
