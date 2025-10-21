@@ -5,6 +5,7 @@ import React from 'react';
 import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
 import DigitalEngineeringCTA from '@/components/sections/DigitalEngineeringCTA';
 import DigitalEngineeringHero from '@/components/sections/DigitalEngineeringHero';
+import DigitalEngineeringServices from '@/components/sections/DigitalEngineeringServices';
 import { DigitalEngineeringSEO } from '@/lib/seo/DigitalEngineeringSEO';
 
 const DigitalEngineeringPage = () => {
@@ -32,6 +33,9 @@ const DigitalEngineeringPage = () => {
           <main>
             {/* Hero Section */}
             <DigitalEngineeringHero />
+            
+            {/* AI-Powered Digital Engineering Services */}
+            <DigitalEngineeringServices />
             
             {/* CTA Section */}
             <DigitalEngineeringCTA />
