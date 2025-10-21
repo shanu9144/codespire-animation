@@ -97,13 +97,13 @@ export default function SupplierMatchAI() {
       <section className="relative z-10 py-24 flex items-center justify-center overflow-hidden">
         <Wrapper>
           <div className="max-w-8xl mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-6 gap-8 items-start">
               {/* Left Content */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-6 lg:col-span-2 flex flex-col justify-center h-full"
+                className="space-y-6 lg:col-span-3 flex flex-col justify-center h-full"
               >
                 {/* 3D Icons */}
                 <div className="flex justify-center lg:justify-start items-center space-x-8 mb-8">
@@ -161,7 +161,7 @@ export default function SupplierMatchAI() {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="relative lg:col-span-5 flex flex-col justify-center h-full"
+                className="relative lg:col-span-3 flex flex-col justify-center h-full"
               >
                 <div className="relative group">
                   {/* Video Container */}
@@ -169,7 +169,7 @@ export default function SupplierMatchAI() {
                     <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl">
                       {/* YouTube Video Embed */}
                       <iframe
-                        className="w-full h-[450px] lg:h-[550px] rounded-2xl"
+                        className="w-full h-[350px] lg:h-[400px] rounded-2xl"
                         src="https://www.youtube.com/embed/LzZB7EsZYxQ"
                         title="Supplier Match AI Demo Video"
                         frameBorder="0"

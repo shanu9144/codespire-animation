@@ -187,13 +187,13 @@ export default function SmartRFQAI() {
 
         <Wrapper className="relative z-10">
           <div className="max-w-8xl mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-6 gap-8 items-start">
               {/* Left Content */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-6 lg:col-span-2 flex flex-col justify-center h-full"
+                className="space-y-6 lg:col-span-3 flex flex-col justify-center h-full"
               >
                 {/* 3D Icons */}
                 <div className="flex justify-center lg:justify-start items-center space-x-8 mb-8">
@@ -241,7 +241,7 @@ export default function SmartRFQAI() {
                 >
                   <Text size="body-lg" className="text-gray-900 max-w-3xl mx-auto lg:mx-0 mb-8 text-center lg:text-left">
                     <span className="font-semibold">
-                      Intelligent quoting for modern manufacturing
+                      Intelligent Quoting for Modern Manufacturing
                     </span>
                   </Text>
                 </motion.div>
@@ -285,23 +285,23 @@ export default function SmartRFQAI() {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="relative lg:col-span-5 flex flex-col justify-center h-full"
+                className="relative lg:col-span-3 flex flex-col justify-center h-full"
               >
                 <div className="relative group">
                   {/* Video Container */}
                   <div className="relative bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-3 shadow-2xl">
                     <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl">
                       {/* Video Element */}
-                      <video
-                        className="w-full h-[450px] lg:h-[550px] object-cover rounded-2xl"
-                        controls
-                        preload="metadata"
-                        playsInline
+                      {/* YouTube Video Embed */}
+                      <iframe
+                        className="w-full h-[350px] lg:h-[400px] rounded-2xl"
+                        src="https://www.youtube.com/embed/lBFoxhMongE"
+                        title="Smart RFQ AI Demo Video"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
                         aria-label="Smart RFQ AI Demo Video"
-                      >
-                        <source src="/SmartRFQVideo.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
+                      ></iframe>
                     </div>
                   </div>
                 </div>
