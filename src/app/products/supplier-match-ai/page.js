@@ -96,58 +96,92 @@ export default function SupplierMatchAI() {
       {/* Hero Section */}
       <section className="relative z-10 py-24 flex items-center justify-center overflow-hidden">
         <Wrapper>
-          <div className="max-w-6xl mx-auto text-center px-4">
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="space-y-8">
-              {/* 3D Icons */}
-              <div className="flex justify-center items-center space-x-8 mb-8">
-                <motion.div initial={{ opacity: 0, scale: 0.8, rotateY: -180 }} animate={{ opacity: 1, scale: 1, rotateY: 0 }} transition={{ duration: 1, delay: 0.2 }} className="relative">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <Brain className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
-                </motion.div>
-                <motion.div initial={{ opacity: 0, scale: 0.8, rotateY: 180 }} animate={{ opacity: 1, scale: 1, rotateY: 0 }} transition={{ duration: 1, delay: 0.4 }} className="relative">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <Cpu className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
-                </motion.div>
-              </div>
+          <div className="max-w-8xl mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 items-start">
+              {/* Left Content */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6 lg:col-span-2 flex flex-col justify-center h-full"
+              >
+                {/* 3D Icons */}
+                <div className="flex justify-center lg:justify-start items-center space-x-8 mb-8">
+                  <motion.div initial={{ opacity: 0, scale: 0.8, rotateY: -180 }} animate={{ opacity: 1, scale: 1, rotateY: 0 }} transition={{ duration: 1, delay: 0.2 }} className="relative">
+                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                      <Brain className="w-10 h-10 text-white" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
+                  </motion.div>
+                  <motion.div initial={{ opacity: 0, scale: 0.8, rotateY: 180 }} animate={{ opacity: 1, scale: 1, rotateY: 0 }} transition={{ duration: 1, delay: 0.4 }} className="relative">
+                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                      <Cpu className="w-10 h-10 text-white" />
+                    </div>
+                    <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-white/30 rounded-full animate-pulse" />
+                  </motion.div>
+                </div>
 
-              {/* Main Heading */}
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}>
-                <h1 className="text-2xl lg:text-4xl font-bold leading-tight tracking-tight max-w-4xl mx-auto mb-6">
-                  <span className="text-primary">Supplier Match AI</span>
-                </h1>
+                {/* Main Heading */}
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}>
+                  <h1 className="text-2xl lg:text-4xl font-bold leading-tight tracking-tight mb-6 text-center lg:text-left">
+                    <span className="text-primary">Supplier Match AI</span>
+                  </h1>
                 </motion.div>
                 
-              {/* Subheadline */}
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}>
-                <p className="text-lg md:text-xl text-gray-900 max-w-3xl mx-auto mb-8 font-semibold">Smarter Supplier Selection for Modern Sourcing</p>
-                    </motion.div>
-
-              {/* Description */}
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1 }}>
-                <p className="text-base md:text-lg max-w-4xl mx-auto mb-12 text-gray-600 leading-relaxed">
-                  <span className="text-gray-900">Discover, match, and validate suppliers in minutes.</span>
-                  <br />
-                  <span className="text-purple-600 font-semibold">AI-powered sourcing that maximizes savings, improves quality, and accelerates RFQ closures.</span>
-                </p>
-                  </motion.div>
-                  
-              {/* CTA Button */}
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.2 }} className="flex items-center justify-center">
-                <Link href="/schedule-demo">
-                  <Button className="group relative overflow-hidden bg-gradient-to-r from-primary to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                      <span className="relative z-10 flex items-center">
-                      Request a demo
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
-                      </span>
-                    <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </Button>
-                </Link>
-                  </motion.div>
+                {/* Subheadline */}
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}>
+                  <p className="text-lg md:text-xl text-gray-900 max-w-3xl mx-auto lg:mx-0 mb-8 font-semibold text-center lg:text-left">Smarter Supplier Selection for Modern Sourcing</p>
                 </motion.div>
+
+                {/* Description */}
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1 }}>
+                  <p className="text-base md:text-lg max-w-4xl mx-auto lg:mx-0 mb-12 text-gray-600 leading-relaxed text-center lg:text-left">
+                    <span className="text-gray-900">Discover, match, and validate suppliers in minutes.</span>
+                    <br />
+                    <span className="text-purple-600 font-semibold">AI-powered sourcing that maximizes savings, improves quality, and accelerates RFQ closures.</span>
+                  </p>
+                </motion.div>
+                  
+                {/* CTA Button */}
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.2 }} className="flex items-center justify-center lg:justify-start">
+                  <Link href="/schedule-demo">
+                    <Button className="group relative overflow-hidden bg-gradient-to-r from-primary to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                      <span className="relative z-10 flex items-center">
+                        Request a demo
+                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+                      </span>
+                      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </Button>
+                  </Link>
+                </motion.div>
+              </motion.div>
+
+              {/* Right Video */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="relative lg:col-span-5 flex flex-col justify-center h-full"
+              >
+                <div className="relative group">
+                  {/* Video Container */}
+                  <div className="relative bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-3 shadow-2xl">
+                    <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl">
+                      {/* YouTube Video Embed */}
+                      <iframe
+                        className="w-full h-[450px] lg:h-[550px] rounded-2xl"
+                        src="https://www.youtube.com/embed/LzZB7EsZYxQ"
+                        title="Supplier Match AI Demo Video"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        aria-label="Supplier Match AI Demo Video"
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </Wrapper>
 
