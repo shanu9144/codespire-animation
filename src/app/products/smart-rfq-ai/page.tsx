@@ -36,7 +36,11 @@ import {
   ChevronRight,
   Play,
   Mail,
-  Phone
+  Phone,
+  Monitor,
+  Building2,
+  Package,
+  Box
 } from 'lucide-react';
 import Link from 'next/link';
 import { useRef } from 'react';
@@ -117,14 +121,14 @@ export default function SmartRFQAI() {
   ];
 
   const integrations = [
-    { name: "AutoCAD", icon: Wrench },
-    { name: "SolidWorks", icon: Cog },
-    { name: "Fusion 360", icon: Nut },
-    { name: "SAP", icon: BarChart3 },
+    { name: "AutoCAD", icon: Monitor },
+    { name: "SolidWorks", icon: Cpu },
+    { name: "Fusion 360", icon: Layers },
+    { name: "SAP", icon: Database },
     { name: "Oracle", icon: Server },
     { name: "Salesforce", icon: Cloud },
-    { name: "Microsoft Dynamics", icon: Briefcase },
-    { name: "PTC Creo", icon: Target }
+    { name: "Microsoft Dynamics", icon: Building2 },
+    { name: "PTC Creo", icon: Package }
   ];
 
   const securityFeatures = [

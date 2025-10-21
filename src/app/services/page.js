@@ -517,11 +517,7 @@ const ServicesPage = () => {
             variants={fadeInUp}
           >
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-              AI
-            </span>
-            {' '}&{' '}
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-              Technology Services
+              AI & Technology Services
             </span>
           </motion.h2>
           

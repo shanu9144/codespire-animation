@@ -279,8 +279,10 @@ export default function ForecastAI() {
                     viewport={{ once: true }}
                     className="text-center"
                   >
-                    <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                    <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-white/60">
+                      <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">{stat.value}</div>
+                      <div className="text-lg font-semibold text-gray-600">{stat.label}</div>
+                    </div>
                   </motion.div>
                 ))}
               </div>

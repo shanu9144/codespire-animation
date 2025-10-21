@@ -3,8 +3,8 @@
 import React from 'react';
 
 import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
-import AIServicesGrid from '@/components/sections/AIServicesGrid';
 import SalesforceServiceNowCTA from '@/components/sections/SalesforceServiceNowCTA';
+import SalesforceServiceNowExpertise from '@/components/sections/SalesforceServiceNowExpertise';
 import SalesforceServiceNowHero from '@/components/sections/SalesforceServiceNowHero';
 import SalesforceServiceNowMainContent from '@/components/sections/SalesforceServiceNowMainContent';
 
@@ -34,8 +34,8 @@ const SalesforceServiceNowPage = () => {
             {/* Main Content Section */}
             <SalesforceServiceNowMainContent />
             
-            {/* AI Services Grid */}
-            <AIServicesGrid />
+            {/* Salesforce & ServiceNow Expertise Section */}
+            <SalesforceServiceNowExpertise />
             
             {/* CTA Section */}
             <SalesforceServiceNowCTA />

@@ -138,18 +138,27 @@ export default function Contact() {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="grid grid-cols-3 gap-6"
               >
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900 mb-1">60%</div>
-                  <div className="text-sm text-gray-600">Cost Reduction</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900 mb-1">70%</div>
-                  <div className="text-sm text-gray-600">Faster Delivery</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900 mb-1">5+</div>
-                  <div className="text-sm text-gray-600">AI Experts</div>
-                </div>
+                <motion.div 
+                  className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                >
+                  <div className="text-4xl font-bold text-gray-900 mb-2">60%</div>
+                  <div className="text-sm font-semibold text-gray-600">Cost Reduction</div>
+                </motion.div>
+                <motion.div 
+                  className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                >
+                  <div className="text-4xl font-bold text-gray-900 mb-2">70%</div>
+                  <div className="text-sm font-semibold text-gray-600">Faster Delivery</div>
+                </motion.div>
+                <motion.div 
+                  className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                >
+                  <div className="text-4xl font-bold text-gray-900 mb-2">5+</div>
+                  <div className="text-sm font-semibold text-gray-600">AI Experts</div>
+                </motion.div>
               </motion.div>
             </div>
           </motion.div>
@@ -188,26 +197,26 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="flex justify-center">
             {/* Sales Contact */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-white rounded-2xl p-10 shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-lg w-full"
             >
-              <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="text-center mb-10">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-8">
                   <Users className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Talk to Sales</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Talk to Sales</h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
                   Interested in our AI solutions? Schedule a personalized demo with our sales team to see how we can transform your business.
                 </p>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div className="flex items-center justify-center space-x-4">
                   <Phone className="w-5 h-5 text-blue-500" />
                   <span className="text-lg font-semibold text-gray-900">(602) 837-3370</span>
@@ -216,44 +225,14 @@ export default function Contact() {
                   <Mail className="w-5 h-5 text-blue-500" />
                   <span className="text-lg font-semibold text-gray-900">info@codespiresolutions.com</span>
                 </div>
-                <div className="text-center">
+                <div className="text-center pt-2">
                   <a 
-                    href="/schedule-demo" 
-                    className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+                    href="mailto:info@codespiresolutions.com" 
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
                   >
-                    Schedule Demo
+                    Send Message
                     <ArrowRight className="w-4 h-4" />
                   </a>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Support Contact */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <MessageCircle className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Get Support</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Need technical assistance or have questions about your existing implementation? Our support team is here to help.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-center justify-center space-x-4">
-                  <Phone className="w-5 h-5 text-blue-500" />
-                  <span className="text-lg font-semibold text-gray-900">(602) 837-3370</span>
-                </div>
-                <div className="flex items-center justify-center space-x-4">
-                  <Mail className="w-5 h-5 text-blue-500" />
-                  <span className="text-lg font-semibold text-gray-900">info@codespiresolutions.com</span>
                 </div>
               </div>
             </motion.div>
@@ -403,17 +382,13 @@ export default function Contact() {
                 </div>
 
                 {/* Submit Button */}
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 px-8 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
+                <a
+                  href="mailto:info@codespiresolutions.com"
+                  className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 px-8 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 group inline-flex items-center justify-center gap-3"
                 >
-                  <span className="flex items-center justify-center gap-3">
-                    Send Message
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                </motion.button>
+                  Send Message
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </a>
               </form>
             </motion.div>
           </div>

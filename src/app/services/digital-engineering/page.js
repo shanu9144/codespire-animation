@@ -6,7 +6,6 @@ import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkB
 import AIServicesGrid from '@/components/sections/AIServicesGrid';
 import DigitalEngineeringCTA from '@/components/sections/DigitalEngineeringCTA';
 import DigitalEngineeringHero from '@/components/sections/DigitalEngineeringHero';
-import MainContentSection from '@/components/sections/MainContentSection';
 import { DigitalEngineeringSEO } from '@/lib/seo/DigitalEngineeringSEO';
 
 const DigitalEngineeringPage = () => {
@@ -34,9 +33,6 @@ const DigitalEngineeringPage = () => {
           <main>
             {/* Hero Section */}
             <DigitalEngineeringHero />
-            
-            {/* Main Content Section */}
-            <MainContentSection />
             
             {/* AI Services Grid */}
             <AIServicesGrid />

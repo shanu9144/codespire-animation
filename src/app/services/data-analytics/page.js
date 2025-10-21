@@ -3,7 +3,7 @@
 import React from 'react';
 
 import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
-import AIServicesGrid from '@/components/sections/AIServicesGrid';
+import ComprehensiveDataAnalytics from '@/components/sections/ComprehensiveDataAnalytics';
 import DataAnalyticsCTA from '@/components/sections/DataAnalyticsCTA';
 import DataAnalyticsHero from '@/components/sections/DataAnalyticsHero';
 import DataAnalyticsMainContent from '@/components/sections/DataAnalyticsMainContent';
@@ -34,8 +34,8 @@ const DataAnalyticsPage = () => {
             {/* Main Content Section */}
             <DataAnalyticsMainContent />
             
-            {/* AI Services Grid */}
-            <AIServicesGrid />
+            {/* Comprehensive Data Analytics Section */}
+            <ComprehensiveDataAnalytics />
             
             {/* CTA Section */}
             <DataAnalyticsCTA />

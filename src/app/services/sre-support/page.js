@@ -3,8 +3,8 @@
 import React from 'react';
 
 import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
-import AIServicesGrid from '@/components/sections/AIServicesGrid';
 import SRESupportCTA from '@/components/sections/SRESupportCTA';
+import SRESupportExpertise from '@/components/sections/SRESupportExpertise';
 import SRESupportHero from '@/components/sections/SRESupportHero';
 import SRESupportMainContent from '@/components/sections/SRESupportMainContent';
 
@@ -34,8 +34,8 @@ const SRESupportPage = () => {
             {/* Main Content Section */}
             <SRESupportMainContent />
             
-            {/* AI Services Grid */}
-            <AIServicesGrid />
+            {/* SRE Support Expertise Section */}
+            <SRESupportExpertise />
             
             {/* CTA Section */}
             <SRESupportCTA />
