@@ -35,8 +35,7 @@ const Footer = () => {
       href: 'mailto:info@codespiresolutions.com',
     },
     { icon: Phone, label: '+510-543-7536', href: 'tel:+16028373370' },
-    { icon: MapPin, label: '4754 U.S. Route 40,
-Tipp City, OH 45371', href: 'https://maps.google.com/?q=25th%20Floor%2C%20Gold%20Tower%2C%20Wave%20One%2C%202514%2C%20Sector%2018%2C%20Noida%2C%20Uttar%20Pradesh%20201301' },
+    { icon: MapPin, label: '25th Floor, Gold Tower, Wave One, 2514, Sector 18, Noida, Uttar Pradesh 201301', href: 'https://maps.google.com/?q=25th%20Floor%2C%20Gold%20Tower%2C%20Wave%20One%2C%202514%2C%20Sector%2018%2C%20Noida%2C%20Uttar%20Pradesh%20201301' },
     { icon: MapPin, label: '25th Floor, Gold Tower, Wave One, 2514, Sector 18, Noida, Uttar Pradesh 201301', href: 'https://maps.google.com/?q=25th%20Floor%2C%20Gold%20Tower%2C%20Wave%20One%2C%202514%2C%20Sector%2018%2C%20Noida%2C%20Uttar%20Pradesh%20201301' },
   ];
 
