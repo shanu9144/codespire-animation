@@ -18,16 +18,16 @@ const OurTeamPage = () => {
   const founders = [
     {
       name: 'Ankit Vij',
-      role: 'Founder & CEO',
-      image: '/assets/team/alex-johnson.svg',
-      bio: 'Visionary leader with 15+ years in AI and enterprise solutions. Passionate about transforming businesses through innovative technology.',
+      role: 'Co-Founder & Chief Executive Officer',
+      image: '/AnkitVij.png',
+      bio: 'Visionary leader with 25+ years in Manufacturing and Tech Solutions. Passionate about transforming businesses through innovative technologies.',
       linkedin: 'https://linkedin.com/in/alexjohnson',
     },
     {
       name: 'Vik Sahni',
-      role: 'Co-Founder & CTO',
+      role: 'Co-Founder & Chief Sales Officer',
       image: '/assets/team/sarah-chen.svg',
-      bio: 'Technical architect and AI researcher with expertise in machine learning and scalable systems. Leading our innovation initiatives.',
+      bio: 'With 25 years of global experience in manufacturing, operations, and tech-driven transformation, Vik Sahni is a proven leader driving innovation, efficiency, and growth.',
       linkedin: 'https://linkedin.com/in/sarahchen',
     },
   ];
@@ -311,7 +311,7 @@ const OurTeamPage = () => {
                   <div className="text-center">
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{founder.name}</h3>
                     <p className="text-blue-600 font-semibold mb-3">{founder.role}</p>
-                    <p className="text-gray-600 leading-relaxed text-sm">{founder.bio}</p>
+                    <p className="text-gray-600 leading-relaxed text-sm text-bold">{founder.bio}</p>
                   </div>
                 </div>
               </motion.div>
