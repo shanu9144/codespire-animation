@@ -481,7 +481,7 @@ export default function Products() {
                   
                   {/* Subtitle */}
                   <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Join hundreds of companies already using our AI-powered solutions to accelerate their growth and streamline operations.
+                  Join businesses transforming their growth and efficiency with our AI-powered solutions.
                   </p>
                   
                   {/* Action Buttons */}
