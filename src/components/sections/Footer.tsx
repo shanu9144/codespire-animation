@@ -77,7 +77,7 @@ const Footer = () => {
                     href={item.href}
                     className="flex items-center text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-0"
                   >
-                    <item.icon size={16} className="mr-3" />
+                    <item.icon size={20} className="mr-3" />
                     {item.label}
                   </Link>
                 </motion.div>

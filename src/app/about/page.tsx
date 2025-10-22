@@ -26,7 +26,7 @@ const OurTeamPage = () => {
     {
       name: 'Vik Sahni',
       role: 'Co-Founder & Chief Sales Officer',
-      image: '/assets/team/sarah-chen.svg',
+      image: '/VikSahni.jpg',
       bio: '25 years of global experience in manufacturing, and tech-driven transformation, Vik Sahni is a proven leader driving innovation and growth.',
       linkedin: 'https://www.linkedin.com/in/viksahni/',
     },

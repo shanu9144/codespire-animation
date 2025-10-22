@@ -58,7 +58,7 @@ const CarouselHero = () => {
     {
       id: 4,
       title: "Delivering Rapid AI Solutions –",
-      subtitle: "AI POD Service",
+      subtitle: "AI POD as a Service",
       description:
         "Agile focused flexible PODs that handles end-to-end application builds from UI/UX to scalable backends",
       image:
