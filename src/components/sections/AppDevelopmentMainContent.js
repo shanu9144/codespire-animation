@@ -86,7 +86,7 @@ const AppDevelopmentMainContent = () => {
                 <h3 className="text-4xl font-bold text-gray-900 mb-4">
                   UI/UX Design
                 </h3>
-                <p className="text-lg bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-relaxed">
+                <p className="text-xl leading-relaxed bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-relaxed">
                   Crafting intuitive, responsive interfaces that users love for modern applications.
                 </p>
               </motion.div>

@@ -342,7 +342,8 @@ const ServicesPage = () => {
               className="flex flex-col sm:flex-row gap-6 justify-center"
               variants={fadeInUp}
             >
-              <motion.button
+              <motion.a
+                href="/services/ai-pod"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="group bg-gradient-to-r from-primary to-purple-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 relative overflow-hidden"
@@ -355,9 +356,10 @@ const ServicesPage = () => {
                   className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   initial={false}
                 />
-              </motion.button>
+              </motion.a>
               
-              <motion.button
+              <motion.a
+                href="#services-grid"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="group border-2 border-primary/20 text-primary px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-primary hover:text-white transition-all duration-300 hover:border-primary hover:shadow-xl"
@@ -365,7 +367,7 @@ const ServicesPage = () => {
                 <span className="flex items-center gap-3">
                   View All Services
                 </span>
-              </motion.button>
+              </motion.a>
             </motion.div>
 
             {/* Scroll indicator */}
@@ -551,6 +553,7 @@ const ServicesPage = () => {
 
         {/* Services Grid */}
         <motion.div
+          id="services-grid"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
@@ -650,7 +653,8 @@ const ServicesPage = () => {
             </p>
             
             <div className="flex justify-center pb-4">
-              <motion.button
+              <motion.a
+                href="/schedule-demo"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="group bg-gradient-to-r from-primary to-purple-600 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300"
@@ -659,7 +663,7 @@ const ServicesPage = () => {
                   Schedule a Consultation
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
-              </motion.button>
+              </motion.a>
             </div>
           </motion.div>
         </Wrapper>

@@ -122,8 +122,9 @@ const DataAnalyticsCTA = () => {
           
           {/* CTA Button */}
           <motion.div variants={itemVariants} className="pt-8">
-            <motion.button
-              className="group relative px-12 py-5 rounded-full font-bold text-lg text-white overflow-hidden transition-all duration-300 hover:scale-105"
+            <motion.a
+              href="/contact"
+              className="group relative px-12 py-5 rounded-full font-bold text-lg text-white overflow-hidden transition-all duration-300 hover:scale-105 inline-block"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -138,9 +139,9 @@ const DataAnalyticsCTA = () => {
               
               {/* Button text */}
               <span className="relative flex items-center gap-3">
-                Get Analytics Consultation <ArrowRight className="w-5 h-5" />
+                Contact Us <ArrowRight className="w-5 h-5" />
               </span>
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>

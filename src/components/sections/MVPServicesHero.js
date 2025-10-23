@@ -59,35 +59,23 @@ const MVPServicesHero = () => {
           className="space-y-8"
         >
 
-          {/* Main Heading */}
+          {/* Main Heading with enhanced design */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+            className="text-3xl md:text-6xl lg:text-5xl font-bold tracking-tight leading-tight"
           >
-            <span className="text-gray-900">MVP and Prototyping</span><br />
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-              Services
-            </span>
+            <span className="text-[#2D3748]">MVP and Prototyping</span><br />
+            <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">Services</span>
           </motion.h1>
-
-          {/* Subtitle */}
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-2xl md:text-3xl font-semibold text-gray-700"
-          >
-            Turning Ideas into Scalable Realities
-          </motion.h2>
 
           {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-[#4A5568] leading-relaxed max-w-4xl mx-auto"
           >
             From concept validation to market-ready prototypes, we help businesses accelerate innovation with AI-driven MVP development and rapid prototyping.
           </motion.p>

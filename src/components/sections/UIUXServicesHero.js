@@ -64,14 +64,12 @@ const UIUXServicesHero = () => {
           {/* Main Content */}
           <motion.div variants={itemVariants} className="text-center max-w-4xl mx-auto">
             <div className="mb-8">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                <span className="text-[#2D3748]">UI/UX as a Service</span>
+              <h1 className="text-3xl md:text-6xl lg:text-5xl font-bold tracking-tight leading-tight mb-6">
+                <span className="text-[#2D3748]">UI/UX as a Service</span><br />
+                <span className="text-3xl md:text-2xl text-[#4A5568] leading-relaxed mb-12 max-w-4xl mx-auto bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">Designing Experiences that Inspire and Perform</span>
               </h1>
-              <h2 className="text-3xl md:text-4xl font-semibold mb-8">
-                <span className="text-[#6B46C1]">Designing Experiences that Inspire and Perform</span>
-              </h2>
             </div>
-            <p className="text-xl text-[#4A5568] leading-relaxed mb-12">
+            <p className="text-xl md:text-2xl text-[#4A5568] leading-relaxed mb-12 max-w-4xl mx-auto">
               From intuitive interfaces to seamless user journeys, we craft intelligent, human-centered designs powered by data, creativity, and AI innovation.
             </p>
           </motion.div>

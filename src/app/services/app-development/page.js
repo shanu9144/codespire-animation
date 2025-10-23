@@ -5,7 +5,6 @@ import React from 'react';
 import ParticleNetworkBackground from '@/components/backgrounds/ParticleNetworkBackground';
 import AppDevelopmentCTA from '@/components/sections/AppDevelopmentCTA';
 import AppDevelopmentHero from '@/components/sections/AppDevelopmentHero';
-import AppDevelopmentMainContent from '@/components/sections/AppDevelopmentMainContent';
 import TechnologyExpertiseGrid from '@/components/sections/TechnologyExpertiseGrid';
 
 const AppDevelopmentPage = () => {
@@ -30,9 +29,6 @@ const AppDevelopmentPage = () => {
           <main>
             {/* Hero Section */}
             <AppDevelopmentHero />
-            
-            {/* Main Content Section */}
-            <AppDevelopmentMainContent />
             
             {/* Technology Expertise Grid */}
             <TechnologyExpertiseGrid />

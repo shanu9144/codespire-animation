@@ -144,13 +144,13 @@ const DataAnalyticsHero = () => {
             </div>
             
             {/* Main Heading with enhanced design */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+            <h1 className="text-3xl md:text-6xl lg:text-5xl font-bold tracking-tight leading-tight">
               <span className="text-[#2D3748]">Data and Analytics</span><br />
-              <span className="text-3xl md:text-4xl lg:text-5xl bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">AI-Powered Insights</span>
+              <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">AI-Powered Insights</span>
             </h1>
             
             {/* Description */}
-            <p className="text-xl md:text-2xl text-[#4A5568] leading-relaxed max-w-4xl mx-auto">
+            <p className="text-xl text-[#4A5568] leading-relaxed max-w-5xl mx-auto">
               Transform your data into actionable insights with our advanced analytics solutions. From data engineering to machine learning, we help you unlock the full potential of your information assets.
             </p>
           </div>

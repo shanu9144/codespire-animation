@@ -83,7 +83,7 @@ const DataAnalyticsMainContent = () => {
                 <h3 className="text-4xl font-bold text-gray-900 mb-4">
                   Data Analytics & AI
                 </h3>
-                <p className="text-lg bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-relaxed">
+                <p className="text-xl leading-relaxed bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-relaxed">
                   Transform raw data into strategic insights that drive business growth and innovation.
                 </p>
               </motion.div>

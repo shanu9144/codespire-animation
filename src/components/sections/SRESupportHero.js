@@ -144,9 +144,9 @@ const SRESupportHero = () => {
             </div>
             
             {/* Main Heading with enhanced design */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+            <h1 className="text-3xl md:text-6xl lg:text-5xl font-bold tracking-tight leading-tight">
               <span className="text-[#2D3748]">24/7 SRE Support</span><br />
-              <span className="text-3xl md:text-4xl lg:text-5xl bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">Reliability Engineering</span>
+              <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">Reliability Engineering</span>
             </h1>
             
             {/* Description */}
