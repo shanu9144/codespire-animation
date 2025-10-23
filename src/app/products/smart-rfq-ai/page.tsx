@@ -43,6 +43,7 @@ import {
   Box
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRef } from 'react';
 
 import { Wrapper, Button } from '@/components/ui';
@@ -121,14 +122,14 @@ export default function SmartRFQAI() {
   ];
 
   const integrations = [
-    { name: "AutoCAD", icon: Monitor },
-    { name: "SolidWorks", icon: Cpu },
-    { name: "Fusion 360", icon: Layers },
-    { name: "SAP", icon: Database },
-    { name: "Oracle", icon: Server },
-    { name: "Salesforce", icon: Cloud },
-    { name: "Microsoft Dynamics", icon: Building2 },
-    { name: "PTC Creo", icon: Package }
+    { name: "AutoCAD", logo: "/assets/autocad.png", alt: "AutoCAD Logo" },
+    { name: "SolidWorks", logo: "/assets/solidworks.png", alt: "SolidWorks Logo" },
+    { name: "Fusion 360", logo: "/assets/fusion360.png", alt: "Fusion 360 Logo" },
+    { name: "SAP", logo: "/assets/sap.png", alt: "SAP Logo" },
+    { name: "Oracle", logo: "/assets/oracle.png", alt: "Oracle Logo" },
+    { name: "Salesforce", logo: "/assets/salesforce.png", alt: "Salesforce Logo" },
+    { name: "Microsoft Dynamics", logo: "/assets/microsoftdynamics.png", alt: "Microsoft Dynamics Logo" },
+    { name: "PTC Creo", logo: "/assets/ptccreo.png", alt: "PTC Creo Logo" }
   ];
 
   const securityFeatures = [
@@ -495,8 +496,14 @@ export default function SmartRFQAI() {
                   className="group"
                 >
                   <div className="bg-blue-50 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-blue-200/60 hover:border-blue-400/30 text-center">
-                    <div className="text-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300">
-                      <integration.icon className="w-8 h-8 mx-auto" />
+                    <div className="mb-3 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                      <Image
+                        src={integration.logo}
+                        alt={integration.alt}
+                        width={32}
+                        height={32}
+                        className="w-8 h-8 object-contain"
+                      />
                     </div>
                     <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
                       {integration.name}
