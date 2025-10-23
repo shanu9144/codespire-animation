@@ -283,7 +283,8 @@ const OurTeamPage = () => {
                         alt={founder.name}
                         width={160}
                         height={160}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
+                        style={{ objectPosition: 'center top' }}
                       />
                     </div>
                     
