@@ -102,50 +102,42 @@ const Header = () => {
     { 
       label: "AI Pod as a Service", 
       href: "/services/ai-pod",
-      icon: Brain,
-      description: "Max AI Impact, Min Cost - Get 5+ AI specialists for less than $100K annually"
+      icon: Brain
     },
     { 
       label: "MVP & Prototyping", 
       href: "/services/mvp-prototyping",
-      icon: Rocket,
-      description: "Turn ideas into scalable realities with AI-driven development"
+      icon: Rocket
     },
     { 
       label: "UI/UX Design", 
       href: "/services/ui-ux-design",
-      icon: Palette,
-      description: "Designing experiences that inspire and perform with AI-powered design"
+      icon: Palette
     },
     { 
       label: "Digital Engineering", 
       href: "/services/digital-engineering",
-      icon: Code,
-      description: "Cutting-edge engineering solutions for transformative digital experiences"
+      icon: Code
     },
     { 
       label: "Data and Analytics", 
       href: "/services/data-analytics",
-      icon: BarChart3,
-      description: "Actionable insights through advanced analytics and intelligent AI"
+      icon: BarChart3
     },
     { 
       label: "Application Development", 
       href: "/services/app-development",
-      icon: Settings,
-      description: "Robust and modernized applications with rigorous quality assurance"
+      icon: Settings
     },
     { 
       label: "24/7 SRE Support", 
       href: "/services/sre-support",
-      icon: Shield,
-      description: "Reliable, proactive system resilience and performance around the clock"
+      icon: Shield
     },
     { 
       label: "Salesforce & ServiceNow", 
       href: "/services/salesforce-servicenow",
-      icon: Users,
-      description: "Maximize your CRM and ITSM investments with expert implementations"
+      icon: Users
     },
   ];
 
@@ -316,9 +308,6 @@ const Header = () => {
                                         <h4 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 mb-1">
                                           {child.label}
                                         </h4>
-                                        <p className="text-xs text-gray-600 group-hover:text-blue-500 transition-colors duration-200 leading-relaxed">
-                                          {child.description}
-                                        </p>
                                       </div>
                                     </Link>
                                   </motion.div>
@@ -443,7 +432,6 @@ const Header = () => {
                                     </div>
                                     <div className="flex-1 min-w-0">
                                       <div className="font-medium">{child.label}</div>
-                                      <div className="text-xs text-gray-500 mt-1">{child.description}</div>
                                     </div>
                                   </Link>
                                 </motion.div>
