@@ -182,7 +182,7 @@ const ServicesPage = () => {
     },
     {
       icon: Palette,
-      title: "UI/UX Design",
+      title: "UI/UX as a Service",
       description:
         "Designing experiences that inspire and perform with AI-powered user research and design systems.",
       color: "from-blue-500 to-purple-600",

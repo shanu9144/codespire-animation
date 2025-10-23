@@ -110,7 +110,7 @@ const Header = () => {
       icon: Rocket
     },
     { 
-      label: "UI/UX Design", 
+      label: "UI/UX as a Service", 
       href: "/services/ui-ux-design",
       icon: Palette
     },

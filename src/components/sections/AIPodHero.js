@@ -146,8 +146,7 @@ const AIPodHero = () => {
             {/* Main Heading with enhanced design */}
             <h1 className="text-3xl md:text-6xl lg:text-5xl font-bold tracking-tight leading-tight">
               <span className="text-[#2D3748]">AI POD as a Service</span><br />
-              <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">Max AI Impact, Min Cost</span>
-              n        </h1>
+              <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">Max AI Impact, Min Cost</span></h1>
             
             {/* Description */}
             <p className="text-xl md:text-2xl text-[#4A5568] leading-relaxed max-w-4xl mx-auto">
