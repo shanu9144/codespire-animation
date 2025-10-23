@@ -308,6 +308,11 @@ const Header = () => {
                                         <h4 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 mb-1">
                                           {child.label}
                                         </h4>
+                                        {child.description && (
+                                          <p className="text-xs text-gray-600 group-hover:text-blue-500 transition-colors duration-200 leading-relaxed">
+                                            {child.description}
+                                          </p>
+                                        )}
                                       </div>
                                     </Link>
                                   </motion.div>
@@ -432,6 +437,9 @@ const Header = () => {
                                     </div>
                                     <div className="flex-1 min-w-0">
                                       <div className="font-medium">{child.label}</div>
+                                      {child.description && (
+                                        <div className="text-xs text-gray-500 mt-1">{child.description}</div>
+                                      )}
                                     </div>
                                   </Link>
                                 </motion.div>
