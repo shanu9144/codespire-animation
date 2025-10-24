@@ -34,9 +34,12 @@ const UIUXServicesHero = () => {
   };
   
   return (
-    <section ref={ref} className="relative py-24 lg:py-32 px-6">
-      {/* Enhanced background with subtle textures */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/60 via-white/80 to-slate-50/40" />
+    <section ref={ref} className="relative py-16 lg:py-20 px-6 pb-20 bg-gradient-to-br from-slate-50/80 via-white/70 to-gray-50/60 overflow-hidden">
+      {/* Enhanced gradient background with depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50/60 via-blue-50/40 to-slate-50/50">
+        {/* Add subtle radial gradient for depth */}
+        <div className="absolute inset-0 bg-gradient-radial from-blue-100/30 via-transparent to-transparent" />
+      </div>
       
       {/* Subtle mesh pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
@@ -60,9 +63,9 @@ const UIUXServicesHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-gray-100/60"
+          className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-gray-100/60"
         >
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Decorative stars */}
             <div className="flex justify-center gap-4 mb-6">
               <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
