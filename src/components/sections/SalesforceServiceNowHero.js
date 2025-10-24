@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight, Rocket } from 'lucide-react';
 
 const SalesforceServiceNowHero = () => {
   return (
@@ -153,6 +154,34 @@ const SalesforceServiceNowHero = () => {
             <p className="text-xl md:text-2xl text-[#4A5568] leading-relaxed max-w-4xl mx-auto">
               Maximize your CRM and ITSM investments with our expert Salesforce and ServiceNow implementations. We deliver custom solutions that streamline operations and drive business growth.
             </p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <motion.a
+                href="/contact"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Start Your CRM Journey
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </motion.a>
+              
+              <motion.a
+                href="/schedule-demo"
+                className="inline-flex items-center gap-3 bg-blue-100 text-blue-800 px-8 py-4 rounded-xl font-semibold text-lg border border-blue-200 hover:bg-blue-100 hover:text-blue-800 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Rocket className="w-5 h-5" />
+                Schedule Demo
+              </motion.a>
+            </motion.div>
           </div>
         </motion.div>
       </div>

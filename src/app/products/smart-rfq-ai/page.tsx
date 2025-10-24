@@ -153,7 +153,7 @@ export default function SmartRFQAI() {
   return (
     <div ref={containerRef} className="min-h-screen bg-white relative overflow-hidden">
       {/* Hero Section */}
-      <section className="relative py-24 flex items-center justify-center overflow-hidden">
+      <section className="relative py-16 flex items-center justify-center overflow-hidden">
         {/* Subtle Animated Background */}
         <div className="absolute inset-0 z-0">
           {/* Soft floating particles */}
@@ -201,7 +201,7 @@ export default function SmartRFQAI() {
                 className="space-y-6 lg:col-span-3 flex flex-col justify-center h-full"
               >
                 {/* 3D Icons */}
-                <div className="flex justify-center lg:justify-start items-center space-x-8 mb-8">
+                <div className="flex justify-center lg:justify-start items-center space-x-8 mb-4">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8, rotateY: -180 }}
                     animate={{ opacity: 1, scale: 1, rotateY: 0 }}
@@ -233,7 +233,7 @@ export default function SmartRFQAI() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  <Heading level={1} size="h1" className="mb-6 text-center lg:text-left">
+                  <Heading level={1} size="h1" className="mb-4 text-center lg:text-left">
                     <span className="text-primary">Smart RFQ AI</span>
                   </Heading>
                 </motion.div>
@@ -244,7 +244,7 @@ export default function SmartRFQAI() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                  <Text size="body-lg" className="text-gray-900 max-w-3xl mx-auto lg:mx-0 mb-8 text-center lg:text-left">
+                  <Text size="body-lg" className="text-gray-900 max-w-3xl mx-auto lg:mx-0 mb-4 text-center lg:text-left">
                     <span className="font-semibold">
                       Intelligent Quoting for Modern Manufacturing
                     </span>
@@ -257,7 +257,7 @@ export default function SmartRFQAI() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1 }}
                 >
-                  <Text size="body-lg" className="max-w-4xl mx-auto lg:mx-0 mb-12 text-center lg:text-left">
+                  <Text size="body-lg" className="max-w-4xl mx-auto lg:mx-0 mb-6 text-center lg:text-left">
                     <span className="text-gray-900">Turn 2D/3D drawings into accurate, professional quotes in minutes.</span>
                     <br />
                     <span className="text-purple-600 font-semibold">Reduce manual effort, speed RFQ cycles, and win more orders with AI-powered precision.</span>
