@@ -50,63 +50,60 @@ const MVPServicesHero = () => {
         />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      {/* Main Content with enhanced design */}
+      <div className="relative z-10 max-w-6xl mx-auto text-center py-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-gray-100/60"
         >
-
-          {/* Main Heading with enhanced design */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-3xl md:text-6xl lg:text-5xl font-bold tracking-tight leading-tight"
-          >
-            <span className="text-[#2D3748]">MVP and Prototyping</span><br />
-            <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">Services</span>
-          </motion.h1>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="text-xl md:text-2xl text-[#4A5568] leading-relaxed max-w-4xl mx-auto"
-          >
-            From concept validation to market-ready prototypes, we help businesses accelerate innovation with AI-driven MVP development and rapid prototyping.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <motion.a
-              href="/contact"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Start Your MVP Journey
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </motion.a>
+          <div className="space-y-8">
+            {/* Decorative stars */}
+            <div className="flex justify-center gap-4 mb-6">
+              <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+              <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+              <div className="w-3 h-3 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full"></div>
+            </div>
             
-            <motion.a
-              href="/schedule-demo"
-              className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-4 rounded-xl font-semibold text-lg border border-gray-200 hover:bg-white hover:shadow-lg transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            {/* Main Heading with enhanced design */}
+            <h1 className="text-3xl md:text-6xl lg:text-5xl font-bold tracking-tight leading-tight">
+              <span className="text-[#2D3748]">MVP and Prototyping</span><br />
+              <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">Services</span></h1>
+            
+            {/* Description */}
+            <p className="text-xl md:text-2xl text-[#4A5568] leading-relaxed max-w-4xl mx-auto">
+              From concept validation to market-ready prototypes, we help businesses accelerate innovation with AI-driven MVP development and rapid prototyping.
+            </p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
-              <Rocket className="w-5 h-5" />
-              Schedule Demo
-            </motion.a>
-          </motion.div>
+              <motion.a
+                href="/contact"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Start Your MVP Journey
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </motion.a>
+              
+              <motion.a
+                href="/schedule-demo"
+                className="inline-flex items-center gap-3 bg-blue-100 text-blue-800 px-8 py-4 rounded-xl font-semibold text-lg border border-blue-200 hover:bg-blue-100 hover:text-blue-800 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Rocket className="w-5 h-5" />
+                Schedule Demo
+              </motion.a>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
 
