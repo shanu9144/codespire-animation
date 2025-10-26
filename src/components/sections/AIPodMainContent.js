@@ -62,8 +62,8 @@ const AIPodMainContent = () => {
     },
     {
       icon: Scale,
-      title: 'Scalable',
-      description: 'Adjust team size instantly, no fixed costs.',
+      title: 'Scalable & Customizable',
+      description: 'Customize skillset mix and adjust team size instantly, no fixed costs.',
     },
     {
       icon: Target,

@@ -145,10 +145,17 @@ const AppDevelopmentHero = () => {
             </div>
             
             {/* Main Heading with enhanced design */}
-            <h1 className="text-3xl md:text-6xl lg:text-5xl font-bold tracking-tight leading-tight">
+            <h1 className="text-3xl md:text-6xl lg:text-5xl font-bold tracking-tight leading-tight mb-1">
               <span className="text-[#2D3748]">Application Development </span>
-              <span className="bg-gradient-to-r from-[#6B46C1] to-[#8B5CF6] bg-clip-text text-transparent">& Testing</span>
+              <span className="text-gray-900">& Testing</span>
             </h1>
+            
+            {/* Subtitle with gradient */}
+            <p className="text-xl md:text-2xl font-semibold mb-6 -mt-">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+                Customer Application Development Solutions
+              </span>
+            </p>
             
             {/* Description */}
             <p className="text-xl md:text-2xl text-[#4A5568] leading-relaxed max-w-4xl mx-auto">

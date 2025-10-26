@@ -92,7 +92,7 @@ const SalesforceServiceNowCTA = () => {
             className="grid grid-cols-3 gap-6 mt-10"
           >
             {[
-              { icon: Zap, label: 'Certified', desc: 'Salesforce Experts' },
+              { icon: Zap, label: 'Certified', desc: 'Salesforce & ServiceNow Experts' },
               { icon: Target, label: '100%', desc: 'Success Rate' },
               { icon: Clock, label: '24/7', desc: 'Support Available' },
             ].map((stat, i) => (
