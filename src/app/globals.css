@@ -236,6 +236,14 @@ motion.a:focus {
   border: none !important;
 }
 
+/* Remove focus outline for specific elements with no-focus-outline class */
+.no-focus-outline:focus,
+.no-focus-outline:focus-visible,
+.no-focus-outline:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* Remove focus outline for footer elements */
 footer a:focus,
 footer button:focus,

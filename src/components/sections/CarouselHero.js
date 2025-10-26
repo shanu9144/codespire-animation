@@ -164,7 +164,7 @@ const CarouselHero = () => {
                   transition={{ delay: 0.8, duration: 0.6 }}
                   className="flex flex-row items-center space-x-3 sm:space-x-4"
                 >
-                  <Link href={currentSlideData.ctaLink}>
+                  <Link href={currentSlideData.ctaLink} className="no-focus-outline">
                     <Button variant="primary" size="md" className="group">
                       <span>{currentSlideData.cta}</span>
                     </Button>
@@ -172,7 +172,7 @@ const CarouselHero = () => {
 
                   {/* Only show Watch Demo button for slide 4 (AI POD as a Service) */}
                   {currentSlideData.id === 4 && (
-                    <Link href="/services">
+                    <Link href="/services" className="no-focus-outline">
                       <Button variant="secondary" size="md" className="group">
                         <span>View Services</span>
                       </Button>

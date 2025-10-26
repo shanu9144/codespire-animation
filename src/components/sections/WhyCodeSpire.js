@@ -164,7 +164,12 @@ const WhyCodeSpire = () => {
             </p>
 
             {/* CTA Button */}
-            <Link href={highlight.link} className="flex items-center text-sm font-large text-blue-600 hover:text-white group hover:translate-x-1 transition-all duration-200" style={{ color: '#2563eb' }}>
+            <Link 
+              href={highlight.link} 
+              className="flex items-center text-sm font-large text-blue-600 hover:text-white group hover:translate-x-1 transition-all duration-200 no-focus-outline" 
+              style={{ color: '#2563eb' }}
+              tabIndex={0}
+            >
               Learn More
               <ArrowRight className="w-4 h-4 ml-2 text-blue-600 group-hover:text-white group-hover:translate-x-1 transition-all duration-200" style={{ color: '#2563eb' }} />
             </Link>
