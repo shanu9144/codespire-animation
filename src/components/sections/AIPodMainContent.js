@@ -168,7 +168,7 @@ const AIPodMainContent = () => {
         >
           {/* Overview Section */}
           <motion.div variants={itemVariants} className="bg-white/80 backdrop-blur-md rounded-2xl p-8 lg:p-12 border border-gray-100/50 shadow-sm">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Overview</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 text-center">Overview</h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
               CodeSpire&apos;s AI POD as a Service delivers a managed AI team, slashing costs by 60% versus in-house hires. For less than a $200K AI specialist, get 5+ experts delivering tailored solutions 70% faster.
             </p>
@@ -186,7 +186,7 @@ const AIPodMainContent = () => {
 
           {/* Key Benefits Section */}
           <motion.div variants={itemVariants} className="bg-white/80 backdrop-blur-md rounded-2xl p-8 lg:p-12 border border-gray-100/50 shadow-sm">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">Key Benefits</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">Key Benefits</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {keyBenefits.map((benefit, index) => (
                 <motion.div
@@ -208,22 +208,22 @@ const AIPodMainContent = () => {
           </motion.div>
 
           {/* How It Works Section */}
-          <motion.div variants={itemVariants} className="bg-white/80 backdrop-blur-md rounded-2xl p-8 lg:p-12 border border-gray-100/50 shadow-sm">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">How It Works</h2>
+          <motion.div variants={itemVariants} className="bg-gradient-to-br from-blue-100/80 via-purple-100/70 to-indigo-100/80 backdrop-blur-md rounded-2xl p-8 lg:p-12 border border-gray-100/50 shadow-sm">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-8 text-center">How It Works</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {howItWorks.map((step, index) => (
                 <motion.div
                   key={index}
                   variants={cardVariants}
                   whileHover={{ y: -5 }}
-                  className="text-center p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200 hover:border-primary transition-all duration-300"
+                  className="text-center p-6 bg-white/90 backdrop-blur-sm rounded-xl border border-blue-200/60 hover:border-blue-400 shadow-md hover:shadow-lg transition-all duration-300"
                 >
                   <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                     {step.step}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
-                  <div className="text-sm text-primary font-medium mb-3">{step.duration}</div>
-                  <p className="text-gray-700 leading-relaxed">{step.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{step.title}</h3>
+                  <div className="text-sm text-blue-600 font-medium mb-3">{step.duration}</div>
+                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -231,7 +231,7 @@ const AIPodMainContent = () => {
 
           {/* Industries Served Section */}
           <motion.div variants={itemVariants} className="bg-white/80 backdrop-blur-md rounded-2xl p-8 lg:p-12 border border-gray-100/50 shadow-sm">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">Industries Served</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">Industries Served</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {industries.map((industry, index) => (
                 <motion.div
@@ -254,7 +254,7 @@ const AIPodMainContent = () => {
 
           {/* Why AI POD Section */}
           <motion.div variants={itemVariants} className="bg-white/80 backdrop-blur-md rounded-2xl p-8 lg:p-12 border border-gray-100/50 shadow-sm">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Why AI POD?</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 text-center">Why AI POD?</h2>
             <p className="text-lg bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-relaxed mb-6">
               In-house AI costs $500K+ for 2-3 experts. Our AI POD delivers 5+ specialists, faster results, and scalability for less than $100K, maximizing ROI without risks.
             </p>

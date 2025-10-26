@@ -94,7 +94,7 @@ export default function SupplierMatchAI() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative z-10 py-24 flex items-center justify-center overflow-hidden">
+      <section className="relative z-10 py-16 flex items-center justify-center overflow-hidden">
         <Wrapper>
           <div className="max-w-8xl mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-6 gap-8 items-start">
@@ -106,7 +106,7 @@ export default function SupplierMatchAI() {
                 className="space-y-6 lg:col-span-3 flex flex-col justify-center h-full"
               >
                 {/* 3D Icons */}
-                <div className="flex justify-center lg:justify-start items-center space-x-8 mb-8">
+                <div className="flex justify-center lg:justify-start items-center space-x-8 mb-4">
                   <motion.div initial={{ opacity: 0, scale: 0.8, rotateY: -180 }} animate={{ opacity: 1, scale: 1, rotateY: 0 }} transition={{ duration: 1, delay: 0.2 }} className="relative">
                     <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
                       <Brain className="w-10 h-10 text-white" />
@@ -123,19 +123,19 @@ export default function SupplierMatchAI() {
 
                 {/* Main Heading */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}>
-                  <h1 className="text-2xl lg:text-4xl font-bold leading-tight tracking-tight mb-6 text-center lg:text-left">
+                  <h1 className="text-2xl lg:text-4xl font-bold leading-tight tracking-tight mb-4 text-center lg:text-left">
                     <span className="text-primary">Supplier Match AI</span>
                   </h1>
                 </motion.div>
                 
                 {/* Subheadline */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}>
-                  <p className="text-lg md:text-xl text-gray-900 max-w-3xl mx-auto lg:mx-0 mb-8 font-semibold text-center lg:text-left">Smarter Supplier Selection for Modern Sourcing</p>
+                  <p className="text-lg md:text-xl text-gray-900 max-w-3xl mx-auto lg:mx-0 mb-4 font-semibold text-center lg:text-left">Smarter Supplier Selection for Modern Sourcing</p>
                 </motion.div>
 
                 {/* Description */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1 }}>
-                  <p className="text-base md:text-lg max-w-4xl mx-auto lg:mx-0 mb-12 text-gray-600 leading-relaxed text-center lg:text-left">
+                  <p className="text-base md:text-lg max-w-4xl mx-auto lg:mx-0 mb-6 text-gray-600 leading-relaxed text-center lg:text-left">
                     <span className="text-gray-900">Discover, match, and validate suppliers in minutes.</span>
                     <br />
                     <span className="text-purple-600 font-semibold">AI-powered sourcing that maximizes savings, improves quality, and accelerates RFQ closures.</span>
@@ -234,16 +234,19 @@ export default function SupplierMatchAI() {
 
       {/* The Challenge */}
       <section className="relative py-24 bg-white overflow-hidden">
+        {/* Subtle connecting background element */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-50/20 to-transparent" />
+        
         <Wrapper>
           <div className="max-w-6xl mx-auto">
             <ScrollAnimatedSection transitionType="fadeUp" stagger={200}>
-              <div className="text-center mb-16">
+              <div className="text-center mb-8">
                 <motion.h3 
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}
-                  className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+                  className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
                 >
                   The Challenge
                 </motion.h3>
@@ -252,7 +255,7 @@ export default function SupplierMatchAI() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="text-purple-600 font-semibold text-lg"
+                  className="text-purple-600 font-semibold text-lg mb-6"
                 >
                   Traditional sourcing is riddled with inefficiencies that lead to wasted effort and higher costs
                 </motion.p>

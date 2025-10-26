@@ -219,7 +219,7 @@ export default function Contact() {
               <div className="space-y-6">
                 <div className="flex items-center justify-center space-x-4">
                   <Phone className="w-5 h-5 text-blue-500" />
-                  <span className="text-lg font-semibold text-gray-900">(602) 837-3370</span>
+                  <span className="text-lg font-semibold text-gray-900">+510-543-7536</span>
                 </div>
                 <div className="flex items-center justify-center space-x-4">
                   <Mail className="w-5 h-5 text-blue-500" />
