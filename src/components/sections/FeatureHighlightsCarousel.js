@@ -29,7 +29,7 @@ const FeatureHighlightsCarousel = () => {
     {
       icon: Shield,
       title: 'Enterprise Security',
-      description: 'Bank-grade encryption',
+      description: 'Advanced Encryption',
       color: 'text-blue-600',
       bgColor: 'bg-blue-100'
     },

@@ -25,7 +25,7 @@ const CarouselHero = () => {
       image:
         "https://picsum.photos/id/1050/800/600",
       cta: "Learn More",
-      ctaLink: "/smart-rfq-ai",
+      ctaLink: "/products/smart-rfq-ai",
       // accent removed
       // accentPosition removed
     },
@@ -38,20 +38,20 @@ const CarouselHero = () => {
       image:
         "https://picsum.photos/id/1051/800/600",
       cta: "Learn More",
-      ctaLink: "/supplier-match-ai",
+      ctaLink: "/products/supplier-match-ai",
       // accent removed
       // accentPosition removed
     },
     {
       id: 3,
       title: "Smarter Inventory and Sales Planning –",
-      subtitle: "Smart Forecast AI",
+      subtitle: "Forecast AI",
       description:
         "Identifies trends and demand shifts early for proactive planning",
       image:
         "https://picsum.photos/id/1039/800/600",
       cta: "Learn More",
-      ctaLink: "/forecast-ai",
+      ctaLink: "/products/forecast-ai",
       // accent removed
       // accentPosition removed
     },
@@ -172,7 +172,7 @@ const CarouselHero = () => {
 
                   {/* Only show Watch Demo button for slide 4 (AI POD as a Service) */}
                   {currentSlideData.id === 4 && (
-                    <Link href="/services#ai-pod-service">
+                    <Link href="/services">
                       <Button variant="secondary" size="md" className="group">
                         <span>View Services</span>
                       </Button>
