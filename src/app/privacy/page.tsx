@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Shield, Users, Globe, FileText, Lock, Eye, Settings, Mail } from 'lucide-react';
+import { Shield, Globe, FileText, Lock, Eye, Settings, Mail } from 'lucide-react';
 import { Wrapper } from '@/components/ui';
 import { Heading, Text } from '@/components/ui/Typography';
 import { fontClasses } from '@/config/fonts';
@@ -10,12 +10,6 @@ const PrivacyPage = () => {
   const sections = [
     {
       id: 1,
-      title: "Who We Are",
-      icon: Users,
-      content: "CodeSpire Solutions is located at Ohio. We provide IT services and IT and non-IT staffing solutions to clients globally."
-    },
-    {
-      id: 2,
       title: "Information We Collect",
       icon: FileText,
       content: "We collect various types of personal information depending on the nature of your interaction with us. This may include:",
@@ -33,7 +27,7 @@ const PrivacyPage = () => {
       ]
     },
     {
-      id: 3,
+      id: 2,
       title: "How We Collect Your Information",
       icon: Settings,
       content: "We collect your personal information through various means, including:",
@@ -48,7 +42,7 @@ const PrivacyPage = () => {
       ]
     },
     {
-      id: 4,
+      id: 3,
       title: "How We Use Your Information",
       icon: Eye,
       content: "We use your personal information for various purposes, including:",
@@ -65,7 +59,7 @@ const PrivacyPage = () => {
       ]
     },
     {
-      id: 5,
+      id: 4,
       title: "How We Share Your Information",
       icon: Globe,
       content: "We may share your personal information with various categories of recipients:",
@@ -80,7 +74,7 @@ const PrivacyPage = () => {
       ]
     },
     {
-      id: 6,
+      id: 5,
       title: "International Data Transfers",
       icon: Globe,
       content: "As a global organization, we may transfer your personal information to countries outside of your country of residence, which may have different data protection laws. We will implement appropriate safeguards to ensure the protection of your personal information in accordance with applicable data protection laws, such as:",
@@ -91,7 +85,7 @@ const PrivacyPage = () => {
       ]
     },
     {
-      id: 7,
+      id: 6,
       title: "Your Rights and Choices",
       icon: Shield,
       content: "Depending on your location and applicable law, you may have certain rights regarding your personal information, including:",
@@ -109,37 +103,37 @@ const PrivacyPage = () => {
       note: "To exercise your rights, please contact us using the contact information provided in the Contact Us page. We will respond to your request in accordance with applicable law. We may need to verify your identity before processing your request."
     },
     {
-      id: 8,
+      id: 7,
       title: "Data Security",
       icon: Lock,
       content: "We have implemented reasonable technical and organizational measures designed to protect your personal information from unauthorized access, use, disclosure, alteration, or destruction. These measures take into account the state of the art, the costs of implementation, and the nature, scope, context, and purposes of processing as well as the risk of varying likelihood and severity for the rights and freedoms of natural persons."
     },
     {
-      id: 9,
+      id: 8,
       title: "Data Retention",
       icon: FileText,
       content: "We will retain your personal information for as long as necessary to fulfill the purposes for which it was collected, including for the purposes of satisfying any legal, accounting, or reporting requirements. The specific retention period will depend on the nature of the information and the purposes for which it is processed."
     },
     {
-      id: 10,
+      id: 9,
       title: "Cookies and Similar Technologies",
       icon: Settings,
       content: "Our websites use cookies and other similar technologies to collect information about your browsing activities. You can control the use of cookies through your browser settings. For more information about our use of cookies, please see our Cookie Policy."
     },
     {
-      id: 11,
+      id: 10,
       title: "Contact Us",
       icon: Mail,
       content: "If you have any questions or concerns about this Privacy Notice or our data privacy practices, please submit your queries in the contact us section."
     },
     {
-      id: 12,
+      id: 11,
       title: "Updates to this Privacy Notice",
       icon: FileText,
       content: "We may update this Privacy Notice from time to time to reflect changes in our data privacy practices. We will post the updated version on our website and indicate the date of the last update. We encourage you to review this Privacy Notice periodically."
     },
     {
-      id: 13,
+      id: 12,
       title: "Specific Provisions for Certain Jurisdictions",
       icon: Globe,
       content: "Include any specific provisions required by the data protection laws of certain jurisdictions where you operate or have customers. For example:",
