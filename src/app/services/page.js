@@ -497,15 +497,17 @@ const ServicesPage = () => {
                 <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
               Let&apos;s discuss how AI PODs can accelerate your AI initiatives and drive measurable business outcomes.
                 </p>
-                <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white text-gray-900 px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer hover:bg-white focus:bg-white active:bg-white"
-                >
-                  <span>
-                    Discover AI PODs
-                  </span>
-                </motion.button>
+                <Link href="/services/ai-pod">
+                  <motion.button
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-white text-gray-900 px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer hover:bg-white focus:bg-white active:bg-white"
+                  >
+                    <span>
+                      Discover AI PODs
+                    </span>
+                  </motion.button>
+                </Link>
               </div>
             </div>
           </motion.div>
