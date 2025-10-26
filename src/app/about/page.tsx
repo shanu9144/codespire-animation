@@ -20,14 +20,14 @@ const OurTeamPage = () => {
       name: 'Ankit Vij',
       role: 'Co-Founder & Chief Executive Officer',
       image: '/AnkitVij.png',
-      bio: 'Visionary leader with 25+ years in Manufacturing and Tech Solutions. Passionate about transforming businesses through innovative technologies.',
+      bio: 'With over 25 years of experience in manufacturing and technology solutions, Ankit is a visionary leader dedicated to driving business transformation through innovation, strategy, and digital excellence.',
       linkedin: 'https://www.linkedin.com/in/ankit-vij-66119038',
     },
     {
       name: 'Vik Sahni',
       role: 'Co-Founder & Chief Sales Officer',
       image: '/VikSahni.jpg',
-      bio: '25 years of global experience in manufacturing, and tech-driven transformation, Vik Sahni is a proven leader driving innovation and growth.',
+      bio: 'A global business leader with 25 years of experience in manufacturing and technology transformation, Vik specializes in driving growth through innovation, collaboration, and customer-centric strategies.',
       linkedin: 'https://www.linkedin.com/in/viksahni/',
     },
   ];
@@ -283,7 +283,7 @@ const OurTeamPage = () => {
                         alt={founder.name}
                         width={160}
                         height={160}
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-cover"
                         style={{ objectPosition: 'center top' }}
                       />
                     </div>

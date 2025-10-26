@@ -156,8 +156,8 @@ export default function Contact() {
                   className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
                   whileHover={{ scale: 1.05, y: -5 }}
                 >
-                  <div className="text-4xl font-bold text-gray-900 mb-2">5+</div>
-                  <div className="text-sm font-semibold text-gray-600">AI Experts</div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">100%</div>
+                  <div className="text-sm font-semibold text-gray-600">Reliability</div>
                 </motion.div>
               </motion.div>
             </div>
