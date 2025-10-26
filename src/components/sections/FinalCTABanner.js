@@ -287,7 +287,7 @@ const FinalCTABanner = () => {
 
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} {...(isClient ? { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } } : { initial: false })} className="flex justify-center gap-4">
-            <Link href="/schedule-demo">
+            <Link href="/contact">
               <Button
                 variant="primary"
                 size="lg"
