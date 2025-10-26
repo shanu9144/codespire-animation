@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Link from 'next/link';
 import { 
   Zap, 
   Shield, 
@@ -86,7 +87,8 @@ const WhyCodeSpire = () => {
       image: "https://picsum.photos/id/1050/500/300",
       fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EInnovation%3C/text%3E%3C/svg%3E",
       gradient: "from-blue-500 to-cyan-500",
-      position: "left"
+      position: "left",
+      link: "/services/ai-pod"
     },
     {
       id: 2,
@@ -97,7 +99,8 @@ const WhyCodeSpire = () => {
       image: "https://picsum.photos/id/1051/500/300",
       fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EIntelligence%3C/text%3E%3C/svg%3E",
       gradient: "from-purple-500 to-pink-500",
-      position: "right"
+      position: "right",
+      link: "/products/supplier-match-ai"
     },
     {
       id: 3,
@@ -108,7 +111,8 @@ const WhyCodeSpire = () => {
       image: "https://picsum.photos/id/1052/500/300",
       fallbackImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='300' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='18'%3EImpact%3C/text%3E%3C/svg%3E",
       gradient: "from-green-500 to-emerald-500",
-      position: "left"
+      position: "left",
+      link: "/services"
     }
   ];
 
@@ -160,10 +164,10 @@ const WhyCodeSpire = () => {
             </p>
 
             {/* CTA Button */}
-            <button className="flex items-center text-sm font-large text-blue-600 hover:text-white group hover:translate-x-1 transition-all duration-200" style={{ color: '#2563eb' }}>
+            <Link href={highlight.link} className="flex items-center text-sm font-large text-blue-600 hover:text-white group hover:translate-x-1 transition-all duration-200" style={{ color: '#2563eb' }}>
               Learn More
               <ArrowRight className="w-4 h-4 ml-2 text-blue-600 group-hover:text-white group-hover:translate-x-1 transition-all duration-200" style={{ color: '#2563eb' }} />
-            </button>
+            </Link>
           </div>
         </div>
       </motion.div>
