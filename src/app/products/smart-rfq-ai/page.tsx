@@ -348,7 +348,10 @@ export default function SmartRFQAI() {
               </Heading>
               <Text size="body-lg" className="max-w-3xl mx-auto">
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent font-semibold">
-                  Advanced capabilities that transform your quoting process from manual to intelligent automation
+                  Advanced capabilities that transform your quoting process from manual to intelligent <br />
+                </span>
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent font-semibold">
+                  automation
                 </span>
               </Text>
             </motion.div>
