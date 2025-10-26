@@ -13,6 +13,23 @@ const OptimizedLiquidBackground = dynamic(() => import('@/components/backgrounds
 export default function Home() {
   return (
     <div className="min-h-screen">
+      {/* Promo Video Section */}
+      <section className="relative w-full overflow-hidden">
+        <div className="w-full">
+          <video
+            controls
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-auto"
+          >
+            <source src="/Codespire Promo Video.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
+
       {/* Modern Carousel Hero */}
       <CarouselHero />
 
