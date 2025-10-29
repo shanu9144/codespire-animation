@@ -52,7 +52,7 @@ import { FluidBackground, MorphingShapes } from '@/lib/animations/fluid';
 import { ScrollAnimatedSection, ScrollRevealText } from '@/lib/animations/scroll';
 
 export default function SmartRFQAI() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]

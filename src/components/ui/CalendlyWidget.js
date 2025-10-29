@@ -1,31 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import type { BaseComponentProps } from '../../types/components';
 
-interface CalendlyWidgetProps extends BaseComponentProps {
-  url?: string;
-  height?: string;
-  minWidth?: string;
-  prefill?: Record<string, any>;
-  utm?: Record<string, any>;
-}
-
-// Extend Window interface for Calendly
-declare global {
-  interface Window {
-    Calendly?: {
-      initInlineWidget: (options: {
-        url: string;
-        parentElement: HTMLElement;
-        prefill?: Record<string, any>;
-        utm?: Record<string, any>;
-      }) => void;
-    };
-  }
-}
-
-const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({ 
+const CalendlyWidget = ({ 
   url, 
   height = '600px', 
   minWidth = '320px',
@@ -34,13 +11,13 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
   utm = {},
   ...props 
 }) => {
-  const widgetRef = useRef<HTMLDivElement>(null);
+  const widgetRef = useRef(null);
 
   useEffect(() => {
     if (!url || !widgetRef.current) return;
 
     // Load Calendly widget script if not already loaded
-    const loadCalendlyScript = (): Promise<void> => {
+    const loadCalendlyScript = () => {
       return new Promise((resolve) => {
         if (window.Calendly) {
           resolve();
@@ -119,3 +96,4 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
 };
 
 export default CalendlyWidget;
+

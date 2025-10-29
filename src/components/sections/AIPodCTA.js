@@ -121,7 +121,7 @@ const AIPodCTA = () => {
           <motion.div variants={itemVariants} className="pt-8">
             <motion.a
               href="/contact"
-              className="group relative inline-flex items-center justify-center px-12 py-5 rounded-full font-bold text-lg text-white overflow-hidden transition-all duration-300 hover:scale-105"
+              className="group relative inline-flex items-center justify-center px-12 py-5 rounded-full font-bold text-lg text-white overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >

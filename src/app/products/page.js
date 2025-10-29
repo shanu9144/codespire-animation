@@ -8,25 +8,8 @@ import { Wrapper, Button } from '@/components/ui';
 import { FluidBackground, MorphingShapes } from '@/lib/animations/fluid';
 import { ScrollAnimatedSection, ScrollRevealText } from '@/lib/animations/scroll';
 
-interface Product {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  icon: React.ComponentType<{ className?: string }>;
-  color: string;
-  gradient: string;
-  href: string;
-  features: string[];
-  stats: Array<{
-    label: string;
-    value: string;
-    icon: React.ComponentType<{ className?: string }>;
-  }>;
-}
-
 export default function Products() {
-  const products: Product[] = [
+  const products = [
     {
       id: 'smart-rfq-ai',
       title: 'Smart RFQ AI',

@@ -1,11 +1,31 @@
 import { Inter } from 'next/font/google';
-import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 
 import './globals.css';
+import '@/lib/utils/errorFilter'; // Filter browser extension errors
 import { Header, Footer } from '@/components/sections';
 import { Wrapper } from '@/components/ui';
+
+// Suppress React DevTools semver version error (known issue with React 19)
+if (typeof window !== 'undefined') {
+  const originalError = console.error;
+  console.error = (...args) => {
+    // Filter out React DevTools semver version errors
+    const errorStr = String(args[0] || '');
+    const stackStr = args[0]?.stack || '';
+    if (
+      errorStr.includes('Invalid argument not valid semver') ||
+      errorStr.includes('validateAndParse') ||
+      errorStr.includes('activateBackend') ||
+      stackStr.includes('backendManager') ||
+      stackStr.includes('activateBackend') ||
+      stackStr.includes('react_devtools_backend')
+    ) {
+      return; // Suppress this specific error
+    }
+    originalError.apply(console, args);
+  };
+}
 
 // Lazy load CursorSystem
 const CursorSystem = dynamic(() => import('@/lib/animations').then(mod => ({ default: mod.CursorSystem })), {
@@ -19,7 +39,8 @@ const inter = Inter({
   preload: true,
 });
 
-export const metadata: Metadata = {
+export const metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://codespire.com'),
   title: {
     default: 'CodeSpire Solutions - From Idea to Enterprise-Grade AI in a Blink',
     template: '%s | CodeSpire Solutions',
@@ -49,7 +70,7 @@ export const metadata: Metadata = {
     description: 'Transform your business with cutting-edge AI solutions and expert engineering. 50+ skilled experts, 7+ satisfied clients, 5+ global industries.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/assets/codespirelogo.png',
         width: 1200,
         height: 630,
         alt: 'CodeSpire Solutions - Enterprise AI Engineering',
@@ -60,15 +81,11 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'CodeSpire Solutions - From Idea to Enterprise-Grade AI in a Blink',
     description: 'Transform your business with cutting-edge AI solutions and expert engineering.',
-    images: ['/og-image.jpg'],
+    images: ['/assets/codespirelogo.png'],
   },
 };
 
-interface RootLayoutProps {
-  children: ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
@@ -82,7 +99,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           .btn-primary{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-hover) 100%);color:white;padding:0.75rem 1.5rem;border-radius:0.75rem}
           @media(min-width:768px){.wrapper{padding:0 3rem}}
         `}} />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#384bff" />
       </head>
@@ -120,3 +137,4 @@ export default function RootLayout({ children }: RootLayoutProps) {
     </html>
   );
 }
+

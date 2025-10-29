@@ -476,7 +476,7 @@ export default function IndustriesWeServe() {
           {/* Navigation Buttons */}
           <motion.button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:shadow-xl border border-gray-200/50 hover:border-gray-300/50 transition-all duration-300 group focus:outline-none focus:ring-0 focus:border-gray-200/50 active:outline-none"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:shadow-xl border border-gray-200/50 hover:border-gray-300/50 transition-all duration-300 group focus:outline-none focus:ring-0 focus:border-gray-200/50 active:outline-none cursor-pointer"
             style={{ outline: 'none', boxShadow: 'none' }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -489,7 +489,7 @@ export default function IndustriesWeServe() {
 
           <motion.button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:shadow-xl border border-gray-200/50 hover:border-gray-300/50 transition-all duration-300 group focus:outline-none focus:ring-0 focus:border-gray-200/50 active:outline-none"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:shadow-xl border border-gray-200/50 hover:border-gray-300/50 transition-all duration-300 group focus:outline-none focus:ring-0 focus:border-gray-200/50 active:outline-none cursor-pointer"
             style={{ outline: 'none', boxShadow: 'none' }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}

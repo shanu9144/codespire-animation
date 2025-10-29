@@ -1,3 +1,5 @@
+'use client';
+
 import dynamic from 'next/dynamic';
 import { Wrapper } from '@/components/ui';
 import { StatsBanner, WhyCodeSpire, FinalCTABanner, IndustriesWeServe, FeatureHighlightsCarousel } from '@/components/sections';
@@ -18,7 +20,6 @@ export default function Home() {
         <div className="w-full">
           <video
             controls
-            autoPlay
             loop
             muted
             playsInline
@@ -36,14 +37,14 @@ export default function Home() {
       {/* Feature Highlights Carousel */}
       <FeatureHighlightsCarousel />
 
-      {/* Stats with subtle animation */}
-      <OptimizedLiquidBackground variant="section" intensity="low">
+      {/* Stats with subtle animation - removed liquid background for better performance */}
+      <div className="relative w-full bg-gray-50">
         <Wrapper>
           <div className="py-8 lg:py-12">
             <StatsBanner />
           </div>
         </Wrapper>
-      </OptimizedLiquidBackground>
+      </div>
 
       {/* Why CodeSpire - UI only, no liquid background */}
       <Wrapper>
@@ -61,3 +62,4 @@ export default function Home() {
     </div>
   );
 }
+

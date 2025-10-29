@@ -88,7 +88,8 @@ const TechnologyStackCarousel = React.memo(() => {
     return (
       <div
         key={`${tech.name}-${index}`}
-        className="w-32 h-20 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-blue-100/50 flex items-center justify-center group hover:shadow-2xl hover:border-blue-300/50 hover:bg-white hover:-translate-y-1 transition-all duration-300 ease-out"
+        className="w-32 h-20 bg-white rounded-xl shadow-lg border border-blue-100/50 flex items-center justify-center group hover:shadow-2xl hover:border-blue-300/50 hover:bg-white hover:-translate-y-1 transition-all duration-300 ease-out"
+        style={{ willChange: 'transform' }}
       >
         <div className="flex flex-col items-center justify-center space-y-2 relative">
           <div className="relative">
@@ -107,16 +108,9 @@ const TechnologyStackCarousel = React.memo(() => {
 
   return (
     <section className="relative py-20 bg-gradient-to-b from-white via-blue-50/20 to-blue-50/40 overflow-hidden">
-      {/* Animated abstract shapes */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-15 -translate-x-1/2 -translate-y-1/2 animate-pulse" style={{ animationDuration: '8s' }} />
-      <div className="absolute top-0 right-0 w-80 h-80 bg-blue-200 rounded-full blur-3xl opacity-12 translate-x-1/2 -translate-y-1/2 animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
-      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-blue-100 rounded-full blur-2xl opacity-8 -translate-y-1/2 animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
-      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-blue-200 rounded-full blur-2xl opacity-10 -translate-y-1/2 animate-pulse" style={{ animationDuration: '9s', animationDelay: '1s' }} />
-      
-      {/* Floating wave-like patterns */}
-      <div className="absolute top-1/4 left-1/3 w-48 h-48 bg-blue-100 rounded-full blur-2xl opacity-6 animate-bounce" style={{ animationDuration: '15s', animationDelay: '3s' }} />
-      <div className="absolute top-1/2 right-1/3 w-56 h-56 bg-blue-200 rounded-full blur-2xl opacity-8 animate-bounce" style={{ animationDuration: '18s', animationDelay: '6s' }} />
-      <div className="absolute top-3/4 left-1/2 w-40 h-40 bg-blue-100 rounded-full blur-2xl opacity-5 animate-bounce" style={{ animationDuration: '20s', animationDelay: '8s' }} />
+      {/* Simplified animated background - reduced from 7 to 2 shapes for better performance */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-15 -translate-x-1/2 -translate-y-1/2 animate-pulse" style={{ animationDuration: '8s', willChange: 'opacity' }} />
+      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-blue-200 rounded-full blur-2xl opacity-10 -translate-y-1/2 animate-pulse" style={{ animationDuration: '9s', animationDelay: '1s', willChange: 'opacity' }} />
       
       <div className="relative z-10">
         <div className="text-center mb-12">
@@ -134,7 +128,7 @@ const TechnologyStackCarousel = React.memo(() => {
           speed={60}
           direction="right"
           pauseOnHover={true}
-          className="bg-white/70 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-blue-100/30"
+          className="bg-white/90 rounded-3xl p-6 shadow-xl border border-blue-100/30"
           itemClassName="w-32 h-20 flex-shrink-0"
         />
       </div>

@@ -63,7 +63,6 @@ const AITextWithLogos = () => {
       intervalRef.current = setInterval(() => {
         setCurrentLogoIndex((prev) => {
           const nextIndex = (prev + 1) % llmLogos.length;
-          console.log('Logo changing from', prev, 'to', nextIndex, llmLogos[nextIndex].name);
           return nextIndex;
         });
       }, 1500); // Slightly faster for better UX
@@ -143,52 +142,94 @@ const AITextWithLogos = () => {
   );
 };
 
-// Counter animation hook with hydration fix
-const useCounter = (end, duration = 2000, shouldStart = false) => {
+// Counter animation hook with hydration fix and performance optimization
+const useCounter = (end, duration = 2500, shouldStart = false) => {
   const [count, setCount] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const animationFrameRef = useRef(null);
+  const countRef = useRef(0);
+  const hasAnimatedRef = useRef(false);
   
   useEffect(() => {
     setMounted(true);
   }, []);
   
   useEffect(() => {
-    if (!shouldStart || !mounted) return;
+    if (!shouldStart || !mounted) {
+      // Reset flag when animation should not start
+      hasAnimatedRef.current = false;
+      return;
+    }
+    
+    // Prevent re-triggering if already animated
+    if (hasAnimatedRef.current) {
+      return;
+    }
+    
+    // Mark that animation has started
+    hasAnimatedRef.current = true;
+    
+    // Reset animation state when starting
+    countRef.current = 0;
+    setCount(0);
     
     let startTime;
-    let animationFrame;
+    let lastRenderedCount = 0;
     
     const animate = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       
-      // Easing function for smooth animation
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      setCount(Math.floor(end * easeOutQuart));
+      // Smoother easing function - easeOutCubic for more gradual, smooth counting
+      // This makes the animation start slower and gradually speed up, then slow down at the end
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+      const newCount = Math.floor(end * easeOutCubic);
+      
+      // Update every frame for smooth counting (not skipping numbers)
+      // This ensures numbers count smoothly without jumps
+      if (newCount !== lastRenderedCount) {
+        countRef.current = newCount;
+        setCount(newCount);
+        lastRenderedCount = newCount;
+      }
       
       if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate);
+        animationFrameRef.current = requestAnimationFrame(animate);
+      } else {
+        // Ensure final value is set exactly
+        if (countRef.current !== end) {
+          countRef.current = end;
+          setCount(end);
+        }
+        animationFrameRef.current = null;
       }
     };
     
-    animationFrame = requestAnimationFrame(animate);
+    // Small delay to ensure DOM is ready
+    const timeoutId = setTimeout(() => {
+      animationFrameRef.current = requestAnimationFrame(animate);
+    }, 50);
     
     return () => {
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
+      clearTimeout(timeoutId);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
       }
     };
   }, [end, duration, shouldStart, mounted]);
   
-  // Return the end value immediately on server, animated value on client
-  return mounted && shouldStart ? count : (shouldStart ? end : 0);
+  // Return 0 if not mounted or not should start, otherwise return count
+  if (!mounted) return 0;
+  if (!shouldStart) return 0;
+  return count;
 };
 
 
 // Professional stat item component with tile card styling
 const ProfessionalStatItem = ({ number, suffix, label, delay = 0, shouldAnimate }) => {
   const [mounted, setMounted] = useState(false);
-  const animatedNumber = useCounter(number, 2000, shouldAnimate);
+  const animatedNumber = useCounter(number, 2500, shouldAnimate);
   
   useEffect(() => {
     setMounted(true);
@@ -198,8 +239,10 @@ const ProfessionalStatItem = ({ number, suffix, label, delay = 0, shouldAnimate 
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: delay * 0.2, duration: 0.6 }}
-      className="bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-white/40 shadow-sm"
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ delay: delay * 0.1, duration: 0.4, ease: "easeOut" }}
+      className="bg-white rounded-xl p-6 border border-white/40 shadow-sm"
+      style={{ willChange: 'transform, opacity' }}
     >
       <motion.div 
         className="text-3xl lg:text-4xl font-bold text-gray-800 mb-3 flex items-center justify-center"
@@ -286,7 +329,8 @@ const StatsBanner = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-2"
         >
           <TechnologyStackCarousel />
@@ -296,8 +340,10 @@ const StatsBanner = () => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative bg-white/30 backdrop-blur-sm rounded-2xl p-8 lg:p-12 border border-blue-100/20"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+          className="relative bg-white/90 rounded-2xl p-8 lg:p-12 border border-blue-100/20"
+          style={{ willChange: 'transform' }}
         >
           {/* Content with relative positioning */}
           <div className="relative z-10">
@@ -306,7 +352,8 @@ const StatsBanner = () => {
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
                 className="space-y-6"
               >
                 <h3 className="text-4xl lg:text-4xl font-bold leading-tight tracking-tight">
@@ -326,7 +373,8 @@ const StatsBanner = () => {
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
                 className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6"
               >
                 {stats.map((stat, index) => (

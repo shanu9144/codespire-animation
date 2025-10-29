@@ -23,7 +23,7 @@ const CarouselHero = () => {
       description:
         "Intelligent Quoting for Modern Manufacturing",
       image:
-        "https://picsum.photos/id/1050/800/600",
+        "/Smart RFQ AI - Hero Card.jpg",
       cta: "Learn More",
       ctaLink: "/products/smart-rfq-ai",
       // accent removed
@@ -36,7 +36,7 @@ const CarouselHero = () => {
       description:
         "Smarter Supplier Selection for Modern Sourcing",
       image:
-        "https://picsum.photos/id/1051/800/600",
+        "/Supplier_match.jpg",
       cta: "Learn More",
       ctaLink: "/products/supplier-match-ai",
       // accent removed
@@ -49,7 +49,7 @@ const CarouselHero = () => {
       description:
         "Identifies trends and demand shifts early for proactive planning",
       image:
-        "https://picsum.photos/id/1039/800/600",
+        "/Forecast AI - Hero Card.jpg",
       cta: "Learn More",
       ctaLink: "/products/forecast-ai",
       // accent removed
@@ -62,7 +62,7 @@ const CarouselHero = () => {
       description:
         "Agile focused flexible PODs that handles end-to-end application builds from UI/UX to scalable backends",
       image:
-        "https://picsum.photos/id/1043/800/600",
+        "/AiPod.png",
       cta: "Learn More",
       ctaLink: "/services/ai-pod",
     },
@@ -164,7 +164,7 @@ const CarouselHero = () => {
                   transition={{ delay: 0.8, duration: 0.6 }}
                   className="flex flex-row items-center space-x-3 sm:space-x-4"
                 >
-                  <Link href={currentSlideData.ctaLink} className="no-focus-outline">
+                  <Link href={currentSlideData.ctaLink} className="no-focus-outline cursor-pointer">
                     <Button variant="primary" size="md" className="group">
                       <span>{currentSlideData.cta}</span>
                     </Button>
@@ -172,7 +172,7 @@ const CarouselHero = () => {
 
                   {/* Only show Watch Demo button for slide 4 (AI POD as a Service) */}
                   {currentSlideData.id === 4 && (
-                    <Link href="/services" className="no-focus-outline">
+                    <Link href="/services" className="no-focus-outline cursor-pointer">
                       <Button variant="secondary" size="md" className="group">
                         <span>View Services</span>
                       </Button>

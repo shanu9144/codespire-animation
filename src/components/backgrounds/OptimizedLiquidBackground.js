@@ -41,13 +41,14 @@ const OptimizedLiquidBackground = ({
       {...props}
     >
       {/* Optimized background layers with GPU acceleration */}
-      <div className="absolute inset-0 will-change-transform">
-        {/* Primary layer */}
+      <div className="absolute inset-0 will-change-transform" style={{ contain: 'layout style paint' }}>
+        {/* Primary layer - only this one animates for better performance */}
         <div 
           className="absolute inset-0 liquid-layer-1"
           style={{
             background: `radial-gradient(ellipse 800px 600px at 20% 40%, ${colors.primary}${colors.opacity} 0%, transparent 50%)`,
             transform: 'translate3d(0, 0, 0)', // Force GPU acceleration
+            willChange: 'transform',
           }}
         />
         
@@ -78,30 +79,24 @@ const OptimizedLiquidBackground = ({
       {/* Optimized CSS Animations */}
       <style jsx>{`
         .liquid-layer-1 {
-          animation: liquidFlow1 25s ease-in-out infinite;
+          animation: liquidFlow1 40s ease-in-out infinite;
+          /* Slower animation = less GPU work */
         }
 
-        .liquid-layer-2 {
-          animation: liquidFlow2 30s ease-in-out infinite reverse;
-        }
-
+        /* Disabled layer-2 and layer-3 animations for better performance */
+        .liquid-layer-2,
         .liquid-layer-3 {
-          animation: liquidFlow3 35s ease-in-out infinite;
+          animation: none;
         }
 
         @keyframes liquidFlow1 {
           0%, 100% {
             transform: translate3d(0, 0, 0) scale(1);
           }
-          25% {
-            transform: translate3d(20px, -30px, 0) scale(1.1);
-          }
           50% {
-            transform: translate3d(-15px, 20px, 0) scale(0.9);
+            transform: translate3d(30px, -20px, 0) scale(1.05);
           }
-          75% {
-            transform: translate3d(-25px, -10px, 0) scale(1.05);
-          }
+          /* Simplified - only 3 keyframes instead of 5 for better performance */
         }
 
         @keyframes liquidFlow2 {

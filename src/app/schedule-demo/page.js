@@ -6,8 +6,8 @@ import { Wrapper, Button } from '@/components/ui';
 import { ArrowRight, Calendar, Users, CheckCircle } from 'lucide-react';
 import { HeroDemoSection } from '@/components/sections';
 
-const ScheduleDemoPage: React.FC = () => {
-  const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
+const ScheduleDemoPage = () => {
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setShowBackToTop(window.scrollY > 300);

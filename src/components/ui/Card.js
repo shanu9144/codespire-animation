@@ -1,14 +1,6 @@
 import { forwardRef } from 'react';
-import type { BaseComponentProps } from '../../types/components';
 
-interface CardProps extends BaseComponentProps {
-  variant?: 'default' | 'elevated' | 'highlight';
-  hover?: boolean;
-}
-
-interface CardSubComponentProps extends BaseComponentProps {}
-
-const Card = forwardRef<HTMLDivElement, CardProps>(({ 
+const Card = forwardRef(({ 
   children, 
   variant = 'default',
   hover = true,
@@ -39,7 +31,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(({
 Card.displayName = 'Card';
 
 // Card Header component
-export const CardHeader = forwardRef<HTMLDivElement, CardSubComponentProps>(({ 
+export const CardHeader = forwardRef(({ 
   children, 
   className = '', 
   ...props 
@@ -56,7 +48,7 @@ export const CardHeader = forwardRef<HTMLDivElement, CardSubComponentProps>(({
 CardHeader.displayName = 'CardHeader';
 
 // Card Content component
-export const CardContent = forwardRef<HTMLDivElement, CardSubComponentProps>(({ 
+export const CardContent = forwardRef(({ 
   children, 
   className = '', 
   ...props 
@@ -73,7 +65,7 @@ export const CardContent = forwardRef<HTMLDivElement, CardSubComponentProps>(({
 CardContent.displayName = 'CardContent';
 
 // Card Footer component
-export const CardFooter = forwardRef<HTMLDivElement, CardSubComponentProps>(({ 
+export const CardFooter = forwardRef(({ 
   children, 
   className = '', 
   ...props 
@@ -90,3 +82,4 @@ export const CardFooter = forwardRef<HTMLDivElement, CardSubComponentProps>(({
 CardFooter.displayName = 'CardFooter';
 
 export default Card;
+

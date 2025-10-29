@@ -6,28 +6,8 @@ import { CheckCircle, MapPin, Mail, Phone, ArrowRight, MessageCircle, Clock, Bui
 import { Wrapper } from '@/components/ui';
 import Image from 'next/image';
 
-interface FormData {
-  fullName: string;
-  workEmail: string;
-  companyName: string;
-  phoneNumber: string;
-  jobTitle: string;
-  companySize: string;
-  message: string;
-}
-
-interface FormErrors {
-  fullName?: string;
-  workEmail?: string;
-  companyName?: string;
-  phoneNumber?: string;
-  jobTitle?: string;
-  companySize?: string;
-  message?: string;
-}
-
 export default function Contact() {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState({
     fullName: '',
     workEmail: '',
     companyName: '',
@@ -36,10 +16,10 @@ export default function Contact() {
     companySize: '',
     message: '',
   });
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [errors, setErrors] = useState({});
 
   // Form validation
-  const validateEmail = (email: string): string | null => {
+  const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const freeEmailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com'];
     const domain = email.split('@')[1]?.toLowerCase();
@@ -49,8 +29,8 @@ export default function Contact() {
     return null;
   };
 
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {};
+  const validateForm = () => {
+    const newErrors = {};
     
     if (!formData.fullName.trim()) newErrors.fullName = 'This field is required';
     if (!formData.workEmail.trim()) {
@@ -69,17 +49,17 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     
     // Clear error when user starts typing
-    if (errors[name as keyof FormErrors]) {
+    if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (!validateForm()) return;
@@ -397,3 +377,4 @@ export default function Contact() {
     </div>
   );
 }
+

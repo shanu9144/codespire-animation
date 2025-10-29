@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import type { WrapperProps } from '../../types/components';
 
 /**
  * Wrapper Component
@@ -10,7 +9,7 @@ import type { WrapperProps } from '../../types/components';
  * across the application. Prevents content from spilling outside and ensures
  * responsive design for mobile, tablet, and desktop.
  */
-const Wrapper: React.FC<WrapperProps> = ({
+const Wrapper = ({
   children,
   className = '',
   maxWidth = 'lg',
@@ -59,3 +58,4 @@ const Wrapper: React.FC<WrapperProps> = ({
 };
 
 export default Wrapper;
+

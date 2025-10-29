@@ -35,3 +35,4 @@ export const SectionSkeleton = () => (
     </div>
   </div>
 );
+

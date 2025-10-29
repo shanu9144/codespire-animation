@@ -1,7 +1,6 @@
 import { forwardRef } from 'react';
-import type { ButtonProps } from '../../types/components';
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ 
+const Button = forwardRef(({ 
   children, 
   variant = 'primary', 
   size = 'md', 
@@ -80,3 +79,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
 Button.displayName = 'Button';
 
 export default Button;
+

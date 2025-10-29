@@ -186,7 +186,7 @@ const Header = () => {
         <nav className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           {/* Header Left - Logo and Brand */}
           <div className="header-left">
-            <Link href="/" className="inline-block">
+            <Link href="/" className="inline-block cursor-pointer">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -296,7 +296,7 @@ const Header = () => {
                                   >
                                     <Link 
                                       href={child.href} 
-                                      className="group flex items-start space-x-3 p-4 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300 border border-transparent hover:border-blue-100 hover:shadow-lg"
+                                      className="group flex items-start space-x-3 p-4 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300 border border-transparent hover:border-blue-100 hover:shadow-lg cursor-pointer"
                                     >
                                       {/* Icon */}
                                       <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
@@ -323,7 +323,7 @@ const Header = () => {
                               <div className="mt-6 pt-4 border-t border-gray-100">
                                 <Link 
                                   href={item.href}
-                                  className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200"
+                                  className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200 cursor-pointer"
                                 >
                                   View all {item.label.toLowerCase()}
                                   <ChevronDown className="ml-1 w-4 h-4 rotate-[-90deg]" />

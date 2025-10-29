@@ -2,59 +2,8 @@
 
 import React, { useEffect, useRef, useCallback } from 'react';
 
-interface MorphingShapeConfig {
-  x?: string | number;
-  y?: string | number;
-  radius?: number;
-  morphSpeed?: number;
-  complexity?: number;
-  roughness?: number;
-  color?: string;
-  opacity?: number;
-}
-
-interface MorphingShapesProps {
-  shapes?: MorphingShapeConfig[];
-  className?: string;
-  style?: React.CSSProperties;
-  enableMetaball?: boolean;
-  blurAmount?: number;
-  contrast?: number;
-}
-
-/**
- * MorphingShapes Component
- * 
- * Advanced morphing blob shapes with configurable parameters
- * Features:
- * - Complex organic shape morphing
- * - Multiple morphing algorithms
- * - Performance-optimized path generation
- * - Customizable morphing patterns
- */
-
 class MorphingShape {
-  x: number;
-  y: number;
-  baseRadius: number;
-  currentRadius: number;
-  targetRadius: number;
-  morphSpeed: number;
-  complexity: number;
-  roughness: number;
-  color: string;
-  opacity: number;
-  controlPoints: Array<{
-    angle: number;
-    radius: number;
-    targetRadius: number;
-    offset: number;
-    speed: number;
-    phase: number;
-  }>;
-  time: number;
-
-  constructor(config: MorphingShapeConfig = {}) {
+  constructor(config = {}) {
     this.x = typeof config.x === 'string' ? parseFloat(config.x) : (config.x || 0);
     this.y = typeof config.y === 'string' ? parseFloat(config.y) : (config.y || 0);
     this.baseRadius = config.radius || 100;
@@ -79,7 +28,7 @@ class MorphingShape {
     this.time = 0;
   }
 
-  update(deltaTime: number) {
+  update(deltaTime) {
     this.time += deltaTime;
     
     // Update each control point
@@ -111,7 +60,7 @@ class MorphingShape {
     });
   }
 
-  generatePath(): string {
+  generatePath() {
     const points = this.controlPoints.map((cp) => ({
       x: this.x + Math.cos(cp.angle) * cp.radius,
       y: this.y + Math.sin(cp.angle) * cp.radius,
@@ -138,12 +87,12 @@ class MorphingShape {
     return path;
   }
 
-  setPosition(x: number, y: number) {
+  setPosition(x, y) {
     this.x = x;
     this.y = y;
   }
 
-  setRadius(radius: number) {
+  setRadius(radius) {
     this.baseRadius = radius;
     this.controlPoints.forEach((point) => {
       point.targetRadius = radius * (1 + point.offset);
@@ -151,7 +100,7 @@ class MorphingShape {
   }
 }
 
-const MorphingShapes: React.FC<MorphingShapesProps> = ({
+const MorphingShapes = ({
   shapes = [],
   className = '',
   style = {},
@@ -160,10 +109,10 @@ const MorphingShapes: React.FC<MorphingShapesProps> = ({
   contrast = 15,
   ...props
 }) => {
-  const svgRef = useRef<SVGSVGElement>(null);
-  const shapesRef = useRef<MorphingShape[]>([]);
-  const animationRef = useRef<number | null>(null);
-  const lastTimeRef = useRef<number>(0);
+  const svgRef = useRef(null);
+  const shapesRef = useRef([]);
+  const animationRef = useRef(null);
+  const lastTimeRef = useRef(0);
 
   // Initialize shapes
   useEffect(() => {
@@ -171,7 +120,7 @@ const MorphingShapes: React.FC<MorphingShapesProps> = ({
   }, [shapes]);
 
   // Animation loop
-  const animate = useCallback((currentTime: number) => {
+  const animate = useCallback((currentTime) => {
     const deltaTime = (currentTime - lastTimeRef.current) * 0.001;
     lastTimeRef.current = currentTime;
     
@@ -202,7 +151,7 @@ const MorphingShapes: React.FC<MorphingShapesProps> = ({
   }, [animate]);
 
   // Method to trigger morphing events
-  const triggerMorphing = useCallback((shapeIndex: number = -1) => {
+  const triggerMorphing = useCallback((shapeIndex = -1) => {
     if (shapeIndex >= 0 && shapesRef.current[shapeIndex]) {
       shapesRef.current[shapeIndex].triggerMorphEvent();
     } else {
@@ -211,14 +160,14 @@ const MorphingShapes: React.FC<MorphingShapesProps> = ({
   }, []);
 
   // Method to update shape positions
-  const updateShapePosition = useCallback((index: number, x: number, y: number) => {
+  const updateShapePosition = useCallback((index, x, y) => {
     if (shapesRef.current[index]) {
       shapesRef.current[index].setPosition(x, y);
     }
   }, []);
 
   // Method to update shape size
-  const updateShapeSize = useCallback((index: number, radius: number) => {
+  const updateShapeSize = useCallback((index, radius) => {
     if (shapesRef.current[index]) {
       shapesRef.current[index].setRadius(radius);
     }
@@ -278,4 +227,4 @@ const MorphingShapes: React.FC<MorphingShapesProps> = ({
 // Export both the component and utility functions
 export default MorphingShapes;
 export { MorphingShape };
-export type { MorphingShapeConfig, MorphingShapesProps };
+

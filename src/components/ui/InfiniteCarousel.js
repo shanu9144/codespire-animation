@@ -1,24 +1,12 @@
 'use client';
 
 import React, { useState, useCallback, useMemo } from 'react';
-import type { BaseComponentProps } from '../../types/components';
-
-interface InfiniteCarouselProps extends BaseComponentProps {
-  items: React.ReactNode[];
-  speed?: number; // seconds for one full loop
-  direction?: 'left' | 'right';
-  pauseOnHover?: boolean;
-  itemClassName?: string;
-  containerClassName?: string;
-  showGradients?: boolean;
-  gradientSize?: string;
-}
 
 /**
  * InfiniteCarousel - A flexible infinite scrolling carousel component
  * Can be used for icons, logos, text, or any other content
  */
-const InfiniteCarousel = React.memo<InfiniteCarouselProps>(({ 
+const InfiniteCarousel = React.memo(({ 
   items, 
   speed = 40, // seconds for one full loop
   direction = 'left',
@@ -29,7 +17,7 @@ const InfiniteCarousel = React.memo<InfiniteCarouselProps>(({
   showGradients = true,
   gradientSize = 'w-24',
 }) => {
-  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [isPaused, setIsPaused] = useState(false);
   
   // Memoize duplicated items to prevent recreation
   const duplicatedItems = useMemo(() => [...items, ...items], [items]);
@@ -53,8 +41,8 @@ const InfiniteCarousel = React.memo<InfiniteCarouselProps>(({
       data-animated="true"
       data-direction={direction === 'right' ? 'right' : 'left'}
       style={{
-        ['--_animation-duration' as any]: `${speed}s`,
-        ['--_gap' as any]: '2rem',
+        '--_animation-duration': `${speed}s`,
+        '--_gap': '2rem',
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -108,3 +96,4 @@ const InfiniteCarousel = React.memo<InfiniteCarouselProps>(({
 InfiniteCarousel.displayName = 'InfiniteCarousel';
 
 export default InfiniteCarousel;
+

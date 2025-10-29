@@ -43,7 +43,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block mb-4 focus:outline-none focus:ring-0">
+            <Link href="/" className="inline-block mb-4 focus:outline-none focus:ring-0 cursor-pointer">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
@@ -55,6 +55,7 @@ const Footer = () => {
                   width={150}
                   height={40}
                   className="h-10 w-auto brightness-0 invert"
+                  style={{ width: 'auto', height: '2.5rem' }}
                 />
               </motion.div>
             </Link>
@@ -73,7 +74,7 @@ const Footer = () => {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-0"
+                    className="flex items-center text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-0 cursor-pointer"
                   >
                     <item.icon className="w-5 h-5 mr-3 flex-shrink-0" />
                     {item.label}
@@ -91,7 +92,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 relative group focus:outline-none focus:ring-0"
+                    className="text-gray-300 hover:text-white transition-colors duration-200 relative group focus:outline-none focus:ring-0 cursor-pointer"
                   >
                     {link.label}
                     <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
@@ -109,7 +110,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 relative group focus:outline-none focus:ring-0"
+                    className="text-gray-300 hover:text-white transition-colors duration-200 relative group focus:outline-none focus:ring-0 cursor-pointer"
                   >
                     {link.label}
                     <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
@@ -129,7 +130,7 @@ const Footer = () => {
                   href={social.href}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2 bg-white/10 text-white border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-200 focus:outline-none focus:ring-0"
+                  className="p-2 bg-white/10 text-white border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-200 focus:outline-none focus:ring-0 cursor-pointer"
                   aria-label={social.label}
                 >
                   <social.icon size={20} />
@@ -153,3 +154,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

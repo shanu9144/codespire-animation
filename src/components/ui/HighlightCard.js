@@ -4,16 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { forwardRef } from 'react';
 import { Heading, Text } from './Typography';
-import type { BaseComponentProps } from '../../types/components';
 
-interface HighlightCardProps extends BaseComponentProps {
-  title: string;
-  description: string;
-  icon: React.ComponentType<{ className?: string }>;
-  delay?: number;
-}
-
-const HighlightCard = forwardRef<HTMLDivElement, HighlightCardProps>(({ 
+const HighlightCard = forwardRef(({ 
   title,
   description,
   icon: Icon,
@@ -34,7 +26,7 @@ const HighlightCard = forwardRef<HTMLDivElement, HighlightCardProps>(({
       transition: {
         duration: 0.6,
         delay: delay,
-        ease: [0.25, 0.46, 0.45, 0.94] as const,
+        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
@@ -52,7 +44,7 @@ const HighlightCard = forwardRef<HTMLDivElement, HighlightCardProps>(({
       transition: {
         duration: 0.5,
         delay: delay + 0.2,
-        ease: [0.25, 0.46, 0.45, 0.94] as const,
+        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
@@ -63,7 +55,7 @@ const HighlightCard = forwardRef<HTMLDivElement, HighlightCardProps>(({
       scale: 1.02,
       transition: {
         duration: 0.3,
-        ease: [0.25, 0.46, 0.45, 0.94] as const,
+        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
@@ -73,7 +65,7 @@ const HighlightCard = forwardRef<HTMLDivElement, HighlightCardProps>(({
       boxShadow: '0 20px 40px rgba(56, 75, 255, 0.15), 0 0 0 1px rgba(56, 75, 255, 0.1)',
       transition: {
         duration: 0.3,
-        ease: [0.25, 0.46, 0.45, 0.94] as const,
+        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };

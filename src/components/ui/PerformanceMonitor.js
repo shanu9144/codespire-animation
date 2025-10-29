@@ -8,23 +8,19 @@
 import React, { useState, useEffect } from 'react';
 import { useAnimationPerformance } from '../../lib/performance';
 
-interface PerformanceMonitorProps {
-  show?: boolean;
-}
-
-const PerformanceMonitor: React.FC<PerformanceMonitorProps> = ({ show = false }) => {
+const PerformanceMonitor = ({ show = false }) => {
   const { config, isLowEndDevice, shouldReduceAnimations } = useAnimationPerformance();
-  const [fps, setFps] = useState<number>(60);
-  const [frameCount, setFrameCount] = useState<number>(0);
+  const [fps, setFps] = useState(60);
+  const [frameCount, setFrameCount] = useState(0);
 
   useEffect(() => {
     if (!show || typeof window === 'undefined') return;
 
-    let animationId: number;
+    let animationId;
     let lastTime = performance.now();
     let frames = 0;
 
-    const measureFPS = (currentTime: number) => {
+    const measureFPS = (currentTime) => {
       frames++;
       
       if (currentTime - lastTime >= 1000) {
@@ -121,12 +117,12 @@ const PerformanceMonitor: React.FC<PerformanceMonitorProps> = ({ show = false })
           
           <div className="flex justify-between">
             <span>Memory:</span>
-            <span>{typeof navigator !== 'undefined' ? ((navigator as any).deviceMemory ? `${(navigator as any).deviceMemory}GB` : 'Unknown') : 'SSR'}</span>
+            <span>{typeof navigator !== 'undefined' ? (navigator.deviceMemory ? `${navigator.deviceMemory}GB` : 'Unknown') : 'SSR'}</span>
           </div>
           
           <div className="flex justify-between">
             <span>Connection:</span>
-            <span>{typeof navigator !== 'undefined' ? ((navigator as any).connection?.effectiveType || 'Unknown') : 'SSR'}</span>
+            <span>{typeof navigator !== 'undefined' ? (navigator.connection?.effectiveType || 'Unknown') : 'SSR'}</span>
           </div>
         </div>
       </div>
@@ -135,3 +131,4 @@ const PerformanceMonitor: React.FC<PerformanceMonitorProps> = ({ show = false })
 };
 
 export default PerformanceMonitor;
+

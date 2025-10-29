@@ -179,6 +179,16 @@ body {
   outline-offset: 2px;
 }
 
+/* Cursor pointer for all interactive elements */
+button,
+a,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+.cursor-pointer {
+  cursor: pointer;
+}
+
 /* Custom focus styles for interactive elements */
 button:focus,
 a:focus,

@@ -12,6 +12,8 @@ class AnimationPerformanceMonitor {
     this.lastTime = isBrowser ? performance.now() : 0;
     this.fps = 60;
     this.isLowEndDevice = this.detectLowEndDevice();
+    this.isMonitoring = false; // Track if monitoring is active
+    this.monitoringFrameId = null; // Store RAF id to prevent duplicates
     this.performanceMetrics = {
       averageFPS: 60,
       frameDrops: 0,
@@ -77,44 +79,87 @@ class AnimationPerformanceMonitor {
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
-  // Start monitoring frame rate
+  // Start monitoring frame rate (idempotent - only starts once)
   startMonitoring() {
     // Don't start monitoring during SSR
     if (!isBrowser) {
       return;
     }
 
+    // Prevent duplicate monitoring loops
+    if (this.isMonitoring) {
+      return;
+    }
+
+    // Disable monitoring in development - FPS monitoring itself causes performance overhead
+    // Only enable in production for low-end devices if needed
+    if (process.env.NODE_ENV === 'development') {
+      return; // Skip monitoring to reduce overhead
+    }
+    
+    if (process.env.NODE_ENV === 'production' && !this.isLowEndDevice) {
+      return; // Skip monitoring in production for better performance
+    }
+
+    this.isMonitoring = true;
     let frameCount = 0;
     let startTime = performance.now();
+    let lastWarningTime = 0;
+    const warningCooldown = 5000; // Only warn every 5 seconds
 
     const measureFPS = () => {
+      // Check if monitoring was stopped
+      if (!this.isMonitoring) {
+        this.monitoringFrameId = null;
+        return;
+      }
+
       frameCount++;
       const currentTime = performance.now();
       const elapsed = currentTime - startTime;
 
-      if (elapsed >= 1000) {
-        // Measure every second
+      if (elapsed >= 2000) {
+        // Measure every 2 seconds instead of 1 second to reduce overhead
         this.fps = Math.round((frameCount * 1000) / elapsed);
         this.performanceMetrics.averageFPS = this.fps;
 
-        // Detect frame drops (FPS below 30)
+        // Detect frame drops (FPS below 30) with throttling
         if (this.fps < 30) {
           this.performanceMetrics.frameDrops++;
-          console.warn(
-            `Animation performance warning: FPS dropped to ${this.fps}`
-          );
+          
+          // Only warn if enough time has passed since last warning
+          const timeSinceLastWarning = currentTime - lastWarningTime;
+          if (timeSinceLastWarning >= warningCooldown) {
+            console.warn(
+              `Animation performance warning: FPS dropped to ${this.fps}`
+            );
+            lastWarningTime = currentTime;
+          }
         }
 
         frameCount = 0;
         startTime = currentTime;
       }
 
-      if (!this.shouldReduceAnimations()) {
-        requestAnimationFrame(measureFPS);
+      // Only continue monitoring if not reducing animations
+      if (!this.shouldReduceAnimations() && this.isMonitoring) {
+        this.monitoringFrameId = requestAnimationFrame(measureFPS);
+      } else {
+        this.isMonitoring = false;
+        this.monitoringFrameId = null;
       }
     };
 
-    requestAnimationFrame(measureFPS);
+    this.monitoringFrameId = requestAnimationFrame(measureFPS);
+  }
+
+  // Stop monitoring frame rate
+  stopMonitoring() {
+    this.isMonitoring = false;
+    if (this.monitoringFrameId !== null) {
+      cancelAnimationFrame(this.monitoringFrameId);
+      this.monitoringFrameId = null;
+    }
   }
 
   // Get performance recommendations

@@ -111,7 +111,12 @@ const FinalCTABanner = () => {
             </linearGradient>
           </defs>
           {[[20,60],[70,25],[70,95],[120,40],[120,80],[170,60]].map((p, idx) => (
-            <motion.circle key={idx} cx={p[0]} cy={p[1]} r="5" fill="url(#ctaNet)"
+            <motion.circle 
+              key={idx} 
+              cx={p[0]} 
+              cy={p[1]} 
+              fill="url(#ctaNet)"
+              initial={{ r: 4.5, opacity: 0.6 }}
               animate={{ r: [4.5, 6, 4.5], opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 2 + idx * 0.2, repeat: Infinity, ease: 'easeInOut' }}
             />
@@ -287,7 +292,7 @@ const FinalCTABanner = () => {
 
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} {...(isClient ? { initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } } : { initial: false })} className="flex justify-center gap-4">
-            <Link href="/contact">
+            <Link href="/contact" className="cursor-pointer">
               <Button
                 variant="primary"
                 size="lg"
@@ -304,7 +309,7 @@ const FinalCTABanner = () => {
                 )}
               </Button>
             </Link>
-            <Link href="/schedule-demo">
+            <Link href="/schedule-demo" className="cursor-pointer">
               <Button variant="secondary" size="lg" className="group px-8 py-4 text-lg font-semibold">
                 <span className="relative z-10 flex items-center">Schedule a Demo</span>
               </Button>

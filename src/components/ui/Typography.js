@@ -1,33 +1,17 @@
 import { forwardRef } from 'react';
-import type { BaseComponentProps } from '../../types/components';
-import type { ReactElement } from 'react';
-
-interface HeadingProps extends BaseComponentProps {
-  level?: 1 | 2 | 3 | 4 | 5 | 6;
-  size?: 'hero' | 'h1' | 'h2' | 'h3';
-}
-
-interface TextProps extends BaseComponentProps {
-  size?: 'body-lg' | 'body' | 'sm';
-  color?: 'primary' | 'secondary' | 'white' | 'primary-color';
-}
-
-interface LabelProps extends BaseComponentProps {
-  htmlFor?: string;
-}
 
 // Heading component
-export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({ 
+export const Heading = forwardRef(({ 
   level = 1, 
   size, 
   className = '', 
   children, 
   ...props 
 }, ref) => {
-  const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  const Tag = `h${level}`;
   
   // Auto-size based on heading level if size not specified
-  const autoSize: Record<number, 'hero' | 'h1' | 'h2' | 'h3'> = {
+  const autoSize = {
     1: 'hero',
     2: 'h1', 
     3: 'h2',
@@ -57,7 +41,7 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({
 Heading.displayName = 'Heading';
 
 // Text component for body text
-export const Text = forwardRef<HTMLParagraphElement, TextProps>(({ 
+export const Text = forwardRef(({ 
   size = 'body', 
   color = 'primary',
   className = '', 
@@ -89,7 +73,7 @@ export const Text = forwardRef<HTMLParagraphElement, TextProps>(({
 Text.displayName = 'Text';
 
 // Label component for form labels and small text
-export const Label = forwardRef<HTMLLabelElement, LabelProps>(({ 
+export const Label = forwardRef(({ 
   className = '', 
   children, 
   htmlFor,
@@ -105,3 +89,4 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(({
 });
 
 Label.displayName = 'Label';
+

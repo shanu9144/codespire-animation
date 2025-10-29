@@ -7,15 +7,11 @@
 
 import { useEffect, useState } from 'react';
 
-interface AnimationLoaderProps {
-  onAnimationsLoaded?: (loadedSystems: string[]) => void;
-}
+const AnimationLoader = ({ onAnimationsLoaded }) => {
+  const [loadedSystems, setLoadedSystems] = useState(new Set());
+  const [isComplete, setIsComplete] = useState(false);
 
-const AnimationLoader: React.FC<AnimationLoaderProps> = ({ onAnimationsLoaded }) => {
-  const [loadedSystems, setLoadedSystems] = useState<Set<string>>(new Set());
-  const [isComplete, setIsComplete] = useState<boolean>(false);
-
-  const animationSystems: string[] = [
+  const animationSystems = [
     'cursor-system',
     'particle-system',
     'fluid-animations',
@@ -26,33 +22,33 @@ const AnimationLoader: React.FC<AnimationLoaderProps> = ({ onAnimationsLoaded })
   useEffect(() => {
     console.log('AnimationLoader: Initializing animation systems...');
 
-    const checkAnimationSystems = (): boolean => {
-      const loaded = new Set<string>();
+    const checkAnimationSystems = () => {
+      const loaded = new Set();
 
       // Check for cursor system - look for cursor elements or initialized system
       if (document.querySelector('.cursor-system') || 
           document.querySelector('[data-cursor]') || 
-          (window as any).CursorSystem ||
+          window.CursorSystem ||
           document.body.style.cursor !== '') {
         loaded.add('cursor-system');
       }
 
       // Check for particle system
       if (document.querySelector('canvas') || 
-          (window as any).ParticleSystem ||
+          window.ParticleSystem ||
           document.querySelector('[data-particle]')) {
         loaded.add('particle-system');
       }
 
       // Check for fluid animations
-      if ((window as any).FluidBackground || 
+      if (window.FluidBackground || 
           document.querySelector('[data-fluid]') ||
           document.querySelector('.fluid-background')) {
         loaded.add('fluid-animations');
       }
 
       // Check for scroll animations - these are usually present
-      if ((window as any).ScrollAnimations || 
+      if (window.ScrollAnimations || 
           document.querySelector('[data-scroll]') ||
           document.querySelector('[data-aos]') ||
           window.IntersectionObserver) {
@@ -60,7 +56,7 @@ const AnimationLoader: React.FC<AnimationLoaderProps> = ({ onAnimationsLoaded })
       }
 
       // Check for 3D systems
-      if ((window as any).THREE || 
+      if (window.THREE || 
           document.querySelector('canvas[data-3d]') ||
           document.querySelector('.three-canvas')) {
         loaded.add('3d-systems');
@@ -118,3 +114,4 @@ const AnimationLoader: React.FC<AnimationLoaderProps> = ({ onAnimationsLoaded })
 };
 
 export default AnimationLoader;
+

@@ -19,21 +19,14 @@ import {
   Award,
   Code2,
   Rocket,
-  Sparkles,
-  LucideIcon
+  Sparkles
 } from 'lucide-react';
 
-interface IconData {
-  Icon: LucideIcon;
-  color: string;
-  bgColor: string;
-}
-
-const InfiniteIconCarousel: React.FC = () => {
-  const [isPaused, setIsPaused] = useState<boolean>(false);
+const InfiniteIconCarousel = () => {
+  const [isPaused, setIsPaused] = useState(false);
   
   // Icon data with various shapes and colors
-  const icons: IconData[] = [
+  const icons = [
     { Icon: Target, color: 'text-blue-600', bgColor: 'bg-blue-100' },
     { Icon: Triangle, color: 'text-purple-600', bgColor: 'bg-purple-100' },
     { Icon: Circle, color: 'text-green-600', bgColor: 'bg-green-100' },
@@ -107,3 +100,4 @@ const InfiniteIconCarousel: React.FC = () => {
 };
 
 export default InfiniteIconCarousel;
+
