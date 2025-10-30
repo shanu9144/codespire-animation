@@ -24,6 +24,8 @@ const industries = [
     icon: Factory,
     color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1060/400/300',
+    imageResolution: '400x300',
+    imageSizeName: 'small',
     features: ['RFQ Process Optimization', 'Supplier Match Intelligence', 'Predictive Forecasting']
   },
   {
@@ -33,6 +35,8 @@ const industries = [
     icon: Shield,
     color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1063/400/300',
+    imageResolution: '400x300',
+    imageSizeName: 'small',
     features: ['Strategic Intelligence', 'Compliance Automation', 'Secure AI Infrastructure']
   },
   {
@@ -42,6 +46,8 @@ const industries = [
     icon: Heart,
     color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1064/400/300',
+    imageResolution: '400x300',
+    imageSizeName: 'small',
     features: ['Patient Insights', 'Predictive Analytics', 'Drug Discovery']
   },
   {
@@ -51,6 +57,8 @@ const industries = [
     icon: Building2,
     color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1070/400/300',
+    imageResolution: '400x300',
+    imageSizeName: 'small',
     features: ['Risk Intelligence', 'Fraud Detection', 'Customer Insights']
   },
   {
@@ -60,6 +68,8 @@ const industries = [
     icon: Cpu,
     color: 'from-blue-500 to-cyan-500',
     image: 'https://picsum.photos/id/1061/400/300',
+    imageResolution: '400x300',
+    imageSizeName: 'small',
     features: ['Digital Acceleration', 'AI Integration', 'System Optimization']
   },
 ];

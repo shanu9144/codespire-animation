@@ -55,6 +55,7 @@ const Footer = () => {
                   width={150}
                   height={40}
                   className="h-10 w-auto brightness-0 invert"
+                  style={{ height: 'auto' }}
                 />
               </motion.div>
             </Link>

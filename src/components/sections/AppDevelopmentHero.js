@@ -153,7 +153,7 @@ const AppDevelopmentHero = () => {
             {/* Subtitle with gradient */}
             <p className="text-xl md:text-2xl font-semibold mb-6 -mt-">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-                Customer Application Development Solutions
+                Custom Application Development Solutions
               </span>
             </p>
             

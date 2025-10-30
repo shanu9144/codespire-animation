@@ -23,7 +23,7 @@ const CarouselHero = () => {
       description:
         "Intelligent Quoting for Modern Manufacturing",
       image:
-        "https://picsum.photos/id/1050/800/600",
+        "/Hero/Smart RFQ AI.jpg",
       cta: "Learn More",
       ctaLink: "/products/smart-rfq-ai",
       // accent removed
@@ -36,7 +36,7 @@ const CarouselHero = () => {
       description:
         "Smarter Supplier Selection for Modern Sourcing",
       image:
-        "https://picsum.photos/id/1051/800/600",
+        "/Hero/Supplier Match AI.jpg",
       cta: "Learn More",
       ctaLink: "/products/supplier-match-ai",
       // accent removed
@@ -49,7 +49,7 @@ const CarouselHero = () => {
       description:
         "Identifies trends and demand shifts early for proactive planning",
       image:
-        "https://picsum.photos/id/1039/800/600",
+        "/Hero/Forecast AI.jpg",
       cta: "Learn More",
       ctaLink: "/products/forecast-ai",
       // accent removed
@@ -62,7 +62,7 @@ const CarouselHero = () => {
       description:
         "Agile focused flexible PODs that handles end-to-end application builds from UI/UX to scalable backends",
       image:
-        "https://picsum.photos/id/1043/800/600",
+        "/Hero/AI POD as a Service.jpg",
       cta: "Learn More",
       ctaLink: "/services/ai-pod",
     },

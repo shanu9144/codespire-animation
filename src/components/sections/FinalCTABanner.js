@@ -79,6 +79,7 @@ const FinalCTABanner = () => {
           }}
         />
 
+        {isClient && (
         <motion.svg
           className="absolute top-8 left-6 opacity-35"
           width="140" height="140" viewBox="0 0 140 140"
@@ -97,7 +98,9 @@ const FinalCTABanner = () => {
             <rect key={i} x={14 + i * 14} y="12" width="5" height="14" fill="url(#ctaChip)" />
           ))}
         </motion.svg>
+        )}
 
+        {isClient && (
         <motion.svg
           className="absolute bottom-8 right-10 opacity-35"
           width="240" height="140" viewBox="0 0 200 120"
@@ -111,7 +114,7 @@ const FinalCTABanner = () => {
             </linearGradient>
           </defs>
           {[[20,60],[70,25],[70,95],[120,40],[120,80],[170,60]].map((p, idx) => (
-            <motion.circle key={idx} cx={p[0]} cy={p[1]} r="5" fill="url(#ctaNet)"
+            <motion.circle key={idx} cx={p[0]} cy={p[1]} r={5} initial={{ r: 5 }} fill="url(#ctaNet)"
               animate={{ r: [4.5, 6, 4.5], opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 2 + idx * 0.2, repeat: Infinity, ease: 'easeInOut' }}
             />
@@ -122,6 +125,7 @@ const FinalCTABanner = () => {
             transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
           />
         </motion.svg>
+        )}
 
         {/* Rotating wireframe sphere */}
         <motion.svg

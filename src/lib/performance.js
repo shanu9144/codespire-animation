@@ -17,6 +17,10 @@ class AnimationPerformanceMonitor {
       frameDrops: 0,
       animationDuration: 0,
     };
+    this._listeners = new Set();
+    this._lastWarn = 0;
+    this._lastTier = 'high'; // 'high' >= 50, 'medium' 30-49, 'low' < 30
+    this._monitoring = false;
   }
 
   // Detect low-end devices based on hardware capabilities
@@ -84,10 +88,20 @@ class AnimationPerformanceMonitor {
       return;
     }
 
+    if (this._monitoring) return; // prevent multiple RAF loops
+    this._monitoring = true;
+
     let frameCount = 0;
     let startTime = performance.now();
 
     const measureFPS = () => {
+      // Skip measuring when page is hidden to avoid false low FPS
+      if (document.visibilityState === 'hidden') {
+        this.fps = 60;
+        this.performanceMetrics.averageFPS = 60;
+        requestAnimationFrame(measureFPS);
+        return;
+      }
       frameCount++;
       const currentTime = performance.now();
       const elapsed = currentTime - startTime;
@@ -97,13 +111,22 @@ class AnimationPerformanceMonitor {
         this.fps = Math.round((frameCount * 1000) / elapsed);
         this.performanceMetrics.averageFPS = this.fps;
 
-        // Detect frame drops (FPS below 30)
-        if (this.fps < 30) {
+        // Tiered state and (throttled) logging without console warnings
+        const tier = this.fps < 30 ? 'low' : this.fps < 50 ? 'medium' : 'high';
+        if (tier !== this._lastTier && tier !== 'high') {
           this.performanceMetrics.frameDrops++;
-          console.warn(
-            `Animation performance warning: FPS dropped to ${this.fps}`
-          );
+          // Log as debug (not warning) and throttle to 15s
+          if (currentTime - this._lastWarn > 15000) {
+            this._lastWarn = currentTime;
+            console.debug(
+              `Animation performance: tier=${tier}, fps=${this.fps}`
+            );
+          }
         }
+        this._lastTier = tier;
+
+        // Notify listeners on each FPS computation
+        this._notifyListeners();
 
         frameCount = 0;
         startTime = currentTime;
@@ -115,6 +138,20 @@ class AnimationPerformanceMonitor {
     };
 
     requestAnimationFrame(measureFPS);
+  }
+
+  _notifyListeners() {
+    const snapshot = this.getPerformanceConfig();
+    this._listeners.forEach((cb) => {
+      try { cb(snapshot); } catch {}
+    });
+  }
+
+  subscribe(listener) {
+    this._listeners.add(listener);
+    // Push initial config
+    try { listener(this.getPerformanceConfig()); } catch {}
+    return () => this._listeners.delete(listener);
   }
 
   // Get performance recommendations
@@ -156,13 +193,27 @@ class AnimationPerformanceMonitor {
     }
 
     // Check real-time performance
-    if (this.fps < 45) {
+    if (this.fps < 50) {
       return {
         ...config,
         enableComplexAnimations: false,
         enableFloatingElements: false,
-        animationDuration: 0.3,
-        staggerDelay: 0.05,
+        enableParallax: false,
+        animationDuration: 0.25,
+        staggerDelay: 0.04,
+        enableBlur: false,
+      };
+    }
+
+    // Emergency clamp for severe frame drops
+    if (this.fps < 35) {
+      return {
+        ...config,
+        enableComplexAnimations: false,
+        enableParallax: false,
+        enableFloatingElements: false,
+        animationDuration: 0,
+        staggerDelay: 0,
         enableBlur: false,
       };
     }
@@ -218,13 +269,14 @@ export const useAnimationPerformance = () => {
 
     monitor.startMonitoring();
 
-    // Update config based on performance changes
-    const updateConfig = () => {
-      setConfig(monitor.getPerformanceConfig());
-    };
-
-    // Listen for performance changes
-    const interval = setInterval(updateConfig, 2000); // Check every 2 seconds
+    // Subscribe to real-time performance updates
+    const unsubscribe = monitor.subscribe((next) => {
+      setConfig(next);
+      try {
+        const reduce = !next.enableComplexAnimations;
+        document.documentElement.classList.toggle('reduced-animations', reduce);
+      } catch {}
+    });
 
     // Listen for reduced motion preference changes
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -240,7 +292,7 @@ export const useAnimationPerformance = () => {
     }
 
     return () => {
-      clearInterval(interval);
+      unsubscribe();
       if (mediaQuery.removeEventListener) {
         mediaQuery.removeEventListener("change", handleChange);
       } else {
@@ -256,3 +308,4 @@ export const useAnimationPerformance = () => {
     logMetrics: () => monitor.logMetrics(),
   };
 };
+
