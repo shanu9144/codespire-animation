@@ -194,7 +194,7 @@ const Header = () => {
                 className="px-3 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200 cursor-pointer"
               >
                 <Image
-                  src="/assets/codespirelogo.png"
+                  src="/assets/images/codespirelogo.png"
                   alt="CodeSpire Solutions"
                   width={140}
                   height={40}

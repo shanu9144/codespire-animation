@@ -25,7 +25,7 @@ export default function Home() {
             playsInline
             className="w-full h-auto"
           >
-            <source src="/Codespire Promo Video.webm" type="video/webm" />
+            <source src="/assets/videos/Codespire Promo Video.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
         </div>

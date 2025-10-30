@@ -23,7 +23,7 @@ const CarouselHero = () => {
       description:
         "Intelligent Quoting for Modern Manufacturing",
       image:
-        "/Smart RFQ AI - Hero Card.jpg",
+        "/assets/images/products/Smart RFQ AI - Hero Card.jpg",
       cta: "Learn More",
       ctaLink: "/products/smart-rfq-ai",
       // accent removed
@@ -36,7 +36,7 @@ const CarouselHero = () => {
       description:
         "Smarter Supplier Selection for Modern Sourcing",
       image:
-        "/Supplier_match.jpg",
+        "/assets/images/products/Supplier_match.jpg",
       cta: "Learn More",
       ctaLink: "/products/supplier-match-ai",
       // accent removed
@@ -49,7 +49,7 @@ const CarouselHero = () => {
       description:
         "Identifies trends and demand shifts early for proactive planning",
       image:
-        "/Forecast AI - Hero Card.jpg",
+        "/assets/images/products/Forecast AI - Hero Card.jpg",
       cta: "Learn More",
       ctaLink: "/products/forecast-ai",
       // accent removed
@@ -62,7 +62,7 @@ const CarouselHero = () => {
       description:
         "Agile focused flexible PODs that handles end-to-end application builds from UI/UX to scalable backends",
       image:
-        "/AiPod.png",
+        "/assets/images/services/AiPod.png",
       cta: "Learn More",
       ctaLink: "/services/ai-pod",
     },

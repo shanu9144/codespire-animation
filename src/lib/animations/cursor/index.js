@@ -26,10 +26,11 @@ export { useCursorSystem } from './CursorSystem';
 export { useCursor, useDeviceDetection } from './useCursor';
 export { useDeviceCapabilities, useTouchInteractions } from './MobileDetection';
 
-// Re-export for convenience
+// Re-export for convenience (excluding duplicates already exported above)
 export * from './MagneticCursor';
 export * from './CustomCursor';
 export * from './useCursor';
 export * from './MobileDetection';
 export * from './TouchAlternatives';
-export * from './CursorSystem';
+// CursorSystem exports are handled by the named export above and export * below
+// Note: export * will export both default and named exports from CursorSystem

@@ -15,23 +15,23 @@ const SvgImg = ({ src, alt, size = 24, ...props }) => (
 
 // LLM Logo components
 const ChatGPTIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/gpt.svg" alt="ChatGPT" size={size} {...props} />
+  <SvgImg src="/assets/images/gpt.svg" alt="ChatGPT" size={size} {...props} />
 );
 
 const GeminiIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/gemini.webp" alt="Gemini" size={size} {...props} />
+  <SvgImg src="/assets/images/gemini.webp" alt="Gemini" size={size} {...props} />
 );
 
 const PerplexityIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/perplexity.webp" alt="Perplexity" size={size} {...props} />
+  <SvgImg src="/assets/images/perplexity.webp" alt="Perplexity" size={size} {...props} />
 );
 
 const GrokIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/grok.webp" alt="Grok" size={size} {...props} />
+  <SvgImg src="/assets/images/grok.webp" alt="Grok" size={size} {...props} />
 );
 
 const OllamaIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/ollama.webp" alt="Ollama" size={size} {...props} />
+  <SvgImg src="/assets/images/ollama.webp" alt="Ollama" size={size} {...props} />
 );
 
 // LLM Logos array - moved outside component to prevent recreation on every render

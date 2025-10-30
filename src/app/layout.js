@@ -5,6 +5,11 @@ import './globals.css';
 import '@/lib/utils/errorFilter'; // Filter browser extension errors
 import { Header, Footer } from '@/components/sections';
 import { Wrapper } from '@/components/ui';
+import { AccessibilityProvider } from '@/components/providers';
+import { SkipToContent } from '@/components/features/accessibility';
+import { OrganizationSchema } from '@/components/features/seo';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import { seoConfig } from '@/config/seo';
 
 // Suppress React DevTools semver version error (known issue with React 19)
 if (typeof window !== 'undefined') {
@@ -28,7 +33,15 @@ if (typeof window !== 'undefined') {
 }
 
 // Lazy load CursorSystem
-const CursorSystem = dynamic(() => import('@/lib/animations').then(mod => ({ default: mod.CursorSystem })), {
+const CursorSystem = dynamic(() => import('@/lib/animations').then(mod => {
+  // Handle both named and default exports
+  const CursorSystemComponent = mod.CursorSystem || mod.default?.CursorSystem || mod.default;
+  if (!CursorSystemComponent) {
+    console.warn('CursorSystem not found in animations module');
+    return { default: () => null };
+  }
+  return { default: CursorSystemComponent };
+}), {
   loading: () => null
 });
 
@@ -40,7 +53,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://codespire.com'),
+  metadataBase: new URL(seoConfig.siteUrl),
   title: {
     default: 'CodeSpire Solutions - From Idea to Enterprise-Grade AI in a Blink',
     template: '%s | CodeSpire Solutions',
@@ -99,38 +112,42 @@ export default function RootLayout({ children }) {
           .btn-primary{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-hover) 100%);color:white;padding:0.75rem 1.5rem;border-radius:0.75rem}
           @media(min-width:768px){.wrapper{padding:0 3rem}}
         `}} />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/assets/icons/favicon.png" />
+        <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
         <meta name="theme-color" content="#384bff" />
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col" suppressHydrationWarning={true}>
-
-        <CursorSystem
-          cursorType="invisible-magnetic"
-          magneticConfig={{
-            strength: 0.3,
-            radius: 80,
-            ease: 0.15,
-          }}
-          touchConfig={{
-            enableRipples: true,
-            enableHaptics: true,
-            enableVisualFeedback: true,
-            rippleColor: '#384bff',
-            rippleDuration: 600,
-          }}
-        >
-          <div className="main">
-            <Header />
-            <main className="flex-1 pt-16">
-              <Wrapper>
-                {children}
-              </Wrapper>
-            </main>
-            <Footer />
-            
-          </div>
-        </CursorSystem>
+        <ErrorBoundary>
+          <AccessibilityProvider>
+            <SkipToContent />
+            <OrganizationSchema />
+            <CursorSystem
+              cursorType="invisible-magnetic"
+              magneticConfig={{
+                strength: 0.3,
+                radius: 80,
+                ease: 0.15,
+              }}
+              touchConfig={{
+                enableRipples: true,
+                enableHaptics: true,
+                enableVisualFeedback: true,
+                rippleColor: '#384bff',
+                rippleDuration: 600,
+              }}
+            >
+              <div className="main">
+                <Header />
+                <main id="main-content" className="flex-1 pt-16">
+                  <Wrapper>
+                    {children}
+                  </Wrapper>
+                </main>
+                <Footer />
+              </div>
+            </CursorSystem>
+          </AccessibilityProvider>
+        </ErrorBoundary>
 
         {/* Note: Avoid mutating <html> classes before hydration to prevent mismatches */}
       </body>

@@ -1,0 +1,75 @@
+/**
+ * Utility Classes
+ * Reusable utility classes for common patterns
+ */
+
+/* Container utilities */
+.container {
+  width: 100%;
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+/* Spacing utilities */
+.spacing-xs {
+  margin-bottom: 0.5rem;
+}
+
+.spacing-sm {
+  margin-bottom: 1rem;
+}
+
+.spacing-md {
+  margin-bottom: 1.5rem;
+}
+
+.spacing-lg {
+  margin-bottom: 2rem;
+}
+
+.spacing-xl {
+  margin-bottom: 3rem;
+}
+
+/* Text utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Visibility utilities */
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+/* Screen reader only (for accessibility) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+

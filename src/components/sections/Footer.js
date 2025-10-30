@@ -50,7 +50,7 @@ const Footer = () => {
                 className="flex items-center"
               >
                 <Image
-                  src="/assets/codespirelogo.png"
+                  src="/assets/images/codespirelogo.png"
                   alt="CodeSpire Logo"
                   width={150}
                   height={40}

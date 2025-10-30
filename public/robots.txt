@@ -1,0 +1,11 @@
+# Robots.txt for CodeSpire Solutions
+# https://codespire.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+Sitemap: https://codespire.com/sitemap.xml
+

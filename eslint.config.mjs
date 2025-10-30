@@ -66,12 +66,26 @@ const eslintConfig = [...compat.extends("next/core-web-vitals", "next/typescript
     "@next/next/no-img-element": "warn",
     "@next/next/no-html-link-for-pages": "error",
     
-    // General rules
+    // General rules - JavaScript focused
     "no-var": "error",
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "no-debugger": "error",
     "no-duplicate-imports": "error",
     "no-unused-expressions": "error",
+    "no-unused-vars": ["warn", { 
+      "argsIgnorePattern": "^_",
+      "varsIgnorePattern": "^_",
+      "caughtErrorsIgnorePattern": "^_"
+    }],
+    
+    // Accessibility rules
+    "jsx-a11y/alt-text": "warn",
+    "jsx-a11y/anchor-is-valid": "warn",
+    "jsx-a11y/aria-props": "warn",
+    "jsx-a11y/aria-proptypes": "warn",
+    "jsx-a11y/aria-unsupported-elements": "warn",
+    "jsx-a11y/role-has-required-aria-props": "warn",
+    "jsx-a11y/role-supports-aria-props": "warn",
     
     // Code style
     "indent": ["error", 2, { "SwitchCase": 1 }],

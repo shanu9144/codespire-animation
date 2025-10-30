@@ -22,40 +22,40 @@ const SvgImg = ({ src, alt, size = 24, ...props }) => (
 );
 
 const GCPIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/gcp.svg" alt="Google Cloud" size={size} {...props} />
+  <SvgImg src="/assets/images/gcp.svg" alt="Google Cloud" size={size} {...props} />
 );
 const KubernetesIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/kubernetes-svgrepo-com.svg" alt="Kubernetes" size={size} {...props} />
+  <SvgImg src="/assets/images/kubernetes-svgrepo-com.svg" alt="Kubernetes" size={size} {...props} />
 );
 const GPTIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/gpt.svg" alt="OpenAI" size={size} {...props} />
+  <SvgImg src="/assets/images/gpt.svg" alt="OpenAI" size={size} {...props} />
 );
 const GeminiIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/gemini.webp" alt="Gemini" size={size} {...props} />
+  <SvgImg src="/assets/images/gemini.webp" alt="Gemini" size={size} {...props} />
 );
 const GitHubActionsIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/githubActions.png" alt="GitHub Actions" size={size} {...props} />
+  <SvgImg src="/assets/images/githubActions.png" alt="GitHub Actions" size={size} {...props} />
 );
 const ApacheApisixIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/apacheApisix.svg" alt="Apache APISIX" size={size} {...props} />
+  <SvgImg src="/assets/images/apacheApisix.svg" alt="Apache APISIX" size={size} {...props} />
 );
 const OpenTelemetryIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/opentelementry.png" alt="OpenTelemetry" size={size} {...props} />
+  <SvgImg src="/assets/images/opentelementry.png" alt="OpenTelemetry" size={size} {...props} />
 );
 const SonarQubeIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/sonarqube.png" alt="SonarQube" size={size} {...props} />
+  <SvgImg src="/assets/images/sonarqube.png" alt="SonarQube" size={size} {...props} />
 );
 const ApigeeIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/apigee.png" alt="Apigee" size={size} {...props} />
+  <SvgImg src="/assets/images/apigee.png" alt="Apigee" size={size} {...props} />
 );
 const BigQueryIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/bigQuery.png" alt="BigQuery" size={size} {...props} />
+  <SvgImg src="/assets/images/bigQuery.png" alt="BigQuery" size={size} {...props} />
 );
 const DatastreamIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/Datastream.svg" alt="Datastream" size={size} {...props} />
+  <SvgImg src="/assets/images/Datastream.svg" alt="Datastream" size={size} {...props} />
 );
 const LookerIcon = ({ size = 24, ...props }) => (
-  <SvgImg src="/Looker.svg" alt="Looker" size={size} {...props} />
+  <SvgImg src="/assets/images/Looker.svg" alt="Looker" size={size} {...props} />
 );
 
 const TechnologyStackCarousel = React.memo(() => {
