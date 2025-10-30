@@ -103,6 +103,15 @@ npm run dev
 - ✅ Accessibility-first approach
 - ✅ Performance optimized
 
+### Recent Updates
+- Global SEO enhancements: added comprehensive primary keywords in `src/app/layout.tsx` (`metadata.keywords`).
+- Open Graph/Twitter fix: set `metadataBase` for absolute social image URLs.
+- Smooth scrolling future-proofing: added `data-scroll-behavior="smooth"` on `<html>`.
+- Home promo video UX: no autoplay; hover-only play/pause overlay; audio plays when user clicks.
+- Dev-only stability: neutralized React DevTools injection to avoid semver console noise.
+- SVG safety: ensured animated circles define numeric `r` and `initial.r`.
+- Performance governor: real-time FPS monitor clamps heavy animations under load; adds `reduced-animations` class to `<html>` when active.
+
 ## Development
 
 The project follows a component-based architecture with:
@@ -127,6 +136,19 @@ The project uses TypeScript path aliases for clean imports:
 ## Performance
 
 - Optimized for Core Web Vitals
-- 60fps animations with Framer Motion
-- Next.js Image optimization
+- Framer Motion animations tuned dynamically by `useAnimationPerformance()`
+- Real-time FPS monitoring with tiered clamping (disables complex animations, parallax, blur under load)
+- Adds `reduced-animations` class to document root for global CSS fallbacks
+- Next.js Image optimization and intrinsic sizing to preserve aspect ratio
 - Minimal bundle size with tree shaking
+
+## SEO
+- Keywords configured in `src/app/layout.tsx` under `export const metadata.keywords`.
+- OpenGraph/Twitter images resolve against `metadataBase`.
+
+## Video Behavior (Home)
+- The promo `<video>` renders without native controls, shows a play/pause button on hover, and unmutes on user play.
+
+## Dev Notes
+- To update three.js/fiber versions: `npm i @react-three/fiber@latest three@latest`.
+- To adjust performance thresholds, edit `src/lib/performance.js` `getPerformanceConfig()`.
